@@ -537,23 +537,141 @@ function toast(text,error){
   const el=document.createElement('div');el.className='toast'+(error?' err':'');el.textContent=text;
   $('#toasts').append(el);setTimeout(()=>{el.style.opacity=0;el.style.transform='translateY(10px)';setTimeout(()=>el.remove(),300);},5600);
 }
+/* PIOT: подключение GitHub Pages к Google Apps Script через iframe + postMessage.
+ * Интерфейс остаётся на GitHub Pages; таблица читается и записывается сервером Apps Script.
+ */
+const PIOT_GAS_EXEC_URL = "https://script.google.com/macros/s/AKfycbyyuRVGYhYEjW8rdmfsu7g1Yjc7aVB8af5BLCMSV2UQwG7KVqWhZNG-xvbKbZMm1wbt/exec";
+const PIOT_GAS_CHANNEL = 'PIOT_GAS_BRIDGE';
+let piotGasFrame = null;
+let piotGasReady = false;
+let piotGasReadyPromise = null;
+let piotGasReadyResolve = null;
+let piotGasSequence = 0;
+const piotGasPending = new Map();
+
+function piotIsGoogleOrigin(origin) {
+  return origin === 'https://script.google.com' ||
+    /^https:\/\/(?:[a-z0-9-]+\.)*googleusercontent\.com$/i.test(origin);
+}
+
+window.addEventListener('message', function(event) {
+  if (!piotGasFrame || event.source !== piotGasFrame.contentWindow) return;
+  if (!piotIsGoogleOrigin(event.origin)) return;
+
+  const message = event.data;
+  if (!message || message.channel !== PIOT_GAS_CHANNEL) return;
+
+  if (message.type === 'ready') {
+    piotGasReady = true;
+    if (piotGasReadyResolve) {
+      const resolve = piotGasReadyResolve;
+      piotGasReadyResolve = null;
+      resolve();
+    }
+    return;
+  }
+
+  if (message.type === 'response') {
+    const item = piotGasPending.get(String(message.id));
+    if (!item) return;
+    clearTimeout(item.timer);
+    piotGasPending.delete(String(message.id));
+    if (message.ok) item.resolve(message.result);
+    else item.reject(new Error(message.error || 'Ошибка Google Apps Script'));
+  }
+});
+
+function piotEnsureGasBridge() {
+  if (piotGasReady) return Promise.resolve();
+  if (piotGasReadyPromise) return piotGasReadyPromise;
+
+  piotGasReadyPromise = new Promise(function(resolve, reject) {
+    let settled = false;
+    const timer = setTimeout(function() {
+      if (settled) return;
+      settled = true;
+      piotGasReadyPromise = null;
+      piotGasReadyResolve = null;
+      if (piotGasFrame) {
+        piotGasFrame.remove();
+        piotGasFrame = null;
+      }
+      reject(new Error(
+        'Не удалось связаться с Google Apps Script. Проверьте публикацию веб-приложения и доступ.'
+      ));
+    }, 25000);
+
+    piotGasReadyResolve = function() {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      resolve();
+    };
+
+    piotGasFrame = document.createElement('iframe');
+    piotGasFrame.title = 'Соединение с Google Таблицей';
+    piotGasFrame.setAttribute('aria-hidden', 'true');
+    piotGasFrame.tabIndex = -1;
+    piotGasFrame.style.cssText =
+      'position:fixed;left:-10000px;top:-10000px;width:1px;height:1px;' +
+      'border:0;opacity:0;pointer-events:none;';
+    piotGasFrame.src = PIOT_GAS_EXEC_URL + '?bridge=1';
+    document.body.appendChild(piotGasFrame);
+  });
+
+  return piotGasReadyPromise;
+}
+
+function piotGasBridgeCall(method, arg) {
+  return piotEnsureGasBridge().then(function() {
+    return new Promise(function(resolve, reject) {
+      const id = 'piot_' + Date.now() + '_' + (++piotGasSequence);
+      const timer = setTimeout(function() {
+        piotGasPending.delete(id);
+        reject(new Error('Google Apps Script не ответил за 30 секунд. Повторите запрос.'));
+      }, 30000);
+
+      piotGasPending.set(id, {resolve:resolve, reject:reject, timer:timer});
+      try {
+        piotGasFrame.contentWindow.postMessage({
+          channel: PIOT_GAS_CHANNEL,
+          type: 'request',
+          id: id,
+          method: method,
+          arg: arg
+        }, '*');
+      } catch (error) {
+        clearTimeout(timer);
+        piotGasPending.delete(id);
+        reject(error);
+      }
+    });
+  });
+}
+
 function rpc(name,arg){
-  // Сначала используем настоящий сервер Google Apps Script.
-  // Демо-адаптер нужен только вне HtmlService, например на GitHub Pages.
-  if(window.google&&google.script&&google.script.run){
+  const allowed=['apiGetData','apiSaveMonth','apiSaveConfig'];
+  if(!allowed.includes(name)){
+    return Promise.reject(Error('Метод API не разрешён: '+name));
+  }
+
+  // Если интерфейс открыт из Apps Script — используем прямой вызов.
+  if(window.google&&window.google.script&&window.google.script.run){
     return new Promise((resolve,reject)=>{
-      const runner=google.script.run
+      const runner=window.google.script.run
         .withSuccessHandler(resolve)
         .withFailureHandler(e=>reject(Error(e.message||String(e))));
       if(typeof runner[name]!=='function'){
         reject(Error('В Code.gs не найдена серверная функция '+name+'().'));
         return;
       }
-      runner[name](arg);
+      if(typeof arg==='undefined')runner[name]();
+      else runner[name](arg);
     });
   }
-  if(window.PIOT_DEMO)return window.PIOT_DEMO.call(name,arg);
-  return Promise.reject(Error('Нет подключения к Google Apps Script. Откройте панель из Google-таблицы.'));
+
+  // На GitHub Pages работаем через скрытый iframe веб-приложения Apps Script.
+  return piotGasBridgeCall(name,arg);
 }
 function manual(){return s.data.ledger[s.month]||Piot.emptyMonth();}
 function detailed(){return Object.values(s.filter).some(Boolean);}
