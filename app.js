@@ -11,7 +11,6 @@ const monthLabel=m=>Piot.validMonth(m)?MONTH_NAMES[Number(m.slice(5))-1]+' '+m.s
 const shortLabel=k=>k==='Без даты'?k:k.length===7?MONTH_NAMES[Number(k.slice(5))-1].slice(0,3)+' '+k.slice(2,4):k.slice(8,10)+'.'+k.slice(5,7);
 const reduced=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* Компактные логотипы банков. Они отображаются только в разделе «Банки». */
 (function installCompactBankLogos(){
   if(document.getElementById('piot-compact-bank-logos'))return;
   const style=document.createElement('style');
@@ -24,18 +23,15 @@ const reduced=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       border-radius:9px;box-shadow:0 2px 7px rgba(20,40,70,.045);
       transition:transform .2s ease,box-shadow .2s ease;
     }
-    .bank-card:hover .bank-logo-image{
-      transform:translateY(-1px);box-shadow:0 4px 11px rgba(20,40,70,.09);
-    }
+    .bank-card:hover .bank-logo-image{transform:translateY(-1px);box-shadow:0 4px 11px rgba(20,40,70,.09);}
     .bank-head{align-items:center;gap:10px}
     @media(max-width:850px){
-      .bank-logo-image{
-        width:88px!important;max-width:88px!important;height:26px!important;padding:4px 7px!important;
-      }
+      .bank-logo-image{width:88px!important;max-width:88px!important;height:26px!important;padding:4px 7px!important;}
     }
   `;
   document.head.appendChild(style);
 })();
+
 const path={
   home:'M3 10l9-7 9 7M5 9v11h5v-6h4v6h5V9',
   banks:'M3 9l9-6 9 6H3m2 3v7m5-7v7m4-7v7m5-7v7M3 21h18',
@@ -47,6 +43,7 @@ const path={
   edit:'M4 20l1-5L17 3l4 4L9 19l-5 1m10-14 4 4',
   download:'M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4'
 };
+
 const icon=n=>'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+(path[n]||path.table)+'"/></svg>';
 const PAGES=[['home','Главная'],['banks','Банки'],['finance','Финансы'],['trend','Динамика'],['plan','План задач'],['table','Заявки'],['settings','Настройки']];
 const TITLES={home:'Главная',banks:'Банки',finance:'Финансы',trend:'Графики и динамика',plan:'План задач',table:'Заявки',settings:'Настройки'};
@@ -58,12 +55,14 @@ const CHARTS=Object.create(null);
 function cfg(){return s.data.config;}
 function fxOn(){return s.data&&cfg().animate&&!reduced();}
 function toast(text,error){
-  const el=document.createElement('div');el.className='toast'+(error?' err':'');el.textContent=text;
-  $('#toasts').append(el);setTimeout(()=>{el.style.opacity=0;el.style.transform='translateY(10px)';setTimeout(()=>el.remove(),300);},5600);
+  const el=document.createElement('div');
+  el.className='toast'+(error?' err':'');
+  el.textContent=text;
+  $('#toasts').append(el);
+  setTimeout(()=>{el.style.opacity=0;el.style.transform='translateY(10px)';setTimeout(()=>el.remove(),300);},5600);
 }
+
 function rpc(name,arg){
-  // Сначала используем настоящий сервер Google Apps Script.
-  // Демо-адаптер нужен только вне HtmlService, например на GitHub Pages.
   if(window.google&&google.script&&google.script.run){
     return new Promise((resolve,reject)=>{
       const runner=google.script.run
@@ -79,16 +78,17 @@ function rpc(name,arg){
   if(window.PIOT_DEMO)return window.PIOT_DEMO.call(name,arg);
   return Promise.reject(Error('Нет подключения к Google Apps Script. Откройте панель из Google-таблицы.'));
 }
+
 function manual(){return s.data.ledger[s.month]||Piot.emptyMonth();}
 function detailed(){return Object.values(s.filter).some(Boolean);}
 function rows(){return Piot.filter(s.data.records,Object.assign({month:s.month},s.filter),cfg());}
 function eventRows(){return Piot.filter(s.data.records,s.filter,cfg());}
 function scopedIncome(){return Piot.income(eventRows(),detailed()?{}:s.data.ledger,s.month,cfg());}
 
-/* Значения «—» не анимируем: иначе они превращались в ноль. */
+// FIX 1: закрыта кавычка в data-count="${Number(n)}"
 const cVal=(n,money)=>{
   const valid=n!=null&&n!==''&&Number.isFinite(Number(n));
-  return `<span${valid?` data-count="${Number(n)}"`:''}${money?' data-money="1"':''}>${money?rub(n):number(n)}</span>`;
+  return `<span${valid?` data-count="${Number(n)}"`:``}${money?' data-money="1"':''}>${money?rub(n):number(n)}</span>`;
 };
 
 function playCounters(){
@@ -104,11 +104,13 @@ function playCounters(){
     requestAnimationFrame(step);
   });
 }
+
 function nav(){
   $('#navigation').innerHTML=PAGES.map(([id,title])=>`
     <button class="navbtn ${s.page===id?'active':''}" data-page="${id}" ${s.page===id?'aria-current="page"':''}>
       ${icon(id)}<span class="nav-label">${title}</span></button>`).join('');
 }
+
 function options(){
   const years={};
   const months=(Array.isArray(s.data.months)?s.data.months:[]).filter(Piot.validMonth).slice().sort();
@@ -118,6 +120,7 @@ function options(){
       years[y].map(m=>'<option value="'+m+'"'+(m===s.month?' selected':'')+'>'+monthLabel(m)+'</option>').join('')+'</optgroup>').join('');
   $('#month').value=s.month;
 }
+
 function saveStatus(state){
   const pending=Object.keys(s.draft).length>0;
   const text=state||(s.saveError?'Не сохранено':s.saving?'Сохраняю...':pending?'Есть изменения':'Сохранено');
@@ -125,6 +128,7 @@ function saveStatus(state){
   $('#topSave').className='pill '+(s.saveError?'err':pending||s.saving?'warn':'ok');
   $$('[data-save-status]').forEach(el=>{el.textContent=s.saveError||text;el.className='save-status '+(s.saveError?'error':pending||s.saving?'waiting':'');});
 }
+
 function edit(field,value){
   try{
     if(!s.month)throw Error('Выберите конкретный месяц');
@@ -135,6 +139,7 @@ function edit(field,value){
     saveStatus();
   }catch(e){s.invalid[field]=true;s.saveError=e.message;clearTimeout(s.timer);saveStatus();}
 }
+
 async function flush(){
   clearTimeout(s.timer);
   if(Object.keys(s.invalid).length)throw Error('Исправьте некорректный ввод');
@@ -157,6 +162,7 @@ async function flush(){
   if(Object.keys(s.draft).length)return flush();
   if(!document.activeElement.matches('[data-field]'))render({fx:false});
 }
+
 function numericInput(field,label){
   const value=Object.prototype.hasOwnProperty.call(s.draft,field)?s.draft[field]:manual()[field];
   const disabled=!s.month||detailed(),auto=manual().auto[field];
@@ -165,17 +171,21 @@ function numericInput(field,label){
     placeholder="${auto!=null?'Авто: '+auto:'Введите значение'}"
     ${disabled?'disabled':''} ${s.invalid[field]?'aria-invalid="true"':''}>`;
 }
+
 function kpi(label,valueHtml,meta){
   return `<section class="glass kpi"><div class="label">${h(label)}</div><strong>${valueHtml}</strong><div class="meta">${h(meta||'')}</div></section>`;
 }
-/* ══ FIX 2: card — восстановлен </p> ══ */
-function card(title,body,sub='',extra=''){
+
+// FIX 2: закрыт </p> и восстановлены параметры по умолчанию
+function card(title,body,sub,extra){
+  sub=sub||'';extra=extra||'';
   return `<section class="glass card"><header class="cardhead"><div><h2>${h(title)}</h2>${sub?`<p>${h(sub)}</p>`:''}</div>${extra}</header>${body}</section>`;
 }
-/* ══ FIX 3: empty — вернули стрелку ══ */
+
+// FIX 3: восстановлена стрелка => в функции empty
 const empty=text=>`<div class="empty"><strong>Нет данных</strong>${h(text||'Измените период или фильтры.')}</div>`;
 
-/* ══ FIX 4: filters — map(v=>`...`) ══ */
+// FIX 4: восстановлены стрелки => в map()-коллбэках
 function filters(){
   const sets={partner:'Все партнёры',status:'Все статусы',task:'Все передачи',responsible:'Все ответственные',priority:'Все приоритеты'};
   function sel(k){
@@ -194,8 +204,9 @@ function filters(){
   </div>${detailed()?'<div class="inactive-warning">Фильтры активны — ручные итоги месяца не распределяются по фильтрам.</div>':''}`;
 }
 
-/* ══ FIX 5: chart — 12 восстановленных svg+= и let d= ══ */
-function chart(labels,series,opts={}){
+// FIX 5: восстановлены let d=, d+=, svg+=, закрыт </svg>; исправлены map()-стрелки в таблице chart
+function chart(labels,series,opts){
+  opts=opts||{};
   series=(series||[]).filter(Boolean);
   if(!labels.length||!series.length)return empty('Нет записей для графика.');
   const uid='c'+(++chartId);
@@ -218,16 +229,20 @@ function chart(labels,series,opts={}){
   const xOf=i=>allBars?xBand(i):xLine(i);
   const yOf=(v,ax)=>baseY-Math.max(0,Number(v)||0)/(max[ax||'left']||1)*plotH;
   const fmt=(v,money)=>money?(v>=1e6?(v/1e6).toFixed(1)+' млн':v>=1e3?Math.round(v/1e3)+' тыс':Math.round(v)+''):Math.round(v).toLocaleString('ru-RU');
+
   function smooth(pts){
     if(!pts.length)return '';
     if(pts.length<2)return `M${pts[0][0]},${pts[0][1]}`;
+    // FIX 5a: let d =
     let d=`M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;
     for(let i=1;i<pts.length;i++){
       const a=pts[i-1],b=pts[i],dx=(b[0]-a[0])*.42;
+      // FIX 5b: d +=
       d+=`C${(a[0]+dx).toFixed(1)},${a[1].toFixed(1)} ${(b[0]-dx).toFixed(1)},${b[1].toFixed(1)} ${b[0].toFixed(1)},${b[1].toFixed(1)}`;
     }
     return d;
   }
+
   let svg=`<svg class="chart-svg${fxOn()?' anim':''}" id="${uid}" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${h(opts.title||'График')}">
     <title>${h(opts.title||'График')}</title><defs>
     <filter id="${uid}-glow" x="-20%" y="-40%" width="140%" height="180%">
@@ -237,19 +252,24 @@ function chart(labels,series,opts={}){
       <stop offset="0" stop-color="${d.color}" stop-opacity="${d.type==='bar'?'.95':'.32'}"/>
       <stop offset="1" stop-color="${d.color}" stop-opacity="${d.type==='bar'?'.45':'.01'}"/></linearGradient>`;
   });
+  // FIX 5c: svg +=
   svg+=`</defs>`;
   for(let i=0;i<=4;i++){
     const yy=(T+plotH*i/4).toFixed(1);
     svg+=`<line class="gridline" x1="${L}" y1="${yy}" x2="${W-R}" y2="${yy}" style="animation-delay:${i*50}ms"/>
       <text class="axis-label" x="${L-10}" y="${+yy+4}" text-anchor="end">${fmt(max.left*(1-i/4),!!opts.money)}</text>`;
+    // FIX 5d: svg +=
     if(opts.dual)svg+=`<text class="axis-label" x="${W-R+10}" y="${+yy+4}" text-anchor="start">${fmt(max.right*(1-i/4),false)}</text>`;
   }
+  // FIX 5e: svg +=
   svg+=`<line class="axis-base" x1="${L}" y1="${baseY}" x2="${W-R}" y2="${baseY}"/>`;
+  // FIX 5f: svg +=
   svg+=`<line class="crosshair" id="${uid}-cross" x1="0" y1="${T-6}" x2="0" y2="${baseY}"/>`;
   const barCount=series.filter(d=>d.type==='bar').length;
   let barIdx=0;
   series.forEach((d,di)=>{
     const ax=d.axis||'left';
+    // FIX 5g: svg +=
     svg+=`<g data-s="${di}">`;
     if(d.type==='bar'){
       const groupW=Math.min(52,band*.72);
@@ -266,20 +286,24 @@ function chart(labels,series,opts={}){
       barIdx++;
     }else{
       const pts=(d.values||[]).map((v,i)=>[xOf(i),yOf(v,ax)]);
+      // FIX 5h: svg +=
       if(d.area!==false&&pts.length>1)
         svg+=`<path class="chart-area" d="${smooth(pts)}L${pts[pts.length-1][0].toFixed(1)},${baseY} L${pts[0][0].toFixed(1)},${baseY} Z" fill="url(#${uid}-g${di})" stroke="none"/>`;
+      // FIX 5i: svg +=
       if(pts.length>1)svg+=`<path class="chart-line" d="${smooth(pts)}" stroke="${d.color}" filter="url(#${uid}-glow)"/>`;
       pts.forEach((p,i)=>{
         svg+=`<circle class="chart-point" data-p="${i}" cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="4.2"
           fill="#fff" stroke="${d.color}" stroke-width="2.6" style="animation-delay:${340+i*26}ms"></circle>`;
       });
     }
+    // FIX 5j: svg +=
     svg+=`</g>`;
   });
   const stride=Math.max(1,Math.ceil(n/(plotW/88)));
   labels.forEach((label,i)=>{
     if(i%stride===0||i===n-1){
       const t=String(label);
+      // FIX 5k: svg +=
       svg+=`<text class="x-label" x="${xOf(i).toFixed(1)}" y="${H-16}" text-anchor="middle">${h(t.length>16?t.slice(0,14)+'...':t)}</text>`;
     }
   });
@@ -289,12 +313,15 @@ function chart(labels,series,opts={}){
     const hw=allBars?band:plotW/Math.max(1,n-1||1);
     let x=xOf(i)-hw/2;
     x=Math.max(L,Math.min(W-R-1,x));
+    // FIX 5l: svg +=
     svg+=`<rect class="hit" data-hit="${uid}" data-i="${i}" x="${x.toFixed(1)}" y="${T-8}" width="${Math.min(hw,W-R-x).toFixed(1)}" height="${(plotH+14).toFixed(1)}"/>`;
   });
+  // FIX 5m: svg +=
   svg+=`</svg>`;
   CHARTS[uid]={labels,xs,series:series.map(d=>({name:d.name,color:d.color,values:d.values||[],money:!!opts.money&&(d.axis||'left')==='left'}))};
   const legend=`<div class="legend">${series.map((d,i)=>
     `<button type="button" data-legend="${uid}" data-s="${i}"><i class="dot" style="--color:${d.color}"></i>${h(d.name)}</button>`).join('')}</div>`;
+  // FIX 5n: восстановлены стрелки => и закрыт </td>
   const table=`<details class="chart-details"><summary>Точные значения</summary>
     <div class="table-wrap"><table><thead><tr><th>Период</th>${series.map(d=>`<th>${h(d.name)}</th>`).join('')}</tr></thead>
     <tbody>${labels.map((l,i)=>`<tr><td>${h(l)}</td>${series.map(d=>`<td class="number">${number(d.values[i])}</td>`).join('')}</tr>`).join('')}</tbody>
@@ -302,7 +329,7 @@ function chart(labels,series,opts={}){
   return `<div class="chart" data-chart="${uid}"><div class="chart-scroll">${svg}</div>${legend}${table}</div>`;
 }
 
-/* ══ FIX 6: sparkline — let d= / d+= ══ */
+// FIX 6: let d=, d+=
 function sparkline(values,color){
   const v=values.length?values:[0];
   const W=240,H=44,max=Math.max(1,...v),n=v.length;
@@ -324,7 +351,7 @@ function sparkline(values,color){
   </svg>`;
 }
 
-/* ══ FIX 7: donut — map(x=>`...`) ══ */
+// FIX 7: восстановлена стрелка => в donut-legend map
 function donut(items,title){
   items=items.filter(x=>x.value>0);
   const total=items.reduce((a,x)=>a+x.value,0);
@@ -346,6 +373,7 @@ function donut(items,title){
     <div class="donut-legend">${items.map(x=>`<div><i class="dot" style="--color:${x.color}"></i><span>${h(x.name)}</span><b>${number(x.value)}</b></div>`).join('')}</div>
   </div>`;
 }
+
 function heroPlan(){
   const a=Piot.eventSummary(eventRows(),cfg(),s.month);
   const m=manual(),plan=s.month&&!detailed()?m.plan:null,done=a.done;
@@ -380,6 +408,7 @@ function heroPlan(){
     </div>
   </section>`;
 }
+
 function heroOpen(){
   const a=Piot.eventSummary(eventRows(),cfg(),s.month);
   const act=Piot.activityPeriods(eventRows(),s.month?'day':'month',cfg(),s.month);
@@ -405,7 +434,6 @@ function heroOpen(){
   </section>`;
 }
 
-/* ══ FIX 8: taskStatusDashboard — восстановлен тернарник isEmpty ? ... : ... ══ */
 function taskStatusDashboard(){
   const statusScope=Object.assign({},s.filter,{task:''});
   const source=Piot.filter(s.data.records,Object.assign({month:s.month},statusScope),cfg()).filter(r=>r.source==='main');
@@ -438,8 +466,8 @@ function taskStatusDashboard(){
         <span class="priority-other-value">${number(k)} <small>${part}%</small></span>
         <span class="priority-other-track"><i style="width:${part}%"></i></span>`;
       return isEmpty
-        ? `<div class="priority-other-row muted-row">${row}</div>`
-        : `<button type="button" class="priority-other-row${active?' active':''}" data-task-status="${h(name)}" aria-pressed="${active}">${row}</button>`;
+        ?`<div class="priority-other-row muted-row">${row}</div>`
+        :`<button type="button" class="priority-other-row${active?' active':''}" data-task-status="${h(name)}" aria-pressed="${active}">${row}</button>`;
     }).join('')}</div>`:'<div class="priority-other-empty">Других статусов пока нет.</div>';
   return card('Результат подключения клиентов',
     `<div class="priority-status-grid">${featured}</div>
@@ -447,6 +475,7 @@ function taskStatusDashboard(){
     'Два главных результата подключения. Нажмите, чтобы отфильтровать.',
     '<span class="priority-section-badge">2 ГЛАВНЫХ СТАТУСА</span>');
 }
+
 function incomeBlock(extraBtn){
   const inc=scopedIncome();
   return card('Доходы',
@@ -461,10 +490,8 @@ function incomeBlock(extraBtn){
   ).replace('<section class="glass card">','<section class="glass card income-overview">');
 }
 
-/* ══ FIX 9: home — let html= ══ */
+// FIX 9: let html =
 function home(){
-  // Главная содержит выполнение плана и приоритеты, но не карточки банков.
-  // Карточки банков выводятся только на отдельной вкладке.
   const a=Piot.eventSummary(eventRows(),cfg(),s.month);
   let html=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
   html+=incomeBlock();
@@ -486,6 +513,7 @@ function home(){
   }
   return html;
 }
+
 const BANK_LOGOS={
   vtb:'https://upload.wikimedia.org/wikipedia/commons/7/7c/VTB_Logo_2018.svg',
   tochka:'https://upload.wikimedia.org/wikipedia/commons/3/3b/Tochka_Logo.svg',
@@ -493,7 +521,7 @@ const BANK_LOGOS={
   psb:'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDEwMDAgMzA1LjMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+LnN0MHtmaWxsOiMyQzJEODQ7fS5zdDF7ZmlsbDojRjI2MTI2O308L3N0eWxlPjxwb2x5Z29uIGNsYXNzPSJzdDEiIHBvaW50cz0iMjAzLjYsMCAxMDEuOCwxMDEuOCAyMDMuNiwxMDEuOCAyMDMuNiwzMDUuMyAzMDUuMywyMDMuOCAzMDUuMywwICIvPjxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTAxLjgsMzA1LjMgMjAzLjYsMjAzLjYgMTAxLjgsMjAzLjYgMTAxLjgsMCAwLDEwMS41IDAsMzA1LjMgIi8+PC9zdmc+'
 };
 
-/* ══ FIX 10: banks — html+= и </section> ══ */
+// FIX 10: html +=, закрыт </section> в bank-card
 function banks(){
   const all=eventRows().filter(r=>r.source==='main');
   const scoped=rows().filter(r=>r.source==='main');
@@ -515,6 +543,7 @@ function banks(){
     ${kpi('Выполнено',cVal(done),'По дате статуса')}
     ${kpi('Не распределено',cVal(unknown),'Банк не найден')}
   </div>`;
+  // FIX 10a: html +=, FIX 10b: закрыт </section>
   html+=`<div class="bank-grid">${bs.map(b=>`
     <section class="glass bank-card" style="--brand:${b.color};--color:${b.color}" data-bank="${b.id}">
       <div class="bank-head">
@@ -551,10 +580,12 @@ function banks(){
     'Не распределено: '+number(unknown)+' заявок.');
   return html;
 }
+
 function granTabs(){
   return `<div class="tabs compact">${[['day','День'],['week','Неделя'],['month','Месяц']].map(([k,v])=>
     `<button data-gran="${k}" class="${s.gran===k?'active':''}">${v}</button>`).join('')}</div>`;
 }
+
 function periodChart(rr,title){
   const ps=Piot.periods(rr,s.gran,cfg());
   return card(title,chart(ps.map(x=>shortLabel(x.key)),[
@@ -562,6 +593,7 @@ function periodChart(rr,title){
     {name:'Выручка, ₽',values:ps.map(x=>x.revenue),color:'#00a56a'}
   ],{title,dual:true,money:true}),'Счета исключены из выручки.',granTabs());
 }
+
 function trend(){
   const rr=rows(),ps=Piot.periods(rr,s.gran,cfg());
   let acc=0;const totals=ps.map(x=>acc+=x.revenue);
@@ -585,6 +617,7 @@ function trend(){
     [{name:'Заявки',type:'bar',values:wd,color:'#61b5f6'}],{title:'Дни недели'}));
   return html;
 }
+
 function finance(){
   const rr=rows(),ps=Piot.periods(rr,s.gran,cfg());
   let html=filters()+incomeBlock('<button class="text-btn" data-page="settings">Изменить суммы →</button>');
@@ -601,7 +634,7 @@ function finance(){
   return html;
 }
 
-/* ══ FIX 11: planPage — let html= и корректный вызов card() ══ */
+// FIX 11: let html =, исправлен вызов card() — убран backtick вместо запятой
 function planPage(){
   const ledger=s.data.ledger,m=ledger[s.month]||Piot.emptyMonth();
   const mm=Piot.monthly(eventRows(),cfg());
@@ -617,7 +650,8 @@ function planPage(){
   </div>`;
   const table=`<div class="table-wrap"><table>
     <thead><tr><th>Месяц</th><th>План</th><th>Выполнено</th><th>Закрыто</th><th>Выполнение</th></tr></thead>
-    <tbody>${keys.map(k=>{const row=ledger[k]||{},a=mm[k]||{done:0,closed:0};
+    <tbody>${keys.map(k=>{
+      const row=ledger[k]||{},a=mm[k]||{done:0,closed:0};
       const pp=row.plan?pct(a.done,row.plan):0;
       return `<tr><td><button class="text-btn" data-select-month="${k}">${monthLabel(k)}</button></td>
         <td>${number(row.plan)}</td><td>${number(a.done)}</td><td>${number(a.closed)}</td>
@@ -633,7 +667,9 @@ function planPage(){
   }
   return html;
 }
+
 const COLS=[['numero','No'],['client','Клиент'],['partner','Партнёр'],['status','Статус'],['taskStatus','Передача'],['amount','Сумма, ₽'],['responsible','Ответственный'],['priority','Приоритет'],['date','Дата создания'],['dateStatus','Дата статуса'],['sla','SLA'],['customer','Заказчик'],['legalEntity','Юр.лицо'],['source','Источник']];
+
 function tableRows2(){
   return rows().filter(r=>
     s.paid==='paid'?Piot.rev(r,cfg())>0:
@@ -645,7 +681,7 @@ function tableRows2(){
   });
 }
 
-/* ══ FIX 12: tablePage2 — map(([k,v])=>`...`) ══ */
+// FIX 12: восстановлены стрелки => в map()-коллбэках
 function tablePage2(){
   const rr=tableRows2(),per=cfg().perPage,pages=Math.max(1,Math.ceil(rr.length/per));
   s.tablePage=Math.min(Math.max(1,s.tablePage),pages);
@@ -660,7 +696,8 @@ function tablePage2(){
   </div>`;
   html+=`<section class="glass card"><div class="table-wrap"><table>
     <thead><tr>${COLS.map(([key,title])=>`<th><button class="thbtn" data-sort="${key}">${title}${s.sort===key?(s.direction===1?' ↑':' ↓'):''}</button></th>`).join('')}</tr></thead>
-    <tbody>${part.map(r=>`<tr>${COLS.map(([key])=>{const v=r[key];
+    <tbody>${part.map(r=>`<tr>${COLS.map(([key])=>{
+      const v=r[key];
       if(key==='amount')return `<td class="number">${rub(v)}</td>`;
       if(key==='source')return `<td>${v==='noesp'?'Без задачи ЕСП':'Заявка'}</td>`;
       if(key==='status'||key==='taskStatus'||key==='sla'){
@@ -679,9 +716,11 @@ function tablePage2(){
       </div></div></section>`;
   return html;
 }
+
 function settingField(field,label,hint){
   return `<div class="field"><label>${label}</label>${numericInput(field,label)}<small>${hint}</small></div>`;
 }
+
 function configButtons(){
   return `<div class="savebar">
     <span class="note">${s.configDirty?'Есть несохранённые настройки':'Настройки сохранены'}</span>
@@ -691,7 +730,7 @@ function configButtons(){
     </div></div>`;
 }
 
-/* ══ FIX 13: settings — три map со стрелками ══ */
+// FIX 13: восстановлены стрелки => в трёх map()-коллбэках
 function settings(){
   if(detailed())return filters()+card('Общие настройки','<p class="note">Настройки и доходы — общие для таблицы. Снимите фильтры для редактирования.</p>');
   const c=s.configDraft||cfg();
@@ -721,7 +760,9 @@ function settings(){
   }
   return html;
 }
-function render(opt={}){
+
+function render(opt){
+  opt=opt||{};
   if(!s.data)return;
   s.fx=opt.fx!==false;
   Object.keys(CHARTS).forEach(k=>delete CHARTS[k]);
@@ -735,14 +776,8 @@ function render(opt={}){
   saveStatus();
   const modeBadge=$('#modeBadge');
   if(modeBadge){
-    if(s.data.demo){
-      // Не показываем плашку «ДЕМО» в шапке.
-      modeBadge.textContent='';
-      modeBadge.hidden=true;
-    }else{
-      modeBadge.hidden=false;
-      modeBadge.textContent='Google Sheets';
-    }
+    if(s.data.demo){modeBadge.textContent='';modeBadge.hidden=true;}
+    else{modeBadge.hidden=false;modeBadge.textContent='Google Sheets';}
   }
   $('#updated').textContent='Обновлено '+new Date(s.data.updated).toLocaleString('ru-RU');
   if(s.fx)playCounters();
@@ -752,10 +787,11 @@ function render(opt={}){
     $$('.ring-fg').forEach(r=>{r.setAttribute('stroke-dashoffset',r.dataset.ringoff);});
   });
 }
+
 const tip=$('#chartTip');
 function hideTip(){tip.classList.remove('show');$$('.chart-svg.live').forEach(el=>el.classList.remove('live'));}
 
-/* ══ FIX 14: tooltip — tip.innerHTML= ══ */
+// FIX 14: tip.innerHTML =
 document.addEventListener('pointermove',e=>{
   const hit=e.target.closest&&e.target.closest('[data-hit]');
   if(!hit){hideTip();return;}
@@ -778,8 +814,9 @@ document.addEventListener('pointermove',e=>{
 },{passive:true});
 document.addEventListener('scroll',hideTip,{passive:true});
 
-/* ══ FIX 15: load — $('#page').innerHTML= ══ */
-async function load(force=false){
+// FIX 15: $('#page').innerHTML =
+async function load(force){
+  force=force||false;
   if(s.configDirty&&!confirm('Обновление сбросит несохранённые настройки. Продолжить?'))return;
   if(!force&&s.loaded)await flush();
   $('#reload').disabled=true;
@@ -799,12 +836,15 @@ async function load(force=false){
     if(!s.loaded)$('#page').innerHTML=`<section class="glass card"><h2>Не удалось загрузить данные</h2><p class="note">${h(e.message)}</p><button class="btn" data-retry>Повторить</button></section>`;
   }finally{$('#reload').disabled=false;}
 }
+
 async function navigate(page){await flush();s.page=page;s.tablePage=1;render();window.scrollTo({top:0,behavior:fxOn()?'smooth':'auto'});}
+
 async function changeMonth(month){
   if(month&&!Piot.validMonth(month))return;
   try{await flush();s.month=month;s.tablePage=1;$('#month').value=month;render();}
   catch(e){$('#month').value=s.month;toast('Сначала сохраните или исправьте текущий ввод.',true);}
 }
+
 async function saveConfig(){
   try{
     const clean=Piot.validateConfig(s.configDraft||cfg());
@@ -815,6 +855,7 @@ async function saveConfig(){
   }catch(e){toast(e.message,true);}
   finally{$('#page').setAttribute('aria-busy','false');}
 }
+
 function configInput(el){
   if(!s.configDraft)s.configDraft=JSON.parse(JSON.stringify(cfg()));
   const c=s.configDraft;
@@ -823,14 +864,14 @@ function configInput(el){
   if(el.dataset.bankrule!=null)c.bankKeys[+el.dataset.bankrule]=el.value.split('\n').map(x=>x.trim()).filter(Boolean);
   s.configDirty=true;
 }
+
 async function click(e){
   const el=e.target.closest('button, .bank-card');if(!el)return;
   try{
     if(el.dataset.legend){
       const g=document.querySelectorAll('#'+el.dataset.legend+' [data-s="'+el.dataset.s+'"]');
       const off=el.classList.toggle('off');
-      g.forEach(n=>n.classList.toggle('ser-off',off));
-      return;
+      g.forEach(n=>n.classList.toggle('ser-off',off));return;
     }
     if(el.dataset.page)await navigate(el.dataset.page);
     else if(el.hasAttribute('data-open-table'))await navigate('table');
@@ -867,6 +908,7 @@ async function click(e){
     }
   }catch(err){toast(err.message,true);}
 }
+
 document.addEventListener('click',click);
 let searchTimer;
 document.addEventListener('input',e=>{
@@ -874,7 +916,11 @@ document.addEventListener('input',e=>{
   if(el.dataset.field){edit(el.dataset.field,el.value);el.setAttribute('aria-invalid',s.invalid[el.dataset.field]?'true':'false');}
   else if(el.dataset.filter==='q'){
     clearTimeout(searchTimer);s.filter.q=el.value;
-    searchTimer=setTimeout(()=>{const p=el.selectionStart;render({fx:false});const inp=$('[data-filter=q]');if(inp){inp.focus();try{inp.setSelectionRange(p,p);}catch(err){}}},280);
+    searchTimer=setTimeout(()=>{
+      const p=el.selectionStart;render({fx:false});
+      const inp=$('[data-filter=q]');
+      if(inp){inp.focus();try{inp.setSelectionRange(p,p);}catch(err){}}
+    },280);
   }
   else if(el.dataset.config||el.dataset.rule||el.dataset.bankrule!=null)configInput(el);
 });
@@ -884,7 +930,9 @@ document.addEventListener('change',async e=>{
   else if(el.dataset.filter){s.filter[el.dataset.filter]=el.value;s.tablePage=1;render({fx:false});}
   else if(el.id==='paidFilter'){s.paid=el.value;s.tablePage=1;render({fx:false});}
 });
-document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.field){e.preventDefault();flush().catch(()=>{});}});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.field){e.preventDefault();flush().catch(()=>{});}
+});
 document.addEventListener('focusout',e=>{
   if(e.target.dataset&&e.target.dataset.field&&!Object.keys(s.draft).length&&!s.saving)
     setTimeout(()=>{if(!document.activeElement.matches('[data-field]'))render({fx:false});},0);
