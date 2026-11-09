@@ -10,6 +10,32 @@ const MONTH_NAMES=['Январь','Февраль','Март','Апрель','М
 const monthLabel=m=>Piot.validMonth(m)?MONTH_NAMES[Number(m.slice(5))-1]+' '+m.slice(0,4):'За всё время';
 const shortLabel=k=>k==='Без даты'?k:k.length===7?MONTH_NAMES[Number(k.slice(5))-1].slice(0,3)+' '+k.slice(2,4):k.slice(8,10)+'.'+k.slice(5,7);
 const reduced=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Компактные логотипы банков. Они отображаются только в разделе «Банки». */
+(function installCompactBankLogos(){
+  if(document.getElementById('piot-compact-bank-logos'))return;
+  const style=document.createElement('style');
+  style.id='piot-compact-bank-logos';
+  style.textContent=`
+    .bank-logo-image{
+      display:block;width:96px!important;max-width:96px!important;height:28px!important;
+      padding:4px 8px!important;box-sizing:border-box;object-fit:contain;object-position:center;
+      background:rgba(255,255,255,.9);border:1px solid rgba(220,230,242,.95);
+      border-radius:9px;box-shadow:0 2px 7px rgba(20,40,70,.045);
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+    .bank-card:hover .bank-logo-image{
+      transform:translateY(-1px);box-shadow:0 4px 11px rgba(20,40,70,.09);
+    }
+    .bank-head{align-items:center;gap:10px}
+    @media(max-width:850px){
+      .bank-logo-image{
+        width:88px!important;max-width:88px!important;height:26px!important;padding:4px 7px!important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+})();
 const path={
   home:'M3 10l9-7 9 7M5 9v11h5v-6h4v6h5V9',
   banks:'M3 9l9-6 9 6H3m2 3v7m5-7v7m4-7v7m5-7v7M3 21h18',
@@ -36,11 +62,22 @@ function toast(text,error){
   $('#toasts').append(el);setTimeout(()=>{el.style.opacity=0;el.style.transform='translateY(10px)';setTimeout(()=>el.remove(),300);},5600);
 }
 function rpc(name,arg){
+  // Сначала используем настоящий сервер Google Apps Script.
+  // Демо-адаптер нужен только вне HtmlService, например на GitHub Pages.
+  if(window.google&&google.script&&google.script.run){
+    return new Promise((resolve,reject)=>{
+      const runner=google.script.run
+        .withSuccessHandler(resolve)
+        .withFailureHandler(e=>reject(Error(e.message||String(e))));
+      if(typeof runner[name]!=='function'){
+        reject(Error('В Code.gs не найдена серверная функция '+name+'().'));
+        return;
+      }
+      runner[name](arg);
+    });
+  }
   if(window.PIOT_DEMO)return window.PIOT_DEMO.call(name,arg);
-  return new Promise((resolve,reject)=>{
-    if(!window.google||!google.script||!google.script.run){reject(Error('Откройте через меню Google-таблицы.'));return;}
-    google.script.run.withSuccessHandler(resolve).withFailureHandler(e=>reject(Error(e.message||String(e))))[name](arg);
-  });
+  return Promise.reject(Error('Нет подключения к Google Apps Script. Откройте панель из Google-таблицы.'));
 }
 function manual(){return s.data.ledger[s.month]||Piot.emptyMonth();}
 function detailed(){return Object.values(s.filter).some(Boolean);}
@@ -201,7 +238,7 @@ function chart(labels,series,opts={}){
       <stop offset="1" stop-color="${d.color}" stop-opacity="${d.type==='bar'?'.45':'.01'}"/></linearGradient>`;
   });
   svg+=`</defs>`;
-  for(let i=0;i<=4;i++){
+    for(let i=0;i<=4;i++){
     const yy=(T+plotH*i/4).toFixed(1);
     svg+=`<line class="gridline" x1="${L}" y1="${yy}" x2="${W-R}" y2="${yy}" style="animation-delay:${i*50}ms"/>
       <text class="axis-label" x="${L-10}" y="${+yy+4}" text-anchor="end">${fmt(max.left*(1-i/4),!!opts.money)}</text>`;
@@ -422,10 +459,10 @@ function incomeBlock(extraBtn){
     'Финансы · '+(detailed()?'по выбранным фильтрам':'за выбранный период'),
     extraBtn||'<button class="text-btn" data-page="finance">Подробнее →</button>'
   ).replace('<section class="glass card">','<section class="glass card income-overview">');
-}
-
-/* ══ FIX 9: home — let html= ══ */
+  /* ══ FIX 9: home — let html= ══ */
 function home(){
+  // Главная содержит выполнение плана и приоритеты, но не карточки банков.
+  // Карточки банков выводятся только на отдельной вкладке.
   const a=Piot.eventSummary(eventRows(),cfg(),s.month);
   let html=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
   html+=incomeBlock();
@@ -451,7 +488,7 @@ const BANK_LOGOS={
   vtb:'https://upload.wikimedia.org/wikipedia/commons/7/7c/VTB_Logo_2018.svg',
   tochka:'https://upload.wikimedia.org/wikipedia/commons/3/3b/Tochka_Logo.svg',
   alfa:'https://upload.wikimedia.org/wikipedia/commons/8/87/Alfabank_logo.png',
-  psb:'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDEwMDAgMzA1LjMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+LnN0MHtmaWxsOiMyQzJEODQ7fS5zdDF7ZmlsbDojRjI2MTI2O308L3N0eWxlPjxwb2x5Z29uIGNsYXNzPSJzdDEiIHBvaW50cz0iMjAzLjYsMCAxMDEuOCwxMDEuOCAyMDMuNiwxMDEuOCAyMDMuNiwzMDUuMyAzMDUuMywyMDMuOCAzMDUuMywwICIvPjxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTAxLjgsMzA1LjMgMjAzLjYsMjAzLjYgMTAxLjgsMjAzLjYgMTAxLjgsMCAwLDEwMS41IDAsMzA1LjMgIi8+PC9zdmc+'
+  psb:'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZyJ1dGYtOD8NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDEwMDAgMzA1LjMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+LnN0MHtmaWxsOiMyQzJEODQ7fS5zdDF7ZmlsbDojRjI2MTI2O308L3N0eWxlPjxwb2x5Z29uIGNsYXNzPSJzdDEiIHBvaW50cz0iMjAzLjYsMCAxMDEuOCwxMDEuOCAyMDMuNiwxMDEuOCAyMDMuNiwzMDUuMyAzMDUuMywyMDMuOCAzMDUuMywwICIvPjxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTAxLjgsMzA1LjMgMjAzLjYsMjAzLjYgMTAxLjgsMjAzLjYgMTAxLjgsMCAwLDEwMS41IDAsMzA1LjMgIi8+PC9zdmc+'
 };
 
 /* ══ FIX 10: banks — html+= и </section> ══ */
@@ -479,7 +516,7 @@ function banks(){
   html+=`<div class="bank-grid">${bs.map(b=>`
     <section class="glass bank-card" style="--brand:${b.color};--color:${b.color}" data-bank="${b.id}">
       <div class="bank-head">
-        <img class="bank-logo-image" src="${BANK_LOGOS[b.id]}" alt="${h(b.name)}" referrerpolicy="no-referrer">
+        <img class="bank-logo-image" src="${BANK_LOGOS[b.id]}" alt="${h(b.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <span class="bank-pct">${b.total?pct(b.done,b.total)+'% выполнено':'нет данных'}</span>
       </div>
       <div class="bank-revenue-label">ВЫРУЧКА</div>
@@ -640,7 +677,7 @@ function tablePage2(){
       </div></div></section>`;
   return html;
 }
-function settingField(field,label,hint){
+  function settingField(field,label,hint){
   return `<div class="field"><label>${label}</label>${numericInput(field,label)}<small>${hint}</small></div>`;
 }
 function configButtons(){
@@ -694,7 +731,17 @@ function render(opt={}){
   $('#page').setAttribute('aria-busy','false');
   $('#page').className='page-enter'+(s.fx&&fxOn()?' anim':'');
   saveStatus();
-  $('#modeBadge').textContent=s.data.demo?'ДЕМО · ПРИМЕР ДАННЫХ':'Google Sheets';
+  const modeBadge=$('#modeBadge');
+  if(modeBadge){
+    if(s.data.demo){
+      // Не показываем плашку «ДЕМО» в шапке.
+      modeBadge.textContent='';
+      modeBadge.hidden=true;
+    }else{
+      modeBadge.hidden=false;
+      modeBadge.textContent='Google Sheets';
+    }
+  }
   $('#updated').textContent='Обновлено '+new Date(s.data.updated).toLocaleString('ru-RU');
   if(s.fx)playCounters();
   requestAnimationFrame(()=>{
@@ -785,7 +832,7 @@ async function click(e){
     }
     if(el.dataset.page)await navigate(el.dataset.page);
     else if(el.hasAttribute('data-open-table'))await navigate('table');
-    else if(el.hasAttribute('data-save')){await flush();toast(s.data.demo?'Сохранено в демо.':'Месяц сохранён в «Суммы»');}
+    else if(el.hasAttribute('data-save')){await flush();toast(s.data.demo?'Изменения сохранены только в текущем просмотре.':'Месяц сохранён в «Суммы»');}
     else if(el.hasAttribute('data-clear-filters')){await flush();Object.keys(s.filter).forEach(k=>s.filter[k]='');s.tablePage=1;render();}
     else if(el.dataset.gran){s.gran=el.dataset.gran;render({fx:false});}
     else if(el.dataset.bank){s.filter.bank=el.dataset.bank;await navigate('table');}
