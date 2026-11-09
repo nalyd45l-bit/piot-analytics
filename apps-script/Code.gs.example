@@ -29,8 +29,10 @@ function showDashboard() {
   );
 }
 
-function doGet() {
-  return buildPiotHtml_();
+function doGet(e) {
+  return HtmlService.createHtmlOutputFromFile('PiotBridge')
+    .setTitle('PIOT Analytics connection')
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
 
 function buildPiotHtml_() {
