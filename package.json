@@ -1,0 +1,9 @@
+{
+  "name": "piot-analytics",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ТС ПИОТ — аналитическая панель, клиентский интерфейс и демонстрационный режим",
+  "scripts": {
+    "test": "node tests/piot.test.js && node tests/demo.test.js && node tests/bank-logos.test.js"
+  }
+}

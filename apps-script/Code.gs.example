@@ -1,0 +1,28 @@
+/**
+ * Только оболочка запуска UI для Google Apps Script.
+ * ВНИМАНИЕ: это НЕ backend для данных. Здесь отсутствуют apiGetData,
+ * apiSaveMonth и apiSaveConfig, которые ожидает клиентское приложение.
+ * Не заменяйте этим файлом существующий серверный код вашей таблицы.
+ */
+function onOpen() {
+  SpreadsheetApp.getUi()
+    .createMenu('Панель PIOT')
+    .addItem('Открыть панель', 'showDashboard')
+    .addToUi();
+}
+
+function showDashboard() {
+  const html = HtmlService
+    .createHtmlOutputFromFile('Index')
+    .setTitle('Панель управления')
+    .setWidth(1400)
+    .setHeight(900);
+  SpreadsheetApp.getUi().showModelessDialog(html, 'Панель управления');
+}
+
+/** Точка входа для веб-приложения Apps Script (после публикации deployment). */
+function doGet() {
+  return HtmlService
+    .createHtmlOutputFromFile('Index')
+    .setTitle('Панель управления');
+}
