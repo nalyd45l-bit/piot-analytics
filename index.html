@@ -1,19 +1,4 @@
-
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-							<style>
-								body {
-									background-color: white; /* Ensure the iframe has a white background */
-								}
-
-								
-							</style>
-                        </head>
-                        <body>
-                            <!doctype html>
+<!doctype html>
 <html lang="ru">
 <head>
 <base target="_top">
@@ -406,16 +391,236 @@ dialog .actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;mar
   .pin-card{padding:36px 24px 28px}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* =====================================================
+   ТЕМЫ ОФОРМЛЕНИЯ: СВЕТЛАЯ / ТЁМНАЯ
+   ===================================================== */
+:root{
+  color-scheme:light;
+  --pin-bg:linear-gradient(135deg,#eaf2fb 0%,#dce9f8 52%,#e1f6ee 100%);
+  --pin-card-bg:linear-gradient(145deg,rgba(255,255,255,.92),rgba(247,251,255,.82));
+  --pin-border:rgba(255,255,255,.9);
+  --pin-text:#18283b;
+  --pin-muted:#71839a;
+  --pin-key-bg:rgba(255,255,255,.72);
+  --pin-key-border:rgba(180,199,220,.45);
+  --pin-key-color:#1b2a3d;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --text:#e7eef8;
+  --muted:#9aabc1;
+  --bg:#0b1320;
+  --glass-bg:linear-gradient(145deg,rgba(25,38,56,.96),rgba(17,29,45,.91));
+  --shadow:0 1px 2px rgba(0,0,0,.22),0 10px 28px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.045);
+  --shadow-hover:0 3px 8px rgba(0,0,0,.25),0 18px 42px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.06);
+  --pin-bg:radial-gradient(circle at 15% 10%,rgba(61,142,240,.18),transparent 34%),linear-gradient(135deg,#07111f 0%,#101d31 54%,#0b241e 100%);
+  --pin-card-bg:linear-gradient(145deg,rgba(25,39,58,.96),rgba(14,27,43,.94));
+  --pin-border:rgba(170,194,220,.16);
+  --pin-text:#edf4ff;
+  --pin-muted:#9aabc1;
+  --pin-key-bg:rgba(255,255,255,.075);
+  --pin-key-border:rgba(255,255,255,.12);
+  --pin-key-color:#f2f6fc;
+}
+body,.shell,.sidebar,.glass,.hero,.card,.kpi,.income-overview,
+input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
+.table-wrap,.priority-status-card,.priority-other-row,dialog,.toast{
+  transition:background-color .28s ease,color .28s ease,border-color .28s ease,box-shadow .28s ease;
+}
+#pinScreen{
+  background:var(--pin-bg);
+  color:var(--pin-text);
+  transition:background .3s ease,color .3s ease;
+}
+.pin-card{
+  background:var(--pin-card-bg);
+  border-color:var(--pin-border);
+  box-shadow:0 32px 80px rgba(10,25,45,.2),inset 0 1px 0 rgba(255,255,255,.3);
+}
+.pin-title{color:var(--pin-text)}
+.pin-sub{color:var(--pin-muted)}
+.pin-brand-name{color:var(--pin-text)}
+.pin-dot{border-color:rgba(120,145,170,.42)}
+.pin-key{
+  color:var(--pin-key-color);
+  border-color:var(--pin-key-border);
+  background:var(--pin-key-bg);
+  box-shadow:0 5px 16px rgba(20,40,70,.055),inset 0 1px 0 rgba(255,255,255,.28);
+}
+.pin-key:hover{background:rgba(120,160,200,.17);box-shadow:0 7px 20px rgba(20,40,70,.12)}
+.pin-key:active{background:rgba(120,160,200,.25)}
+.pin-key.del{color:var(--pin-muted)}
+.pin-error-msg{color:#d8465b}
+.theme-toggle{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  min-height:36px;padding:7px 12px;border-radius:99px;
+  border:1px solid var(--theme-button-border,rgba(255,255,255,.88));
+  background:var(--glass-bg);color:var(--text);
+  box-shadow:var(--shadow);font-size:11px;font-weight:700;
+  white-space:nowrap;backdrop-filter:blur(14px);
+  transition:transform .22s ease,box-shadow .22s ease,background .28s ease,color .28s ease;
+}
+.theme-toggle:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+.theme-toggle:active{transform:scale(.96)}
+.theme-icon{display:inline-block;font-size:15px;line-height:1;transition:transform .35s ease}
+.theme-toggle:hover .theme-icon{transform:rotate(-18deg) scale(1.12)}
+#pinThemeToggle{position:absolute;top:18px;right:18px;z-index:2}
+.theme-inline{margin-top:6px}
+:root[data-theme="dark"] body{background:var(--bg);color:var(--text)}
+:root[data-theme="dark"] .wave-bg{opacity:.16;filter:brightness(.48) saturate(.7)}
+:root[data-theme="dark"] .blobs{opacity:.18}
+:root[data-theme="dark"] .shell{
+  background:linear-gradient(165deg,rgba(18,29,45,.94),rgba(11,20,33,.93));
+  border-color:rgba(190,210,235,.12);
+  box-shadow:0 4px 32px rgba(0,0,0,.22);
+}
+:root[data-theme="dark"] .brandbar{border-bottom-color:rgba(190,210,235,.12)}
+:root[data-theme="dark"] .sidebar{
+  background:var(--glass-bg);border-color:rgba(190,210,235,.13);
+}
+:root[data-theme="dark"] .pagebar h1{
+  background:linear-gradient(100deg,#f0f5fc,#9fb9d8 60%,#edf4fc);
+  -webkit-background-clip:text;background-clip:text;
+}
+:root[data-theme="dark"] .pill{
+  background:rgba(255,255,255,.055);border-color:rgba(190,210,235,.14);color:var(--muted);
+}
+:root[data-theme="dark"] .pill.ok{color:#65ddb0;background:rgba(0,165,106,.13);border-color:rgba(0,190,125,.24)}
+:root[data-theme="dark"] .pill.warn{color:#f2c66a;background:rgba(220,160,0,.12);border-color:rgba(220,160,0,.22)}
+:root[data-theme="dark"] .pill.err{color:#ff8794;background:rgba(200,50,70,.13);border-color:rgba(200,50,70,.24)}
+:root[data-theme="dark"] .navbtn{color:#a8b8cc}
+:root[data-theme="dark"] .navbtn:hover:not(.active){background:rgba(255,255,255,.06);color:#f0f5fc}
+:root[data-theme="dark"] .navbtn.active{
+  color:#f2f6fc;background:linear-gradient(135deg,rgba(46,65,88,.92),rgba(27,43,63,.9));
+  border-color:rgba(190,210,235,.13);box-shadow:0 5px 18px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.06);
+}
+:root[data-theme="dark"] .month-wrap,
+:root[data-theme="dark"] .icon-btn{
+  background:var(--glass-bg);border-color:rgba(190,210,235,.14);color:var(--muted);box-shadow:var(--shadow);
+}
+:root[data-theme="dark"] .month-wrap select{color:var(--text)}
+:root[data-theme="dark"] .glass{
+  background:var(--glass-bg);border-color:rgba(190,210,235,.13);box-shadow:var(--shadow);
+}
+:root[data-theme="dark"] .hero{
+  background:linear-gradient(140deg,rgba(28,43,62,.96),rgba(20,36,55,.94) 55%,rgba(15,48,43,.86));
+  border-color:rgba(190,210,235,.14);box-shadow:var(--shadow);
+}
+:root[data-theme="dark"] .hero.blue{
+  background:linear-gradient(140deg,rgba(27,42,62,.97),rgba(20,35,56,.94) 55%,rgba(24,48,76,.9));
+}
+:root[data-theme="dark"] .hero-metric,
+:root[data-theme="dark"] .income-overview .income-kpis .kpi,
+:root[data-theme="dark"] .bank-summary-grid .kpi,
+:root[data-theme="dark"] .home-summary .kpi{
+  background:rgba(255,255,255,.045);border-color:rgba(190,210,235,.12);box-shadow:0 4px 14px rgba(0,0,0,.14);
+}
+:root[data-theme="dark"] .income-overview{
+  background:linear-gradient(145deg,rgba(25,39,58,.96),rgba(17,30,46,.94) 60%,rgba(14,43,39,.9));
+  border-color:rgba(190,210,235,.13);
+}
+:root[data-theme="dark"] .mini-glass{
+  background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+  border-color:rgba(190,210,235,.12);box-shadow:0 3px 10px rgba(0,0,0,.14);
+}
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea{
+  color:var(--text);border-color:rgba(160,185,215,.22);
+  background:linear-gradient(180deg,rgba(24,39,58,.96),rgba(16,29,45,.96));
+}
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder{color:#71849c}
+:root[data-theme="dark"] input:focus,
+:root[data-theme="dark"] textarea:focus,
+:root[data-theme="dark"] select:focus{background:#1b2b40;border-color:var(--blue)}
+:root[data-theme="dark"] .btn{
+  color:var(--text);background:linear-gradient(180deg,rgba(42,58,79,.96),rgba(27,42,62,.96));
+  border-color:rgba(190,210,235,.14);box-shadow:0 3px 10px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.05);
+}
+:root[data-theme="dark"] .btn.primary{
+  color:#fff;background:linear-gradient(135deg,#20b982,#00875e);border-color:rgba(0,190,125,.35);
+}
+:root[data-theme="dark"] .filterbar{
+  background:rgba(25,40,59,.8);border-color:rgba(190,210,235,.13);box-shadow:var(--shadow);
+}
+:root[data-theme="dark"] .big-progress{background:linear-gradient(180deg,#1a2a3e,#23364c);box-shadow:inset 0 2px 5px rgba(0,0,0,.25)}
+:root[data-theme="dark"] .progress{background:rgba(120,145,170,.2)}
+:root[data-theme="dark"] .chart-svg text{fill:#a6b6ca}
+:root[data-theme="dark"] .chart-svg .axis-label,
+:root[data-theme="dark"] .chart-svg .x-label{fill:#91a4bc}
+:root[data-theme="dark"] .chart-svg .gridline{stroke:#40536b;opacity:.65}
+:root[data-theme="dark"] .chart-svg .axis-base{stroke:#52667f}
+:root[data-theme="dark"] .donut .center-label{fill:#9aabc1}
+:root[data-theme="dark"] .legend button{
+  color:#b5c4d7;background:rgba(255,255,255,.045);border-color:rgba(190,210,235,.12);
+}
+:root[data-theme="dark"] .legend button:hover{background:rgba(255,255,255,.09)}
+:root[data-theme="dark"] .tabs{background:rgba(18,31,48,.85);border-color:rgba(190,210,235,.13)}
+:root[data-theme="dark"] .tabs button{color:#aabbd0}
+:root[data-theme="dark"] .tabs button:hover:not(.active){color:#f1f5fb;background:rgba(255,255,255,.06)}
+:root[data-theme="dark"] .tabs button.active{
+  color:#f1f5fb;background:linear-gradient(180deg,#34465e,#26384f);box-shadow:0 4px 12px rgba(0,0,0,.24);
+}
+:root[data-theme="dark"] .table-wrap{border-color:rgba(190,210,235,.13)}
+:root[data-theme="dark"] .table-wrap th{
+  color:#b4c3d6;background:rgba(30,47,68,.98);border-bottom-color:rgba(190,210,235,.12);
+}
+:root[data-theme="dark"] .table-wrap td{border-bottom-color:rgba(190,210,235,.09)}
+:root[data-theme="dark"] .table-wrap tbody tr:hover{background:rgba(255,255,255,.045)}
+:root[data-theme="dark"] .priority-status-card{
+  color:var(--text);background:linear-gradient(145deg,rgba(16,55,47,.8),rgba(24,39,56,.96) 55%,rgba(17,52,43,.78));
+  border-color:rgba(190,210,235,.13);box-shadow:var(--shadow);
+}
+:root[data-theme="dark"] .priority-status-card.assist{
+  background:linear-gradient(145deg,rgba(22,47,76,.88),rgba(24,39,56,.96) 55%,rgba(20,47,76,.82));
+}
+:root[data-theme="dark"] .priority-other-row{
+  color:var(--text);background:rgba(255,255,255,.04);border-color:rgba(190,210,235,.12);
+}
+:root[data-theme="dark"] .priority-other-row:hover,
+:root[data-theme="dark"] .priority-other-row.active{background:rgba(255,255,255,.085)}
+:root[data-theme="dark"] .rank{border-bottom-color:rgba(190,210,235,.1)}
+:root[data-theme="dark"] .empty{
+  color:var(--muted);background:rgba(255,255,255,.025);border-color:rgba(190,210,235,.16);
+}
+:root[data-theme="dark"] .empty strong{color:var(--text)}
+:root[data-theme="dark"] .switchrow{border-bottom-color:rgba(190,210,235,.1)}
+:root[data-theme="dark"] dialog{
+  color:var(--text);background:rgba(19,32,49,.98);border-color:rgba(190,210,235,.15);
+}
+:root[data-theme="dark"] dialog::backdrop{background:rgba(0,0,0,.62)}
+:root[data-theme="dark"] .toast{
+  color:var(--text);background:rgba(23,37,56,.97);border-color:rgba(190,210,235,.14);
+}
+:root[data-theme="dark"] .footer{border-top-color:rgba(190,210,235,.12)}
+:root[data-theme="dark"] .save-status{color:#65ddb0}
+:root[data-theme="dark"] .save-status.error{color:#ff8794}
+:root[data-theme="dark"] .save-status.waiting{color:#f2c66a}
+:root[data-theme="dark"] .inactive-warning{
+  color:#f2d18b;background:rgba(115,82,20,.22);border-color:rgba(220,170,60,.25);
+}
+@media(max-width:600px){
+  .theme-toggle{min-height:34px;padding:6px 9px}
+  .theme-toggle .theme-label{display:none}
+  #pinThemeToggle{top:12px;right:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  .theme-toggle,.theme-icon,#pinScreen,.pin-card{transition:none!important;animation:none!important}
+}
+
 </style>
 </head>
 <body>
 
 <!-- ===== ПИН-КОД ЭКРАН ===== -->
-<div id="pinScreen">
+<div id="pinScreen" role="main" aria-label="Вход в PIOT Analytics">
+  <button type="button" class="theme-toggle" id="pinThemeToggle" aria-label="Переключить тему" aria-pressed="false"><span class="theme-icon">☾</span><span class="theme-label">Тёмная тема</span></button>
   <div class="pin-card">
     <div class="pin-logo">
       <div class="pin-bars"><i></i><i></i><i></i></div>
-      <span style="color:#fff;font-size:20px;font-weight:750;letter-spacing:-.3px">ТС ПИОТ</span>
+      <span class="pin-brand-name" style="font-size:20px;font-weight:750;letter-spacing:-.3px">ТС ПИОТ</span>
     </div>
     <div class="pin-title">Введите пин-код</div>
     <div class="pin-sub">Аналитика СП · защищённый доступ</div>
@@ -463,6 +668,7 @@ dialog .actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;mar
       ТС ПИОТ АНАЛИТИКА
     </div>
     <div class="top-meta">
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false"><span class="theme-icon">☾</span><span class="theme-label">Тёмная тема</span></button>
       <span id="modeBadge" class="pill">Google Sheets</span>
       <span id="topSave" class="pill ok">Загрузка</span>
     </div>
@@ -511,6 +717,68 @@ dialog .actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;mar
     <button class="btn primary" id="resolveConflict">Обновить данные</button>
   </div>
 </dialog>
+
+
+<script>
+/* =====================================================
+   ТЕМА PIOT — сохраняется на этом устройстве
+   ===================================================== */
+(function(){
+  'use strict';
+  const KEY = 'piot_theme';
+  const root = document.documentElement;
+
+  function storedTheme(){
+    try{
+      const value = localStorage.getItem(KEY);
+      return value === 'dark' || value === 'light' ? value : 'light';
+    }catch(err){
+      return 'light';
+    }
+  }
+
+  function syncButtons(){
+    const dark = root.dataset.theme === 'dark';
+    document.querySelectorAll('#themeToggle,#pinThemeToggle,[data-theme-toggle]').forEach(btn=>{
+      const icon = btn.querySelector('.theme-icon');
+      const label = btn.querySelector('.theme-label');
+      if(icon) icon.textContent = dark ? '☀' : '☾';
+      if(label) label.textContent = dark ? 'Светлая тема' : 'Тёмная тема';
+      btn.setAttribute('aria-pressed', String(dark));
+      btn.setAttribute('aria-label', dark ? 'Включить светлую тему' : 'Включить тёмную тему');
+      btn.title = dark ? 'Переключить на светлую тему' : 'Переключить на тёмную тему';
+    });
+  }
+
+  function setTheme(value){
+    const theme = value === 'dark' ? 'dark' : 'light';
+    root.dataset.theme = theme;
+    try{ localStorage.setItem(KEY, theme); }catch(err){}
+    syncButtons();
+    return theme;
+  }
+
+  function toggleTheme(){
+    return setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
+  }
+
+  setTheme(storedTheme());
+
+  document.addEventListener('click', function(event){
+    const button = event.target.closest('#themeToggle,#pinThemeToggle,[data-theme-toggle]');
+    if(!button) return;
+    event.preventDefault();
+    toggleTheme();
+  });
+
+  window.PIOT_THEME = {
+    get: function(){ return root.dataset.theme || 'light'; },
+    set: setTheme,
+    toggle: toggleTheme,
+    sync: syncButtons
+  };
+})();
+</script>
 
 <script>
 /* =====================================================
@@ -835,7 +1103,7 @@ window.PIOT_START = function(){
 'use strict';
 
 // ── НАСТРОЙТЕ ЗДЕСЬ URL ВАШЕГО GAS ──────────────────
-const GAS_URL ='https://script.google.com/macros/s/AKfycbwlTonopUjueBb2qPQ-fgMpZxSsoSlB8Ih1pS0YwqhYtBuS0M78Ylu0XnBl9eywWBs/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzR5pGXBpEfHvTjmUtkTGIaH00whYgY4l9CTg_3aqtpAGpUIxzxXDFsGjwEqX6Vqwka/exec';
 // ────────────────────────────────────────────────────
 
 const $  = s => document.querySelector(s);
@@ -1586,6 +1854,8 @@ function settings(){
         `<label class="switchrow"><span>${v}</span><input class="switch" type="checkbox" data-config="${k}" ${c[k]?'checked':''}></label>`).join(''))}
       ${card('Таблица',`<div class="field"><label for="perPage">Строк на странице</label>
         <select id="perPage" data-config="perPage">${[10,25,50,100].map(v=>`<option ${c.perPage===v?'selected':''}>${v}</option>`).join('')}</select></div>`)}
+      ${card('Цветовая тема',`<p class="note">Выберите удобное оформление. Выбор сохраняется на этом устройстве.</p>
+        <button type="button" class="btn theme-inline" data-theme-toggle><span class="theme-icon">☾</span><span class="theme-label">Тёмная тема</span></button>`)}
     </div>${configButtons()}`;
   }else{
     const rules=[['done','Выполненные статусы'],['closed','Закрытые'],['invoice','Счета'],['lp','Статусы LP'],['sp','Статусы СП']];
@@ -1607,6 +1877,7 @@ function render(opt){
   document.body.classList.toggle('motion',fxOn());
   const pageMap={home,banks,finance,trend,plan:planPage,table:tablePage2,settings};
   $('#page').innerHTML=(pageMap[s.page]||home)();
+  if(window.PIOT_THEME) window.PIOT_THEME.sync();
   $('#page').setAttribute('aria-busy','false');
   $('#page').className='page-enter'+(s.fx&&fxOn()?' anim':'');
   saveStatus();
@@ -1795,31 +2066,3 @@ if(sessionStorage.getItem('piot_pin_ok')==='1' && document.getElementById('app')
 </script>
 </body>
 </html>
-
-							<script>
-                            	// Эта функция ОБЯЗАТЕЛЬНА для работы с GitHub Pages
-function doGet(e) {
-  const output = ContentService.createTextOutput();
-  output.setMimeType(ContentService.MimeType.JSON);
-  
-  try {
-    const action = e.parameter.action || '';
-    const arg = e.parameter.arg ? JSON.parse(e.parameter.arg) : undefined;
-    
-    let result;
-    if (action === 'apiGetData')       result = apiGetData();
-    else if (action === 'apiSaveMonth')  result = apiSaveMonth(arg);
-    else if (action === 'apiSaveConfig') result = apiSaveConfig(arg);
-    else throw new Error('Неизвестный action: ' + action);
-    
-    output.setContent(JSON.stringify({ ok: true, result: result }));
-  } catch(err) {
-    output.setContent(JSON.stringify({ ok: false, error: err.message }));
-  }
-  
-  return output;
-}
-							</script>
-                        </body>
-                        </html>
-                    
