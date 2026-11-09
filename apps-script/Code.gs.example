@@ -43,7 +43,7 @@ function buildPiotHtml_() {
 
 function getPiotSpreadsheet_() {
   try {
-    return SpreadsheetApp.openById(PIOT_SPREADSHEET_ID);
+    return SpreadsheetApp.openById(https://script.google.com/macros/s/AKfycbyyuRVGYhYEjW8rdmfsu7g1Yjc7aVB8af5BLCMSV2UQwG7KVqWhZNG-xvbKbZMm1wbt/exec);
   } catch (err) {
     throw new Error('Не удалось открыть Google Таблицу. Проверьте ID и права доступа: ' + err.message);
   }
