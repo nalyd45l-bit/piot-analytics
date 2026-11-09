@@ -8,7 +8,7 @@
  * Перед использованием проверьте права доступа к проекту и таблице.
  */
 
-var PIOT_SPREADSHEET_ID = '1UfdJZFu9m9HnIgkfkqMqQ_87KU1sUsoxbdUsVQCrIYI';
+var PIOT_SPREADSHEET_ID = 'https://docs.google.com/spreadsheets/d/1UfdJZFu9m9HnIgkfkqMqQ_87KU1sUsoxbdUsVQCrIYI/edit?gid=0#gid=0';
 
 var PIOT_SHEET_MAIN = 'Заявка';
 var PIOT_SHEET_NO_ESP = 'Отсутствует задача ЕСП';
