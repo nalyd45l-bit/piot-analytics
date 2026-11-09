@@ -10,7 +10,6 @@
 @font-face{font-family:Hint;src:url('https://life-pay.ru/assets/hint-regular-vTP39Dkb.woff2') format('woff2');font-weight:400;font-display:swap}
 @font-face{font-family:Hint;src:url('https://life-pay.ru/assets/hint-semibold-BbZ31FK_.woff2') format('woff2');font-weight:500 600;font-display:swap}
 @font-face{font-family:Hint;src:url('https://life-pay.ru/assets/hint-bold-ChNkRm6u.woff2') format('woff2');font-weight:700 900;font-display:swap}
-/* ══ TOKENS ══ */
 :root{
   --text:#141f2e;--muted:#5a6a7e;--line:#fff;
   --green:#00a56a;--green-l:#e6f9f1;--green-d:#007a4f;
@@ -30,7 +29,6 @@ button{cursor:pointer;border:none;background:none;transition:background var(--tr
 button:disabled{cursor:wait;opacity:.5}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px;border-radius:5px}
 button:active:not(:disabled){transform:translateY(1px) scale(.995)}
-/* ══ ANIMATED BACKGROUND ══ */
 .wave-bg{position:fixed;inset:0;width:100vw;height:100vh;z-index:-2;pointer-events:none}
 .blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;filter:blur(60px);opacity:.55}
 .blobs i{position:absolute;display:block;border-radius:50%;mix-blend-mode:screen}
@@ -40,10 +38,8 @@ button:active:not(:disabled){transform:translateY(1px) scale(.995)}
 @keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(90px,70px) scale(1.14)}}
 @keyframes float2{0%,100%{transform:translate(0,0) scale(1.05)}50%{transform:translate(-80px,110px) scale(.92)}}
 @keyframes float3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-90px) scale(1.1)}}
-/* ══ SHELL ══ */
 .shell{margin:14px;min-height:calc(100vh - 28px);border:1px solid rgba(255,255,255,.85);border-radius:28px;background:linear-gradient(165deg,rgba(255,255,255,.55) 0%,rgba(240,246,255,.4) 100%);box-shadow:0 4px 32px rgba(30,50,80,.08);overflow:clip;backdrop-filter:blur(3px);animation:shellIn .7s var(--ease-out) both}
 @keyframes shellIn{from{opacity:0;transform:translateY(14px) scale(.993)}to{opacity:1;transform:none}}
-/* ══ BRANDBAR ══ */
 .brandbar{height:70px;display:flex;align-items:center;gap:12px;padding:0 26px;border-bottom:1px solid rgba(255,255,255,.7)}
 .brand{font-weight:750;font-size:18px;letter-spacing:-.3px;display:flex;align-items:center;gap:10px}
 .brand-bars{display:flex;align-items:flex-end;gap:3.5px;height:26px;width:28px}
@@ -58,7 +54,6 @@ button:active:not(:disabled){transform:translateY(1px) scale(.995)}
 .pill.warn{color:#8a5c00;background:rgba(240,180,0,.14);border-color:rgba(220,160,0,.28);animation:pulseWarn 1.6s ease-in-out infinite}
 .pill.err{color:#b03040;background:rgba(200,50,70,.1);border-color:rgba(200,50,70,.22)}
 @keyframes pulseWarn{0%,100%{box-shadow:0 0 0 0 rgba(230,170,0,.35)}50%{box-shadow:0 0 0 6px rgba(230,170,0,0)}}
-/* ══ WORKSPACE ══ */
 .workspace{display:grid;grid-template-columns:206px minmax(0,1fr);gap:20px;padding:0 22px 28px 12px;align-items:start}
 .sidebar{position:sticky;top:14px;min-height:calc(100vh - 112px);display:flex;flex-direction:column;padding:10px 7px 18px;border-radius:var(--radius);border:1px solid rgba(255,255,255,.88);background:var(--glass-bg);backdrop-filter:blur(28px);box-shadow:var(--shadow)}
 nav{display:flex;flex-direction:column;gap:3px}
@@ -75,7 +70,6 @@ nav{display:flex;flex-direction:column;gap:3px}
 ._logo_1k160_78{display:block;width:118px;height:auto;opacity:.78;transition:opacity var(--transition),transform var(--transition);filter:saturate(1.05)}
 ._logo_1k160_78:hover{opacity:1;transform:translateY(-1px) scale(1.02)}
 .sidebar-foot small{display:block;color:var(--muted);font-size:9.5px;letter-spacing:.5px;opacity:.7}
-/* ══ MAIN ══ */
 .main{min-width:0}
 .pagebar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:18px 0;min-height:48px;flex-wrap:wrap}
 .pagebar h1{font:720 clamp(24px,2.6vw,38px)/1.12 Bounded,Hint,'Segoe UI',sans-serif;letter-spacing:-1.1px;background:linear-gradient(100deg,#13202f,#39506b 60%,#13202f);-webkit-background-clip:text;background-clip:text;color:transparent;animation:titleIn .5s var(--ease-out) both}
@@ -88,14 +82,12 @@ nav{display:flex;flex-direction:column;gap:3px}
 .icon-btn:hover{color:var(--text);box-shadow:var(--shadow-hover);transform:translateY(-2px)}
 #reload:hover{transform:translateY(-2px) rotate(140deg)}
 .month-wrap .icon-btn{border:0;box-shadow:none;width:28px;background:transparent;font-size:14px}
-/* ══ GLASS CARD ══ */
 .glass{background:var(--glass-bg);border:1px solid rgba(255,255,255,.85);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);min-width:0;transition:box-shadow var(--transition),transform var(--transition)}
 .card{padding:22px 24px;margin-bottom:18px;position:relative;overflow:hidden}
 .card:hover{box-shadow:var(--shadow-hover)}
 .card h2{font-size:19px;letter-spacing:-.45px;line-height:1.3;font-weight:720}
 .cardhead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px}
 .cardhead p,.muted{color:var(--muted);font-size:12px;margin:4px 0 0}
-/* ══ HERO ══ */
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(0,1fr);gap:18px;margin-bottom:18px}
 .hero{position:relative;padding:24px 26px;border-radius:26px;overflow:hidden;border:1px solid rgba(255,255,255,.92);box-shadow:0 10px 34px rgba(20,40,70,.12),inset 0 1px 0 #fff;background:linear-gradient(140deg,rgba(255,255,255,.95),rgba(246,252,255,.82) 55%,rgba(236,250,244,.9));transition:transform var(--transition),box-shadow var(--transition)}
 .hero:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(20,40,70,.16),inset 0 1px 0 #fff}
@@ -119,13 +111,11 @@ nav{display:flex;flex-direction:column;gap:3px}
 .hero-note{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.5}
 .hero-big{font:800 clamp(52px,6.4vw,86px)/.95 Bounded,Hint,sans-serif;letter-spacing:-3.5px;font-variant-numeric:tabular-nums;background:linear-gradient(135deg,#1b2b3d,var(--accent,#00a56a));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero-sub{font-size:12px;color:var(--muted);margin-top:6px}
-/* RING */
 .ring{width:166px;height:166px;flex-shrink:0;filter:drop-shadow(0 6px 16px rgba(0,120,80,.18))}
 .ring-bg{fill:none;stroke:rgba(190,210,228,.5);stroke-width:14}
 .ring-fg{fill:none;stroke:url(#ringGrad);stroke-width:14;stroke-linecap:round;transition:stroke-dashoffset 1.3s var(--ease-out)}
 .ring-val{font:800 32px/1 Bounded,Hint,sans-serif;fill:var(--text);letter-spacing:-1.5px}
 .ring-cap{font-size:10px;fill:var(--muted);font-weight:650}
-/* ══ KPI ══ */
 .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}
 .kpi{padding:17px 19px;min-height:126px;display:flex;flex-direction:column;position:relative;overflow:hidden}
 .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,rgba(100,140,200,.35),rgba(100,140,200,.06));border-radius:99px 99px 0 0}
@@ -137,14 +127,12 @@ nav{display:flex;flex-direction:column;gap:3px}
 .kpi .label{font-size:12.5px;font-weight:650;line-height:1.3;color:var(--muted);letter-spacing:.1px}
 .kpi strong{font-size:clamp(23px,2.1vw,33px);font-weight:760;letter-spacing:-1.1px;line-height:1.1;margin-top:11px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 .kpi .meta{font-size:10.5px;color:var(--muted);margin-top:auto;padding-top:7px;line-height:1.35}
-/* ══ INCOME ══ */
 .income-overview{padding:24px;margin-bottom:18px;border-radius:26px;background:linear-gradient(145deg,rgba(255,255,255,.93),rgba(248,252,255,.83) 60%,rgba(238,250,246,.9));border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow)}
 .income-overview .cardhead{align-items:center;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(218,232,246,.6)}
 .income-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0}
 .income-overview .income-kpis .kpi{min-height:114px;padding:16px 17px;border-radius:17px;background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.96);box-shadow:0 4px 14px rgba(20,40,70,.07),inset 0 1px 0 #fff}
 .income-overview .income-kpis .kpi:first-child{background:linear-gradient(145deg,rgba(228,249,240,.92),rgba(255,255,255,.86));border-color:rgba(0,165,106,.2)}
 .income-overview .income-kpis .kpi:last-child{background:linear-gradient(145deg,rgba(231,242,255,.92),rgba(255,255,255,.86));border-color:rgba(61,142,240,.2)}
-/* ══ FORM ══ */
 input,select,textarea{border:1px solid rgba(168,190,212,.55);border-radius:var(--radius-xs);padding:9px 12px;background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(248,251,255,.88));outline:none;max-width:100%;transition:border-color .2s,box-shadow .2s,background .2s,transform .2s}
 input::placeholder,textarea::placeholder{color:#9bacbd}
 input:focus,textarea:focus,select:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(61,142,240,.14)}
@@ -162,13 +150,11 @@ textarea{resize:vertical;width:100%;min-height:72px}
 .text-btn{padding:0;border:0;background:none;font-size:12px;color:var(--muted);box-shadow:none!important;font-weight:650;display:inline-flex;gap:5px;align-items:center}
 .text-btn:hover{color:var(--green);transform:translateX(3px)}
 .note{color:var(--muted);font-size:12px;line-height:1.6;margin:9px 0}
-/* ══ FILTERBAR ══ */
 .filterbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:16px;padding:10px 13px;border:1px solid rgba(255,255,255,.9);border-radius:16px;background:rgba(255,255,255,.6);box-shadow:0 2px 10px rgba(20,40,70,.06);backdrop-filter:blur(12px)}
 .filterbar input{flex:1;min-width:158px}
 .filterbar select{max-width:215px}
 .filterbar summary{cursor:pointer;font-size:12px;font-weight:650;color:var(--muted)}
 .advanced{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;animation:riseIn .3s var(--ease-out)}
-/* ══ PROGRESS ══ */
 .big-progress{position:relative;height:18px;background:linear-gradient(180deg,#dbe4ef,#e9f0f7);border-radius:99px;overflow:hidden;margin:16px 0 10px;box-shadow:inset 0 2px 5px rgba(30,50,80,.1)}
 .big-progress i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#4de0a8,#00a56a);box-shadow:0 0 14px rgba(0,180,120,.45);transition:width 1.3s var(--ease-out);max-width:100%;position:relative;overflow:hidden}
 .big-progress i::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);transform:translateX(-100%);animation:shine 2.4s ease-in-out infinite}
@@ -179,7 +165,6 @@ textarea{resize:vertical;width:100%;min-height:72px}
 .row-main{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px}
 .row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .row-main>*,.row2>*{min-width:0}
-/* ══ BANKS ══ */
 .bank-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:18px}
 .bank-card{padding:22px;position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:272px;border-radius:var(--radius);cursor:pointer}
 .bank-card::after{content:'';position:absolute;width:240px;height:240px;right:-96px;top:-130px;border-radius:50%;background:var(--brand);opacity:.08;transition:transform .5s var(--ease-out),opacity .4s}
@@ -187,7 +172,6 @@ textarea{resize:vertical;width:100%;min-height:72px}
 .bank-card:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(20,40,70,.17)}
 .bank-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,color-mix(in srgb,var(--brand),white 30%),var(--brand))}
 .bank-head{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:16px;position:relative;z-index:1}
-/* Единый компактный размер логотипов четырёх банков: Точка, ВТБ, Альфа-Банк и ПСБ. */
 .bank-logo-image{display:block;width:120px;max-width:120px;height:34px;padding:4px 8px;box-sizing:border-box;object-fit:contain;object-position:center;background:rgba(255,255,255,.78);border:1px solid rgba(220,230,242,.9);border-radius:10px;transition:transform var(--transition),box-shadow var(--transition)}
 .bank-card:hover .bank-logo-image{transform:translateY(-1px);box-shadow:0 4px 12px rgba(20,40,70,.08)}
 .bank-pct{font-size:11px;font-weight:700;color:var(--brand);background:color-mix(in srgb,var(--brand),transparent 90%);border:1px solid color-mix(in srgb,var(--brand),transparent 78%);border-radius:99px;padding:5px 11px;white-space:nowrap}
@@ -203,7 +187,6 @@ textarea{resize:vertical;width:100%;min-height:72px}
 .mini-glass b{font-size:20px;line-height:1.3;margin-top:auto;font-variant-numeric:tabular-nums;font-weight:760}
 .bank-card>.text-btn{margin-top:auto;padding-top:12px;align-self:flex-start;position:relative;z-index:1}
 .spark{display:block;width:100%;height:38px;overflow:visible}
-/* ══ CHARTS ══ */
 .chart{position:relative;margin:2px 0 0}
 .chart-scroll{overflow:visible;max-width:100%;padding:4px 0 0}
 .chart-svg{display:block;width:100%;height:auto;aspect-ratio:1000/320;overflow:visible;touch-action:pan-y}
@@ -216,11 +199,9 @@ textarea{resize:vertical;width:100%;min-height:72px}
 .chart-svg .chart-bar{transition:opacity .2s,filter .2s}
 .chart-svg .chart-point{transition:r .2s var(--ease-out),stroke-width .2s}
 .chart-svg .hit{fill:transparent;cursor:crosshair}
-.chart-svg .hit:hover~*{}
 .chart-svg .crosshair{stroke:#9fb4c9;stroke-width:1.2;stroke-dasharray:4 5;opacity:0;transition:opacity .15s}
 .chart-svg.live .crosshair{opacity:.85}
 .chart-svg .ser-off{opacity:.08;pointer-events:none}
-/* chart animations */
 .motion .chart-svg.anim .chart-line{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1.25s var(--ease-out) forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
 .motion .chart-svg.anim .chart-area{opacity:0;animation:fadeIn .9s .45s ease forwards}
@@ -244,7 +225,6 @@ textarea{resize:vertical;width:100%;min-height:72px}
 .dot{display:inline-block;width:9px;height:9px;border-radius:3px;background:var(--color,#00a56a);flex-shrink:0;box-shadow:0 0 0 3px color-mix(in srgb,var(--color,#00a56a),transparent 84%)}
 .chart-details{margin-top:12px;padding-top:10px;border-top:1px solid rgba(218,232,246,.6)}
 .chart-details summary{font-size:11px;font-weight:650;color:var(--muted);cursor:pointer}
-/* ══ DONUT ══ */
 .donut-wrap{display:flex;gap:22px;align-items:center;justify-content:center;padding:9px 0;flex-wrap:wrap}
 .donut{width:184px;flex-shrink:0;filter:drop-shadow(0 8px 18px rgba(20,40,70,.14))}
 .donut-arc{transition:stroke-dasharray 1.1s var(--ease-out),stroke-width .22s,opacity .22s;cursor:pointer}
@@ -255,14 +235,12 @@ textarea{resize:vertical;width:100%;min-height:72px}
 .donut-legend div{display:flex;align-items:center;gap:8px;font-size:12px;transition:transform var(--transition)}
 .donut-legend div:hover{transform:translateX(3px)}
 .donut-legend b{margin-left:auto;font-variant-numeric:tabular-nums}
-/* ══ TABS ══ */
 .tabs{display:flex;gap:4px;border:1px solid rgba(255,255,255,.9);background:rgba(218,229,242,.55);padding:3.5px;border-radius:99px;max-width:fit-content;margin-bottom:20px;backdrop-filter:blur(10px)}
 .tabs button{padding:8px 16px;border-radius:99px;font-size:13.5px;white-space:nowrap;color:var(--muted);font-weight:550}
 .tabs button:hover:not(.active){color:var(--text);background:rgba(255,255,255,.55)}
 .tabs button.active{background:linear-gradient(180deg,#fff,rgba(247,251,255,.9));box-shadow:0 4px 12px rgba(20,40,70,.13);font-weight:730;color:var(--text)}
 .tabs.compact{margin-bottom:0}
 .tabs.compact button{padding:6px 13px;font-size:12px}
-/* ══ TABLE ══ */
 .table-wrap{overflow:auto;max-height:580px;border-radius:14px;border:1px solid rgba(200,218,234,.5)}
 .table-wrap table{border-collapse:separate;border-spacing:0;width:100%;font-size:12px}
 .table-wrap th{text-align:left;background:rgba(232,241,251,.95);border-bottom:1px solid rgba(255,255,255,.8);position:sticky;top:0;z-index:1;padding:10px 12px;white-space:nowrap;font-weight:680;color:var(--muted);font-size:11.5px;backdrop-filter:blur(8px)}
@@ -281,7 +259,6 @@ textarea{resize:vertical;width:100%;min-height:72px}
 .tablefoot{display:flex;gap:13px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:14px;font-size:12px;color:var(--muted)}
 .pager{display:flex;gap:5px;align-items:center}
 .pager .btn{min-width:34px;padding:5px 8px;min-height:32px;border-radius:10px}
-/* ══ PRIORITY STATUS ══ */
 .priority-section-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border:1px solid rgba(220,232,244,.75);border-radius:99px;background:rgba(248,251,255,.85);color:#587090;font-size:10px;font-weight:780;letter-spacing:.35px;white-space:nowrap}
 .priority-section-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(0,165,106,.2)}
 .priority-status-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
@@ -315,7 +292,6 @@ textarea{resize:vertical;width:100%;min-height:72px}
 .priority-other-track i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#aac3d8,#7eaacc);transition:width .9s var(--ease-out)}
 .priority-other-row.muted-row{cursor:default;opacity:.62}
 .priority-other-empty{padding:14px;border:1px dashed rgba(195,215,232,.7);border-radius:13px;color:var(--muted);font-size:12px;background:rgba(255,255,255,.45)}
-/* ══ MISC ══ */
 .home-summary .kpi{position:relative;min-height:116px;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.95)}
 .home-summary .kpi::before{left:0;top:0;bottom:0;right:auto;width:3.5px;height:auto;background:rgba(170,190,210,.6);border-radius:0}
 .home-summary .kpi:nth-child(2)::before{background:var(--green)}
@@ -395,7 +371,6 @@ dialog .actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;mar
   .toasts{bottom:88px;right:12px}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-
 </style>
 </head>
 <body>
@@ -443,7 +418,7 @@ dialog .actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;mar
         </div>
       </div>
       <div id="page" aria-busy="true">
-        <div class="loading"><div class="spinner"></div><div>Загружаю данные из таблицы…</div></div>
+        <div class="loading"><div class="spinner"></div><div>Загружаю данные из таблицы...</div></div>
       </div>
       <footer class="footer">
         <span id="sourceInfo">Заявка · Отсутствует задача ЕСП · Суммы</span>
@@ -466,12 +441,243 @@ dialog .actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;mar
     <button class="btn primary" id="resolveConflict">Обновить данные</button>
   </div>
 </dialog>
-
 <script>
-var Piot=(function(){'use strict';var FIELDS=['plan','done','closed','sp','esp'];var BANKS=[{id:'vtb',name:'ВТБ',color:'#2788ef',keys:['втб','vtb','бм-банк']},{id:'alfa',name:'Альфа-Банк',color:'#ef384b',keys:['альфа','alfa','alpha']},{id:'tochka',name:'Точка',color:'#8739ed',keys:['точка','tochka']},{id:'psb',name:'ПСБ',color:'#ff850e',keys:['псб','psb','промсвязьбанк']}];function norm(v){return String(v==null?'':v).trim().toLowerCase().replace(/ё/g,'е').replace(/\s+/g,' ');}function contains(s,keys){s=norm(s);return keys.some(function(k){return k&&s.indexOf(norm(k))!==-1;});}function token(s,k){s=norm(s);k=norm(k);var pos=s.indexOf(k);while(pos>=0){if(!/[a-zа-я0-9]/i.test(s.charAt(pos-1))&&!/[a-zа-я0-9]/i.test(s.charAt(pos+k.length)))return true;pos=s.indexOf(k,pos+1);}return false;}function validMonth(v){return /^\d{4}-(0[1-9]|1[0-2])$/.test(String(v));}function date(v){if(v==null||v==='')return '';var a=String(v).trim().match(/^(\d{4})-(\d{2})-(\d{2})/),y,m,d;if(a){y=+a[1];m=+a[2];d=+a[3];}else{a=String(v).trim().match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{4}|\d{2})$/);if(!a)return '';d=+a[1];m=+a[2];y=+a[3];if(y<100)y+=2000;}if(y<1900||y>2199)return '';var dt=new Date(Date.UTC(y,m-1,d));return dt.getUTCFullYear()===y&&dt.getUTCMonth()===m-1&&dt.getUTCDate()===d?[y,String(m).padStart(2,'0'),String(d).padStart(2,'0')].join('-'):'';}function amount(v){if(v==null||v==='')return 0;if(typeof v==='number')return Number.isFinite(v)?Math.round(v*100)/100:null;var s=String(v).trim().replace(/(?:руб\.?|₽|RUB)/gi,'').replace(/[\s\u00a0\u202f]/g,'');if(!/^-?\d+(?:[.,]\d+)*$/.test(s))return null;var dots=(s.match(/\./g)||[]).length,commas=(s.match(/,/g)||[]).length;if(dots&&commas){var sep=s.lastIndexOf('.')>s.lastIndexOf(',')?'.':',';s=s.replace(sep==='.'?/,/g:/\./g,'').replace(',','.');}else if(dots+commas>1){if(!/^-?\d{1,3}(?:[.,]\d{3})+$/.test(s))return null;s=s.replace(/[.,]/g,'');}else s=s.replace(',','.');var n=Number(s);return Number.isFinite(n)&&Math.abs(n)<=1e12?Math.round(n*100)/100:null;}function defaults(){return{revision:0,animate:true,showBanks:true,showCharts:true,showStatuses:true,perPage:25,noEspDateCol:0,done:['закрыта','закрыто','завершена','завершено','выполнена','выполнено','выполнен','задача выполнена','задача выполнина','установлен','готово','оплачено у lp','клиент настроен с нашей помощью','клиент сам установил'],closed:['закрыта','закрыто','завершена','завершено'],invoice:['счет отправил','выставлен счет'],lp:['в работе у сп','оплачено у lp','задача выполнена: клиент оплатил lp','в работе у lp','клиент оплатил lp','оплатил лп','оплачено лп','в работе у лп','клиент настроен с нашей помощью','задачу направил в отдел ордк'],sp:['задача выполнена: клиент оплатил сп','в работе клиент оплатил сп','клиент оплатил сп','оплатил сп','сп оплат'],bankKeys:BANKS.map(function(b){return b.keys.slice();})};}function validateConfig(raw){var out=defaults();if(!raw||typeof raw!=='object'||Array.isArray(raw))throw Error('Неверные настройки');['animate','showBanks','showCharts','showStatuses'].forEach(function(k){if(typeof raw[k]!=='boolean')throw Error('Неверный переключатель: '+k);out[k]=raw[k];});if(![10,25,50,100].includes(+raw.perPage))throw Error('Неверный размер страницы');out.perPage=+raw.perPage;if(!Number.isInteger(+raw.noEspDateCol)||raw.noEspDateCol<0||raw.noEspDateCol>50)throw Error('Номер столбца даты: 0–50');out.noEspDateCol=+raw.noEspDateCol;['done','closed','invoice','lp','sp'].forEach(function(k){if(!Array.isArray(raw[k])||raw[k].length>80||raw[k].some(function(x){return typeof x!=='string'||x.length>180;}))throw Error('Неверные правила: '+k);out[k]=Array.from(new Set(raw[k].map(norm).filter(Boolean)));});if(!Array.isArray(raw.bankKeys)||raw.bankKeys.length!==4)throw Error('Нужны правила четырёх банков');out.bankKeys=raw.bankKeys.map(function(a){if(!Array.isArray(a)||a.length>30||a.some(function(x){return typeof x!=='string'||x.length>80;}))throw Error('Неверные ключи банка');return Array.from(new Set(a.map(norm).filter(Boolean)));});return out;}function isInvoice(r,c){return contains(r.taskStatus,c.invoice);}function matchesStatus(text,keys){text=norm(text);if(/(?:^|\s)(?:не|не\s+была|не\s+был)\s+(?:выполн|закры|заверш|установ)/.test(text)||contains(text,['не выполн','не закры','не заверш','не установ','отмен']))return false;return keys.some(function(k){k=norm(k);return text===k||text.indexOf(k+':')===0||text.indexOf(k+' ')===0;});}function isDone(r,c){return matchesStatus(r.status,c.done)||matchesStatus(r.taskStatus,c.done);}function isClosed(r,c){return matchesStatus(r.status,c.closed)||matchesStatus(r.taskStatus,c.closed);}function bucket(r,c){if(isInvoice(r,c))return 'invoice';if(r.source==='noesp')return 'lp';if(contains(r.taskStatus,c.sp))return 'sp';if(contains(r.taskStatus,c.lp))return 'lp';if(contains(r.partner,['авт биз','автоматизация бизнеса']))return 'sp';if(['lp','life pay','lifepay','лп','лайф пей','лайфпей'].some(function(k){return token(r.partner,k);}))return 'lp';return 'other';}function bank(r,c){var hay=[r.client,r.customer,r.legalEntity].join(' ');var hits=BANKS.filter(function(b,i){return c.bankKeys[i].some(function(k){return token(hay,k);});});return hits.length===1?hits[0].id:'';}function rev(r,c){return r.amount>0&&!isInvoice(r,c)?r.amount:0;}function summary(records,c){var s={total:0,done:0,closed:0,paid:0,revenue:0,lp:0,sp:0,other:0,invoice:0,noesp:0,unknownBank:0,undated:0};records.forEach(function(r){if(r.source!=='noesp'){s.total++;if(isDone(r,c))s.done++;if(isClosed(r,c))s.closed++;if(!bank(r,c))s.unknownBank++;}if(!r.date)s.undated++;var b=bucket(r,c),v=rev(r,c);if(b==='invoice'){s.invoice+=Math.max(0,r.amount);return;}s.revenue+=v;if(v)s.paid++;if(b==='lp')s.lp+=v;else if(b==='sp')s.sp+=v;else s.other+=v;if(r.source==='noesp')s.noesp+=v;});return s;}function emptyMonth(){return{plan:null,done:null,closed:null,sp:null,esp:null,revision:0,updated:'',auto:{total:0,done:0,closed:0,revenue:0,sp:0},autoUpdated:''};}function validatePatch(p){if(!p||typeof p!=='object'||Array.isArray(p))throw Error('Неверные значения');var out={};Object.keys(p).forEach(function(k){if(!FIELDS.includes(k))throw Error('Неизвестное поле '+k);if(p[k]===null||p[k]===''){out[k]=null;return;}if(typeof p[k]!=='number'||!Number.isFinite(p[k])||p[k]<0||p[k]>1e12)throw Error('Введите неотрицательное число');if(['plan','done','closed'].includes(k)&&!Number.isInteger(p[k]))throw Error('Количество должно быть целым');out[k]=Math.round(p[k]*100)/100;});return out;}function eventSummary(records,c,month){var arrivals=month?records.filter(function(r){return(r.date||'').slice(0,7)===month;}):records;var result=summary(arrivals,c);var events=records.filter(function(r){return r.source!=='noesp'&&(!month||(r.dateStatus||'').slice(0,7)===month);});result.done=events.filter(function(r){return isDone(r,c);}).length;result.closed=events.filter(function(r){return isClosed(r,c);}).length;result.open=arrivals.filter(function(r){return r.source!=='noesp'&&!isDone(r,c);}).length;return result;}function monthly(records,c){var keys=new Set();records.forEach(function(r){[r.date,r.dateStatus].forEach(function(d){var m=(d||'').slice(0,7);if(validMonth(m))keys.add(m);});});var out=Object.create(null);Array.from(keys).sort().forEach(function(m){out[m]=eventSummary(records,c,m);});return out;}function activityPeriods(records,gran,c,month){var out=Object.create(null);function add(d,key){if(month&&(d||'').slice(0,7)!==month)return;var k=periodKey(d,gran);if(!out[k])out[k]={key:k,total:0,done:0,closed:0};out[k][key]++;}records.filter(function(r){return r.source!=='noesp';}).forEach(function(r){add(r.date,'total');if(isDone(r,c))add(r.dateStatus,'done');if(isClosed(r,c))add(r.dateStatus,'closed');});return Object.keys(out).sort().map(function(k){return out[k];});}function filter(records,f,c){return records.filter(function(r){return(!f.month||r.date.slice(0,7)===f.month)&&(!f.partner||r.partner===f.partner)&&(!f.status||r.status===f.status)&&(!f.task||r.taskStatus===f.task)&&(!f.responsible||r.responsible===f.responsible)&&(!f.priority||r.priority===f.priority)&&(!f.bank||bank(r,c)===f.bank)&&(!f.q||norm([r.numero,r.client,r.partner,r.status,r.taskStatus,r.customer,r.legalEntity,r.responsible].join(' ')).includes(norm(f.q)));});}function income(records,ledger,month,c){var chosen=month?records.filter(function(r){return r.date.slice(0,7)===month;}):records,base=summary(chosen,c),auto=monthly(chosen,c),keys=month?[month]:Array.from(new Set(Object.keys(auto).concat(Object.keys(ledger))));var sp=base.sp,esp=0;keys.forEach(function(k){var row=ledger[k]||emptyMonth();esp+=row.esp||0;});return{installation:base.revenue,spAuto:base.sp,sp:sp,esp:esp,lp:base.lp,other:base.other,total:base.lp+base.other+sp+esp};}function periodKey(d,gran){if(!d)return'Без даты';if(gran==='month')return d.slice(0,7);if(gran==='day')return d;var dt=new Date(d+'T12:00:00Z');dt.setUTCDate(dt.getUTCDate()-(dt.getUTCDay()+6)%7);return dt.toISOString().slice(0,10);}function periods(records,gran,c){var out=Object.create(null);records.forEach(function(r){var k=periodKey(r.date,gran);if(!out[k])out[k]={key:k,total:0,paid:0,revenue:0};if(r.source!=='noesp')out[k].total++;var v=rev(r,c);if(v)out[k].paid++;out[k].revenue+=v;});return Object.keys(out).sort(function(a,b){if(a==='Без даты')return 1;if(b==='Без даты')return-1;return a.localeCompare(b);}).map(function(k){return out[k];});}function monthRange(current){var keys=['2026-12','2027-01'];var y=+current.slice(0,4);for(var yr=Math.min(2026,y);yr<=Math.max(2027,y+1);yr++)for(var m=1;m<=12;m++)keys.push(yr+'-'+String(m).padStart(2,'0'));return Array.from(new Set(keys)).sort();}function csv(rows,cols){function cell(v){var s=String(v==null?'':v);if(/^[=+@\-\t\r]/.test(s))s="'"+s;return'"'+s.replace(/"/g,'""')+'"';}return'\ufeff'+[cols.map(function(c){return cell(c[1]);}).join(';')].concat(rows.map(function(r){return cols.map(function(c){return cell(r[c[0]]);}).join(';');})).join('\r\n');}
-return{FIELDS:FIELDS,BANKS:BANKS,norm:norm,contains:contains,validMonth:validMonth,date:date,amount:amount,defaults:defaults,validateConfig:validateConfig,isInvoice:isInvoice,isDone:isDone,isClosed:isClosed,bucket:bucket,bank:bank,rev:rev,summary:summary,emptyMonth:emptyMonth,validatePatch:validatePatch,monthly:monthly,eventSummary:eventSummary,activityPeriods:activityPeriods,filter:filter,income:income,periodKey:periodKey,periods:periods,monthRange:monthRange,csv:csv};})();
+var Piot=(function(){'use strict';
+var FIELDS=['plan','done','closed','sp','esp'];
+var BANKS=[
+  {id:'vtb',  name:'ВТБ',       color:'#2788ef',keys:['втб','vtb','бм-банк']},
+  {id:'alfa', name:'Альфа-Банк',color:'#ef384b',keys:['альфа','alfa','alpha']},
+  {id:'tochka',name:'Точка',    color:'#8739ed',keys:['точка','tochka']},
+  {id:'psb',  name:'ПСБ',       color:'#ff850e',keys:['псб','psb','промсвязьбанк']}
+];
+function norm(v){return String(v==null?'':v).trim().toLowerCase().replace(/ё/g,'е').replace(/\s+/g,' ');}
+function contains(s,keys){s=norm(s);return keys.some(function(k){return k&&s.indexOf(norm(k))!==-1;}); }
+function token(s,k){
+  s=norm(s);k=norm(k);var pos=s.indexOf(k);
+  while(pos>=0){
+    if(!/[a-zа-я0-9]/i.test(s.charAt(pos-1))&&!/[a-zа-я0-9]/i.test(s.charAt(pos+k.length)))return true;
+    pos=s.indexOf(k,pos+1);
+  }
+  return false;
+}
+function validMonth(v){return /^\d{4}-(0[1-9]|1[0-2])$/.test(String(v));}
+function date(v){
+  if(v==null||v==='')return '';
+  var a=String(v).trim().match(/^(\d{4})-(\d{2})-(\d{2})/),y,m,d;
+  if(a){y=+a[1];m=+a[2];d=+a[3];}
+  else{
+    a=String(v).trim().match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{4}|\d{2})$/);
+    if(!a)return '';
+    d=+a[1];m=+a[2];y=+a[3];if(y<100)y+=2000;
+  }
+  if(y<1900||y>2199)return '';
+  var dt=new Date(Date.UTC(y,m-1,d));
+  return dt.getUTCFullYear()===y&&dt.getUTCMonth()===m-1&&dt.getUTCDate()===d
+    ?[y,String(m).padStart(2,'0'),String(d).padStart(2,'0')].join('-'):'';
+}
+function amount(v){
+  if(v==null||v==='')return 0;
+  if(typeof v==='number')return Number.isFinite(v)?Math.round(v*100)/100:null;
+  var s=String(v).trim().replace(/(?:руб\.?|₽|RUB)/gi,'').replace(/[\s\u00a0\u202f]/g,'');
+  if(!/^-?\d+(?:[.,]\d+)*$/.test(s))return null;
+  var dots=(s.match(/\./g)||[]).length,commas=(s.match(/,/g)||[]).length;
+  if(dots&&commas){
+    var sep=s.lastIndexOf('.')>s.lastIndexOf(',')?'.':',';
+    s=s.replace(sep==='.'?/,/g:/\./g,'').replace(',','.');
+  }else if(dots+commas>1){
+    if(!/^-?\d{1,3}(?:[.,]\d{3})+$/.test(s))return null;
+    s=s.replace(/[.,]/g,'');
+  }else s=s.replace(',','.');
+  var n=Number(s);
+  return Number.isFinite(n)&&Math.abs(n)<=1e12?Math.round(n*100)/100:null;
+}
+function defaults(){
+  return{
+    revision:0,animate:true,showBanks:true,showCharts:true,showStatuses:true,perPage:25,noEspDateCol:0,
+    done:['закрыта','закрыто','завершена','завершено','выполнена','выполнено','выполнен','задача выполнена','задача выполнина','установлен','готово','оплачено у lp','клиент настроен с нашей помощью','клиент сам установил'],
+    closed:['закрыта','закрыто','завершена','завершено'],
+    invoice:['счет отправил','выставлен счет'],
+    lp:['в работе у сп','оплачено у lp','задача выполнена: клиент оплатил lp','в работе у lp','клиент оплатил lp','оплатил лп','оплачено лп','в работе у лп','клиент настроен с нашей помощью','задачу направил в отдел ордк'],
+    sp:['задача выполнена: клиент оплатил сп','в работе клиент оплатил сп','клиент оплатил сп','оплатил сп','сп оплат'],
+    bankKeys:BANKS.map(function(b){return b.keys.slice();})
+  };
+}
+function validateConfig(raw){
+  var out=defaults();
+  if(!raw||typeof raw!=='object'||Array.isArray(raw))throw Error('Неверные настройки');
+  ['animate','showBanks','showCharts','showStatuses'].forEach(function(k){
+    if(typeof raw[k]!=='boolean')throw Error('Неверный переключатель: '+k);
+    out[k]=raw[k];
+  });
+  if(![10,25,50,100].includes(+raw.perPage))throw Error('Неверный размер страницы');
+  out.perPage=+raw.perPage;
+  if(!Number.isInteger(+raw.noEspDateCol)||raw.noEspDateCol<0||raw.noEspDateCol>50)throw Error('Номер столбца даты: 0–50');
+  out.noEspDateCol=+raw.noEspDateCol;
+  ['done','closed','invoice','lp','sp'].forEach(function(k){
+    if(!Array.isArray(raw[k])||raw[k].length>80||raw[k].some(function(x){return typeof x!=='string'||x.length>180;}))
+      throw Error('Неверные правила: '+k);
+    out[k]=Array.from(new Set(raw[k].map(norm).filter(Boolean)));
+  });
+  if(!Array.isArray(raw.bankKeys)||raw.bankKeys.length!==4)throw Error('Нужны правила четырёх банков');
+  out.bankKeys=raw.bankKeys.map(function(a){
+    if(!Array.isArray(a)||a.length>30||a.some(function(x){return typeof x!=='string'||x.length>80;}))
+      throw Error('Неверные ключи банка');
+    return Array.from(new Set(a.map(norm).filter(Boolean)));
+  });
+  return out;
+}
+function isInvoice(r,c){return contains(r.taskStatus,c.invoice);}
+function matchesStatus(text,keys){
+  text=norm(text);
+  if(/(?:^|\s)(?:не|не\s+была|не\s+был)\s+(?:выполн|закры|заверш|установ)/.test(text)||
+     contains(text,['не выполн','не закры','не заверш','не установ','отмен']))return false;
+  return keys.some(function(k){
+    k=norm(k);return text===k||text.indexOf(k+':')===0||text.indexOf(k+' ')===0;
+  });
+}
+function isDone(r,c){return matchesStatus(r.status,c.done)||matchesStatus(r.taskStatus,c.done);}
+function isClosed(r,c){return matchesStatus(r.status,c.closed)||matchesStatus(r.taskStatus,c.closed);}
+function bucket(r,c){
+  if(isInvoice(r,c))return 'invoice';
+  if(r.source==='noesp')return 'lp';
+  if(contains(r.taskStatus,c.sp))return 'sp';
+  if(contains(r.taskStatus,c.lp))return 'lp';
+  if(contains(r.partner,['авт биз','автоматизация бизнеса']))return 'sp';
+  if(['lp','life pay','lifepay','лп','лайф пей','лайфпей'].some(function(k){return token(r.partner,k);}))return 'lp';
+  return 'other';
+}
+function bank(r,c){
+  var hay=[r.client,r.customer,r.legalEntity].join(' ');
+  var hits=BANKS.filter(function(b,i){return c.bankKeys[i].some(function(k){return token(hay,k);});});
+  return hits.length===1?hits[0].id:'';
+}
+function rev(r,c){return r.amount>0&&!isInvoice(r,c)?r.amount:0;}
+function summary(records,c){
+  var s={total:0,done:0,closed:0,paid:0,revenue:0,lp:0,sp:0,other:0,invoice:0,noesp:0,unknownBank:0,undated:0};
+  records.forEach(function(r){
+    if(r.source!=='noesp'){
+      s.total++;
+      if(isDone(r,c))s.done++;
+      if(isClosed(r,c))s.closed++;
+      if(!bank(r,c))s.unknownBank++;
+    }
+    if(!r.date)s.undated++;
+    var b=bucket(r,c),v=rev(r,c);
+    if(b==='invoice'){s.invoice+=Math.max(0,r.amount);return;}
+    s.revenue+=v;if(v)s.paid++;
+    if(b==='lp')s.lp+=v;else if(b==='sp')s.sp+=v;else s.other+=v;
+    if(r.source==='noesp')s.noesp+=v;
+  });
+  return s;
+}
+function emptyMonth(){return{plan:null,done:null,closed:null,sp:null,esp:null,revision:0,updated:'',auto:{total:0,done:0,closed:0,revenue:0,sp:0},autoUpdated:''};}
+function validatePatch(p){
+  if(!p||typeof p!=='object'||Array.isArray(p))throw Error('Неверные значения');
+  var out={};
+  Object.keys(p).forEach(function(k){
+    if(!FIELDS.includes(k))throw Error('Неизвестное поле '+k);
+    if(p[k]===null||p[k]===''){out[k]=null;return;}
+    if(typeof p[k]!=='number'||!Number.isFinite(p[k])||p[k]<0||p[k]>1e12)throw Error('Введите неотрицательное число');
+    if(['plan','done','closed'].includes(k)&&!Number.isInteger(p[k]))throw Error('Количество должно быть целым');
+    out[k]=Math.round(p[k]*100)/100;
+  });
+  return out;
+}
+function eventSummary(records,c,month){
+  var arrivals=month?records.filter(function(r){return(r.date||'').slice(0,7)===month;}):records;
+  var result=summary(arrivals,c);
+  var events=records.filter(function(r){return r.source!=='noesp'&&(!month||(r.dateStatus||'').slice(0,7)===month);});
+  result.done=events.filter(function(r){return isDone(r,c);}).length;
+  result.closed=events.filter(function(r){return isClosed(r,c);}).length;
+  result.open=arrivals.filter(function(r){return r.source!=='noesp'&&!isDone(r,c);}).length;
+  return result;
+}
+function monthly(records,c){
+  var keys=new Set();
+  records.forEach(function(r){
+    [r.date,r.dateStatus].forEach(function(d){var m=(d||'').slice(0,7);if(validMonth(m))keys.add(m);});
+  });
+  var out=Object.create(null);
+  Array.from(keys).sort().forEach(function(m){out[m]=eventSummary(records,c,m);});
+  return out;
+}
+function activityPeriods(records,gran,c,month){
+  var out=Object.create(null);
+  function add(d,key){
+    if(month&&(d||'').slice(0,7)!==month)return;
+    var k=periodKey(d,gran);
+    if(!out[k])out[k]={key:k,total:0,done:0,closed:0};
+    out[k][key]++;
+  }
+  records.filter(function(r){return r.source!=='noesp';}).forEach(function(r){
+    add(r.date,'total');
+    if(isDone(r,c))add(r.dateStatus,'done');
+    if(isClosed(r,c))add(r.dateStatus,'closed');
+  });
+  return Object.keys(out).sort().map(function(k){return out[k];});
+}
+function filter(records,f,c){
+  return records.filter(function(r){
+    return(!f.month||r.date.slice(0,7)===f.month)&&
+      (!f.partner||r.partner===f.partner)&&
+      (!f.status||r.status===f.status)&&
+      (!f.task||r.taskStatus===f.task)&&
+      (!f.responsible||r.responsible===f.responsible)&&
+      (!f.priority||r.priority===f.priority)&&
+      (!f.bank||bank(r,c)===f.bank)&&
+      (!f.q||norm([r.numero,r.client,r.partner,r.status,r.taskStatus,r.customer,r.legalEntity,r.responsible].join(' ')).includes(norm(f.q)));
+  });
+}
+function income(records,ledger,month,c){
+  var chosen=month?records.filter(function(r){return r.date.slice(0,7)===month;}):records;
+  var base=summary(chosen,c),auto=monthly(chosen,c);
+  var keys=month?[month]:Array.from(new Set(Object.keys(auto).concat(Object.keys(ledger))));
+  var sp=base.sp,esp=0;
+  keys.forEach(function(k){var row=ledger[k]||emptyMonth();esp+=row.esp||0;});
+  return{installation:base.revenue,spAuto:base.sp,sp:sp,esp:esp,lp:base.lp,other:base.other,total:base.lp+base.other+sp+esp};
+}
+function periodKey(d,gran){
+  if(!d)return 'Без даты';
+  if(gran==='month')return d.slice(0,7);
+  if(gran==='day')return d;
+  var dt=new Date(d+'T12:00:00Z');
+  dt.setUTCDate(dt.getUTCDate()-(dt.getUTCDay()+6)%7);
+  return dt.toISOString().slice(0,10);
+}
+function periods(records,gran,c){
+  var out=Object.create(null);
+  records.forEach(function(r){
+    var k=periodKey(r.date,gran);
+    if(!out[k])out[k]={key:k,total:0,paid:0,revenue:0};
+    if(r.source!=='noesp')out[k].total++;
+    var v=rev(r,c);if(v)out[k].paid++;out[k].revenue+=v;
+  });
+  return Object.keys(out).sort(function(a,b){
+    if(a==='Без даты')return 1;if(b==='Без даты')return -1;return a.localeCompare(b);
+  }).map(function(k){return out[k];});
+}
+function monthRange(current){
+  var keys=['2026-12','2027-01'];
+  var y=+current.slice(0,4);
+  for(var yr=Math.min(2026,y);yr<=Math.max(2027,y+1);yr++)
+    for(var m=1;m<=12;m++)keys.push(yr+'-'+String(m).padStart(2,'0'));
+  return Array.from(new Set(keys)).sort();
+}
+function csv(rows,cols){
+  function cell(v){
+    var s=String(v==null?'':v);
+    if(/^[=+@\-\t\r]/.test(s))s="'"+s;
+    return '"'+s.replace(/"/g,'""')+'"';
+  }
+  return '\ufeff'+[cols.map(function(c){return cell(c[1]);}).join(';')]
+    .concat(rows.map(function(r){return cols.map(function(c){return cell(r[c[0]]);}).join(';');}))
+    .join('\r\n');
+}
+return{FIELDS,BANKS,norm,contains,validMonth,date,amount,defaults,validateConfig,
+  isInvoice,isDone,isClosed,bucket,bank,rev,summary,emptyMonth,validatePatch,
+  monthly,eventSummary,activityPeriods,filter,income,periodKey,periods,monthRange,csv};
+})();
 if(typeof module!=='undefined')module.exports=Piot;
-
 </script>
 <script>
 (function(){
@@ -487,31 +693,22 @@ const monthLabel=m=>Piot.validMonth(m)?MONTH_NAMES[Number(m.slice(5))-1]+' '+m.s
 const shortLabel=k=>k==='Без даты'?k:k.length===7?MONTH_NAMES[Number(k.slice(5))-1].slice(0,3)+' '+k.slice(2,4):k.slice(8,10)+'.'+k.slice(5,7);
 const reduced=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* Компактные логотипы банков. Они отображаются только в разделе «Банки». */
 (function installCompactBankLogos(){
   if(document.getElementById('piot-compact-bank-logos'))return;
   const style=document.createElement('style');
   style.id='piot-compact-bank-logos';
   style.textContent=`
-    .bank-logo-image{
-      display:block;width:96px!important;max-width:96px!important;height:28px!important;
+    .bank-logo-image{display:block;width:96px!important;max-width:96px!important;height:28px!important;
       padding:4px 8px!important;box-sizing:border-box;object-fit:contain;object-position:center;
-      background:rgba(255,255,255,.9);border:1px solid rgba(220,230,242,.95);
-      border-radius:9px;box-shadow:0 2px 7px rgba(20,40,70,.045);
-      transition:transform .2s ease,box-shadow .2s ease;
-    }
-    .bank-card:hover .bank-logo-image{
-      transform:translateY(-1px);box-shadow:0 4px 11px rgba(20,40,70,.09);
-    }
+      background:rgba(255,255,255,.9);border:1px solid rgba(220,230,242,.95);border-radius:9px;
+      box-shadow:0 2px 7px rgba(20,40,70,.045);transition:transform .2s ease,box-shadow .2s ease;}
+    .bank-card:hover .bank-logo-image{transform:translateY(-1px);box-shadow:0 4px 11px rgba(20,40,70,.09);}
     .bank-head{align-items:center;gap:10px}
-    @media(max-width:850px){
-      .bank-logo-image{
-        width:88px!important;max-width:88px!important;height:26px!important;padding:4px 7px!important;
-      }
-    }
+    @media(max-width:850px){.bank-logo-image{width:88px!important;max-width:88px!important;height:26px!important;padding:4px 7px!important;}}
   `;
   document.head.appendChild(style);
 })();
+
 const path={
   home:'M3 10l9-7 9 7M5 9v11h5v-6h4v6h5V9',
   banks:'M3 9l9-6 9 6H3m2 3v7m5-7v7m4-7v7m5-7v7M3 21h18',
@@ -523,7 +720,7 @@ const path={
   edit:'M4 20l1-5L17 3l4 4L9 19l-5 1m10-14 4 4',
   download:'M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4'
 };
-const icon=n=>'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+(path[n]||path.table)+'"/></svg>';
+const icon=n=>`<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${path[n]||path.table}"/></svg>`;
 const PAGES=[['home','Главная'],['banks','Банки'],['finance','Финансы'],['trend','Динамика'],['plan','План задач'],['table','Заявки'],['settings','Настройки']];
 const TITLES={home:'Главная',banks:'Банки',finance:'Финансы',trend:'Графики и динамика',plan:'План задач',table:'Заявки',settings:'Настройки'};
 const s={data:null,page:'home',month:'',gran:'month',tab:'money',tablePage:1,sort:'amount',direction:-1,paid:'',
@@ -534,157 +731,108 @@ const CHARTS=Object.create(null);
 function cfg(){return s.data.config;}
 function fxOn(){return s.data&&cfg().animate&&!reduced();}
 function toast(text,error){
-  const el=document.createElement('div');el.className='toast'+(error?' err':'');el.textContent=text;
-  $('#toasts').append(el);setTimeout(()=>{el.style.opacity=0;el.style.transform='translateY(10px)';setTimeout(()=>el.remove(),300);},5600);
+  const el=document.createElement('div');
+  el.className='toast'+(error?' err':'');
+  el.textContent=text;
+  $('#toasts').append(el);
+  setTimeout(()=>{el.style.opacity=0;el.style.transform='translateY(10px)';setTimeout(()=>el.remove(),300);},5600);
 }
-/* PIOT: подключение GitHub Pages к Google Apps Script через iframe + postMessage.
- * Интерфейс остаётся на GitHub Pages; таблица читается и записывается сервером Apps Script.
- */
-const PIOT_GAS_EXEC_URL = "https://script.google.com/macros/s/AKfycbyyuRVGYhYEjW8rdmfsu7g1Yjc7aVB8af5BLCMSV2UQwG7KVqWhZNG-xvbKbZMm1wbt/exec";
-const PIOT_GAS_CHANNEL = 'PIOT_GAS_BRIDGE';
-let piotGasFrame = null;
-let piotGasReady = false;
-let piotGasReadyPromise = null;
-let piotGasReadyResolve = null;
-let piotGasSequence = 0;
-const piotGasPending = new Map();
 
-function piotIsGoogleOrigin(origin) {
-  return origin === 'https://script.google.com' ||
+const PIOT_GAS_EXEC_URL="https://script.google.com/macros/s/AKfycbyyuRVGYhYEjW8rdmfsu7g1Yjc7aVB8af5BLCMSV2UQwG7KVqWhZNG-xvbKbZMm1wbt/exec";
+const PIOT_GAS_CHANNEL='PIOT_GAS_BRIDGE';
+let piotGasFrame=null;
+let piotGasReady=false;
+let piotGasReadyPromise=null;
+let piotGasReadyResolve=null;
+let piotGasSequence=0;
+const piotGasPending=new Map();
+
+function piotIsGoogleOrigin(origin){
+  return origin==='https://script.google.com'||
     /^https:\/\/(?:[a-z0-9-]+\.)*googleusercontent\.com$/i.test(origin);
 }
-
-window.addEventListener('message', function(event) {
-  if (!piotGasFrame || event.source !== piotGasFrame.contentWindow) return;
-  if (!piotIsGoogleOrigin(event.origin)) return;
-
-  const message = event.data;
-  if (!message || message.channel !== PIOT_GAS_CHANNEL) return;
-
-  if (message.type === 'ready') {
-    piotGasReady = true;
-    if (piotGasReadyResolve) {
-      const resolve = piotGasReadyResolve;
-      piotGasReadyResolve = null;
-      resolve();
-    }
+window.addEventListener('message',function(event){
+  if(!piotGasFrame||event.source!==piotGasFrame.contentWindow)return;
+  if(!piotIsGoogleOrigin(event.origin))return;
+  const message=event.data;
+  if(!message||message.channel!==PIOT_GAS_CHANNEL)return;
+  if(message.type==='ready'){
+    piotGasReady=true;
+    if(piotGasReadyResolve){const resolve=piotGasReadyResolve;piotGasReadyResolve=null;resolve();}
     return;
   }
-
-  if (message.type === 'response') {
-    const item = piotGasPending.get(String(message.id));
-    if (!item) return;
+  if(message.type==='response'){
+    const item=piotGasPending.get(String(message.id));
+    if(!item)return;
     clearTimeout(item.timer);
     piotGasPending.delete(String(message.id));
-    if (message.ok) item.resolve(message.result);
-    else item.reject(new Error(message.error || 'Ошибка Google Apps Script'));
+    if(message.ok)item.resolve(message.result);
+    else item.reject(new Error(message.error||'Ошибка Google Apps Script'));
   }
 });
-
-function piotEnsureGasBridge() {
-  if (piotGasReady) return Promise.resolve();
-  if (piotGasReadyPromise) return piotGasReadyPromise;
-
-  piotGasReadyPromise = new Promise(function(resolve, reject) {
-    let settled = false;
-    const timer = setTimeout(function() {
-      if (settled) return;
-      settled = true;
-      piotGasReadyPromise = null;
-      piotGasReadyResolve = null;
-      if (piotGasFrame) {
-        piotGasFrame.remove();
-        piotGasFrame = null;
-      }
-      reject(new Error(
-        'Не удалось связаться с Google Apps Script. Проверьте публикацию веб-приложения и доступ.'
-      ));
-    }, 25000);
-
-    piotGasReadyResolve = function() {
-      if (settled) return;
-      settled = true;
-      clearTimeout(timer);
-      resolve();
-    };
-
-    piotGasFrame = document.createElement('iframe');
-    piotGasFrame.title = 'Соединение с Google Таблицей';
-    piotGasFrame.setAttribute('aria-hidden', 'true');
-    piotGasFrame.tabIndex = -1;
-    piotGasFrame.style.cssText =
-      'position:fixed;left:-10000px;top:-10000px;width:1px;height:1px;' +
-      'border:0;opacity:0;pointer-events:none;';
-    piotGasFrame.src = PIOT_GAS_EXEC_URL + '?bridge=1';
+function piotEnsureGasBridge(){
+  if(piotGasReady)return Promise.resolve();
+  if(piotGasReadyPromise)return piotGasReadyPromise;
+  piotGasReadyPromise=new Promise(function(resolve,reject){
+    let settled=false;
+    const timer=setTimeout(function(){
+      if(settled)return;settled=true;piotGasReadyPromise=null;piotGasReadyResolve=null;
+      if(piotGasFrame){piotGasFrame.remove();piotGasFrame=null;}
+      reject(new Error('Не удалось связаться с Google Apps Script. Проверьте публикацию веб-приложения и доступ.'));
+    },25000);
+    piotGasReadyResolve=function(){if(settled)return;settled=true;clearTimeout(timer);resolve();};
+    piotGasFrame=document.createElement('iframe');
+    piotGasFrame.title='Соединение с Google Таблицей';
+    piotGasFrame.setAttribute('aria-hidden','true');
+    piotGasFrame.tabIndex=-1;
+    piotGasFrame.style.cssText='position:fixed;left:-10000px;top:-10000px;width:1px;height:1px;border:0;opacity:0;pointer-events:none;';
+    piotGasFrame.src=PIOT_GAS_EXEC_URL+'?bridge=1';
     document.body.appendChild(piotGasFrame);
   });
-
   return piotGasReadyPromise;
 }
-
-function piotGasBridgeCall(method, arg) {
-  return piotEnsureGasBridge().then(function() {
-    return new Promise(function(resolve, reject) {
-      const id = 'piot_' + Date.now() + '_' + (++piotGasSequence);
-      const timer = setTimeout(function() {
+function piotGasBridgeCall(method,arg){
+  return piotEnsureGasBridge().then(function(){
+    return new Promise(function(resolve,reject){
+      const id='piot_'+Date.now()+'_'+(++piotGasSequence);
+      const timer=setTimeout(function(){
         piotGasPending.delete(id);
         reject(new Error('Google Apps Script не ответил за 30 секунд. Повторите запрос.'));
-      }, 30000);
-
-      piotGasPending.set(id, {resolve:resolve, reject:reject, timer:timer});
-      try {
-        piotGasFrame.contentWindow.postMessage({
-          channel: PIOT_GAS_CHANNEL,
-          type: 'request',
-          id: id,
-          method: method,
-          arg: arg
-        }, '*');
-      } catch (error) {
-        clearTimeout(timer);
-        piotGasPending.delete(id);
-        reject(error);
+      },30000);
+      piotGasPending.set(id,{resolve,reject,timer});
+      try{
+        piotGasFrame.contentWindow.postMessage({channel:PIOT_GAS_CHANNEL,type:'request',id,method,arg},'*');
+      }catch(error){
+        clearTimeout(timer);piotGasPending.delete(id);reject(error);
       }
     });
   });
 }
-
 function rpc(name,arg){
   const allowed=['apiGetData','apiSaveMonth','apiSaveConfig'];
-  if(!allowed.includes(name)){
-    return Promise.reject(Error('Метод API не разрешён: '+name));
-  }
-
-  // Если интерфейс открыт из Apps Script — используем прямой вызов.
+  if(!allowed.includes(name))return Promise.reject(Error('Метод API не разрешён: '+name));
   if(window.google&&window.google.script&&window.google.script.run){
     return new Promise((resolve,reject)=>{
       const runner=window.google.script.run
         .withSuccessHandler(resolve)
         .withFailureHandler(e=>reject(Error(e.message||String(e))));
-      if(typeof runner[name]!=='function'){
-        reject(Error('В Code.gs не найдена серверная функция '+name+'().'));
-        return;
-      }
-      if(typeof arg==='undefined')runner[name]();
-      else runner[name](arg);
+      if(typeof runner[name]!=='function'){reject(Error('В Code.gs не найдена серверная функция '+name+'().'));return;}
+      if(typeof arg==='undefined')runner[name]();else runner[name](arg);
     });
   }
-
-  // На GitHub Pages работаем через скрытый iframe веб-приложения Apps Script.
   return piotGasBridgeCall(name,arg);
 }
+
 function manual(){return s.data.ledger[s.month]||Piot.emptyMonth();}
 function detailed(){return Object.values(s.filter).some(Boolean);}
 function rows(){return Piot.filter(s.data.records,Object.assign({month:s.month},s.filter),cfg());}
 function eventRows(){return Piot.filter(s.data.records,s.filter,cfg());}
 function scopedIncome(){return Piot.income(eventRows(),detailed()?{}:s.data.ledger,s.month,cfg());}
 
-/* Значения «—» не анимируем: иначе они превращались в ноль. */
 const cVal=(n,money)=>{
   const valid=n!=null&&n!==''&&Number.isFinite(Number(n));
-  return `<span${valid?` data-count="${Number(n)}"`:''}${money?' data-money="1"':''}>${money?rub(n):number(n)}</span>`;
+  return `<span${valid?` data-count="${Number(n)}"`:``}${money?' data-money="1"':''}>${money?rub(n):number(n)}</span>`;
 };
-
 function playCounters(){
   if(!fxOn())return;
   $$('[data-count]').forEach(el=>{
@@ -709,7 +857,7 @@ function options(){
   months.forEach(m=>(years[m.slice(0,4)]||(years[m.slice(0,4)]=[])).push(m));
   $('#month').innerHTML='<option value="">За всё время</option>'+
     Object.keys(years).sort().map(y=>'<optgroup label="'+y+' год">'+
-      years[y].map(m=>'<option value="'+m+'"'+(m===s.month?' selected':'')+'>'+monthLabel(m)+'</option>').join('')+'</optgroup>').join('');
+      years[y].map(m=>`<option value="${m}"${m===s.month?' selected':''}>${monthLabel(m)}</option>`).join('')+'</optgroup>').join('');
   $('#month').value=s.month;
 }
 function saveStatus(state){
@@ -762,14 +910,12 @@ function numericInput(field,label){
 function kpi(label,valueHtml,meta){
   return `<section class="glass kpi"><div class="label">${h(label)}</div><strong>${valueHtml}</strong><div class="meta">${h(meta||'')}</div></section>`;
 }
-/* ══ FIX 2: card — восстановлен </p> ══ */
-function card(title,body,sub='',extra=''){
+function card(title,body,sub,extra){
+  sub=sub||'';extra=extra||'';
   return `<section class="glass card"><header class="cardhead"><div><h2>${h(title)}</h2>${sub?`<p>${h(sub)}</p>`:''}</div>${extra}</header>${body}</section>`;
 }
-/* ══ FIX 3: empty — вернули стрелку ══ */
 const empty=text=>`<div class="empty"><strong>Нет данных</strong>${h(text||'Измените период или фильтры.')}</div>`;
 
-/* ══ FIX 4: filters — map(v=>`...`) ══ */
 function filters(){
   const sets={partner:'Все партнёры',status:'Все статусы',task:'Все передачи',responsible:'Все ответственные',priority:'Все приоритеты'};
   function sel(k){
@@ -788,15 +934,18 @@ function filters(){
   </div>${detailed()?'<div class="inactive-warning">Фильтры активны — ручные итоги месяца не распределяются по фильтрам.</div>':''}`;
 }
 
-/* ══ FIX 5: chart — 12 восстановленных svg+= и let d= ══ */
-function chart(labels,series,opts={}){
+function chart(labels,series,opts){
+  opts=opts||{};
   series=(series||[]).filter(Boolean);
   if(!labels.length||!series.length)return empty('Нет записей для графика.');
   const uid='c'+(++chartId);
   const W=1000,H=320,L=70,R=opts.dual?70:28,T=26,B=52;
   const plotW=W-L-R,plotH=H-T-B,baseY=T+plotH,n=labels.length;
   const max={left:0,right:0};
-  series.forEach(d=>{const ax=d.axis||'left';(d.values||[]).forEach(v=>{const x=Number(v)||0;if(x>max[ax])max[ax]=x;});});
+  series.forEach(d=>{
+    const ax=d.axis||'left';
+    (d.values||[]).forEach(v=>{const x=Number(v)||0;if(x>max[ax])max[ax]=x;});
+  });
   function niceMax(v,money){
     if(!v)return money?1000:10;
     const raw=v/4,power=Math.pow(10,Math.floor(Math.log10(raw)));
@@ -812,6 +961,7 @@ function chart(labels,series,opts={}){
   const xOf=i=>allBars?xBand(i):xLine(i);
   const yOf=(v,ax)=>baseY-Math.max(0,Number(v)||0)/(max[ax||'left']||1)*plotH;
   const fmt=(v,money)=>money?(v>=1e6?(v/1e6).toFixed(1)+' млн':v>=1e3?Math.round(v/1e3)+' тыс':Math.round(v)+''):Math.round(v).toLocaleString('ru-RU');
+
   function smooth(pts){
     if(!pts.length)return '';
     if(pts.length<2)return `M${pts[0][0]},${pts[0][1]}`;
@@ -822,6 +972,7 @@ function chart(labels,series,opts={}){
     }
     return d;
   }
+
   let svg=`<svg class="chart-svg${fxOn()?' anim':''}" id="${uid}" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${h(opts.title||'График')}">
     <title>${h(opts.title||'График')}</title><defs>
     <filter id="${uid}-glow" x="-20%" y="-40%" width="140%" height="180%">
@@ -896,7 +1047,6 @@ function chart(labels,series,opts={}){
   return `<div class="chart" data-chart="${uid}"><div class="chart-scroll">${svg}</div>${legend}${table}</div>`;
 }
 
-/* ══ FIX 6: sparkline — let d= / d+= ══ */
 function sparkline(values,color){
   const v=values.length?values:[0];
   const W=240,H=44,max=Math.max(1,...v),n=v.length;
@@ -918,7 +1068,6 @@ function sparkline(values,color){
   </svg>`;
 }
 
-/* ══ FIX 7: donut — map(x=>`...`) ══ */
 function donut(items,title){
   items=items.filter(x=>x.value>0);
   const total=items.reduce((a,x)=>a+x.value,0);
@@ -940,6 +1089,7 @@ function donut(items,title){
     <div class="donut-legend">${items.map(x=>`<div><i class="dot" style="--color:${x.color}"></i><span>${h(x.name)}</span><b>${number(x.value)}</b></div>`).join('')}</div>
   </div>`;
 }
+
 function heroPlan(){
   const a=Piot.eventSummary(eventRows(),cfg(),s.month);
   const m=manual(),plan=s.month&&!detailed()?m.plan:null,done=a.done;
@@ -974,6 +1124,7 @@ function heroPlan(){
     </div>
   </section>`;
 }
+
 function heroOpen(){
   const a=Piot.eventSummary(eventRows(),cfg(),s.month);
   const act=Piot.activityPeriods(eventRows(),s.month?'day':'month',cfg(),s.month);
@@ -999,7 +1150,6 @@ function heroOpen(){
   </section>`;
 }
 
-/* ══ FIX 8: taskStatusDashboard — восстановлен тернарник isEmpty ? ... : ... ══ */
 function taskStatusDashboard(){
   const statusScope=Object.assign({},s.filter,{task:''});
   const source=Piot.filter(s.data.records,Object.assign({month:s.month},statusScope),cfg()).filter(r=>r.source==='main');
@@ -1026,21 +1176,24 @@ function taskStatusDashboard(){
   const others=Array.from(counts.entries())
     .filter(([name])=>name==='Без статуса'||!priority.some(p=>matches(name,p.name)))
     .sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'ru'));
-  const otherHtml=others.length?`<div class="priority-other-list">${others.map(([name,k])=>{
-      const part=share(k),isEmpty=name==='Без статуса',active=!isEmpty&&s.filter.task===name;
-      const row=`<span class="priority-other-name">${h(name)}</span>
-        <span class="priority-other-value">${number(k)} <small>${part}%</small></span>
-        <span class="priority-other-track"><i style="width:${part}%"></i></span>`;
-      return isEmpty
-        ? `<div class="priority-other-row muted-row">${row}</div>`
-        : `<button type="button" class="priority-other-row${active?' active':''}" data-task-status="${h(name)}" aria-pressed="${active}">${row}</button>`;
-    }).join('')}</div>`:'<div class="priority-other-empty">Других статусов пока нет.</div>';
+  const otherHtml=others.length
+    ? `<div class="priority-other-list">${others.map(([name,k])=>{
+        const part=share(k),isEmpty=name==='Без статуса',active=!isEmpty&&s.filter.task===name;
+        const row=`<span class="priority-other-name">${h(name)}</span>
+          <span class="priority-other-value">${number(k)} <small>${part}%</small></span>
+          <span class="priority-other-track"><i style="width:${part}%"></i></span>`;
+        return isEmpty
+          ? `<div class="priority-other-row muted-row">${row}</div>`
+          : `<button type="button" class="priority-other-row${active?' active':''}" data-task-status="${h(name)}" aria-pressed="${active}">${row}</button>`;
+      }).join('')}</div>`
+    : '<div class="priority-other-empty">Других статусов пока нет.</div>';
   return card('Результат подключения клиентов',
     `<div class="priority-status-grid">${featured}</div>
      <div class="priority-other-heading"><span>Остальные статусы</span><span>Количество и доля</span></div>${otherHtml}`,
     'Два главных результата подключения. Нажмите, чтобы отфильтровать.',
     '<span class="priority-section-badge">2 ГЛАВНЫХ СТАТУСА</span>');
 }
+
 function incomeBlock(extraBtn){
   const inc=scopedIncome();
   return card('Доходы',
@@ -1055,10 +1208,7 @@ function incomeBlock(extraBtn){
   ).replace('<section class="glass card">','<section class="glass card income-overview">');
 }
 
-/* ══ FIX 9: home — let html= ══ */
 function home(){
-  // Главная содержит выполнение плана и приоритеты, но не карточки банков.
-  // Карточки банков выводятся только на отдельной вкладке.
   const a=Piot.eventSummary(eventRows(),cfg(),s.month);
   let html=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
   html+=incomeBlock();
@@ -1080,6 +1230,7 @@ function home(){
   }
   return html;
 }
+
 const BANK_LOGOS={
   vtb:'https://upload.wikimedia.org/wikipedia/commons/7/7c/VTB_Logo_2018.svg',
   tochka:'https://upload.wikimedia.org/wikipedia/commons/3/3b/Tochka_Logo.svg',
@@ -1087,7 +1238,6 @@ const BANK_LOGOS={
   psb:'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDEwMDAgMzA1LjMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+LnN0MHtmaWxsOiMyQzJEODQ7fS5zdDF7ZmlsbDojRjI2MTI2O308L3N0eWxlPjxwb2x5Z29uIGNsYXNzPSJzdDEiIHBvaW50cz0iMjAzLjYsMCAxMDEuOCwxMDEuOCAyMDMuNiwxMDEuOCAyMDMuNiwzMDUuMyAzMDUuMywyMDMuOCAzMDUuMywwICIvPjxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTAxLjgsMzA1LjMgMjAzLjYsMjAzLjYgMTAxLjgsMjAzLjYgMTAxLjgsMCAwLDEwMS41IDAsMzA1LjMgIi8+PC9zdmc+'
 };
 
-/* ══ FIX 10: banks — html+= и </section> ══ */
 function banks(){
   const all=eventRows().filter(r=>r.source==='main');
   const scoped=rows().filter(r=>r.source==='main');
@@ -1145,6 +1295,7 @@ function banks(){
     'Не распределено: '+number(unknown)+' заявок.');
   return html;
 }
+
 function granTabs(){
   return `<div class="tabs compact">${[['day','День'],['week','Неделя'],['month','Месяц']].map(([k,v])=>
     `<button data-gran="${k}" class="${s.gran===k?'active':''}">${v}</button>`).join('')}</div>`;
@@ -1156,6 +1307,7 @@ function periodChart(rr,title){
     {name:'Выручка, ₽',values:ps.map(x=>x.revenue),color:'#00a56a'}
   ],{title,dual:true,money:true}),'Счета исключены из выручки.',granTabs());
 }
+
 function trend(){
   const rr=rows(),ps=Piot.periods(rr,s.gran,cfg());
   let acc=0;const totals=ps.map(x=>acc+=x.revenue);
@@ -1179,6 +1331,7 @@ function trend(){
     [{name:'Заявки',type:'bar',values:wd,color:'#61b5f6'}],{title:'Дни недели'}));
   return html;
 }
+
 function finance(){
   const rr=rows(),ps=Piot.periods(rr,s.gran,cfg());
   let html=filters()+incomeBlock('<button class="text-btn" data-page="settings">Изменить суммы →</button>');
@@ -1195,7 +1348,6 @@ function finance(){
   return html;
 }
 
-/* ══ FIX 11: planPage — let html= и корректный вызов card() ══ */
 function planPage(){
   const ledger=s.data.ledger,m=ledger[s.month]||Piot.emptyMonth();
   const mm=Piot.monthly(eventRows(),cfg());
@@ -1211,7 +1363,8 @@ function planPage(){
   </div>`;
   const table=`<div class="table-wrap"><table>
     <thead><tr><th>Месяц</th><th>План</th><th>Выполнено</th><th>Закрыто</th><th>Выполнение</th></tr></thead>
-    <tbody>${keys.map(k=>{const row=ledger[k]||{},a=mm[k]||{done:0,closed:0};
+    <tbody>${keys.map(k=>{
+      const row=ledger[k]||{},a=mm[k]||{done:0,closed:0};
       const pp=row.plan?pct(a.done,row.plan):0;
       return `<tr><td><button class="text-btn" data-select-month="${k}">${monthLabel(k)}</button></td>
         <td>${number(row.plan)}</td><td>${number(a.done)}</td><td>${number(a.closed)}</td>
@@ -1227,7 +1380,14 @@ function planPage(){
   }
   return html;
 }
-const COLS=[['numero','No'],['client','Клиент'],['partner','Партнёр'],['status','Статус'],['taskStatus','Передача'],['amount','Сумма, ₽'],['responsible','Ответственный'],['priority','Приоритет'],['date','Дата создания'],['dateStatus','Дата статуса'],['sla','SLA'],['customer','Заказчик'],['legalEntity','Юр.лицо'],['source','Источник']];
+
+const COLS=[
+  ['numero','No'],['client','Клиент'],['partner','Партнёр'],['status','Статус'],
+  ['taskStatus','Передача'],['amount','Сумма, ₽'],['responsible','Ответственный'],
+  ['priority','Приоритет'],['date','Дата создания'],['dateStatus','Дата статуса'],
+  ['sla','SLA'],['customer','Заказчик'],['legalEntity','Юр.лицо'],['source','Источник']
+];
+
 function tableRows2(){
   return rows().filter(r=>
     s.paid==='paid'?Piot.rev(r,cfg())>0:
@@ -1239,7 +1399,6 @@ function tableRows2(){
   });
 }
 
-/* ══ FIX 12: tablePage2 — map(([k,v])=>`...`) ══ */
 function tablePage2(){
   const rr=tableRows2(),per=cfg().perPage,pages=Math.max(1,Math.ceil(rr.length/per));
   s.tablePage=Math.min(Math.max(1,s.tablePage),pages);
@@ -1247,14 +1406,16 @@ function tablePage2(){
   const sum=rr.reduce((a,r)=>a+(s.paid==='invoice'?Math.max(0,r.amount):Piot.rev(r,cfg())),0);
   let html=filters()+`<div class="filterbar">
     <select id="paidFilter" aria-label="Оплата">
-      ${[['','Все заявки'],['paid','В выручке'],['invoice','Счета отдельно'],['zero','Без суммы']].map(([k,v])=>`<option value="${k}"${s.paid===k?' selected':''}>${v}</option>`).join('')}
+      ${[['','Все заявки'],['paid','В выручке'],['invoice','Счета отдельно'],['zero','Без суммы']].map(([k,v])=>
+        `<option value="${k}"${s.paid===k?' selected':''}>${v}</option>`).join('')}
     </select>
     <button class="btn" data-export>${icon('download')} Экспорт CSV</button>
     <span class="pill">${rr.length} строк</span><span class="pill ok">${rub(sum)}</span>
   </div>`;
   html+=`<section class="glass card"><div class="table-wrap"><table>
     <thead><tr>${COLS.map(([key,title])=>`<th><button class="thbtn" data-sort="${key}">${title}${s.sort===key?(s.direction===1?' ↑':' ↓'):''}</button></th>`).join('')}</tr></thead>
-    <tbody>${part.map(r=>`<tr>${COLS.map(([key])=>{const v=r[key];
+    <tbody>${part.map(r=>`<tr>${COLS.map(([key])=>{
+      const v=r[key];
       if(key==='amount')return `<td class="number">${rub(v)}</td>`;
       if(key==='source')return `<td>${v==='noesp'?'Без задачи ЕСП':'Заявка'}</td>`;
       if(key==='status'||key==='taskStatus'||key==='sla'){
@@ -1273,6 +1434,7 @@ function tablePage2(){
       </div></div></section>`;
   return html;
 }
+
 function settingField(field,label,hint){
   return `<div class="field"><label>${label}</label>${numericInput(field,label)}<small>${hint}</small></div>`;
 }
@@ -1285,7 +1447,6 @@ function configButtons(){
     </div></div>`;
 }
 
-/* ══ FIX 13: settings — три map со стрелками ══ */
 function settings(){
   if(detailed())return filters()+card('Общие настройки','<p class="note">Настройки и доходы — общие для таблицы. Снимите фильтры для редактирования.</p>');
   const c=s.configDraft||cfg();
@@ -1307,7 +1468,10 @@ function settings(){
         <select id="perPage" data-config="perPage">${[10,25,50,100].map(v=>`<option ${c.perPage===v?'selected':''}>${v}</option>`).join('')}</select></div>`)}
     </div>${configButtons()}`;
   }else{
-    const rules=[['done','Выполненные статусы'],['closed','Закрытые'],['invoice','Счета (исключить из выручки)'],['lp','Статусы LP'],['sp','Статусы СП']];
+    const rules=[
+      ['done','Выполненные статусы'],['closed','Закрытые'],
+      ['invoice','Счета (исключить из выручки)'],['lp','Статусы LP'],['sp','Статусы СП']
+    ];
     html+=`<div class="settings-grid">
       ${card('Статусы',rules.map(([k,v])=>`<div class="field"><label>${v}</label><textarea data-rule="${k}">${h(c[k].join('\n'))}</textarea></div>`).join(''),'Одно правило — одна строка')}
       ${card('Банки',Piot.BANKS.map((b,i)=>`<div class="field"><label>${b.name}</label><textarea data-bankrule="${i}">${h(c.bankKeys[i].join('\n'))}</textarea></div>`).join('')+'<p class="note">Сопоставление по полям «Заказчик» и «Юр.лицо».</p>')}
@@ -1315,7 +1479,9 @@ function settings(){
   }
   return html;
 }
-function render(opt={}){
+
+function render(opt){
+  opt=opt||{};
   if(!s.data)return;
   s.fx=opt.fx!==false;
   Object.keys(CHARTS).forEach(k=>delete CHARTS[k]);
@@ -1329,14 +1495,8 @@ function render(opt={}){
   saveStatus();
   const modeBadge=$('#modeBadge');
   if(modeBadge){
-    if(s.data.demo){
-      // Не показываем плашку «ДЕМО» в шапке.
-      modeBadge.textContent='';
-      modeBadge.hidden=true;
-    }else{
-      modeBadge.hidden=false;
-      modeBadge.textContent='Google Sheets';
-    }
+    if(s.data.demo){modeBadge.textContent='';modeBadge.hidden=true;}
+    else{modeBadge.hidden=false;modeBadge.textContent='Google Sheets';}
   }
   $('#updated').textContent='Обновлено '+new Date(s.data.updated).toLocaleString('ru-RU');
   if(s.fx)playCounters();
@@ -1346,10 +1506,10 @@ function render(opt={}){
     $$('.ring-fg').forEach(r=>{r.setAttribute('stroke-dashoffset',r.dataset.ringoff);});
   });
 }
+
 const tip=$('#chartTip');
 function hideTip(){tip.classList.remove('show');$$('.chart-svg.live').forEach(el=>el.classList.remove('live'));}
 
-/* ══ FIX 14: tooltip — tip.innerHTML= ══ */
 document.addEventListener('pointermove',e=>{
   const hit=e.target.closest&&e.target.closest('[data-hit]');
   if(!hit){hideTip();return;}
@@ -1372,8 +1532,8 @@ document.addEventListener('pointermove',e=>{
 },{passive:true});
 document.addEventListener('scroll',hideTip,{passive:true});
 
-/* ══ FIX 15: load — $('#page').innerHTML= ══ */
-async function load(force=false){
+async function load(force){
+  force=force||false;
   if(s.configDirty&&!confirm('Обновление сбросит несохранённые настройки. Продолжить?'))return;
   if(!force&&s.loaded)await flush();
   $('#reload').disabled=true;
@@ -1393,6 +1553,7 @@ async function load(force=false){
     if(!s.loaded)$('#page').innerHTML=`<section class="glass card"><h2>Не удалось загрузить данные</h2><p class="note">${h(e.message)}</p><button class="btn" data-retry>Повторить</button></section>`;
   }finally{$('#reload').disabled=false;}
 }
+
 async function navigate(page){await flush();s.page=page;s.tablePage=1;render();window.scrollTo({top:0,behavior:fxOn()?'smooth':'auto'});}
 async function changeMonth(month){
   if(month&&!Piot.validMonth(month))return;
@@ -1417,14 +1578,14 @@ function configInput(el){
   if(el.dataset.bankrule!=null)c.bankKeys[+el.dataset.bankrule]=el.value.split('\n').map(x=>x.trim()).filter(Boolean);
   s.configDirty=true;
 }
+
 async function click(e){
   const el=e.target.closest('button, .bank-card');if(!el)return;
   try{
     if(el.dataset.legend){
       const g=document.querySelectorAll('#'+el.dataset.legend+' [data-s="'+el.dataset.s+'"]');
       const off=el.classList.toggle('off');
-      g.forEach(n=>n.classList.toggle('ser-off',off));
-      return;
+      g.forEach(n=>n.classList.toggle('ser-off',off));return;
     }
     if(el.dataset.page)await navigate(el.dataset.page);
     else if(el.hasAttribute('data-open-table'))await navigate('table');
@@ -1451,8 +1612,10 @@ async function click(e){
     else if(el.id==='resolveConflict'){$('#conflict').close();clearTimeout(s.timer);await load(true);}
     else if(el.id==='reload'||el.hasAttribute('data-retry'))await load();
     else if(el.id==='fullscreen'){
-      if(!document.fullscreenElement){if(!document.documentElement.requestFullscreen)throw Error('Полный экран недоступен');await document.documentElement.requestFullscreen();}
-      else await document.exitFullscreen();
+      if(!document.fullscreenElement){
+        if(!document.documentElement.requestFullscreen)throw Error('Полный экран недоступен');
+        await document.documentElement.requestFullscreen();
+      }else await document.exitFullscreen();
     }
     else if(el.id==='prevMonth'||el.id==='nextMonth'){
       const list=s.data.months.filter(Piot.validMonth).slice().sort(),idx=list.indexOf(s.month);
@@ -1461,6 +1624,7 @@ async function click(e){
     }
   }catch(err){toast(err.message,true);}
 }
+
 document.addEventListener('click',click);
 let searchTimer;
 document.addEventListener('input',e=>{
@@ -1468,7 +1632,11 @@ document.addEventListener('input',e=>{
   if(el.dataset.field){edit(el.dataset.field,el.value);el.setAttribute('aria-invalid',s.invalid[el.dataset.field]?'true':'false');}
   else if(el.dataset.filter==='q'){
     clearTimeout(searchTimer);s.filter.q=el.value;
-    searchTimer=setTimeout(()=>{const p=el.selectionStart;render({fx:false});const inp=$('[data-filter=q]');if(inp){inp.focus();try{inp.setSelectionRange(p,p);}catch(err){}}},280);
+    searchTimer=setTimeout(()=>{
+      const p=el.selectionStart;render({fx:false});
+      const inp=$('[data-filter=q]');
+      if(inp){inp.focus();try{inp.setSelectionRange(p,p);}catch(err){}}
+    },280);
   }
   else if(el.dataset.config||el.dataset.rule||el.dataset.bankrule!=null)configInput(el);
 });
@@ -1478,7 +1646,9 @@ document.addEventListener('change',async e=>{
   else if(el.dataset.filter){s.filter[el.dataset.filter]=el.value;s.tablePage=1;render({fx:false});}
   else if(el.id==='paidFilter'){s.paid=el.value;s.tablePage=1;render({fx:false});}
 });
-document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.field){e.preventDefault();flush().catch(()=>{});}});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.field){e.preventDefault();flush().catch(()=>{});}
+});
 document.addEventListener('focusout',e=>{
   if(e.target.dataset&&e.target.dataset.field&&!Object.keys(s.draft).length&&!s.saving)
     setTimeout(()=>{if(!document.activeElement.matches('[data-field]'))render({fx:false});},0);
@@ -1488,7 +1658,6 @@ window.addEventListener('beforeunload',e=>{
 });
 nav();load();
 })();
-
 </script>
 </body>
 </html>
