@@ -2178,6 +2178,300 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   .finance-total-value{font-size:clamp(46px,14vw,72px)!important}
 }
 
+
+
+/* ==========================================================
+   PIOT v3 — compact finance panel, real liquid glass, dark iOS
+   ========================================================== */
+.liquid-glass-card{
+  background:rgba(255,255,255,.12);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:inset 0 1px 1px 0 rgba(255,255,255,.4),0 15px 35px 0 rgba(0,0,0,.12);
+}
+
+/* Left sidebar: one discreet demo label, no demo branding in the finance panel. */
+.sidebar-brand-sticker{gap:9px;padding:12px;border-radius:22px}
+.sidebar-brand-copy{gap:0}
+.sidebar-brand-copy strong{font-size:13px;letter-spacing:.05px}
+.sidebar-mode-badge{margin-top:2px;letter-spacing:.7px}
+.finance-logo-caption{display:none!important}
+
+/* Finance hero: smaller footprint, balanced columns and no clipped ruble totals. */
+.finance-hero{
+  padding:18px 20px 18px!important;
+  margin-bottom:14px!important;
+  border-radius:24px!important;
+}
+.finance-hero-top{margin-bottom:12px!important;gap:12px!important;align-items:center!important}
+.finance-hero-brand{gap:12px!important}
+.finance-hero-badge{margin-bottom:5px!important;font-size:9px!important}
+.finance-hero-logo-wrap{
+  flex:0 0 68px!important;width:68px!important;height:68px!important;
+  border-radius:21px!important;gap:0!important;
+}
+.finance-hero-logo{width:54px!important;height:30px!important;max-width:54px!important}
+.finance-hero-copy{min-width:0}
+.finance-hero-title{
+  font-size:clamp(22px,2.2vw,32px)!important;
+  line-height:1.08!important;letter-spacing:-.9px!important;
+}
+.finance-hero-sub{font-size:10.5px!important;line-height:1.45!important;margin-top:5px!important;max-width:600px!important}
+.finance-hero-actions .btn{min-height:38px!important;padding:9px 15px!important;font-size:11px!important}
+.finance-hero-body{
+  grid-template-columns:minmax(230px,.82fr) minmax(0,1.18fr)!important;
+  gap:12px!important;align-items:stretch!important;
+}
+.finance-total-card{
+  min-width:0!important;padding:17px!important;border-radius:20px!important;
+  display:flex;flex-direction:column;justify-content:flex-start;
+}
+.finance-total-kicker{font-size:10px!important;letter-spacing:.55px!important}
+.finance-total-value{
+  display:block!important;max-width:100%!important;
+  font-size:clamp(36px,3.6vw,58px)!important;
+  line-height:1.04!important;letter-spacing:-1.7px!important;
+  margin:13px 0 9px!important;white-space:nowrap!important;
+}
+.finance-total-note{font-size:10.5px!important;line-height:1.45!important;max-width:290px!important}
+.finance-metric-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important}
+.finance-metric-card{
+  min-width:0!important;min-height:104px!important;padding:12px 12px 10px!important;
+  border-radius:17px!important;
+}
+.finance-metric-label{font-size:9px!important;letter-spacing:.35px!important;line-height:1.3!important}
+.finance-metric-value{
+  font-size:clamp(21px,1.9vw,32px)!important;
+  line-height:1.08!important;letter-spacing:-.8px!important;
+  margin:8px 0 4px!important;white-space:nowrap!important;
+}
+.finance-metric-meta{font-size:9.5px!important;line-height:1.3!important}
+
+/* History of monthly plans appears inside the plan frame for the all-time filter. */
+.hero-alltime-summary{display:flex;align-items:baseline;gap:10px;margin:0 0 10px}
+.hero-alltime-summary strong{font:800 clamp(30px,3vw,42px)/1 Bounded,Hint,sans-serif;letter-spacing:-1.2px;color:var(--text)}
+.hero-alltime-summary>span{font-size:11px;color:var(--muted);font-weight:650}
+.plan-history-inline{
+  position:relative;margin-top:10px;padding:12px 13px;border-radius:18px;
+  background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.62);
+  -webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.65),0 8px 22px rgba(32,68,98,.07);
+}
+.plan-history-inline-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px}
+.plan-history-inline-head strong{font-size:10px;font-weight:900;letter-spacing:.75px;text-transform:uppercase;color:var(--text)}
+.plan-history-inline-head span{font-size:9px;font-weight:750;color:var(--muted)}
+.plan-history-inline-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.plan-history-item{
+  min-width:0;display:grid;grid-template-columns:1fr auto;gap:3px 8px;text-align:left;
+  padding:9px 10px;border-radius:13px;border:1px solid rgba(255,255,255,.72);
+  background:linear-gradient(145deg,rgba(255,255,255,.62),rgba(241,249,255,.38));
+  color:var(--text);cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.plan-history-item:hover{transform:translateY(-2px);border-color:rgba(25,184,137,.4);box-shadow:0 8px 18px rgba(22,90,104,.1)}
+.plan-history-month{font-size:9px;font-weight:800;color:var(--muted);align-self:center}
+.plan-history-item>strong{font-size:13px;font-weight:900;white-space:nowrap}
+.plan-history-item>strong small{font-size:8px;font-weight:650;color:var(--muted)}
+.plan-history-meta{grid-column:1/-1;font-size:8.5px;color:var(--muted)}
+.plan-history-track{grid-column:1/-1;height:4px;border-radius:99px;overflow:hidden;background:rgba(115,150,180,.15)}
+.plan-history-track b{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#21c995,#42a9e6);box-shadow:0 0 10px rgba(32,194,148,.28)}
+.plan-history-empty{padding:12px;border-radius:12px;background:rgba(255,255,255,.32);font-size:10px;color:var(--muted)}
+
+/* The provided liquid-glass treatment is also used by the plan frame. */
+.hero,.plan-filter-card,.plan-result,.plan-history-inline{
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  backdrop-filter:blur(20px) saturate(180%);
+}
+
+/* Premium dark theme: layered graphite-blue glass, not flat near-black. */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --text:#edf4ff;
+  --muted:#a8bad0;
+  --bg:#111827;
+  --glass-bg:linear-gradient(145deg,rgba(43,57,79,.78),rgba(27,40,61,.72));
+  --shadow:0 16px 42px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.09);
+  --shadow-hover:0 22px 52px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.12);
+  --pin-bg:radial-gradient(ellipse at 12% 8%,rgba(87,129,205,.23),transparent 36%),radial-gradient(ellipse at 92% 92%,rgba(28,190,153,.15),transparent 38%),linear-gradient(135deg,#101827 0%,#1a2940 52%,#142d35 100%);
+  --pin-card-bg:linear-gradient(145deg,rgba(45,61,84,.88),rgba(26,42,64,.84));
+  --pin-border:rgba(224,239,255,.2);
+  --pin-text:#f1f7ff;
+  --pin-muted:#afc1d7;
+  --pin-key-bg:rgba(255,255,255,.1);
+  --pin-key-border:rgba(228,242,255,.19);
+  --pin-key-color:#f4f8ff;
+}
+:root[data-theme="dark"] body{
+  background:
+    radial-gradient(ellipse at 12% 4%,rgba(82,120,190,.19),transparent 36%),
+    radial-gradient(ellipse at 88% 88%,rgba(22,176,145,.13),transparent 34%),
+    linear-gradient(145deg,#101827 0%,#172338 48%,#132b33 100%)!important;
+  color:#edf4ff;
+}
+:root[data-theme="dark"] .shell{background:transparent!important}
+:root[data-theme="dark"] .sidebar,
+:root[data-theme="dark"] .pagebar,
+:root[data-theme="dark"] .month-wrap,
+:root[data-theme="dark"] .icon-btn,
+:root[data-theme="dark"] .glass,
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .kpi,
+:root[data-theme="dark"] .filterbar,
+:root[data-theme="dark"] .table-toolbar,
+:root[data-theme="dark"] .table-wrap,
+:root[data-theme="dark"] .plan-filter-card{
+  background:linear-gradient(145deg,rgba(49,66,91,.72),rgba(27,43,65,.68))!important;
+  border-color:rgba(223,239,255,.16)!important;
+  box-shadow:0 16px 40px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.1)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(160%);
+  backdrop-filter:blur(26px) saturate(160%);
+}
+:root[data-theme="dark"] .sidebar-brand-sticker{
+  background:linear-gradient(145deg,rgba(67,89,116,.7),rgba(34,51,74,.7))!important;
+  border-color:rgba(225,241,255,.2)!important;
+  box-shadow:0 16px 34px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.14)!important;
+}
+:root[data-theme="dark"] .sidebar-lifepay-wrap{
+  background:linear-gradient(145deg,#243d49,#162c3b)!important;
+  border:1px solid rgba(213,245,255,.17);
+  box-shadow:0 12px 28px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.16)!important;
+}
+:root[data-theme="dark"] .sidebar-brand-copy strong{color:#f1f7ff!important}
+:root[data-theme="dark"] .sidebar-mode-badge.demo{color:#ffdb91!important;background:rgba(224,167,68,.13)!important;border-color:rgba(255,210,125,.25)!important}
+:root[data-theme="dark"] .navbtn{color:#c0cee0!important}
+:root[data-theme="dark"] .navbtn:hover:not(.active){background:rgba(230,243,255,.08)!important;color:#fff!important}
+:root[data-theme="dark"] .navbtn.active{
+  color:#fff!important;background:linear-gradient(120deg,rgba(65,111,151,.62),rgba(35,91,91,.58))!important;
+  border-color:rgba(171,224,237,.24)!important;box-shadow:0 10px 24px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.15)!important;
+}
+:root[data-theme="dark"] .pagebar h1,
+:root[data-theme="dark"] .card h2,
+:root[data-theme="dark"] .hero h2,
+:root[data-theme="dark"] .plan-filter-heading strong{color:#f3f7ff!important}
+:root[data-theme="dark"] .muted,
+:root[data-theme="dark"] .note,
+:root[data-theme="dark"] .hero-note,
+:root[data-theme="dark"] .hero-sub,
+:root[data-theme="dark"] .finance-hero-sub,
+:root[data-theme="dark"] .finance-total-note,
+:root[data-theme="dark"] .finance-metric-meta{color:#b7c8dc!important}
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] .filterbar.global-filterbar input,
+:root[data-theme="dark"] .filterbar.global-filterbar select,
+:root[data-theme="dark"] .table-toolbar select{
+  color:#f1f7ff!important;background:rgba(20,34,54,.72)!important;
+  border-color:rgba(216,235,255,.2)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)!important;
+}
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder{color:#8fa4bf!important}
+:root[data-theme="dark"] .btn,
+:root[data-theme="dark"] .filterbar.global-filterbar .btn.small{
+  color:#eff8ff!important;background:linear-gradient(130deg,rgba(67,92,123,.9),rgba(37,63,91,.9))!important;
+  border-color:rgba(221,241,255,.2)!important;box-shadow:0 9px 22px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.13)!important;
+}
+:root[data-theme="dark"] .btn.primary,
+:root[data-theme="dark"] .finance-hero-actions .btn{
+  color:#fff!important;background:linear-gradient(105deg,#16bd91,#1599c6 58%,#637de0)!important;
+  border-color:rgba(175,255,236,.3)!important;box-shadow:0 12px 28px rgba(16,174,153,.22),inset 0 1px 0 rgba(255,255,255,.26)!important;
+}
+:root[data-theme="dark"] .finance-hero{
+  background:
+    radial-gradient(70% 120% at 100% 0%,rgba(81,141,210,.22),transparent 58%),
+    radial-gradient(55% 100% at 0% 100%,rgba(31,185,150,.16),transparent 58%),
+    linear-gradient(135deg,rgba(38,55,78,.9),rgba(27,43,66,.88) 52%,rgba(25,55,63,.86))!important;
+  border-color:rgba(226,241,255,.2)!important;
+  box-shadow:0 24px 58px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.16)!important;
+}
+:root[data-theme="dark"] .finance-hero-title{
+  background:linear-gradient(100deg,#f3f8ff 0%,#b8d8f7 42%,#82e7ce 100%)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+:root[data-theme="dark"] .finance-hero-logo-wrap{
+  background:linear-gradient(145deg,rgba(231,246,255,.15),rgba(160,207,230,.07))!important;
+  border-color:rgba(229,245,255,.22)!important;
+  box-shadow:0 15px 32px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.22)!important;
+}
+:root[data-theme="dark"] .finance-total-card,
+:root[data-theme="dark"] .finance-metric-card,
+:root[data-theme="dark"] .liquid-glass-card{
+  background:linear-gradient(145deg,rgba(235,246,255,.12),rgba(194,222,247,.055) 58%,rgba(73,137,155,.09))!important;
+  border-color:rgba(226,242,255,.2)!important;
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.18),0 16px 34px rgba(0,0,0,.2)!important;
+}
+:root[data-theme="dark"] .finance-total-kicker,
+:root[data-theme="dark"] .finance-metric-label{color:#b9d5e9!important}
+:root[data-theme="dark"] .finance-total-value,
+:root[data-theme="dark"] .finance-metric-value{
+  background:linear-gradient(100deg,#f4f8ff 0%,#c5e3f5 48%,#8af0d3 100%)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important;
+  filter:drop-shadow(0 5px 14px rgba(58,171,185,.12));
+}
+:root[data-theme="dark"] .hero{
+  background:linear-gradient(145deg,rgba(48,68,93,.72),rgba(27,48,70,.7) 58%,rgba(24,65,65,.55))!important;
+  border-color:rgba(225,242,255,.18)!important;
+  box-shadow:0 18px 42px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.12)!important;
+}
+:root[data-theme="dark"] .hero.blue{background:linear-gradient(145deg,rgba(44,66,99,.78),rgba(30,49,76,.72) 58%,rgba(30,70,94,.62))!important}
+:root[data-theme="dark"] .hero-metric,
+:root[data-theme="dark"] .plan-history-item,
+:root[data-theme="dark"] .plan-history-inline{
+  color:#edf5ff!important;background:rgba(233,245,255,.08)!important;
+  border-color:rgba(227,242,255,.16)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 8px 20px rgba(0,0,0,.14)!important;
+}
+:root[data-theme="dark"] .plan-history-item:hover{background:rgba(231,247,255,.13)!important;border-color:rgba(91,222,190,.34)!important}
+:root[data-theme="dark"] .plan-history-inline-head strong,
+:root[data-theme="dark"] .plan-history-item>strong{color:#f0f7ff!important}
+:root[data-theme="dark"] .plan-history-empty{background:rgba(255,255,255,.055)!important;color:#b8c9dc!important}
+:root[data-theme="dark"] .plan-result{
+  color:#f0f7ff!important;background:linear-gradient(145deg,rgba(41,102,86,.35),rgba(38,55,80,.72))!important;
+  border-color:rgba(133,225,202,.2)!important;box-shadow:0 14px 28px rgba(0,0,0,.17),inset 0 1px 0 rgba(255,255,255,.1)!important;
+}
+:root[data-theme="dark"] .plan-result:nth-child(2){background:linear-gradient(145deg,rgba(58,89,139,.42),rgba(37,54,81,.72))!important;border-color:rgba(155,190,255,.22)!important}
+:root[data-theme="dark"] .table-wrap th{color:#d6e6f6!important;background:rgba(47,66,91,.94)!important;border-bottom-color:rgba(226,241,255,.13)!important}
+:root[data-theme="dark"] .table-wrap td{color:#e5effb!important;border-bottom-color:rgba(226,241,255,.09)!important}
+:root[data-theme="dark"] .table-wrap tbody tr:hover{background:rgba(223,241,255,.055)!important}
+:root[data-theme="dark"] .table-wrap{background:rgba(27,43,64,.62)!important}
+:root[data-theme="dark"] .chart-svg text{fill:#c1d1e4!important}
+:root[data-theme="dark"] .chart-svg .gridline{stroke:rgba(202,224,246,.18)!important}
+:root[data-theme="dark"] .tabs{background:rgba(20,34,53,.62)!important;border-color:rgba(224,241,255,.15)!important}
+:root[data-theme="dark"] .tabs button{color:#b9cbe0!important}
+:root[data-theme="dark"] .tabs button.active{color:#fff!important;background:linear-gradient(120deg,rgba(68,103,139,.82),rgba(42,96,99,.78))!important;box-shadow:0 8px 18px rgba(0,0,0,.2)!important}
+:root[data-theme="dark"] .inactive-warning{color:#ffdda0!important;background:rgba(194,141,50,.13)!important;border-color:rgba(255,211,128,.22)!important}
+:root[data-theme="dark"] .footer{color:#9fb3cb!important;border-color:rgba(221,239,255,.12)!important}
+:root[data-theme="dark"] .toast{color:#f0f7ff!important;background:rgba(39,57,80,.94)!important;border-color:rgba(220,239,255,.2)!important;backdrop-filter:blur(20px)}
+:root[data-theme="dark"] dialog{color:#edf5ff!important;background:linear-gradient(145deg,rgba(43,62,86,.97),rgba(23,39,60,.97))!important;border-color:rgba(226,241,255,.2)!important}
+
+@media(max-width:1200px){
+  .finance-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .finance-metric-card{min-height:96px!important}
+}
+@media(max-width:850px){
+  .finance-hero-body{grid-template-columns:1fr!important}
+  .finance-total-card{min-height:0!important}
+  .finance-metric-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .finance-total-value{font-size:clamp(36px,7vw,56px)!important}
+}
+@media(max-width:600px){
+  .finance-hero{padding:16px!important}
+  .finance-hero-top{align-items:flex-start!important}
+  .finance-hero-brand{align-items:center!important}
+  .finance-hero-logo-wrap{flex-basis:58px!important;width:58px!important;height:58px!important;border-radius:17px!important}
+  .finance-hero-logo{width:46px!important;height:25px!important}
+  .finance-hero-title{font-size:21px!important}
+  .finance-hero-actions{width:auto!important}
+  .finance-hero-actions .btn{width:auto!important}
+  .finance-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .finance-metric-value{font-size:clamp(20px,6vw,28px)!important}
+  .plan-history-inline-list{grid-template-columns:1fr}
+  .plan-history-item{grid-template-columns:1fr auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .plan-history-item,.finance-hero,.finance-total-value,.finance-metric-value{animation:none!important;transition:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -2244,7 +2538,6 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
           </div>
           <div class="sidebar-brand-copy">
             <strong>Life Pay <i>+</i> СП</strong>
-            <small>ДЕМО ВЕРСИЯ</small>
           </div>
           <span id="sidebarModeBadge" class="sidebar-mode-badge demo">ДЕМО ВЕРСИЯ</span>
         </div>
@@ -3159,10 +3452,27 @@ function donut(items,title){
 
 /* ---- страницы ---- */
 function heroPlan(source){
-  const a=Piot.eventSummary(source||s.data.records,cfg(),s.month);
+  const records=source||eventRows();
+  const a=Piot.eventSummary(records,cfg(),s.month);
   const m=manual(), plan=s.month?m.plan:null, done=a.done;
   const hasPlan=plan!=null, p=hasPlan?Math.min(100,pct(done,plan)):0;
   const left=plan!=null?Math.max(0,plan-done):null;
+  const ledger=s.data.ledger||{};
+  const monthly=Piot.monthly(records,cfg());
+  const historyKeys=!s.month?Object.keys(ledger).filter(k=>Piot.validMonth(k)&&ledger[k]&&ledger[k].plan!=null).sort().reverse():[];
+  const historyMarkup=!s.month?`<div class="plan-history-inline">
+    <div class="plan-history-inline-head"><strong>История планов</strong><span>${historyKeys.length?number(historyKeys.length)+' мес.':'за всё время'}</span></div>
+    ${historyKeys.length?`<div class="plan-history-inline-list">${historyKeys.slice(0,6).map(k=>{
+      const row=ledger[k]||{}, stats=monthly[k]||{done:0}, completed=stats.done||0;
+      const target=Number(row.plan)||0, progress=target>0?Math.min(100,pct(completed,target)):0;
+      return `<button type="button" class="plan-history-item" data-select-month="${k}" title="Открыть план за ${monthLabel(k)}">
+        <span class="plan-history-month">${monthLabel(k)}</span>
+        <strong>${number(target)} <small>задач</small></strong>
+        <span class="plan-history-meta">Выполнено ${number(completed)} · ${progress}%</span>
+        <i class="plan-history-track"><b style="width:${progress}%"></b></i>
+      </button>`;
+    }).join('')}</div>`:'<div class="plan-history-empty">Сохранённых планов за прошлые месяцы пока нет.</div>'}
+  </div>`:'';
   const c=2*Math.PI*64, off=c*(1-p/100);
   return `<section class="hero">
     <div class="hero-top">
@@ -3170,23 +3480,25 @@ function heroPlan(source){
       <button class="text-btn" data-page="plan">Открыть план →</button>
     </div>
     <div class="hero-body">
-      <svg class="ring" viewBox="0 0 160 160" role="img" aria-label="Выполнение плана ${p}%">
+      <svg class="ring" viewBox="0 0 160 160" role="img" aria-label="${hasPlan?'Выполнение плана '+p+'%':!s.month?'История планов за всё время':'План не задан'}">
         <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stop-color="#5ee6b0"/><stop offset="1" stop-color="#009a66"/></linearGradient></defs>
         <circle class="ring-bg" cx="80" cy="80" r="64"/>
         <circle class="ring-fg" cx="80" cy="80" r="64" transform="rotate(-90 80 80)"
           stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${off.toFixed(1)}" data-ringoff="${off.toFixed(1)}"/>
         <text class="ring-val" x="80" y="84" text-anchor="middle">${hasPlan?p+'%':'—'}</text>
-        <text class="ring-cap" x="80" y="102" text-anchor="middle">${hasPlan?'от плана':'план не задан'}</text>
+        <text class="ring-cap" x="80" y="102" text-anchor="middle">${hasPlan?'от плана':!s.month?'весь период':'план не задан'}</text>
       </svg>
       <div class="hero-right">
-        <div class="big-progress"><i style="width:${p}%"></i></div>
+        ${s.month?`<div class="big-progress"><i style="width:${p}%"></i></div>
         <div class="hero-metrics">
           <div class="hero-metric"><span>ВЫПОЛНЕНО</span><b>${cVal(done)}</b></div>
           <div class="hero-metric"><span>ПЛАН</span><b>${plan==null?'—':cVal(plan)}</b></div>
           <div class="hero-metric"><span>ОСТАЛОСЬ</span><b>${left==null?'—':cVal(left)}</b></div>
         </div>
-        <p class="hero-note">${hasPlan?'До выполнения плана осталось <b>'+number(left)+'</b> задач. Учёт — по дате статуса.':'Укажите план на выбранный месяц в разделе «Настройки».'}</p>
+        <p class="hero-note">${hasPlan?'До выполнения плана осталось <b>'+number(left)+'</b> задач. Учёт — по дате статуса.':'Укажите план на выбранный месяц в разделе «Настройки».'}</p>`:
+        `<div class="hero-alltime-summary"><strong>${cVal(done)}</strong><span>выполнено за весь период</span></div>
+        <p class="hero-note">Выбран период «За всё время». Выберите месяц в списке, чтобы открыть его план.</p>${historyMarkup}`}
       </div>
     </div>
   </section>`;
@@ -3276,7 +3588,7 @@ function financeHero(){
         <div class="finance-hero-brand">
           <div class="finance-hero-logo-wrap" aria-label="Life Pay">
             <img class="finance-hero-logo" src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" alt="LIFE PAY" loading="lazy" decoding="async">
-            <span class="finance-logo-caption">DEMO VERSION</span>
+            
           </div>
           <div class="finance-hero-copy">
             <h2 class="finance-hero-title">Доходы в одной сводке</h2>
@@ -3287,12 +3599,12 @@ function financeHero(){
       <div class="finance-hero-actions"><button class="btn small" data-page="finance">Открыть финансы</button></div>
     </div>
     <div class="finance-hero-body">
-      <div class="finance-total-card">
+      <div class="finance-total-card liquid-glass-card">
         <div class="finance-total-kicker">Общий доход без СП</div>
         <div class="finance-total-value">${cVal(inc.total,true)}</div>
         <div class="finance-total-note">Формула: установка Life Pay + ЕСП без задачи + доход ЕСП. СП показывается отдельно и в общий итог не включается.</div>
       </div>
-      <div class="finance-metric-grid">${metrics.map(m=>`<div class="finance-metric-card" style="--fm-color:${m.color}"><span class="finance-metric-label">${m.label}</span><span class="finance-metric-value">${m.value}</span><span class="finance-metric-meta">${m.meta}</span></div>`).join('')}</div>
+      <div class="finance-metric-grid">${metrics.map(m=>`<div class="finance-metric-card liquid-glass-card" style="--fm-color:${m.color}"><span class="finance-metric-label">${m.label}</span><span class="finance-metric-value">${m.value}</span><span class="finance-metric-meta">${m.meta}</span></div>`).join('')}</div>
     </div>
   </section>`;
 }
@@ -3532,8 +3844,8 @@ function planRecords(){
 function planControls(){
   const statuses=[...new Set(s.data.records.filter(r=>r.source!=='noesp').map(r=>r.status).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ru'));
   return `<section class="glass plan-filter-card">
-    <div class="plan-filter-heading"><div><strong>Текущий план: ${h(s.month?monthLabel(s.month):'выберите месяц')}</strong>
-      <p class="muted">По умолчанию считаются все статусы и все результаты. План общий для месяца.</p></div>
+    <div class="plan-filter-heading"><div><strong>${s.month?'План на '+h(monthLabel(s.month)):'Период: За всё время · все предыдущие месяцы'}</strong>
+      <p class="muted">${s.month?'Показатели за выбранный месяц. План общий для месяца.':'Показана история сохранённых планов по всем месяцам.'}</p></div>
       <button type="button" class="btn small" data-plan-reset>Все статусы</button>
     </div>
     <div class="plan-filter-controls">
@@ -3563,7 +3875,7 @@ function planPage(){
   let html=filters();
   html+=planControls();
   html+=`<div class="hero-grid">${heroPlan(source)}${heroOpen(source)}</div>`;
-  if(!s.month) html+='<div class="inactive-warning">Выберите месяц, чтобы редактировать план.</div>';
+  if(!s.month) html+='<div class="inactive-warning">Выбран период «За всё время». История планов доступна ниже. Чтобы изменить план, выберите конкретный месяц.</div>';
   html+=`<div class="kpis">
     ${kpi('План на месяц',s.month&&m.plan!=null?cVal(m.plan):'—')}
     ${kpi('Выполнено',s.month?cVal(done):'—','По дате статуса')}
