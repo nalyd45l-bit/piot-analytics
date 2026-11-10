@@ -1997,6 +1997,187 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   }
 }
 
+
+
+/* ==========================================================
+   HOTFIX — light liquid glass refresh requested by user
+   ========================================================== */
+.auth-brand-caption:empty{display:none!important}
+.auth-card{
+  background:linear-gradient(180deg,rgba(255,255,255,.74),rgba(247,251,255,.54));
+  border:1px solid rgba(255,255,255,.72);
+  box-shadow:0 30px 80px rgba(41,69,103,.18), inset 0 1px 0 rgba(255,255,255,.92);
+}
+.auth-brand-sticker{
+  width:198px;
+  padding:18px 16px 14px;
+  border-radius:28px;
+  background:
+    radial-gradient(110% 100% at 18% 0%, rgba(77,226,175,.22), transparent 52%),
+    radial-gradient(85% 90% at 100% 100%, rgba(55,167,216,.17), transparent 48%),
+    linear-gradient(145deg, rgba(10,33,40,.95), rgba(30,64,72,.94) 55%, rgba(16,36,44,.94));
+  border:1px solid rgba(235,255,250,.44);
+  box-shadow:0 24px 44px rgba(15,36,51,.23), inset 0 1px 0 rgba(255,255,255,.38), 0 0 0 7px rgba(255,255,255,.24);
+}
+.auth-brand-sticker img{width:142px;height:37px}
+.auth-submit{
+  background:linear-gradient(100deg,#19c58f 0%,#0bb087 45%,#25aee0 100%)!important;
+  border:1px solid rgba(145,251,221,.48)!important;
+  box-shadow:0 14px 35px rgba(18,176,138,.28), inset 0 1px 0 rgba(255,255,255,.35)!important;
+}
+.auth-submit:hover{transform:translateY(-2px);filter:brightness(1.03) saturate(1.08)}
+.sidebar-brand-sticker{
+  border-radius:24px;
+  padding:13px;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,.88), rgba(240,248,253,.58));
+  box-shadow:0 18px 34px rgba(33,64,93,.10), inset 0 1px 0 rgba(255,255,255,.98);
+}
+.sidebar-lifepay-wrap{
+  width:100%;height:60px;border-radius:20px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(145deg, rgba(9,32,39,.96), rgba(28,61,69,.94));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2), 0 12px 28px rgba(18,36,49,.16);
+}
+.sidebar-lifepay-logo{width:112px;height:34px;filter:brightness(0) invert(1) drop-shadow(0 0 10px rgba(146,253,219,.35));}
+.sidebar-brand-copy strong{font-size:13px}
+.sidebar-brand-copy small{font-size:10px;letter-spacing:1px;color:#1bb280;-webkit-text-fill-color:#1bb280}
+.sidebar-mode-badge{margin-top:2px;font-size:8px;padding:5px 10px;letter-spacing:.8px}
+
+/* White liquid-glass finance section */
+.finance-hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(68% 110% at 100% 0%, rgba(156,219,255,.24), transparent 58%),
+    radial-gradient(48% 85% at 0% 100%, rgba(150,240,204,.18), transparent 58%),
+    linear-gradient(135deg, rgba(255,255,255,.78) 0%, rgba(246,250,255,.70) 52%, rgba(236,244,250,.72) 100%)!important;
+  border:1px solid rgba(255,255,255,.82)!important;
+  box-shadow:0 28px 70px rgba(26,56,89,.12), inset 0 1px 0 rgba(255,255,255,.96)!important;
+  backdrop-filter:blur(26px) saturate(175%);
+  -webkit-backdrop-filter:blur(26px) saturate(175%);
+}
+.finance-hero::before{
+  content:"";position:absolute;inset:auto -7% -28% auto;width:380px;height:380px;border-radius:50%;
+  background:radial-gradient(circle, rgba(56,174,255,.28), rgba(56,174,255,.08) 40%, transparent 74%);
+  filter:blur(8px);opacity:.9;animation:liquidBlobFloat 11s ease-in-out infinite alternate;pointer-events:none;
+}
+.finance-hero::after{
+  content:"";position:absolute;top:-28%;bottom:-32%;left:-35%;width:26%;transform:rotate(18deg);
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), rgba(171,250,230,.28), transparent);
+  filter:blur(10px);animation:liquidSheenSweep 10s cubic-bezier(.45,0,.2,1) infinite;pointer-events:none;
+}
+@keyframes liquidBlobFloat{from{transform:translate3d(0,0,0) scale(.92)}to{transform:translate3d(-46px,-24px,0) scale(1.18)}}
+@keyframes liquidSheenSweep{0%,12%{left:-35%;opacity:0}24%{opacity:.9}70%,100%{left:118%;opacity:0}}
+.finance-hero-top,.finance-hero-body{position:relative;z-index:2}
+.finance-hero-badge{
+  color:#12aa7b!important;background:rgba(29,189,139,.12)!important;border:1px solid rgba(29,189,139,.22)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7), 0 10px 20px rgba(20,150,110,.08)
+}
+.finance-hero-title{
+  color:#15273b!important;
+  background:linear-gradient(100deg,#0f2238 0%,#17314c 42%,#0d6f72 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  text-shadow:none!important;
+}
+.finance-hero-sub{color:rgba(35,57,84,.78)!important}
+.finance-hero-logo-wrap{
+  flex:0 0 104px;width:104px;height:104px;border-radius:30px;
+  background:
+    radial-gradient(115% 100% at 22% 0%, rgba(88,236,191,.17), transparent 52%),
+    linear-gradient(145deg, rgba(255,255,255,.88), rgba(237,246,252,.66));
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 18px 38px rgba(30,61,91,.15), inset 0 1px 0 rgba(255,255,255,.98), inset 0 -8px 18px rgba(124,165,197,.09);
+}
+.finance-hero-logo-wrap::before{display:none}
+.finance-hero-logo-wrap::after{content:"";position:absolute;inset:1px;border-radius:inherit;background:linear-gradient(120deg, rgba(255,255,255,.46), transparent 38%, rgba(255,255,255,.12));pointer-events:none}
+.finance-hero-logo{
+  width:76px;height:38px;filter:none!important;
+}
+.finance-logo-caption{font-size:8px;letter-spacing:1px;color:#11a77b;text-shadow:none}
+.finance-hero-actions .btn{
+  background:linear-gradient(100deg,#19c58f 0%,#12b492 42%,#2dade5 100%)!important;
+  color:#fff!important;border:1px solid rgba(146,250,223,.54)!important;
+  box-shadow:0 14px 30px rgba(17,175,137,.18), inset 0 1px 0 rgba(255,255,255,.4)!important;
+}
+.finance-total-card,
+.finance-metric-card{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(120% 130% at 100% 100%, rgba(131,201,255,.16), transparent 56%),
+    linear-gradient(145deg, rgba(255,255,255,.64), rgba(245,250,255,.42) 60%, rgba(232,242,249,.38))!important;
+  border:1px solid rgba(255,255,255,.76)!important;
+  box-shadow:0 18px 36px rgba(29,58,88,.12), inset 0 1px 0 rgba(255,255,255,.94)!important;
+  backdrop-filter:blur(24px) saturate(170%);
+  -webkit-backdrop-filter:blur(24px) saturate(170%);
+}
+.finance-total-card::before,
+.finance-metric-card::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(112deg, transparent 22%, rgba(255,255,255,.58) 46%, transparent 72%);
+  transform:translateX(-120%);animation:cardLightSweep 8.2s ease-in-out infinite;pointer-events:none
+}
+.finance-total-card::after,
+.finance-metric-card::after{
+  content:"";position:absolute;right:-16px;bottom:-20px;width:148px;height:148px;border-radius:50%;
+  background:radial-gradient(circle, rgba(65,170,255,.16), rgba(65,170,255,0) 68%);
+  filter:blur(4px);animation:glassPulseOrb 7s ease-in-out infinite;pointer-events:none
+}
+@keyframes cardLightSweep{0%,18%{transform:translateX(-120%);opacity:0}31%{opacity:1}66%,100%{transform:translateX(120%);opacity:0}}
+@keyframes glassPulseOrb{0%,100%{transform:scale(.88);opacity:.7}50%{transform:scale(1.16);opacity:1}}
+.finance-total-kicker,.finance-metric-label{color:rgba(36,74,102,.88)!important}
+.finance-total-note,.finance-metric-meta{color:rgba(51,72,96,.75)!important}
+.finance-total-value,
+.finance-metric-value{
+  position:relative;display:inline-block;
+  background:linear-gradient(98deg,#11233a 0%,#1e3552 36%,#0f7b7e 74%,#10243b 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  text-shadow:none!important;
+  animation:moneyFloat 3.6s ease-in-out infinite, moneyGleam 6.5s ease-in-out infinite;
+}
+.finance-total-value{font-size:clamp(58px,6.4vw,96px)!important;letter-spacing:-3px}
+.finance-metric-value{font-size:clamp(31px,3vw,50px)!important;letter-spacing:-1.1px}
+@keyframes moneyFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes moneyGleam{0%,100%{filter:drop-shadow(0 0 0 rgba(0,0,0,0))}50%{filter:drop-shadow(0 10px 20px rgba(43,91,145,.08))}}
+.finance-total-value .counter,
+.finance-metric-value .counter{animation:counterBreathe 2.8s ease-in-out infinite}
+@keyframes counterBreathe{0%,100%{opacity:1;transform:translateY(0)}50%{opacity:.88;transform:translateY(-1px)}}
+
+/* Filters: move visually up and make them more iPhone-like */
+#page>.global-filterbar{top:0;z-index:55;margin-bottom:16px}
+.filterbar.global-filterbar,
+.table-toolbar{
+  border-radius:24px!important;
+  border:1px solid rgba(255,255,255,.82)!important;
+  background:linear-gradient(145deg, rgba(255,255,255,.72), rgba(242,248,253,.56))!important;
+  box-shadow:0 16px 34px rgba(25,55,85,.10), inset 0 1px 0 rgba(255,255,255,.96)!important;
+  backdrop-filter:blur(26px) saturate(180%);
+  -webkit-backdrop-filter:blur(26px) saturate(180%);
+}
+.filterbar.global-filterbar input,
+.filterbar.global-filterbar select,
+.table-toolbar select{
+  border-radius:16px!important;
+  border:1px solid rgba(183,205,224,.75)!important;
+  background:rgba(255,255,255,.75)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.96), 0 8px 18px rgba(42,79,110,.06)!important;
+}
+.filterbar.global-filterbar .btn.small,
+.table-toolbar .btn,
+.table-toolbar .big-icon-btn{
+  border-radius:18px!important;
+  box-shadow:0 12px 24px rgba(31,68,99,.10), inset 0 1px 0 rgba(255,255,255,.95)!important;
+}
+.filterbar.global-filterbar .btn.small{background:linear-gradient(120deg,#ffffff,#eef5fb)!important}
+
+@media(max-width:760px){
+  .finance-hero{padding:22px 16px 18px!important}
+  .finance-hero-brand{align-items:flex-start!important}
+  .finance-hero-logo-wrap{width:84px;height:84px;flex-basis:84px;border-radius:24px}
+  .finance-hero-logo{width:62px;height:31px}
+  .finance-total-value{font-size:clamp(46px,14vw,72px)!important}
+}
+
 </style>
 </head>
 <body>
@@ -2007,7 +2188,7 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   <div class="pin-card auth-card">
     <div class="auth-brand-sticker">
       <img src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" alt="LIFE PAY" loading="lazy" decoding="async">
-      <span class="auth-brand-caption">АНАЛИТИКА СП · ЗАЩИЩЁННЫЙ ДОСТУП</span>
+      <span class="auth-brand-caption"></span>
     </div>
     <div class="pin-title">Добро пожаловать</div>
     <div class="pin-sub">Введите пароль, чтобы открыть аналитику</div>
@@ -2062,10 +2243,10 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
             <img class="sidebar-lifepay-logo" src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" alt="LIFE PAY" loading="lazy" decoding="async">
           </div>
           <div class="sidebar-brand-copy">
-            <strong>Life Pay <i>×</i> СП</strong>
-            <small>АНАЛИТИКА · v5.0</small>
+            <strong>Life Pay <i>+</i> СП</strong>
+            <small>ДЕМО ВЕРСИЯ</small>
           </div>
-          <span id="sidebarModeBadge" class="sidebar-mode-badge">ПОДКЛЮЧЕНИЕ</span>
+          <span id="sidebarModeBadge" class="sidebar-mode-badge demo">ДЕМО ВЕРСИЯ</span>
         </div>
       </div>
     </aside>
@@ -2604,7 +2785,7 @@ const number = v => v==null||v===''||!Number.isFinite(Number(v)) ? '—' : Numbe
 const rub    = v => v==null ? '—' : '₽\u202f'+number(v);
 const pct    = (a,b) => b ? Math.round(a/b*100) : 0;
 const MONTH_NAMES = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
-const monthLabel  = m => Piot.validMonth(m) ? MONTH_NAMES[Number(m.slice(5))-1]+' '+m.slice(0,4) : 'За всё время';
+const monthLabel  = m => Piot.validMonth(m) ? MONTH_NAMES[Number(m.slice(5))-1]+' '+m.slice(0,4) : 'За всё время · все предыдущие месяцы';
 const shortLabel  = k => k==='Без даты'?k:k.length===7?MONTH_NAMES[Number(k.slice(5))-1].slice(0,3)+' '+k.slice(2,4):k.slice(8,10)+'.'+k.slice(5,7);
 const reduced     = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -3095,7 +3276,7 @@ function financeHero(){
         <div class="finance-hero-brand">
           <div class="finance-hero-logo-wrap" aria-label="Life Pay">
             <img class="finance-hero-logo" src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" alt="LIFE PAY" loading="lazy" decoding="async">
-            <span class="finance-logo-caption">PIOT ANALYTICS</span>
+            <span class="finance-logo-caption">DEMO VERSION</span>
           </div>
           <div class="finance-hero-copy">
             <h2 class="finance-hero-title">Доходы в одной сводке</h2>
@@ -3573,7 +3754,7 @@ function render(opt){
   const mb=$('#modeBadge');
   if(mb){ mb.hidden=!!s.data.demo; mb.textContent='Google Sheets'; }
   const sideMode=$('#sidebarModeBadge');
-  if(sideMode){ sideMode.textContent=s.data.demo?'ДЕМО-ВЕРСИЯ':'БОЕВЫЕ ДАННЫЕ'; sideMode.classList.toggle('demo',!!s.data.demo); }
+  if(sideMode){ sideMode.textContent='ДЕМО ВЕРСИЯ'; sideMode.classList.add('demo'); }
   $('#updated').textContent=s.data.updated&& !Number.isNaN(new Date(s.data.updated).getTime()) ? 'Обновлено '+new Date(s.data.updated).toLocaleString('ru-RU') : 'Данные из Google Sheets';
   if(s.fx) playCounters();
 }
