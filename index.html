@@ -136,6 +136,10 @@ nav{display:flex;flex-direction:column;gap:3px}
 .navbtn:hover .ico{transform:scale(1.12)}
 .navbtn.active .ico{opacity:1;color:var(--green)}
 .sidebar-foot{margin-top:auto;padding:40px 12px 0;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.sidebar-lifepay-wrap{display:flex;align-items:center;justify-content:center;width:112px;height:46px;padding:8px 13px;border-radius:15px;background:linear-gradient(145deg,#14232d,#263c43);border:1px solid rgba(255,255,255,.2);box-shadow:0 9px 22px rgba(13,25,40,.2),inset 0 1px 0 rgba(255,255,255,.18);overflow:hidden}
+.sidebar-lifepay-logo{display:block;width:86px;max-width:100%;height:28px;object-fit:contain;filter:brightness(0) invert(1);opacity:.98}
+.sidebar-foot small{color:#00a56a;font-size:9.5px;font-weight:850;letter-spacing:.65px;opacity:1;background:linear-gradient(100deg,#00a56a 0%,#25c993 35%,#91f1cf 52%,#00a56a 75%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sidebarLabelShine 4.8s ease-in-out infinite;filter:drop-shadow(0 2px 5px rgba(0,165,106,.12))}
+@keyframes sidebarLabelShine{0%,100%{background-position:100% 50%}50%{background-position:0% 50%}}
 .wordmark{font-size:26px;letter-spacing:-1.5px;font-weight:400;line-height:1.2;opacity:.3}
 .sidebar-foot small{display:block;color:var(--muted);font-size:9.5px;letter-spacing:.5px;opacity:.7}
 .main{min-width:0}
@@ -644,6 +648,9 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
 @keyframes piotCardEnter{from{opacity:0;transform:translateY(25px) scale(.968);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 .bank-head{align-items:flex-start;flex-wrap:wrap;gap:12px}
 .bank-identity{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0;max-width:100%}
+.bank-logo-wordmark{width:118px;max-width:100%;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid color-mix(in srgb,var(--brand),transparent 68%);background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(248,251,255,.82));color:var(--brand);font:850 15px/1 Hint,Arial,sans-serif;letter-spacing:.45px;box-shadow:0 4px 12px rgba(30,45,65,.07),inset 0 1px 0 #fff;transition:transform var(--transition),box-shadow var(--transition),background var(--transition)}
+.bank-logo-wordmark:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(30,45,65,.12),inset 0 1px 0 #fff}
+.bank-name-label{cursor:pointer}
 .bank-logo-image{width:118px;max-width:118px;height:34px;object-fit:contain;border-radius:10px;flex-shrink:0;animation:piotLogo 5s ease-in-out infinite;background:rgba(255,255,255,.96);padding:4px 8px;border:1px solid rgba(220,230,242,.95)}
 @keyframes piotLogo{50%{filter:drop-shadow(0 5px 7px rgba(0,0,0,.14))}}
 .bank-name-label{font-size:13px;font-weight:850;letter-spacing:-.15px;white-space:nowrap;color:var(--brand);padding:5px 10px;border-radius:10px;background:color-mix(in srgb,var(--brand),white 92%);border:1px solid color-mix(in srgb,var(--brand),transparent 70%);max-width:100%;display:inline-flex;align-items:center;box-shadow:0 4px 12px rgba(30,45,65,.06)}
@@ -741,7 +748,186 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
 @media(prefers-reduced-motion:reduce){
   .income-overview::before,.income-overview .kpi,.priority-status-card,
   .priority-status-card::after,.bank-card,.bank-card::after,.bank-logo-image,
-  .bank-card .chart-line,.bank-card .mini-glass,.plan-result,.finance-hero::before,.finance-hero::after,.finance-hero-logo-wrap,.finance-total-card::after,.finance-metric-card::after{animation:none!important;transition:none!important}
+  .bank-card .chart-line,.bank-card .mini-glass,.plan-result,.sidebar-foot small,.finance-hero::before,.finance-hero::after,.finance-hero-logo-wrap,.finance-total-card::after,.finance-metric-card::after{animation:none!important;transition:none!important}
+}
+
+
+/* ===== DEEP GLASS DARK MODE ===== */
+:root[data-theme="dark"] body{
+  background:
+    radial-gradient(ellipse at 8% 4%,rgba(37,129,170,.24),transparent 34%),
+    radial-gradient(ellipse at 92% 18%,rgba(0,165,106,.18),transparent 32%),
+    radial-gradient(ellipse at 55% 100%,rgba(111,82,190,.16),transparent 40%),
+    #07111d;
+  background-attachment:fixed;
+}
+:root[data-theme="dark"] .blobs{opacity:.58;filter:blur(82px) saturate(1.45)}
+:root[data-theme="dark"] .shell{
+  background:linear-gradient(145deg,rgba(12,25,40,.54),rgba(8,18,31,.43));
+  border-color:rgba(226,241,255,.16);
+  box-shadow:0 26px 80px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.14),inset 0 -1px 0 rgba(255,255,255,.035);
+  backdrop-filter:blur(42px) saturate(175%);
+}
+:root[data-theme="dark"] .brandbar{border-bottom-color:rgba(226,241,255,.12)}
+:root[data-theme="dark"] .sidebar,
+:root[data-theme="dark"] .glass,
+:root[data-theme="dark"] .month-wrap,
+:root[data-theme="dark"] .icon-btn,
+:root[data-theme="dark"] .filterbar,
+:root[data-theme="dark"] .table-wrap,
+:root[data-theme="dark"] dialog{
+  background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.035));
+  border-color:rgba(224,239,255,.15);
+  box-shadow:0 14px 38px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.14),inset 0 -1px 0 rgba(255,255,255,.035);
+  backdrop-filter:blur(30px) saturate(170%);
+}
+:root[data-theme="dark"] .sidebar{
+  background:linear-gradient(155deg,rgba(255,255,255,.12),rgba(255,255,255,.035));
+  border-color:rgba(232,244,255,.18);
+}
+:root[data-theme="dark"] .navbtn.active{
+  background:linear-gradient(135deg,rgba(111,155,190,.28),rgba(255,255,255,.075));
+  border-color:rgba(230,245,255,.2);
+  box-shadow:0 8px 24px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.2);
+}
+:root[data-theme="dark"] .navbtn:hover:not(.active){background:rgba(255,255,255,.09)}
+:root[data-theme="dark"] .sidebar-lifepay-wrap{
+  background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.045));
+  border-color:rgba(238,248,255,.2);
+  box-shadow:0 12px 28px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.2);
+  backdrop-filter:blur(18px);
+}
+:root[data-theme="dark"] .sidebar-foot small{
+  background:linear-gradient(100deg,#39dca6 0%,#a6ffe0 42%,#4fe0b2 62%,#39dca6 100%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 8px rgba(48,220,166,.28));
+}
+:root[data-theme="dark"] .hero,
+:root[data-theme="dark"] .hero.blue,
+:root[data-theme="dark"] .income-overview,
+:root[data-theme="dark"] .esp-details,
+:root[data-theme="dark"] .plan-filter-card,
+:root[data-theme="dark"] .priority-status-card,
+:root[data-theme="dark"] .priority-status-card.assist,
+:root[data-theme="dark"] .finance-total-card,
+:root[data-theme="dark"] .finance-metric-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.035));
+  border-color:rgba(226,241,255,.15);
+  box-shadow:0 16px 42px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.14);
+  backdrop-filter:blur(28px) saturate(165%);
+}
+:root[data-theme="dark"] .finance-hero{
+  background:linear-gradient(145deg,rgba(9,22,35,.72),rgba(16,37,51,.54) 54%,rgba(7,29,35,.64));
+  border-color:rgba(220,243,255,.16);
+  box-shadow:0 24px 70px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.16);
+  backdrop-filter:blur(34px) saturate(170%);
+}
+:root[data-theme="dark"] .finance-metric-card::before{opacity:.92}
+:root[data-theme="dark"] .finance-total-value,
+:root[data-theme="dark"] .finance-metric-value{ text-shadow:0 4px 22px rgba(255,255,255,.08) }
+:root[data-theme="dark"] .mini-glass,
+:root[data-theme="dark"] .hero-metric,
+:root[data-theme="dark"] .income-overview .income-kpis .kpi,
+:root[data-theme="dark"] .bank-summary-grid .kpi,
+:root[data-theme="dark"] .home-summary .kpi,
+:root[data-theme="dark"] .esp-figures .kpi,
+:root[data-theme="dark"] .priority-other-row,
+:root[data-theme="dark"] .plan-result{
+  background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.025));
+  border-color:rgba(222,239,255,.13);
+  box-shadow:0 8px 24px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.11);
+  backdrop-filter:blur(22px) saturate(155%);
+}
+:root[data-theme="dark"] .plan-result:nth-child(2){background:linear-gradient(145deg,rgba(85,135,200,.16),rgba(255,255,255,.035))}
+:root[data-theme="dark"] .bank-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.045));
+  border-color:rgba(230,243,255,.18);
+  box-shadow:0 18px 46px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.16);
+  backdrop-filter:blur(30px) saturate(175%);
+}
+:root[data-theme="dark"] .bank-logo-wordmark{
+  color:#f3f8ff;
+  background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.055));
+  border-color:color-mix(in srgb,var(--brand),transparent 28%);
+  box-shadow:0 8px 20px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.2);
+}
+:root[data-theme="dark"] .bank-name-label{
+  background:color-mix(in srgb,var(--brand),transparent 86%);
+  color:color-mix(in srgb,var(--brand),white 45%);
+  border-color:color-mix(in srgb,var(--brand),transparent 50%);
+}
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea{
+  background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.045));
+  border-color:rgba(226,241,255,.17);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 5px 18px rgba(0,0,0,.1);
+  backdrop-filter:blur(18px);
+}
+:root[data-theme="dark"] input:focus,
+:root[data-theme="dark"] textarea:focus,
+:root[data-theme="dark"] select:focus{
+  background:rgba(74,130,170,.2);
+  border-color:rgba(83,190,235,.65);
+  box-shadow:0 0 0 4px rgba(61,142,240,.18),inset 0 1px 0 rgba(255,255,255,.14);
+}
+:root[data-theme="dark"] .btn,
+:root[data-theme="dark"] .icon-btn,
+:root[data-theme="dark"] .pill,
+:root[data-theme="dark"] .tabs{
+  background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.045));
+  border-color:rgba(226,241,255,.16);
+  box-shadow:0 8px 22px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.14);
+  backdrop-filter:blur(18px) saturate(160%);
+}
+:root[data-theme="dark"] .btn.primary{
+  background:linear-gradient(135deg,rgba(35,211,151,.9),rgba(0,139,98,.88));
+  border-color:rgba(102,245,195,.4);
+}
+:root[data-theme="dark"] .chart-svg text{fill:#d2e3f3}
+:root[data-theme="dark"] .chart-svg .axis-label,
+:root[data-theme="dark"] .chart-svg .x-label{fill:#a9c0d6}
+:root[data-theme="dark"] .chart-svg .gridline{stroke:rgba(188,220,245,.25);stroke-dasharray:3 8;opacity:.85}
+:root[data-theme="dark"] .chart-svg .axis-base{stroke:rgba(202,228,248,.42)}
+:root[data-theme="dark"] .chart-svg .chart-line{
+  stroke-width:3.8;
+  filter:drop-shadow(0 0 5px currentColor) drop-shadow(0 0 10px rgba(80,170,255,.18));
+}
+:root[data-theme="dark"] .chart-svg .chart-area{opacity:.34}
+:root[data-theme="dark"] .chart-svg .chart-bar{filter:drop-shadow(0 3px 8px rgba(0,0,0,.22))}
+:root[data-theme="dark"] .chart-svg .chart-point{filter:drop-shadow(0 0 5px currentColor)}
+:root[data-theme="dark"] .chart-tip{
+  background:linear-gradient(145deg,rgba(18,38,58,.82),rgba(9,22,36,.78));
+  border-color:rgba(226,241,255,.2);
+  box-shadow:0 18px 48px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.16);
+  backdrop-filter:blur(26px) saturate(170%);
+}
+:root[data-theme="dark"] .table-wrap{overflow:hidden}
+:root[data-theme="dark"] .table-wrap th{background:rgba(255,255,255,.09);backdrop-filter:blur(20px)}
+:root[data-theme="dark"] .table-wrap td{background:rgba(255,255,255,.018)}
+:root[data-theme="dark"] .tabs button.active{
+  background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,255,255,.075));
+  box-shadow:0 8px 20px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.2);
+}
+:root[data-theme="dark"] .pagebar h1{
+  background:linear-gradient(100deg,#f7fbff,#9fd8f1 55%,#b8f2df);
+  -webkit-background-clip:text;background-clip:text;
+}
+@media (min-width:601px) and (max-width:850px){
+  :root[data-theme="dark"] .sidebar-foot,
+  .sidebar-foot{display:flex;align-items:center;padding:18px 0 0;gap:8px}
+  .sidebar-lifepay-wrap{width:44px;height:32px;padding:4px;border-radius:10px}
+  .sidebar-lifepay-logo{width:36px;height:20px}
+  .sidebar-foot small{display:none}
+}
+@media(max-width:600px){
+  .sidebar-foot{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .sidebar-foot small{animation:none!important}
+  :root[data-theme="dark"] .chart-svg .chart-line,
+  :root[data-theme="dark"] .chart-svg .chart-bar{filter:none}
 }
 
 </style>
@@ -811,7 +997,9 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
     <aside class="sidebar">
       <nav id="navigation" aria-label="Основная навигация"></nav>
       <div class="sidebar-foot">
-        <div class="wordmark">СП</div>
+        <div class="sidebar-lifepay-wrap">
+          <img class="sidebar-lifepay-logo" src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" alt="LIFE PAY" loading="lazy" decoding="async">
+        </div>
         <small>АНАЛИТИКА СП · v5.0</small>
       </div>
     </aside>
@@ -1748,14 +1936,11 @@ function financeHero(){
   return `<section class="finance-hero">
     <div class="finance-hero-top">
       <div>
-        <div class="finance-hero-badge">Финансы · Life Pay</div>
+        <div class="finance-hero-badge">Финансы</div>
         <div class="finance-hero-brand">
-          <div class="finance-hero-logo-wrap">
-            <img class="finance-hero-logo" alt="LIFE PAY" src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" loading="eager" decoding="async">
-          </div>
           <div>
             <h2 class="finance-hero-title">Доходы в одной сводке</h2>
-            <div class="finance-hero-sub">Большой чёрный анимированный блок с логотипом Life Pay. Здесь собраны все ключевые суммы: установка Life Pay, ЕСП без задачи, доход ЕСП и общий доход без СП.</div>
+            <div class="finance-hero-sub">Все ключевые суммы собраны в одном месте: установки, ЕСП без задачи, доход ЕСП и общий доход без СП.</div>
           </div>
         </div>
       </div>
@@ -1859,8 +2044,8 @@ function banks(){
     <section class="glass bank-card" style="--brand:${b.color};--bank-order:${Piot.BANKS.findIndex(v=>v.id===b.id)}" data-bank="${b.id}">
       <div class="bank-head">
         <div class="bank-identity">
-          <img class="bank-logo-image" src="${BANK_LOGOS[b.id]}" alt="${h(({vtb:'ВТБ',tochka:'Точка Банк',alfa:'Альфа-Банк',psb:'ПСБ Банк'})[b.id]||b.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-          <span class="bank-name-label">${h(({vtb:'ВТБ',tochka:'Точка Банк',alfa:'Альфа-Банк',psb:'ПСБ Банк'})[b.id]||b.name)}</span>
+          <button type="button" class="bank-logo-wordmark" data-bank="${b.id}" title="Показать заявки: ${h(b.name)}" aria-label="Фильтр по банку ${h(b.name)}">${({vtb:'ВТБ',alfa:'АЛЬФА',psb:'ПСБ',tochka:'ТОЧКА'})[b.id]||h(b.name)}</button>
+          <button type="button" class="bank-name-label" data-bank="${b.id}" title="Фильтр по банку ${h(b.name)}">${h(({vtb:'ВТБ',tochka:'Точка Банк',alfa:'Альфа-Банк',psb:'ПСБ Банк'})[b.id]||b.name)}</button>
         </div>
         <span class="bank-pct">${b.total?pct(b.done,b.total)+'% выполнено':'нет данных'}</span>
       </div>
