@@ -384,7 +384,7 @@ dialog .actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;mar
   .navbtn{flex-direction:column;gap:2px;padding:7px 3px;border-radius:11px;flex:1}
   .navbtn::before{display:none}
   .nav-label{display:block;font-size:7.5px;line-height:1.1}
-  .bank-grid,.priority-status-grid,.priority-other-list{grid-template-columns:1fr}
+  .bank-grid,.priority-status-grid,.priority-other-list,.finance-metric-grid{grid-template-columns:1fr}
   .hero-metrics{grid-template-columns:repeat(3,1fr)}
   .ring{width:132px;height:132px}
   .toasts{bottom:88px;right:12px}
@@ -643,8 +643,8 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
 .bank-card{isolation:isolate;animation:piotCardEnter .75s cubic-bezier(.18,.87,.25,1) both;animation-delay:calc(var(--bank-order)*.09s);will-change:opacity,transform}
 @keyframes piotCardEnter{from{opacity:0;transform:translateY(25px) scale(.968);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 .bank-head{align-items:flex-start;flex-wrap:wrap;gap:12px}
-.bank-identity{display:flex;align-items:center;gap:9px;flex-wrap:wrap;min-width:0;max-width:100%}
-.bank-logo-image{width:96px;max-width:96px;height:29px;object-fit:contain;border-radius:9px;flex-shrink:0;animation:piotLogo 5s ease-in-out infinite}
+.bank-identity{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0;max-width:100%}
+.bank-logo-image{width:118px;max-width:118px;height:34px;object-fit:contain;border-radius:10px;flex-shrink:0;animation:piotLogo 5s ease-in-out infinite;background:rgba(255,255,255,.96);padding:4px 8px;border:1px solid rgba(220,230,242,.95)}
 @keyframes piotLogo{50%{filter:drop-shadow(0 5px 7px rgba(0,0,0,.14))}}
 .bank-name-label{font-size:13px;font-weight:850;letter-spacing:-.15px;white-space:nowrap;color:var(--brand);padding:5px 10px;border-radius:10px;background:color-mix(in srgb,var(--brand),white 92%);border:1px solid color-mix(in srgb,var(--brand),transparent 70%);max-width:100%;display:inline-flex;align-items:center;box-shadow:0 4px 12px rgba(30,45,65,.06)}
 .bank-pct{margin-left:auto}
@@ -656,6 +656,37 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
 .bank-card .mini-glass{animation:piotItemIn .6s cubic-bezier(.17,.82,.29,1) both}
 .bank-card .mini-glass:nth-child(1){animation-delay:.12s}.bank-card .mini-glass:nth-child(2){animation-delay:.19s}
 .bank-card .mini-glass:nth-child(3){animation-delay:.26s}.bank-card .mini-glass:nth-child(4){animation-delay:.33s}
+.finance-hero{position:relative;overflow:hidden;padding:26px 28px 24px;border-radius:28px;background:linear-gradient(140deg,#0f141c 0%,#151d27 54%,#101823 100%);color:#f4f8ff;border:1px solid rgba(255,255,255,.08);box-shadow:0 18px 46px rgba(6,12,20,.28),inset 0 1px 0 rgba(255,255,255,.04);margin-bottom:18px}
+.finance-hero::before{content:'';position:absolute;inset:auto -70px -70px auto;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(80,180,255,.16),transparent 68%);animation:lpGlow 8s ease-in-out infinite}
+.finance-hero::after{content:'';position:absolute;left:-90px;top:-70px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(0,165,106,.16),transparent 68%);animation:lpGlow 9s ease-in-out infinite reverse}
+@keyframes lpGlow{0%,100%{transform:scale(1) translate3d(0,0,0)}50%{transform:scale(1.14) translate3d(14px,-10px,0)}}
+.finance-hero-top{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap;margin-bottom:20px}
+.finance-hero-brand{display:flex;align-items:center;gap:16px;min-width:0}
+.finance-hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:800;letter-spacing:.9px;color:#89f0c6;text-transform:uppercase;margin-bottom:8px}
+.finance-hero-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:#22d092;box-shadow:0 0 0 7px rgba(34,208,146,.14);animation:blink 2.2s ease-in-out infinite}
+.finance-hero-title{font:760 clamp(24px,2.8vw,38px)/1.05 Bounded,Hint,sans-serif;letter-spacing:-1.2px;color:#fff;margin:0}
+.finance-hero-sub{margin-top:8px;color:rgba(235,242,252,.72);font-size:12px;line-height:1.55;max-width:640px}
+.finance-hero-logo-wrap{display:flex;align-items:center;justify-content:center;width:88px;height:88px;border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 12px 30px rgba(0,0,0,.18);animation:floatLogo 7s ease-in-out infinite}
+@keyframes floatLogo{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.finance-hero-logo{display:block;width:60px;max-width:60px;height:60px;object-fit:contain;filter:brightness(0) invert(1)}
+.finance-hero-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.finance-hero-actions .btn,.finance-hero-actions .text-btn{color:#f2f7ff}
+.finance-hero-actions .btn{background:linear-gradient(135deg,#2dcf95,#009968);border-color:rgba(0,160,100,.38)}
+.finance-hero-body{position:relative;z-index:1;display:grid;grid-template-columns:minmax(260px,.95fr) minmax(0,1.3fr);gap:18px;align-items:stretch}
+.finance-total-card{position:relative;padding:22px;border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 24px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.03);overflow:hidden}
+.finance-total-card::after{content:'';position:absolute;inset:auto -34px -30px auto;width:120px;height:120px;border-radius:22px;transform:rotate(12deg);background:linear-gradient(135deg,rgba(79,146,250,.16),rgba(45,207,149,.08));animation:metricPulse 6s ease-in-out infinite}
+@keyframes metricPulse{0%,100%{transform:rotate(12deg) scale(1)}50%{transform:rotate(22deg) scale(1.08)}}
+.finance-total-kicker{font-size:11px;font-weight:780;letter-spacing:.7px;color:#8deec7;text-transform:uppercase}
+.finance-total-value{font:800 clamp(40px,5vw,64px)/1 Bounded,Hint,sans-serif;letter-spacing:-2px;color:#fff;margin:14px 0 10px;font-variant-numeric:tabular-nums}
+.finance-total-note{font-size:12px;color:rgba(233,241,251,.78);line-height:1.55;max-width:300px}
+.finance-metric-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.finance-metric-card{position:relative;padding:16px 16px 14px;border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 22px rgba(0,0,0,.16);overflow:hidden;transform:translateZ(0)}
+.finance-metric-card::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--fm-color,#2dcf95),transparent 82%)}
+.finance-metric-card::after{content:'';position:absolute;right:-18px;bottom:-18px;width:70px;height:70px;border-radius:20px;background:radial-gradient(circle, color-mix(in srgb,var(--fm-color,#2dcf95),transparent 75%), transparent 68%);opacity:.8;animation:metricFloat 6.5s ease-in-out infinite}
+@keyframes metricFloat{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-8px,-8px,0)}}
+.finance-metric-label{display:block;font-size:11px;font-weight:760;letter-spacing:.45px;color:rgba(234,242,250,.72);text-transform:uppercase;line-height:1.35}
+.finance-metric-value{display:block;font:780 clamp(24px,2.6vw,34px)/1.05 Bounded,Hint,sans-serif;letter-spacing:-1.25px;color:#fff;margin:10px 0 6px;font-variant-numeric:tabular-nums}
+.finance-metric-meta{display:block;font-size:11px;color:rgba(223,233,246,.62);line-height:1.4}
 .plan-filter-card{padding:18px 20px;margin-bottom:18px;border-radius:19px;background:linear-gradient(130deg,rgba(234,252,243,.94),rgba(247,252,255,.88))}
 .plan-filter-heading{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:13px}
 .plan-filter-heading strong{font-size:16px}
@@ -679,6 +710,9 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
 :root[data-theme="dark"] .income-overview .kpi:nth-child(5) strong{color:#62ddb0}
 :root[data-theme="dark"] .bank-name-label{background:color-mix(in srgb,var(--brand),#151d2a 82%);color:color-mix(in srgb,var(--brand),white 24%)}
 :root[data-theme="dark"] .result-catalog{background:rgba(255,255,255,.03);border-color:rgba(190,210,235,.13)}
+:root[data-theme="dark"] .finance-hero{background:linear-gradient(140deg,#090d14 0%,#0d141d 52%,#0a1119 100%);border-color:rgba(190,210,235,.09);box-shadow:0 22px 50px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.03)}
+:root[data-theme="dark"] .finance-total-card,:root[data-theme="dark"] .finance-metric-card,:root[data-theme="dark"] .finance-hero-logo-wrap{background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.025));border-color:rgba(190,210,235,.1)}
+:root[data-theme="dark"] .finance-hero-sub,:root[data-theme="dark"] .finance-total-note,:root[data-theme="dark"] .finance-metric-meta,:root[data-theme="dark"] .finance-metric-label{color:rgba(231,240,250,.74)}
 :root[data-theme="dark"] .plan-result{background:linear-gradient(145deg,rgba(20,72,60,.53),rgba(22,34,51,.85));border-color:rgba(0,165,106,.2)}
 :root[data-theme="dark"] .plan-result:nth-child(2){background:linear-gradient(145deg,rgba(28,55,91,.63),rgba(22,34,51,.85));border-color:rgba(61,142,240,.2)}
 @media(max-width:1000px){.income-overview .income-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.esp-figures{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -691,6 +725,12 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   .plan-filter-controls{grid-template-columns:1fr}
   .bank-head{gap:9px}
   .bank-identity{gap:6px}
+  .finance-hero{padding:22px 18px 18px}
+  .finance-hero-brand{align-items:flex-start}
+  .finance-hero-logo-wrap{width:72px;height:72px;border-radius:18px}
+  .finance-hero-logo{width:50px;height:50px}
+  .finance-hero-body{grid-template-columns:1fr}
+  .finance-total-value{font-size:42px}
   .bank-name-label{font-size:11px;padding:4px 7px}
   .bank-pct{font-size:10px;padding:4px 7px}
   .plan-result-grid,.priority-status-grid{grid-template-columns:1fr}
@@ -701,7 +741,7 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
 @media(prefers-reduced-motion:reduce){
   .income-overview::before,.income-overview .kpi,.priority-status-card,
   .priority-status-card::after,.bank-card,.bank-card::after,.bank-logo-image,
-  .bank-card .chart-line,.bank-card .mini-glass,.plan-result{animation:none!important;transition:none!important}
+  .bank-card .chart-line,.bank-card .mini-glass,.plan-result,.finance-hero::before,.finance-hero::after,.finance-hero-logo-wrap,.finance-total-card::after,.finance-metric-card::after{animation:none!important;transition:none!important}
 }
 
 </style>
@@ -1696,6 +1736,42 @@ function taskStatusDashboard(){
     '01 — клиент сам установил · 02 — настроен с нашей помощью. Нажмите для просмотра заявок.');
 }
 
+function financeHero(){
+  const inc=scopedIncome();
+  const metrics=[
+    {label:'Установка Life Pay',value:cVal(inc.lp,true),meta:'Только установки LP',color:'#22d092'},
+    {label:'ЕСП без задачи',value:cVal(inc.espNoTask,true),meta:number(inc.espNoTaskCount)+' записей',color:'#57b4ff'},
+    {label:'Доход ЕСП',value:cVal(inc.espManual,true),meta:'Из листа «Суммы»',color:'#a279ff'},
+    {label:'ЕСП всего',value:cVal(inc.totalEsp,true),meta:'ЕСП без задачи + доход ЕСП',color:'#f7b04a'},
+    {label:'СП отдельно',value:cVal(inc.sp,true),meta:'Не входит в общий доход',color:'#4a89ff'}
+  ];
+  return `<section class="finance-hero">
+    <div class="finance-hero-top">
+      <div>
+        <div class="finance-hero-badge">Финансы · Life Pay</div>
+        <div class="finance-hero-brand">
+          <div class="finance-hero-logo-wrap">
+            <img class="finance-hero-logo" alt="LIFE PAY" src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" loading="eager" decoding="async">
+          </div>
+          <div>
+            <h2 class="finance-hero-title">Доходы в одной сводке</h2>
+            <div class="finance-hero-sub">Большой чёрный анимированный блок с логотипом Life Pay. Здесь собраны все ключевые суммы: установка Life Pay, ЕСП без задачи, доход ЕСП и общий доход без СП.</div>
+          </div>
+        </div>
+      </div>
+      <div class="finance-hero-actions"><button class="btn small" data-page="finance">Открыть финансы</button></div>
+    </div>
+    <div class="finance-hero-body">
+      <div class="finance-total-card">
+        <div class="finance-total-kicker">Общий доход без СП</div>
+        <div class="finance-total-value">${cVal(inc.total,true)}</div>
+        <div class="finance-total-note">Формула: установка Life Pay + ЕСП без задачи + доход ЕСП. СП показывается отдельно и в общий итог не включается.</div>
+      </div>
+      <div class="finance-metric-grid">${metrics.map(m=>`<div class="finance-metric-card" style="--fm-color:${m.color}"><span class="finance-metric-label">${m.label}</span><span class="finance-metric-value">${m.value}</span><span class="finance-metric-meta">${m.meta}</span></div>`).join('')}</div>
+    </div>
+  </section>`;
+}
+
 function incomeBlock(extraBtn){
   const inc=scopedIncome();
   return card('Доходы за '+(s.month?monthLabel(s.month):'всё время'),
@@ -1729,9 +1805,9 @@ function espSummaryCard(){
 
 function home(){
   const a=Piot.eventSummary(eventRows(),cfg(),s.month);
-  let html=incomeBlock();
-  if(cfg().showStatuses) html+=taskStatusDashboard();
+  let html=financeHero();
   html+=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
+  if(cfg().showStatuses) html+=taskStatusDashboard();
   html+=espSummaryCard();
   html+=filters();
   html+=`<div class="kpis home-summary">
@@ -1783,8 +1859,8 @@ function banks(){
     <section class="glass bank-card" style="--brand:${b.color};--bank-order:${Piot.BANKS.findIndex(v=>v.id===b.id)}" data-bank="${b.id}">
       <div class="bank-head">
         <div class="bank-identity">
-          <img class="bank-logo-image" src="${BANK_LOGOS[b.id]}" alt="${h(b.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-          <span class="bank-name-label">${h(b.id==='psb'?'ПСБ Банк':b.name)}</span>
+          <img class="bank-logo-image" src="${BANK_LOGOS[b.id]}" alt="${h(({vtb:'ВТБ',tochka:'Точка Банк',alfa:'Альфа-Банк',psb:'ПСБ Банк'})[b.id]||b.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+          <span class="bank-name-label">${h(({vtb:'ВТБ',tochka:'Точка Банк',alfa:'Альфа-Банк',psb:'ПСБ Банк'})[b.id]||b.name)}</span>
         </div>
         <span class="bank-pct">${b.total?pct(b.done,b.total)+'% выполнено':'нет данных'}</span>
       </div>
