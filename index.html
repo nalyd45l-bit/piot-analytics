@@ -610,6 +610,100 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   .theme-toggle,.theme-icon,#pinScreen,.pin-card{transition:none!important;animation:none!important}
 }
 
+
+/* ═════════════ 2026 PIOT · быстрые показатели, банки, план ═════════════ */
+.income-overview{
+  position:relative;border:1px solid rgba(111,211,174,.28);
+  background:linear-gradient(140deg,rgba(252,255,255,.97),rgba(240,252,246,.87) 56%,rgba(233,244,255,.92));
+  box-shadow:0 12px 35px rgba(20,52,71,.1),inset 0 1px 0 #fff;
+}
+.income-overview::before{content:'';position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#00a56a,#3e9ff3,#9662e3);background-size:200% 100%;animation:piotFlow 6s linear infinite}
+@keyframes piotFlow{to{background-position:200% 0}}
+.income-overview .income-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.income-overview .kpi{min-height:105px;padding:16px;border:1px solid rgba(255,255,255,.92);border-radius:16px;background:rgba(255,255,255,.82);box-shadow:0 4px 14px rgba(12,43,70,.065);animation:piotItemIn .62s cubic-bezier(.17,.82,.29,1) both}
+.income-overview .kpi:nth-child(2){animation-delay:.05s}.income-overview .kpi:nth-child(3){animation-delay:.1s}
+.income-overview .kpi:nth-child(4){animation-delay:.15s}.income-overview .kpi:nth-child(5){animation-delay:.2s}
+.income-overview .kpi:nth-child(6){animation-delay:.25s}
+.income-overview .kpi:nth-child(5){border-color:rgba(0,165,106,.3);background:linear-gradient(145deg,rgba(221,250,234,.95),rgba(250,255,253,.88))}
+.income-overview .kpi:nth-child(5) strong{color:#087d56}
+@keyframes piotItemIn{from{opacity:0;transform:translateY(13px) scale(.97)}to{opacity:1;transform:none}}
+.priority-status-grid{margin-top:4px}
+.priority-status-card{min-height:180px;animation:piotItemIn .65s cubic-bezier(.17,.82,.29,1) both}
+.priority-status-card:nth-child(2){animation-delay:.09s}
+.priority-status-card::after{content:'';position:absolute;z-index:-1;width:220px;height:220px;right:-95px;top:-120px;border-radius:50%;background:var(--accent);opacity:.1;animation:piotAura 7s ease-in-out infinite}
+@keyframes piotAura{50%{transform:scale(1.17) translate(-4px,7px);opacity:.16}}
+.priority-count-row>strong{font-size:clamp(32px,3vw,44px)}
+.result-catalog{margin-top:14px;border:1px solid rgba(196,215,230,.5);border-radius:15px;padding:12px 14px;background:rgba(255,255,255,.36)}
+.result-catalog>summary{list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center;cursor:pointer;font-weight:720;font-size:12px}
+.result-catalog>summary::-webkit-details-marker{display:none}
+.result-catalog>summary::before{content:'▸';color:#1aa476;margin-right:2px;transition:transform .25s}
+.result-catalog[open]>summary::before{transform:rotate(90deg)}
+.result-catalog>summary span{font-weight:600;color:var(--muted)}
+.result-catalog[open]{background:rgba(255,255,255,.52)}
+.bank-card{isolation:isolate;animation:piotCardEnter .75s cubic-bezier(.18,.87,.25,1) both;animation-delay:calc(var(--bank-order)*.09s);will-change:opacity,transform}
+@keyframes piotCardEnter{from{opacity:0;transform:translateY(25px) scale(.968);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+.bank-head{align-items:flex-start;flex-wrap:wrap;gap:12px}
+.bank-identity{display:flex;align-items:center;gap:9px;flex-wrap:wrap;min-width:0;max-width:100%}
+.bank-logo-image{width:96px;max-width:96px;height:29px;object-fit:contain;border-radius:9px;flex-shrink:0;animation:piotLogo 5s ease-in-out infinite}
+@keyframes piotLogo{50%{filter:drop-shadow(0 5px 7px rgba(0,0,0,.14))}}
+.bank-name-label{font-size:13px;font-weight:850;letter-spacing:-.15px;white-space:nowrap;color:var(--brand);padding:5px 10px;border-radius:10px;background:color-mix(in srgb,var(--brand),white 92%);border:1px solid color-mix(in srgb,var(--brand),transparent 70%);max-width:100%;display:inline-flex;align-items:center;box-shadow:0 4px 12px rgba(30,45,65,.06)}
+.bank-pct{margin-left:auto}
+.bank-card::after{animation:piotAura 7s ease-in-out infinite;pointer-events:none}
+.bank-card:hover{transform:translateY(-5px) scale(1.007)}
+.bank-card:hover .bank-name-label{transform:translateY(-2px);box-shadow:0 7px 17px rgba(20,30,60,.11)}
+.bank-card .chart-line{stroke-dasharray:500;stroke-dashoffset:500;animation:piotDraw 1.8s cubic-bezier(.17,.82,.25,1) .18s forwards}
+@keyframes piotDraw{to{stroke-dashoffset:0}}
+.bank-card .mini-glass{animation:piotItemIn .6s cubic-bezier(.17,.82,.29,1) both}
+.bank-card .mini-glass:nth-child(1){animation-delay:.12s}.bank-card .mini-glass:nth-child(2){animation-delay:.19s}
+.bank-card .mini-glass:nth-child(3){animation-delay:.26s}.bank-card .mini-glass:nth-child(4){animation-delay:.33s}
+.plan-filter-card{padding:18px 20px;margin-bottom:18px;border-radius:19px;background:linear-gradient(130deg,rgba(234,252,243,.94),rgba(247,252,255,.88))}
+.plan-filter-heading{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:13px}
+.plan-filter-heading strong{font-size:16px}
+.plan-filter-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.plan-filter-controls label{min-width:0;display:flex;flex-direction:column;gap:5px;font-weight:720;font-size:11px;color:var(--muted)}
+.plan-filter-controls select{width:100%;font-size:13px;font-weight:630}
+.plan-result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.plan-result{display:flex;flex-direction:column;align-items:flex-start;gap:8px;text-align:left;padding:18px 20px;border-radius:17px;color:var(--text);border:1px solid rgba(0,165,106,.18);background:linear-gradient(145deg,rgba(237,255,247,.96),rgba(255,255,255,.88));transition:transform .25s,box-shadow .25s;animation:piotItemIn .5s ease both}
+.plan-result:nth-child(2){background:linear-gradient(145deg,rgba(236,244,255,.96),rgba(255,255,255,.88));border-color:rgba(61,142,240,.2);animation-delay:.08s}
+.plan-result:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(15,42,61,.09)}
+.plan-result>span:first-child{font-size:12px;font-weight:800}
+.plan-result strong{font-size:34px;font-variant-numeric:tabular-nums}
+.plan-result>span:last-child{font-size:11px;color:#168c65;font-weight:650}
+.esp-details{background:linear-gradient(140deg,rgba(237,255,248,.95),rgba(244,249,255,.9));border-color:rgba(0,165,106,.2)}
+.esp-figures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.esp-figures .kpi{min-height:109px;padding:14px;border-radius:15px;background:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.94)}
+.esp-figures .kpi:last-child{border-color:rgba(0,165,106,.24)}
+:root[data-theme="dark"] .income-overview,:root[data-theme="dark"] .esp-details,:root[data-theme="dark"] .plan-filter-card{background:linear-gradient(140deg,rgba(25,44,56,.98),rgba(20,35,54,.96));border-color:rgba(117,211,186,.19)}
+:root[data-theme="dark"] .income-overview .kpi,:root[data-theme="dark"] .esp-figures .kpi{background:rgba(255,255,255,.055);border-color:rgba(200,221,241,.12)}
+:root[data-theme="dark"] .income-overview .kpi:nth-child(5){background:rgba(0,165,106,.15)}
+:root[data-theme="dark"] .income-overview .kpi:nth-child(5) strong{color:#62ddb0}
+:root[data-theme="dark"] .bank-name-label{background:color-mix(in srgb,var(--brand),#151d2a 82%);color:color-mix(in srgb,var(--brand),white 24%)}
+:root[data-theme="dark"] .result-catalog{background:rgba(255,255,255,.03);border-color:rgba(190,210,235,.13)}
+:root[data-theme="dark"] .plan-result{background:linear-gradient(145deg,rgba(20,72,60,.53),rgba(22,34,51,.85));border-color:rgba(0,165,106,.2)}
+:root[data-theme="dark"] .plan-result:nth-child(2){background:linear-gradient(145deg,rgba(28,55,91,.63),rgba(22,34,51,.85));border-color:rgba(61,142,240,.2)}
+@media(max-width:1000px){.income-overview .income-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.esp-figures{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+  .income-overview{padding:16px}
+  .income-overview .income-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .income-overview .kpi{padding:12px;min-height:100px}
+  .income-overview .kpi strong{font-size:clamp(17px,5vw,23px);word-break:normal;overflow-wrap:anywhere}
+  .income-overview .kpi .label{font-size:11px}
+  .plan-filter-controls{grid-template-columns:1fr}
+  .bank-head{gap:9px}
+  .bank-identity{gap:6px}
+  .bank-name-label{font-size:11px;padding:4px 7px}
+  .bank-pct{font-size:10px;padding:4px 7px}
+  .plan-result-grid,.priority-status-grid{grid-template-columns:1fr}
+  .esp-figures{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .esp-figures .kpi{padding:10px;min-height:98px}
+  .esp-figures .kpi strong{font-size:19px}
+}
+@media(prefers-reduced-motion:reduce){
+  .income-overview::before,.income-overview .kpi,.priority-status-card,
+  .priority-status-card::after,.bank-card,.bank-card::after,.bank-logo-image,
+  .bank-card .chart-line,.bank-card .mini-glass,.plan-result{animation:none!important;transition:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -874,9 +968,9 @@ var Piot=(function(){'use strict';
 var FIELDS=['plan','done','closed','sp','esp'];
 var BANKS=[
   {id:'vtb',  name:'ВТБ',       color:'#2788ef',keys:['втб','vtb','бм-банк']},
-  {id:'alfa', name:'Альфа-Банк',color:'#ef384b',keys:['альфа','alfa','alpha']},
+  {id:'alfa', name:'Альфа-Банк',color:'#ef384b',keys:['альфа','альфа-банк','alfa','alpha']},
   {id:'tochka',name:'Точка',    color:'#8739ed',keys:['точка','tochka']},
-  {id:'psb',  name:'ПСБ',       color:'#ff850e',keys:['псб','psb','промсвязьбанк']}
+  {id:'psb',  name:'ПСБ',       color:'#ff850e',keys:['псб','psb','промсвязьбанк','промсвязь банк']}
 ];
 function norm(v){return String(v==null?'':v).trim().toLowerCase().replace(/ё/g,'е').replace(/\s+/g,' ');}
 function contains(s,keys){s=norm(s);return keys.some(function(k){return k&&s.indexOf(norm(k))!==-1;});}
@@ -961,7 +1055,7 @@ function isDone(r,c){return matchesStatus(r.status,c.done)||matchesStatus(r.task
 function isClosed(r,c){return matchesStatus(r.status,c.closed)||matchesStatus(r.taskStatus,c.closed);}
 function bucket(r,c){
   if(isInvoice(r,c))return 'invoice';
-  if(r.source==='noesp')return 'lp';
+  if(r.source==='noesp')return 'esp';
   if(contains(r.taskStatus,c.sp))return 'sp';
   if(contains(r.taskStatus,c.lp))return 'lp';
   if(contains(r.partner,['авт биз','автоматизация бизнеса']))return 'sp';
@@ -975,7 +1069,7 @@ function bank(r,c){
 }
 function rev(r,c){return r.amount>0&&!isInvoice(r,c)?r.amount:0;}
 function summary(records,c){
-  var s={total:0,done:0,closed:0,paid:0,revenue:0,lp:0,sp:0,other:0,invoice:0,noesp:0,unknownBank:0,undated:0};
+  var s={total:0,done:0,closed:0,paid:0,revenue:0,lp:0,sp:0,other:0,invoice:0,noesp:0,noespCount:0,unknownBank:0,undated:0};
   records.forEach(function(r){
     if(r.source!=='noesp'){
       s.total++;
@@ -984,11 +1078,15 @@ function summary(records,c){
       if(!bank(r,c))s.unknownBank++;
     }
     if(!r.date)s.undated++;
+    if(r.source==='noesp')s.noespCount++;
     var b=bucket(r,c),v=rev(r,c);
     if(b==='invoice'){s.invoice+=Math.max(0,r.amount);return;}
-    s.revenue+=v;if(v)s.paid++;
-    if(b==='lp')s.lp+=v;else if(b==='sp')s.sp+=v;else s.other+=v;
-    if(r.source==='noesp')s.noesp+=v;
+    s.revenue+=v;
+    if(v&&r.source!=='noesp')s.paid++;
+    if(b==='esp')s.noesp+=v;
+    else if(b==='lp')s.lp+=v;
+    else if(b==='sp')s.sp+=v;
+    else s.other+=v;
   });
   return s;
 }
@@ -1040,23 +1138,31 @@ function activityPeriods(records,gran,c,month){
 }
 function filter(records,f,c){
   return records.filter(function(r){
-    return(!f.month||r.date.slice(0,7)===f.month)&&
+    return(!f.month||(r.date||'').slice(0,7)===f.month)&&
       (!f.partner||r.partner===f.partner)&&
       (!f.status||r.status===f.status)&&
       (!f.task||r.taskStatus===f.task)&&
       (!f.responsible||r.responsible===f.responsible)&&
       (!f.priority||r.priority===f.priority)&&
       (!f.bank||bank(r,c)===f.bank)&&
+      (!f.source||r.source===f.source)&&
       (!f.q||norm([r.numero,r.client,r.partner,r.status,r.taskStatus,r.customer,r.legalEntity,r.responsible].join(' ')).includes(norm(f.q)));
   });
 }
 function income(records,ledger,month,c){
-  var chosen=month?records.filter(function(r){return r.date.slice(0,7)===month;}):records;
+  var chosen=month?records.filter(function(r){return(r.date||'').slice(0,7)===month;}):records;
   var base=summary(chosen,c);
-  var keys=month?[month]:Array.from(new Set(Object.keys(monthly(chosen,c)).concat(Object.keys(ledger))));
-  var sp=base.sp,esp=0;
-  keys.forEach(function(k){var row=ledger[k]||emptyMonth();esp+=row.esp||0;});
-  return{installation:base.revenue,spAuto:base.sp,sp:sp,esp:esp,lp:base.lp,other:base.other,total:base.lp+base.other+sp+esp};
+  var keys=month?[month]:Array.from(new Set(Object.keys(monthly(chosen,c)).concat(Object.keys(ledger||{}))));
+  var espManual=0;
+  keys.forEach(function(k){var row=(ledger||{})[k]||emptyMonth();espManual+=Number(row.esp)||0;});
+  var espNoTask=base.noesp;
+  var totalEsp=espNoTask+espManual;
+  return{
+    installation:base.lp, lp:base.lp, spAuto:base.sp, sp:base.sp, other:base.other,
+    espNoTask:espNoTask, espNoTaskCount:base.noespCount,
+    espManual:espManual, esp:totalEsp, totalEsp:totalEsp,
+    total:base.lp+totalEsp
+  };
 }
 function periodKey(d,gran){
   if(!d)return 'Без даты';
@@ -1139,8 +1245,9 @@ const TITLES = {home:'Главная',banks:'Банки',finance:'Финансы
 /* ---- состояние ---- */
 const s = {
   data:null, page:'home', month:'', gran:'month', tab:'money',
+  planStatus:'', planResult:'',
   tablePage:1, sort:'amount', direction:-1, paid:'',
-  filter:{q:'',partner:'',status:'',task:'',responsible:'',priority:'',bank:''},
+  filter:{q:'',partner:'',status:'',task:'',responsible:'',priority:'',bank:'',source:''},
   draft:{}, invalid:{}, timer:null, saving:null, saveError:'',
   configDraft:null, configDirty:false, loaded:false, fx:true
 };
@@ -1329,6 +1436,11 @@ function filters(){
     ${sel('partner')}
     <select data-filter="bank" aria-label="Банк"><option value="">Все банки</option>${
       Piot.BANKS.map(b=>`<option value="${b.id}"${s.filter.bank===b.id?' selected':''}>${b.name}</option>`).join('')}</select>
+    <select data-filter="source" aria-label="Источник заявок">
+      <option value=""${s.filter.source===''?' selected':''}>Все источники</option>
+      <option value="main"${s.filter.source==='main'?' selected':''}>Обычные заявки</option>
+      <option value="noesp"${s.filter.source==='noesp'?' selected':''}>ЕСП без задачи</option>
+    </select>
     <button class="btn small" data-clear-filters>Сбросить</button>
     <details><summary>Ещё фильтры${detailed()?' · активны':''}</summary>
     <div class="advanced">${sel('status')}${sel('task')}${sel('responsible')}${sel('priority')}</div></details>
@@ -1482,9 +1594,9 @@ function donut(items,title){
 }
 
 /* ---- страницы ---- */
-function heroPlan(){
-  const a=Piot.eventSummary(eventRows(),cfg(),s.month);
-  const m=manual(), plan=s.month&&!detailed()?m.plan:null, done=a.done;
+function heroPlan(source){
+  const a=Piot.eventSummary(source||s.data.records,cfg(),s.month);
+  const m=manual(), plan=s.month?m.plan:null, done=a.done;
   const hasPlan=plan!=null, p=hasPlan?Math.min(100,pct(done,plan)):0;
   const left=plan!=null?Math.max(0,plan-done):null;
   const c=2*Math.PI*64, off=c*(1-p/100);
@@ -1516,9 +1628,9 @@ function heroPlan(){
   </section>`;
 }
 
-function heroOpen(){
-  const a=Piot.eventSummary(eventRows(),cfg(),s.month);
-  const act=Piot.activityPeriods(eventRows(),s.month?'day':'month',cfg(),s.month);
+function heroOpen(source){
+  const a=Piot.eventSummary(source||s.data.records,cfg(),s.month);
+  const act=Piot.activityPeriods(source||s.data.records,s.month?'day':'month',cfg(),s.month);
   const series=act.map(x=>Math.max(0,x.total-x.done));
   const share=a.total?Math.round(a.open/a.total*100):0;
   return `<section class="hero blue">
@@ -1545,8 +1657,8 @@ function taskStatusDashboard(){
   const src=Piot.filter(s.data.records,Object.assign({month:s.month},s.filter,{task:''}),cfg()).filter(r=>r.source==='main');
   const total=src.length;
   const priority=[
-    {name:'Клиент сам установил',tone:'',index:'01',label:'ПРИОРИТЕТ No 1',caption:'Клиент самостоятельно установил решение'},
-    {name:'Клиент настроен с нашей помощью',tone:'assist',index:'02',label:'ПРИОРИТЕТ No 2',caption:'Настройка выполнена при поддержке команды'}
+    {name:'Клиент сам установил',tone:'',index:'01',label:'РЕЗУЛЬТАТ № 1',caption:'Самостоятельная установка · количество клиентов'},
+    {name:'Клиент настроен с нашей помощью',tone:'assist',index:'02',label:'РЕЗУЛЬТАТ № 2',caption:'Установка с помощью нашей команды'}
   ];
   const matches=(v,t)=>{ const a=Piot.norm(v),b=Piot.norm(t); return a===b||a.startsWith(b+':')||a.startsWith(b+' '); };
   const countFor=t=>src.filter(r=>matches(r.taskStatus,t)).length;
@@ -1576,37 +1688,57 @@ function taskStatusDashboard(){
           :`<button type="button" class="priority-other-row${active?' active':''}" data-task-status="${h(name)}" aria-pressed="${active}">${row}</button>`;
       }).join('')}</div>`
     :'<p class="note" style="margin:8px 0">Других статусов пока нет.</p>';
-  return card('Результат подключения клиентов',
+  return card('Результат встреч с клиентами',
     `<div class="priority-status-grid">${featured}</div>
-     <div class="priority-other-heading"><span>Остальные статусы</span><span style="font-size:10px;color:var(--muted)">Количество и доля</span></div>${otherHtml}`,
-    'Два главных результата подключения. Нажмите, чтобы отфильтровать.');
+     <details class="result-catalog"><summary>Каталог остальных результатов <span>${others.length} статусов</span></summary>
+       <div class="priority-other-heading"><span>Другие статусы</span><span>Количество и доля</span></div>${otherHtml}
+     </details>`,
+    '01 — клиент сам установил · 02 — настроен с нашей помощью. Нажмите для просмотра заявок.');
 }
 
 function incomeBlock(extraBtn){
   const inc=scopedIncome();
-  return card('Доходы',
+  return card('Доходы за '+(s.month?monthLabel(s.month):'всё время'),
     `<div class="income-kpis">
-      ${kpi('Доход',cVal(inc.lp+inc.esp,true),'Установки и ЕСП')}
-      ${kpi('СП',cVal(inc.sp,true),'Поступления по СП')}
-      ${kpi('Прочее',cVal(inc.other,true),'Другие поступления')}
-      ${kpi('Итого',cVal(inc.total,true),'Общий доход')}
+      ${kpi('Установка Life Pay',cVal(inc.lp,true),'Только установки LP')}
+      ${kpi('ЕСП без задачи',cVal(inc.espNoTask,true),number(inc.espNoTaskCount)+' записей')}
+      ${kpi('Доход ЕСП',cVal(inc.espManual,true),'Из листа «Суммы»')}
+      ${kpi('ЕСП всего',cVal(inc.totalEsp,true),'ЕСП без задачи + доход ЕСП')}
+      ${kpi('Общий доход без СП',cVal(inc.total,true),'Life Pay + ЕСП всего')}
+      ${kpi('СП отдельно',cVal(inc.sp,true),'В общий доход не входит')}
     </div>`,
-    'Финансы · '+(detailed()?'по выбранным фильтрам':'за выбранный период'),
+    'Установки Life Pay + ЕСП без задачи + доход ЕСП. СП в итог не включается.',
     extraBtn||'<button class="text-btn" data-page="finance">Подробнее →</button>'
   ).replace('<section class="glass card">','<section class="glass card income-overview">');
 }
 
+function espSummaryCard(){
+  const inc=scopedIncome();
+  return `<section class="glass card esp-details">
+    <header class="cardhead"><div><h2>ЕСП без задачи — отдельный учёт</h2><p class="muted">Лист «Отсутствует задача ЕСП» · ${h(s.month?monthLabel(s.month):'за всё время')}</p></div>
+      <button type="button" class="text-btn" data-noesp-table>Показать записи →</button></header>
+    <div class="esp-figures">
+      ${kpi('Записей ЕСП',cVal(inc.espNoTaskCount),'Количество строк')}
+      ${kpi('Сумма ЕСП без задачи',cVal(inc.espNoTask,true),'Автоматически из листа')}
+      ${kpi('ЕСП из «Суммы»',cVal(inc.espManual,true),'Ручной показатель')}
+      ${kpi('ЕСП всего',cVal(inc.totalEsp,true),'Сумма двух источников')}
+    </div>
+    <p class="note">Сумма ЕСП включена в общий доход без СП один раз.</p>
+  </section>`;
+}
+
 function home(){
   const a=Piot.eventSummary(eventRows(),cfg(),s.month);
-  let html=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
-  html+=incomeBlock();
-  html+=filters();
+  let html=incomeBlock();
   if(cfg().showStatuses) html+=taskStatusDashboard();
+  html+=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
+  html+=espSummaryCard();
+  html+=filters();
   html+=`<div class="kpis home-summary">
     ${kpi('Всего заявок',cVal(a.total),'По дате создания')}
     ${kpi('Выполнено',cVal(a.done),'По дате статуса')}
     ${kpi('Закрыто',cVal(a.closed),'По дате статуса')}
-    ${kpi('Оплачено',cVal(a.paid),'Платные установки')}
+    ${kpi('Оплачено',cVal(a.paid),'Установки по заявкам')}
   </div>`;
   if(cfg().showCharts){
     const p=Piot.activityPeriods(eventRows(),s.month?'day':'month',cfg(),s.month);
@@ -1648,9 +1780,12 @@ function banks(){
     ${kpi('Не распределено',cVal(unknown),'Банк не найден')}
   </div>
   <div class="bank-grid">${bs.map(b=>`
-    <section class="glass bank-card" style="--brand:${b.color}" data-bank="${b.id}">
+    <section class="glass bank-card" style="--brand:${b.color};--bank-order:${Piot.BANKS.findIndex(v=>v.id===b.id)}" data-bank="${b.id}">
       <div class="bank-head">
-        <img class="bank-logo-image" src="${BANK_LOGOS[b.id]}" alt="${h(b.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <div class="bank-identity">
+          <img class="bank-logo-image" src="${BANK_LOGOS[b.id]}" alt="${h(b.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+          <span class="bank-name-label">${h(b.id==='psb'?'ПСБ Банк':b.name)}</span>
+        </div>
         <span class="bank-pct">${b.total?pct(b.done,b.total)+'% выполнено':'нет данных'}</span>
       </div>
       <div class="bank-revenue-label">ВЫРУЧКА</div>
@@ -1689,30 +1824,66 @@ function granTabs(){
     `<button data-gran="${k}" class="${s.gran===k?'active':''}">${v}</button>`).join('')}</div>`;
 }
 
+function financePeriods(rr){
+  const periods=new Map();
+  const keyOf=r=>Piot.periodKey(r.date||'',s.gran);
+  function item(key){
+    if(!periods.has(key))periods.set(key,{key,total:0,paid:0,lp:0,espNoTask:0,espManual:0,sp:0,other:0,totalIncome:0});
+    return periods.get(key);
+  }
+  rr.forEach(r=>{
+    const row=item(keyOf(r)),value=Piot.rev(r,cfg());
+    if(r.source!=='noesp')row.total++;
+    if(r.source!=='noesp'&&value)row.paid++;
+    if(!value)return;
+    if(r.source==='noesp')row.espNoTask+=value;
+    else{
+      const bucket=Piot.bucket(r,cfg());
+      if(bucket==='lp')row.lp+=value;
+      else if(bucket==='sp')row.sp+=value;
+      else row.other+=value;
+    }
+  });
+  // Manual ESP is month-specific; do not distribute the monthly value across days or weeks.
+  if(s.gran==='month'&&!detailed()){
+    Object.entries(s.data.ledger||{}).forEach(([key,value])=>{
+      if(!Piot.validMonth(key)||(s.month&&key!==s.month))return;
+      const amount=Number(value&&value.esp)||0;
+      if(amount) item(key).espManual+=amount;
+    });
+  }
+  return Array.from(periods.values()).sort((a,b)=>{
+    if(a.key==='Без даты')return 1;
+    if(b.key==='Без даты')return -1;
+    return a.key.localeCompare(b.key);
+  }).map(row=>{row.totalIncome=row.lp+row.espNoTask+row.espManual;return row;});
+}
+
 function periodChart(rr,title){
-  const ps=Piot.periods(rr,s.gran,cfg());
+  const ps=financePeriods(rr);
   return card(title,chart(ps.map(x=>shortLabel(x.key)),[
-    {name:'Установки · правая ось',type:'bar',axis:'right',values:ps.map(x=>x.paid),color:'#55b3ff'},
-    {name:'Выручка, ₽',values:ps.map(x=>x.revenue),color:'#00a56a'}
-  ],{title,dual:true,money:true}),'Счета исключены из выручки.',granTabs());
+    {name:'Life Pay',values:ps.map(x=>x.lp),color:'#00a56a'},
+    {name:'ЕСП без задачи',values:ps.map(x=>x.espNoTask),color:'#8a52e8'},
+    {name:'Доход ЕСП (из «Суммы»)',values:ps.map(x=>x.espManual),color:'#e99b35',area:false}
+  ],{money:true,title}),'СП исключён из дохода; ЕСП вручную распределяется только по месяцам.',granTabs());
 }
 
 function trend(){
   let html=filters();
   if(!cfg().showCharts) return html+empty('Графики отключены в настройках.');
-  const rr=rows(), ps=Piot.periods(rr,s.gran,cfg());
-  let acc=0; const totals=ps.map(x=>acc+=x.revenue);
+  const rr=rows(), ps=financePeriods(rr);
+  let acc=0; const totals=ps.map(x=>acc+=x.totalIncome);
   const p=Piot.activityPeriods(eventRows(),s.gran,cfg(),s.month);
   html+=card('Создано и выполнено',chart(p.map(x=>shortLabel(x.key)),[
     {name:'Создано',values:p.map(x=>x.total),color:'#62b5ff'},
     {name:'Выполнено',values:p.map(x=>x.done),color:'#00a56a'},
     {name:'Закрыто',values:p.map(x=>x.closed),color:'#9060ed',area:false}
   ],{title:'Поступление и выполнение'}),'Создано — дата создания. Выполнено/закрыто — дата статуса.',granTabs());
-  html+=periodChart(rr,'Выручка и установки');
+  html+=periodChart(rr,'Life Pay и ЕСП без СП');
   html+=`<div class="row2">
     ${card('Доля по банкам',donut(Piot.BANKS.map(b=>({name:b.name,color:b.color,value:rr.filter(r=>Piot.bank(r,cfg())===b.id).length})),'заявок'),'По числу заявок')}
-    ${card('Накопительная выручка',chart(ps.map(x=>shortLabel(x.key)),[
-      {name:'Выручка ₽',values:totals,color:'#00a56a'}],{money:true,title:'Накопительная выручка'}),'Нарастающий итог')}
+    ${card('Накопительный доход без СП',chart(ps.map(x=>shortLabel(x.key)),[
+      {name:'Доход без СП, ₽',values:totals,color:'#00a56a'}],{money:true,title:'Накопительный доход без СП'}),'LP + ЕСП; ручной ЕСП относится к месяцу')}
   </div>`;
   const wd=[0,0,0,0,0,0,0];
   rr.filter(r=>r.source==='main'&&r.date).forEach(r=>wd[(new Date(r.date+'T12:00:00Z').getUTCDay()+6)%7]++);
@@ -1722,34 +1893,82 @@ function trend(){
 }
 
 function finance(){
-  const rr=rows(), ps=Piot.periods(rr,s.gran,cfg());
-  let html=filters()+incomeBlock('<button class="text-btn" data-page="settings">Изменить суммы →</button>');
-  if(cfg().showCharts) html+=periodChart(rr,'Выручка и установки');
+  const rr=rows(),ps=financePeriods(rr);
+  let html=incomeBlock('<button class="text-btn" data-page="settings">Изменить суммы →</button>');
+  html+=espSummaryCard();
+  html+=filters();
+  if(cfg().showCharts)html+=periodChart(rr,'Доход без СП по периодам');
   const t=`<div class="table-wrap"><table>
-    <thead><tr><th>Период</th><th>Заявок</th><th>Платных</th><th>Выручка</th><th>Средний чек</th></tr></thead>
+    <thead><tr><th>Период</th><th>Заявок</th><th>Life Pay</th><th>ЕСП без задачи</th><th>Доход ЕСП из «Суммы»</th><th>Доход без СП</th><th>СП отдельно</th></tr></thead>
     <tbody>${ps.map(p=>`<tr>
       <td>${h(p.key==='Без даты'?p.key:s.gran==='month'?monthLabel(p.key):p.key)}</td>
-      <td>${p.total}</td><td>${p.paid}</td>
-      <td class="number">${rub(p.revenue)}</td>
-      <td class="number">${rub(p.paid?p.revenue/p.paid:0)}</td></tr>`).join('')}</tbody></table></div>
-    <p class="note">Доход ЕСП в таблицу не распределяется — входит в общую сумму.</p>`;
-  html+=card('Сводка по периодам',ps.length?t:empty(),'',granTabs());
+      <td>${number(p.total)}</td>
+      <td class="number">${rub(p.lp)}</td>
+      <td class="number">${rub(p.espNoTask)}</td>
+      <td class="number">${s.gran==='month'?rub(p.espManual):'—'}</td>
+      <td class="number">${rub(p.totalIncome)}</td>
+      <td class="number">${rub(p.sp)}</td></tr>`).join('')}</tbody></table></div>
+    <p class="note">Общий доход = Life Pay + ЕСП без задачи + доход ЕСП из «Суммы». СП показан отдельно.
+      ${s.gran==='month'?'':'Ручной доход ЕСП не распределяется по дням и неделям; он учтён в общем месячном показателе выше.'}</p>`;
+  html+=card('Сводка доходов по периодам',ps.length?t:empty(),'',granTabs());
   return html;
+}
+
+function planMatchesResult(value,target){
+  const v=Piot.norm(value||''), t=Piot.norm(target||'');
+  return v===t||v.startsWith(t+':')||v.startsWith(t+' ');
+}
+function planRecords(){
+  return s.data.records.filter(r=>r.source!=='noesp'
+    &&(!s.planStatus||r.status===s.planStatus)
+    &&(!s.planResult||planMatchesResult(r.taskStatus,s.planResult)));
+}
+
+function planControls(){
+  const statuses=[...new Set(s.data.records.filter(r=>r.source!=='noesp').map(r=>r.status).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ru'));
+  return `<section class="glass plan-filter-card">
+    <div class="plan-filter-heading"><div><strong>Текущий план: ${h(s.month?monthLabel(s.month):'выберите месяц')}</strong>
+      <p class="muted">По умолчанию считаются все статусы и все результаты. План общий для месяца.</p></div>
+      <button type="button" class="btn small" data-plan-reset>Все статусы</button>
+    </div>
+    <div class="plan-filter-controls">
+      <label>Статус заявки
+        <select data-plan-status aria-label="Статус текущего плана">
+          <option value="">Все статусы</option>
+          ${statuses.map(v=>`<option value="${h(v)}"${s.planStatus===v?' selected':''}>${h(v)}</option>`).join('')}
+        </select>
+      </label>
+      <label>Результат встречи
+        <select data-plan-result aria-label="Результат встречи по плану">
+          <option value="">Все результаты</option>
+          <option value="Клиент сам установил"${s.planResult==='Клиент сам установил'?' selected':''}>01 · Сам установил</option>
+          <option value="Клиент настроен с нашей помощью"${s.planResult==='Клиент настроен с нашей помощью'?' selected':''}>02 · С нашей помощью</option>
+        </select>
+      </label>
+    </div>
+  </section>`;
 }
 
 function planPage(){
   const ledger=s.data.ledger, m=ledger[s.month]||Piot.emptyMonth();
-  const mm=Piot.monthly(eventRows(),cfg());
+  const source=planRecords();
+  const mm=Piot.monthly(source,cfg());
   const auto=mm[s.month]||Piot.summary([],cfg()), done=auto.done||0;
   const keys=Object.keys(ledger).sort().reverse();
-  let html=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
-  html+=filters()+(!s.month?'<div class="inactive-warning">Выберите месяц, чтобы редактировать план.</div>':'');
+  let html=planControls();
+  html+=`<div class="hero-grid">${heroPlan(source)}${heroOpen(source)}</div>`;
+  if(!s.month) html+='<div class="inactive-warning">Выберите месяц, чтобы редактировать план.</div>';
   html+=`<div class="kpis">
     ${kpi('План на месяц',s.month&&m.plan!=null?cVal(m.plan):'—')}
-    ${kpi('Выполнено',s.month?cVal(done):'—','Автоматически')}
+    ${kpi('Выполнено',s.month?cVal(done):'—','По дате статуса')}
     ${kpi('Осталось',s.month&&m.plan!=null?cVal(Math.max(0,m.plan-done)):'—')}
-    ${kpi('Выполнение',m.plan!=null?pct(done,m.plan)+'%':'—')}
+    ${kpi('Выполнение',m.plan!=null&&m.plan>0?pct(done,m.plan)+'%':'—')}
   </div>`;
+  html+=card('Результат встреч с клиентами',`<div class="plan-result-grid">
+    ${['Клиент сам установил','Клиент настроен с нашей помощью'].map((name,i)=>{
+      const n=source.filter(r=>planMatchesResult(r.taskStatus,name)&&(!s.month||(r.dateStatus||r.date||'').slice(0,7)===s.month)).length;
+      return `<button class="plan-result" data-plan-pick="${h(name)}" type="button"><span>0${i+1} · ${h(name)}</span><strong>${cVal(n)}</strong><span>Открыть категорию →</span></button>`;
+    }).join('')}</div>`,'01 — самостоятельно · 02 — с нашей помощью');
   const tbl=`<div class="table-wrap"><table>
     <thead><tr><th>Месяц</th><th>План</th><th>Выполнено</th><th>Закрыто</th><th>Выполнение</th></tr></thead>
     <tbody>${keys.map(k=>{
@@ -1759,13 +1978,13 @@ function planPage(){
         <td>${number(row.plan)}</td><td>${number(a.done)}</td><td>${number(a.closed)}</td>
         <td style="min-width:120px"><div class="progress" style="--color:#00a56a"><i style="width:${Math.min(100,pp)}%"></i></div></td></tr>`;
     }).join('')}</tbody></table></div>`;
-  html+=card('История по месяцам',tbl,'','<button class="btn small" data-page="settings">'+icon('edit')+' Изменить</button>');
+  html+=card('История по месяцам',tbl,'По текущему фильтру статусов','<button class="btn small" data-page="settings">'+icon('edit')+' Изменить</button>');
   if(cfg().showCharts){
     const recent=keys.slice().sort().slice(-12);
     html+=card('План и выполнение',chart(recent.map(shortLabel),[
       {name:'План',type:'bar',values:recent.map(k=>ledger[k]?(ledger[k].plan||0):0),color:'#a3b1c1'},
       {name:'Выполнено',type:'bar',values:recent.map(k=>mm[k]?mm[k].done:0),color:'#29c58e'}
-    ],{title:'План и выполнение'}),'Последние 12 месяцев.');
+    ],{title:'План и выполнение'}),'Последние 12 месяцев. Выбор статуса меняет выполнено, но не общий план.');
   }
   return html;
 }
@@ -1885,7 +2104,7 @@ function render(opt){
   saveStatus();
   const mb=$('#modeBadge');
   if(mb){ mb.hidden=!!s.data.demo; mb.textContent='Google Sheets'; }
-  $('#updated').textContent='Обновлено '+new Date(s.data.updated).toLocaleString('ru-RU');
+  $('#updated').textContent=s.data.updated&& !Number.isNaN(new Date(s.data.updated).getTime()) ? 'Обновлено '+new Date(s.data.updated).toLocaleString('ru-RU') : 'Данные из Google Sheets';
   if(s.fx) playCounters();
 }
 
@@ -1928,7 +2147,7 @@ async function load(force){
       throw Error('Сервер вернул неполные данные. Проверьте функцию apiGetData() в Code.gs');
     if(!s.loaded){
       const available=d.months.filter(Piot.validMonth).slice().sort();
-      s.month=Piot.validMonth(d.currentMonth)?d.currentMonth:(available[available.length-1]||'');
+      s.month=available.includes('2026-11')?'2026-11':(Piot.validMonth(d.currentMonth)?d.currentMonth:(available[available.length-1]||''));
     }
     s.data=d; s.configDraft=null; s.configDirty=false; s.loaded=true;
     if(force){ s.draft={}; s.invalid={}; s.saveError=''; }
@@ -1993,11 +2212,18 @@ async function handleClick(e){
     }
     if(el.dataset.page) await navigate(el.dataset.page);
     else if(el.hasAttribute('data-open-table')) await navigate('table');
+    else if(el.hasAttribute('data-noesp-table')){
+      Object.keys(s.filter).forEach(k=>s.filter[k]='');
+      s.filter.source='noesp';
+      await navigate('table');
+    }
+    else if(el.hasAttribute('data-plan-reset')){s.planStatus='';s.planResult='';render({fx:false});}
+    else if(el.hasAttribute('data-plan-pick')){s.planResult=el.dataset.planPick;render({fx:false});}
     else if(el.hasAttribute('data-save')){ await flush(); toast(s.data.demo?'Демо-режим':'Месяц сохранён'); }
     else if(el.hasAttribute('data-clear-filters')){ await flush(); Object.keys(s.filter).forEach(k=>s.filter[k]=''); s.tablePage=1; render(); }
     else if(el.dataset.gran){ s.gran=el.dataset.gran; render({fx:false}); }
     else if(el.dataset.bank){ s.filter.bank=el.dataset.bank; await navigate('table'); }
-    else if(el.hasAttribute('data-task-status')){ s.filter.task=s.filter.task===el.dataset.taskStatus?'':el.dataset.taskStatus; s.tablePage=1; render({fx:false}); }
+    else if(el.hasAttribute('data-task-status')){ s.filter.task=el.dataset.taskStatus; s.tablePage=1; await navigate('table'); }
     else if(el.dataset.tab){ await flush(); s.tab=el.dataset.tab; render(); }
     else if(el.dataset.sort){ if(s.sort===el.dataset.sort)s.direction*=-1; else{s.sort=el.dataset.sort;s.direction=1;} s.tablePage=1; render({fx:false}); }
     else if(el.dataset.pag){ s.tablePage+=Number(el.dataset.pag); render({fx:false}); }
@@ -2047,6 +2273,8 @@ document.addEventListener('input',e=>{
 document.addEventListener('change',async e=>{
   const el=e.target;
   if(el.id==='month') await changeMonth(el.value);
+  else if(el.dataset.planStatus!==undefined){ s.planStatus=el.value; render({fx:false}); }
+  else if(el.dataset.planResult!==undefined){ s.planResult=el.value; render({fx:false}); }
   else if(el.dataset.filter){ s.filter[el.dataset.filter]=el.value; s.tablePage=1; render({fx:false}); }
   else if(el.id==='paidFilter'){ s.paid=el.value; s.tablePage=1; render({fx:false}); }
 });
