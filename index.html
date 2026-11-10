@@ -647,17 +647,23 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
 .bank-card{isolation:isolate;animation:piotCardEnter .75s cubic-bezier(.18,.87,.25,1) both;animation-delay:calc(var(--bank-order)*.09s);will-change:opacity,transform}
 @keyframes piotCardEnter{from{opacity:0;transform:translateY(25px) scale(.968);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 .bank-head{align-items:flex-start;flex-wrap:wrap;gap:12px}
-.bank-identity{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0;max-width:100%}
-.bank-logo-wordmark{width:118px;max-width:100%;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid color-mix(in srgb,var(--brand),transparent 68%);background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(248,251,255,.82));color:var(--brand);font:850 15px/1 Hint,Arial,sans-serif;letter-spacing:.45px;box-shadow:0 4px 12px rgba(30,45,65,.07),inset 0 1px 0 #fff;transition:transform var(--transition),box-shadow var(--transition),background var(--transition)}
-.bank-logo-wordmark:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(30,45,65,.12),inset 0 1px 0 #fff}
-.bank-name-label{cursor:pointer}
+.bank-identity{display:flex;align-items:center;gap:8px;min-width:0;max-width:100%}
+.bank-filter-chip{display:inline-flex;align-items:center;gap:10px;min-width:126px;min-height:44px;padding:5px 13px 5px 6px;border-radius:14px;border:1px solid color-mix(in srgb,var(--brand),transparent 68%);background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(248,251,255,.82));color:var(--brand);font:850 13px/1 Hint,Arial,sans-serif;letter-spacing:.35px;box-shadow:0 5px 14px rgba(30,45,65,.07),inset 0 1px 0 #fff;cursor:pointer;transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease,border-color .28s ease;will-change:transform}
+.bank-filter-chip:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(30,45,65,.13),inset 0 1px 0 #fff;border-color:color-mix(in srgb,var(--brand),transparent 38%)}
+.bank-filter-chip:active{transform:translateY(-1px) scale(.985)}\n.bank-filter-chip:focus-visible{outline:3px solid color-mix(in srgb,var(--brand),transparent 48%);outline-offset:3px}
+.bank-mark{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;flex:0 0 32px;border-radius:10px;color:#fff;font:900 17px/1 Hint,Arial,sans-serif;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 3px 8px rgba(0,0,0,.12)}
+.bank-mark-vtb{background:linear-gradient(145deg,#42a4ff,#1265cf)}
+.bank-mark-alfa{background:linear-gradient(145deg,#ff656b,#e3283c)}
+.bank-mark-psb{background:linear-gradient(145deg,#ff8a35,#ed5b18)}
+.bank-mark-tochka{background:linear-gradient(145deg,#b17aff,#7435e8)}
+.bank-chip-name{white-space:nowrap}
 .bank-logo-image{width:118px;max-width:118px;height:34px;object-fit:contain;border-radius:10px;flex-shrink:0;animation:piotLogo 5s ease-in-out infinite;background:rgba(255,255,255,.96);padding:4px 8px;border:1px solid rgba(220,230,242,.95)}
 @keyframes piotLogo{50%{filter:drop-shadow(0 5px 7px rgba(0,0,0,.14))}}
-.bank-name-label{font-size:13px;font-weight:850;letter-spacing:-.15px;white-space:nowrap;color:var(--brand);padding:5px 10px;border-radius:10px;background:color-mix(in srgb,var(--brand),white 92%);border:1px solid color-mix(in srgb,var(--brand),transparent 70%);max-width:100%;display:inline-flex;align-items:center;box-shadow:0 4px 12px rgba(30,45,65,.06)}
+
 .bank-pct{margin-left:auto}
 .bank-card::after{animation:piotAura 7s ease-in-out infinite;pointer-events:none}
 .bank-card:hover{transform:translateY(-5px) scale(1.007)}
-.bank-card:hover .bank-name-label{transform:translateY(-2px);box-shadow:0 7px 17px rgba(20,30,60,.11)}
+.bank-card:hover .bank-filter-chip{transform:translateY(-2px);box-shadow:0 8px 18px rgba(20,30,60,.11)}
 .bank-card .chart-line{stroke-dasharray:500;stroke-dashoffset:500;animation:piotDraw 1.8s cubic-bezier(.17,.82,.25,1) .18s forwards}
 @keyframes piotDraw{to{stroke-dashoffset:0}}
 .bank-card .mini-glass{animation:piotItemIn .6s cubic-bezier(.17,.82,.29,1) both}
@@ -715,7 +721,7 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
 :root[data-theme="dark"] .income-overview .kpi,:root[data-theme="dark"] .esp-figures .kpi{background:rgba(255,255,255,.055);border-color:rgba(200,221,241,.12)}
 :root[data-theme="dark"] .income-overview .kpi:nth-child(5){background:rgba(0,165,106,.15)}
 :root[data-theme="dark"] .income-overview .kpi:nth-child(5) strong{color:#62ddb0}
-:root[data-theme="dark"] .bank-name-label{background:color-mix(in srgb,var(--brand),#151d2a 82%);color:color-mix(in srgb,var(--brand),white 24%)}
+
 :root[data-theme="dark"] .result-catalog{background:rgba(255,255,255,.03);border-color:rgba(190,210,235,.13)}
 :root[data-theme="dark"] .finance-hero{background:linear-gradient(140deg,#090d14 0%,#0d141d 52%,#0a1119 100%);border-color:rgba(190,210,235,.09);box-shadow:0 22px 50px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.03)}
 :root[data-theme="dark"] .finance-total-card,:root[data-theme="dark"] .finance-metric-card,:root[data-theme="dark"] .finance-hero-logo-wrap{background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.025));border-color:rgba(190,210,235,.1)}
@@ -738,8 +744,8 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   .finance-hero-logo{width:50px;height:50px}
   .finance-hero-body{grid-template-columns:1fr}
   .finance-total-value{font-size:42px}
-  .bank-name-label{font-size:11px;padding:4px 7px}
-  .bank-pct{font-size:10px;padding:4px 7px}
+
+.bank-pct{font-size:10px;padding:4px 7px}
   .plan-result-grid,.priority-status-grid{grid-template-columns:1fr}
   .esp-figures{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
   .esp-figures .kpi{padding:10px;min-height:98px}
@@ -846,17 +852,7 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   box-shadow:0 18px 46px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.16);
   backdrop-filter:blur(30px) saturate(175%);
 }
-:root[data-theme="dark"] .bank-logo-wordmark{
-  color:#f3f8ff;
-  background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.055));
-  border-color:color-mix(in srgb,var(--brand),transparent 28%);
-  box-shadow:0 8px 20px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.2);
-}
-:root[data-theme="dark"] .bank-name-label{
-  background:color-mix(in srgb,var(--brand),transparent 86%);
-  color:color-mix(in srgb,var(--brand),white 45%);
-  border-color:color-mix(in srgb,var(--brand),transparent 50%);
-}
+
 :root[data-theme="dark"] input,
 :root[data-theme="dark"] select,
 :root[data-theme="dark"] textarea{
@@ -928,6 +924,498 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   .sidebar-foot small{animation:none!important}
   :root[data-theme="dark"] .chart-svg .chart-line,
   :root[data-theme="dark"] .chart-svg .chart-bar{filter:none}
+}
+
+
+/* ===== PIOT POLISH: TOP FILTERS, SINGLE BANK CHIPS, LIFE PAY GLOW ===== */
+.filterbar{
+  position:sticky;top:8px;z-index:35;
+  display:grid;grid-template-columns:minmax(230px,1.7fr) repeat(3,minmax(125px,.62fr)) auto auto;
+  align-items:center;gap:9px;margin:0 0 18px;padding:11px 12px;
+  border:1px solid rgba(255,255,255,.78);border-radius:20px;
+  background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(242,248,255,.72));
+  box-shadow:0 12px 30px rgba(31,55,84,.09),inset 0 1px 0 rgba(255,255,255,.95);
+  backdrop-filter:blur(26px) saturate(175%);-webkit-backdrop-filter:blur(26px) saturate(175%);
+  transition:box-shadow .25s ease,border-color .25s ease;
+}
+.filterbar:focus-within{border-color:rgba(65,150,225,.38);box-shadow:0 14px 34px rgba(31,95,150,.13),0 0 0 3px rgba(65,150,225,.08),inset 0 1px 0 rgba(255,255,255,.95)}
+.filterbar input[type="search"]{
+  min-width:0;min-height:42px;padding:10px 14px 10px 42px;border-radius:13px;
+  border:1px solid rgba(173,194,218,.62);
+  background-color:rgba(255,255,255,.78);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23899db3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-4-4'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:14px center;background-size:17px;
+  box-shadow:inset 0 1px 2px rgba(40,70,100,.035);font-size:12px;
+}
+.filterbar input[type="search"]::placeholder{color:#91a4b9}
+.filterbar select{
+  width:100%;max-width:none;min-width:0;min-height:42px;padding:9px 30px 9px 12px;
+  border-radius:13px;border:1px solid rgba(173,194,218,.62);
+  background-color:rgba(255,255,255,.78);font-size:12px;
+  box-shadow:inset 0 1px 2px rgba(40,70,100,.035);
+}
+.filterbar .btn{min-height:40px;border-radius:13px;padding-inline:15px;white-space:nowrap}
+.filterbar details{min-width:max-content;padding:9px 4px}
+.filterbar summary{font-weight:800;letter-spacing:.1px}
+.filterbar .advanced{grid-column:1/-1;padding:10px 2px 2px;margin:0;border-top:1px solid rgba(150,175,205,.2)}
+.sidebar-lifepay-wrap{
+  position:relative;isolation:isolate;overflow:hidden;
+  border:1px solid rgba(255,255,255,.28);
+  background:linear-gradient(145deg,#13242c,#1d343b 58%,#10232c);
+  box-shadow:0 10px 24px rgba(12,29,40,.23),inset 0 1px 0 rgba(255,255,255,.22);
+  animation:lifePayBreath 4.8s ease-in-out infinite;
+  will-change:transform,box-shadow;
+}
+.sidebar-lifepay-wrap::before{
+  content:"";position:absolute;inset:-2px;border-radius:inherit;z-index:0;
+  background:conic-gradient(from 0deg,transparent 0 24%,rgba(74,255,197,.8) 34%,rgba(120,190,255,.45) 43%,transparent 55% 100%);
+  opacity:.28;animation:lifePayOrbit 8s linear infinite;
+}
+.sidebar-lifepay-wrap::after{
+  content:"";position:absolute;top:-55%;left:-65%;width:42%;height:210%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),rgba(106,255,211,.18),transparent);
+  transform:rotate(22deg);animation:lifePaySweep 5.7s ease-in-out infinite;z-index:2;
+  pointer-events:none;
+}
+.sidebar-lifepay-logo{position:relative;z-index:1;filter:brightness(0) invert(1) drop-shadow(0 0 5px rgba(157,255,225,.25));}
+@keyframes lifePayBreath{
+  0%,100%{transform:translateY(0);box-shadow:0 10px 24px rgba(12,29,40,.23),0 0 0 rgba(47,224,170,0),inset 0 1px 0 rgba(255,255,255,.22)}
+  50%{transform:translateY(-2px);box-shadow:0 13px 30px rgba(12,29,40,.25),0 0 22px rgba(47,224,170,.18),inset 0 1px 0 rgba(255,255,255,.3)}
+}
+@keyframes lifePayOrbit{to{transform:rotate(360deg)}}
+@keyframes lifePaySweep{0%,18%{left:-65%;opacity:0}32%{opacity:.85}58%,100%{left:130%;opacity:0}}
+.sidebar-foot small{
+  display:block;color:#20bd8a;font-size:9.5px;font-weight:900;letter-spacing:.65px;opacity:1;
+  background:linear-gradient(100deg,#00a56a 0%,#3ad9a6 34%,#b1ffe5 51%,#19b985 70%,#00a56a 100%);
+  background-size:240% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:sidebarLabelShine 4.8s ease-in-out infinite;
+  filter:drop-shadow(0 2px 7px rgba(0,185,125,.2));
+}
+:root[data-theme="dark"] .filterbar{
+  background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.045));
+  border-color:rgba(224,240,255,.19);
+  box-shadow:0 16px 42px rgba(0,0,0,.26),inset 0 1px 0 rgba(255,255,255,.18);
+  backdrop-filter:blur(32px) saturate(185%);-webkit-backdrop-filter:blur(32px) saturate(185%);
+}
+:root[data-theme="dark"] .filterbar input[type="search"],
+:root[data-theme="dark"] .filterbar select{
+  color:#e9f3ff;background-color:rgba(255,255,255,.075);
+  border-color:rgba(222,240,255,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 5px 15px rgba(0,0,0,.12);
+}
+:root[data-theme="dark"] .filterbar input[type="search"]::placeholder{color:#9db3c9}
+:root[data-theme="dark"] .filterbar select option{background:#142333;color:#eaf4ff}
+:root[data-theme="dark"] .filterbar .advanced{border-top-color:rgba(225,240,255,.13)}
+:root[data-theme="dark"] .sidebar-lifepay-wrap{
+  background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.035));
+  border-color:rgba(218,255,245,.25);
+  box-shadow:0 14px 34px rgba(0,0,0,.32),0 0 24px rgba(40,220,166,.16),inset 0 1px 0 rgba(255,255,255,.24);
+}
+:root[data-theme="dark"] .sidebar-lifepay-logo{filter:brightness(0) invert(1) drop-shadow(0 0 8px rgba(157,255,225,.42))}
+:root[data-theme="dark"] .bank-filter-chip{
+  color:#f4f8ff;background:linear-gradient(145deg,rgba(255,255,255,.15),rgba(255,255,255,.045));
+  border-color:color-mix(in srgb,var(--brand),transparent 28%);
+  box-shadow:0 9px 22px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.16);
+}
+:root[data-theme="dark"] .bank-filter-chip:hover{box-shadow:0 13px 26px rgba(0,0,0,.27),0 0 18px color-mix(in srgb,var(--brand),transparent 76%)}
+:root[data-theme="dark"] .chart-svg .gridline{stroke:rgba(193,220,245,.28);stroke-dasharray:4 7}
+:root[data-theme="dark"] .chart-svg .axis-label,
+:root[data-theme="dark"] .chart-svg .x-label{fill:#b5c9dd}
+:root[data-theme="dark"] .chart-svg .axis-base{stroke:rgba(215,235,250,.45)}
+:root[data-theme="dark"] .chart-svg .crosshair{stroke:rgba(170,220,250,.52);stroke-dasharray:4 5}
+:root[data-theme="dark"] .chart-svg .chart-line{filter:drop-shadow(0 0 5px currentColor);stroke-width:3.5}
+:root[data-theme="dark"] .chart-svg .chart-area{opacity:.38}
+:root[data-theme="dark"] .spark path[fill^="url"]{opacity:.65}
+:root[data-theme="dark"] .spark path[stroke]{filter:drop-shadow(0 0 4px currentColor)}
+@media(max-width:980px){
+  .filterbar{grid-template-columns:minmax(180px,1fr) repeat(2,minmax(120px,.7fr)) auto}
+  .filterbar details{grid-column:1/-1}
+}
+@media(max-width:600px){
+  .filterbar{position:sticky;top:4px;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:9px;border-radius:16px}
+  .filterbar input[type="search"]{grid-column:1/-1;min-width:0}
+  .filterbar select{min-width:0;font-size:11px;padding-left:9px}
+  .filterbar .btn{width:100%;padding-inline:8px;font-size:11px}
+  .filterbar details{grid-column:1/-1;padding:7px 3px}
+  .bank-filter-chip{min-width:118px}
+}
+@media(prefers-reduced-motion:reduce){
+  .sidebar-lifepay-wrap,.sidebar-lifepay-wrap::before,.sidebar-lifepay-wrap::after,.sidebar-foot small{animation:none!important}
+  .bank-filter-chip{transition:none!important}
+}
+
+
+/* =========================================================
+   PIOT · iOS LIQUID GLASS DARK THEME
+   High contrast, soft glass reflections, subtle rain droplets
+   ========================================================= */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --text:#f4f8ff;
+  --muted:#c1d0e2;
+  --bg:#06111c;
+  --glass-bg:linear-gradient(145deg,rgba(24,43,60,.78),rgba(9,24,38,.72));
+  --shadow:0 12px 34px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.12);
+  --shadow-hover:0 20px 48px rgba(0,0,0,.34),0 0 24px rgba(95,205,220,.08),inset 0 1px 0 rgba(255,255,255,.17);
+  --pin-bg:radial-gradient(ellipse at 12% 8%,rgba(64,157,192,.22),transparent 38%),linear-gradient(145deg,#06111c,#0a1b2a 58%,#071c1b);
+  --pin-card-bg:linear-gradient(145deg,rgba(27,48,65,.94),rgba(9,25,39,.94));
+  --pin-text:#f4f8ff;
+  --pin-muted:#c1d0e2;
+}
+
+/* Deep blue-black background with a restrained teal glow */
+:root[data-theme="dark"] body{
+  color:#f4f8ff;
+  background:
+    radial-gradient(ellipse at 7% 8%,rgba(61,151,188,.25),transparent 34%),
+    radial-gradient(ellipse at 92% 12%,rgba(0,184,145,.16),transparent 31%),
+    radial-gradient(ellipse at 55% 100%,rgba(78,105,180,.17),transparent 42%),
+    linear-gradient(145deg,#050d17 0%,#081725 48%,#071a1c 100%);
+  background-attachment:fixed;
+}
+
+/* Droplets are tiny and translucent: decorative only, never intercept touch */
+:root[data-theme="dark"] .blobs{
+  opacity:.34;
+  filter:blur(66px) saturate(1.25);
+}
+:root[data-theme="dark"] .blobs::before{
+  content:"";
+  position:absolute;
+  inset:-4%;
+  pointer-events:none;
+  opacity:.22;
+  mix-blend-mode:screen;
+  background-image:
+    radial-gradient(ellipse 3px 5px at 8% 18%,rgba(221,249,255,.72) 0 35%,rgba(135,213,231,.25) 58%,transparent 78%),
+    radial-gradient(ellipse 2px 4px at 23% 68%,rgba(224,250,255,.6) 0 35%,transparent 75%),
+    radial-gradient(ellipse 4px 6px at 39% 34%,rgba(205,242,255,.56) 0 32%,rgba(124,203,230,.18) 58%,transparent 78%),
+    radial-gradient(ellipse 2px 4px at 58% 82%,rgba(230,252,255,.62) 0 35%,transparent 76%),
+    radial-gradient(ellipse 3px 5px at 74% 22%,rgba(222,249,255,.62) 0 35%,rgba(126,213,226,.16) 58%,transparent 78%),
+    radial-gradient(ellipse 2px 4px at 91% 58%,rgba(232,252,255,.6) 0 35%,transparent 76%),
+    linear-gradient(112deg,transparent 0 49.7%,rgba(195,238,250,.055) 50%,transparent 50.35% 100%);
+  background-size:390px 520px,510px 640px,620px 720px,440px 570px,560px 690px,470px 600px,100% 100%;
+  animation:liquidDroplets 26s linear infinite;
+  will-change:transform,opacity;
+}
+@keyframes liquidDroplets{
+  0%{transform:translate3d(0,-8px,0);opacity:.13}
+  45%{opacity:.25}
+  100%{transform:translate3d(9px,24px,0);opacity:.16}
+}
+
+/* Main frame and navigation: translucent glass, crisp edges */
+:root[data-theme="dark"] .shell{
+  position:relative;
+  z-index:1;
+  background:linear-gradient(145deg,rgba(16,34,50,.72),rgba(7,20,33,.68) 55%,rgba(8,29,31,.66));
+  border-color:rgba(226,246,255,.2);
+  box-shadow:0 28px 90px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.18),inset 0 -1px 0 rgba(255,255,255,.035);
+  backdrop-filter:blur(38px) saturate(180%);
+  -webkit-backdrop-filter:blur(38px) saturate(180%);
+}
+:root[data-theme="dark"] .brandbar{
+  border-bottom-color:rgba(225,244,255,.16);
+  background:linear-gradient(180deg,rgba(255,255,255,.045),transparent);
+}
+:root[data-theme="dark"] .sidebar{
+  color:#eaf4ff;
+  background:linear-gradient(155deg,rgba(180,220,240,.14),rgba(35,68,91,.12) 48%,rgba(7,24,38,.36));
+  border-color:rgba(224,243,255,.2);
+  box-shadow:inset -1px 0 0 rgba(255,255,255,.055),inset 0 1px 0 rgba(255,255,255,.12),12px 0 36px rgba(0,0,0,.1);
+  backdrop-filter:blur(32px) saturate(180%);
+  -webkit-backdrop-filter:blur(32px) saturate(180%);
+}
+:root[data-theme="dark"] .navbtn{color:#c9d8e8}
+:root[data-theme="dark"] .navbtn svg{color:#b8cce0}
+:root[data-theme="dark"] .navbtn:hover:not(.active){
+  color:#fff;background:rgba(230,247,255,.105);
+}
+:root[data-theme="dark"] .navbtn.active{
+  color:#fff;
+  background:linear-gradient(135deg,rgba(202,232,250,.22),rgba(119,177,207,.09));
+  border-color:rgba(225,245,255,.25);
+  box-shadow:0 10px 28px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.2);
+}
+
+/* Liquid surfaces used throughout the app */
+:root[data-theme="dark"] .glass,
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .hero,
+:root[data-theme="dark"] .hero.blue,
+:root[data-theme="dark"] .kpi,
+:root[data-theme="dark"] .income-overview,
+:root[data-theme="dark"] .esp-details,
+:root[data-theme="dark"] .plan-filter-card,
+:root[data-theme="dark"] .priority-status-card,
+:root[data-theme="dark"] .priority-status-card.assist,
+:root[data-theme="dark"] .priority-other-row,
+:root[data-theme="dark"] .finance-hero,
+:root[data-theme="dark"] .finance-total-card,
+:root[data-theme="dark"] .finance-metric-card,
+:root[data-theme="dark"] .bank-card,
+:root[data-theme="dark"] .month-wrap,
+:root[data-theme="dark"] .icon-btn,
+:root[data-theme="dark"] .filterbar,
+:root[data-theme="dark"] .tabs,
+:root[data-theme="dark"] .table-wrap{
+  border-color:rgba(223,243,255,.19);
+  box-shadow:0 16px 42px rgba(0,0,0,.23),inset 0 1px 0 rgba(255,255,255,.16),inset 0 -1px 0 rgba(255,255,255,.035);
+  backdrop-filter:blur(30px) saturate(175%);
+  -webkit-backdrop-filter:blur(30px) saturate(175%);
+}
+:root[data-theme="dark"] .glass,
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .kpi,
+:root[data-theme="dark"] .income-overview,
+:root[data-theme="dark"] .esp-details,
+:root[data-theme="dark"] .plan-filter-card,
+:root[data-theme="dark"] .priority-status-card,
+:root[data-theme="dark"] .priority-status-card.assist,
+:root[data-theme="dark"] .finance-total-card,
+:root[data-theme="dark"] .finance-metric-card{
+  background:linear-gradient(145deg,rgba(230,245,255,.115),rgba(174,216,238,.045) 48%,rgba(255,255,255,.065));
+}
+:root[data-theme="dark"] .hero,
+:root[data-theme="dark"] .finance-hero{
+  background:linear-gradient(145deg,rgba(192,226,245,.14),rgba(20,51,70,.34) 48%,rgba(7,36,39,.48));
+}
+:root[data-theme="dark"] .bank-card{
+  background:linear-gradient(145deg,rgba(220,240,255,.15),rgba(112,164,192,.07) 48%,rgba(255,255,255,.045));
+}
+:root[data-theme="dark"] .bank-card::after{opacity:.16}
+:root[data-theme="dark"] .mini-glass,
+:root[data-theme="dark"] .hero-metric,
+:root[data-theme="dark"] .home-summary .kpi,
+:root[data-theme="dark"] .income-overview .income-kpis .kpi,
+:root[data-theme="dark"] .bank-summary-grid .kpi,
+:root[data-theme="dark"] .esp-figures .kpi,
+:root[data-theme="dark"] .priority-other-row,
+:root[data-theme="dark"] .plan-result{
+  background:linear-gradient(145deg,rgba(241,249,255,.13),rgba(197,226,244,.045));
+  border-color:rgba(227,244,255,.17);
+  box-shadow:0 9px 26px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.16);
+}
+
+/* HIGH CONTRAST: make all useful text readable */
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] .shell,
+:root[data-theme="dark"] .glass,
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .table-wrap,
+:root[data-theme="dark"] .bank-card,
+:root[data-theme="dark"] .priority-status-card{
+  color:#f1f6ff;
+}
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4,
+:root[data-theme="dark"] .pagebar h1,
+:root[data-theme="dark"] .card-title,
+:root[data-theme="dark"] .finance-hero-title{
+  color:#f7fbff;
+  text-shadow:0 1px 12px rgba(220,244,255,.08);
+}
+:root[data-theme="dark"] .note,
+:root[data-theme="dark"] .muted,
+:root[data-theme="dark"] .tablefoot,
+:root[data-theme="dark"] .footer,
+:root[data-theme="dark"] .field label,
+:root[data-theme="dark"] .field small,
+:root[data-theme="dark"] .priority-sub,
+:root[data-theme="dark"] .finance-hero-sub,
+:root[data-theme="dark"] .finance-metric-label,
+:root[data-theme="dark"] .finance-metric-note,
+:root[data-theme="dark"] .kpi small,
+:root[data-theme="dark"] .bank-card small,
+:root[data-theme="dark"] .bank-card .note{
+  color:#c2d2e4;
+}
+:root[data-theme="dark"] .text-btn,
+:root[data-theme="dark"] a,
+:root[data-theme="dark"] .tablefoot span,
+:root[data-theme="dark"] .pager span{
+  color:#b9d8f2;
+}
+:root[data-theme="dark"] .pill{
+  color:#e5f0fc;background:rgba(218,239,255,.12);
+  border-color:rgba(225,244,255,.19);
+}
+:root[data-theme="dark"] .pill.ok,
+:root[data-theme="dark"] .save-status{
+  color:#8ff2c8;background:rgba(35,214,148,.16);border-color:rgba(82,238,179,.28);
+}
+:root[data-theme="dark"] .pill.warn{color:#ffe1a0;background:rgba(241,174,48,.16);border-color:rgba(255,206,108,.28)}
+:root[data-theme="dark"] .pill.err{color:#ffadb7;background:rgba(255,89,112,.16);border-color:rgba(255,125,143,.3)}
+
+/* Table: readable white text, darker glass rows, luminous but restrained header */
+:root[data-theme="dark"] .table-wrap{
+  background:linear-gradient(145deg,rgba(208,232,248,.105),rgba(78,121,149,.075) 46%,rgba(4,19,32,.28));
+  border:1px solid rgba(224,244,255,.23);
+  border-radius:20px;
+  overflow:auto;
+}
+:root[data-theme="dark"] .table-wrap table{color:#f1f7ff}
+:root[data-theme="dark"] .table-wrap th{
+  color:#f3f8ff;
+  background:linear-gradient(180deg,rgba(202,229,246,.25),rgba(117,158,184,.16));
+  border-bottom:1px solid rgba(230,247,255,.22);
+  text-shadow:0 1px 3px rgba(0,0,0,.3);
+  font-weight:800;
+}
+:root[data-theme="dark"] .table-wrap td{
+  color:#eaf2fc;
+  background:rgba(5,19,32,.16);
+  border-bottom:1px solid rgba(222,242,255,.13);
+  font-weight:560;
+  text-shadow:0 1px 2px rgba(0,0,0,.12);
+}
+:root[data-theme="dark"] .table-wrap tbody tr:nth-child(even) td{
+  background:rgba(208,235,250,.045);
+}
+:root[data-theme="dark"] .table-wrap tbody tr:hover td{
+  background:rgba(76,190,175,.13);
+  color:#fff;
+}
+:root[data-theme="dark"] .table-wrap td.number{
+  color:#fff;font-weight:850;
+}
+:root[data-theme="dark"] .table-wrap .thbtn{color:#f3f8ff;font-weight:800}
+:root[data-theme="dark"] .table-wrap .thbtn:hover{color:#86f0ce}
+
+/* Status and task chips: the previous dark green text was too dim */
+:root[data-theme="dark"] .badge{
+  color:#edf5ff;
+  background:rgba(215,235,250,.16);
+  border:1px solid rgba(225,243,255,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.09);
+  font-weight:750;
+}
+:root[data-theme="dark"] .badge.green{
+  color:#9af4c9;
+  background:linear-gradient(135deg,rgba(17,190,119,.24),rgba(14,115,86,.17));
+  border-color:rgba(87,238,171,.31);
+}
+:root[data-theme="dark"] .badge.orange{
+  color:#ffe0a0;
+  background:linear-gradient(135deg,rgba(244,169,48,.23),rgba(156,99,17,.15));
+  border-color:rgba(255,203,103,.3);
+}
+:root[data-theme="dark"] .badge.red{
+  color:#ffadb8;
+  background:linear-gradient(135deg,rgba(244,74,100,.24),rgba(140,31,56,.16));
+  border-color:rgba(255,129,149,.32);
+}
+
+/* Search, selects, buttons and month picker */
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea{
+  color:#f4f8ff;
+  background:linear-gradient(145deg,rgba(222,241,255,.14),rgba(150,192,217,.055));
+  border-color:rgba(222,242,255,.23);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 6px 18px rgba(0,0,0,.13);
+}
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder{color:#b0c3d7;opacity:1}
+:root[data-theme="dark"] select option{color:#f4f8ff;background:#122638}
+:root[data-theme="dark"] input:focus,
+:root[data-theme="dark"] select:focus,
+:root[data-theme="dark"] textarea:focus{
+  border-color:rgba(112,219,232,.68);
+  box-shadow:0 0 0 3px rgba(70,190,205,.17),inset 0 1px 0 rgba(255,255,255,.15);
+}
+:root[data-theme="dark"] .btn,
+:root[data-theme="dark"] .icon-btn,
+:root[data-theme="dark"] .theme-toggle{
+  color:#f3f8ff;
+  background:linear-gradient(145deg,rgba(223,241,255,.17),rgba(153,192,216,.06));
+  border-color:rgba(225,244,255,.22);
+  box-shadow:0 8px 22px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.16);
+}
+:root[data-theme="dark"] .btn.primary{
+  color:#fff;
+  background:linear-gradient(135deg,#21d49a,#008e71);
+  border-color:rgba(118,255,207,.5);
+  box-shadow:0 8px 25px rgba(0,190,140,.24),inset 0 1px 0 rgba(255,255,255,.22);
+}
+:root[data-theme="dark"] .btn:disabled{color:#9fb1c4;opacity:.48}
+
+/* Graphs: bright axes, clean labels, luminous lines */
+:root[data-theme="dark"] .chart-svg text{fill:#e3effb;font-weight:650}
+:root[data-theme="dark"] .chart-svg .axis-label,
+:root[data-theme="dark"] .chart-svg .x-label{fill:#c4d6e8}
+:root[data-theme="dark"] .chart-svg .gridline{stroke:rgba(220,240,255,.25);stroke-width:1;stroke-dasharray:4 7}
+:root[data-theme="dark"] .chart-svg .axis-base{stroke:rgba(228,245,255,.52)}
+:root[data-theme="dark"] .chart-svg .chart-line{
+  stroke-width:3.6;
+  filter:drop-shadow(0 0 5px currentColor) drop-shadow(0 0 11px rgba(110,222,236,.18));
+}
+:root[data-theme="dark"] .chart-svg .chart-area{opacity:.36}
+:root[data-theme="dark"] .chart-svg .chart-point{filter:drop-shadow(0 0 6px currentColor)}
+:root[data-theme="dark"] .chart-tip{
+  color:#f4f8ff;background:linear-gradient(145deg,rgba(30,58,78,.94),rgba(9,27,43,.92));
+  border-color:rgba(225,245,255,.25);box-shadow:0 16px 42px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.17);
+  backdrop-filter:blur(26px) saturate(180%);
+}
+:root[data-theme="dark"] .chart-tip *{color:#edf6ff}
+
+/* Dialogs and settings remain readable too */
+:root[data-theme="dark"] dialog,
+:root[data-theme="dark"] .toast{
+  color:#f3f8ff;
+  background:linear-gradient(145deg,rgba(29,52,71,.96),rgba(9,25,40,.96));
+  border-color:rgba(226,244,255,.22);
+  box-shadow:0 22px 70px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.16);
+  backdrop-filter:blur(28px) saturate(170%);
+}
+:root[data-theme="dark"] dialog label,
+:root[data-theme="dark"] dialog p,
+:root[data-theme="dark"] dialog small{color:#d3e2f1}
+:root[data-theme="dark"] .footer{color:#b6c9dc;border-top-color:rgba(220,241,255,.16)}
+:root[data-theme="dark"] .empty{color:#c1d0e2;background:rgba(230,245,255,.055);border-color:rgba(224,242,255,.2)}
+:root[data-theme="dark"] .empty strong{color:#fff}
+
+/* iPhone-like glass highlights; keep animation GPU-friendly */
+:root[data-theme="dark"] .glass,
+:root[data-theme="dark"] .bank-card,
+:root[data-theme="dark"] .finance-hero,
+:root[data-theme="dark"] .filterbar,
+:root[data-theme="dark"] .table-wrap{
+  position:relative;
+  isolation:isolate;
+}
+:root[data-theme="dark"] .glass::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:linear-gradient(125deg,rgba(255,255,255,.105),transparent 22%,transparent 72%,rgba(121,221,230,.045));
+  opacity:.55;
+}
+@supports not ((backdrop-filter:blur(2px))){
+  :root[data-theme="dark"] .glass,
+  :root[data-theme="dark"] .card,
+  :root[data-theme="dark"] .table-wrap,
+  :root[data-theme="dark"] .bank-card{
+    background-color:rgba(12,29,44,.96);
+  }
+}
+@media(max-width:700px){
+  :root[data-theme="dark"] .glass,
+  :root[data-theme="dark"] .card,
+  :root[data-theme="dark"] .table-wrap,
+  :root[data-theme="dark"] .bank-card,
+  :root[data-theme="dark"] .filterbar{
+    backdrop-filter:blur(22px) saturate(160%);
+    -webkit-backdrop-filter:blur(22px) saturate(160%);
+  }
+  :root[data-theme="dark"] .table-wrap td{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  :root[data-theme="dark"] .blobs::before{animation:none!important}
 }
 
 </style>
@@ -1990,11 +2478,10 @@ function espSummaryCard(){
 
 function home(){
   const a=Piot.eventSummary(eventRows(),cfg(),s.month);
-  let html=financeHero();
+  let html=filters();
+  html+=financeHero();
   html+=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
   if(cfg().showStatuses) html+=taskStatusDashboard();
-  html+=espSummaryCard();
-  html+=filters();
   html+=`<div class="kpis home-summary">
     ${kpi('Всего заявок',cVal(a.total),'По дате создания')}
     ${kpi('Выполнено',cVal(a.done),'По дате статуса')}
@@ -2044,8 +2531,10 @@ function banks(){
     <section class="glass bank-card" style="--brand:${b.color};--bank-order:${Piot.BANKS.findIndex(v=>v.id===b.id)}" data-bank="${b.id}">
       <div class="bank-head">
         <div class="bank-identity">
-          <button type="button" class="bank-logo-wordmark" data-bank="${b.id}" title="Показать заявки: ${h(b.name)}" aria-label="Фильтр по банку ${h(b.name)}">${({vtb:'ВТБ',alfa:'АЛЬФА',psb:'ПСБ',tochka:'ТОЧКА'})[b.id]||h(b.name)}</button>
-          <button type="button" class="bank-name-label" data-bank="${b.id}" title="Фильтр по банку ${h(b.name)}">${h(({vtb:'ВТБ',tochka:'Точка Банк',alfa:'Альфа-Банк',psb:'ПСБ Банк'})[b.id]||b.name)}</button>
+          <button type="button" class="bank-filter-chip" data-bank="${b.id}" title="Показать заявки банка ${h(b.name)}" aria-label="Фильтр по банку ${h(b.name)}">
+            <span class="bank-mark bank-mark-${b.id}" aria-hidden="true">${({vtb:'В',alfa:'А',psb:'П',tochka:'Т'})[b.id]||'Б'}</span>
+            <span class="bank-chip-name">${({vtb:'ВТБ',alfa:'АЛЬФА',psb:'ПСБ',tochka:'ТОЧКА'})[b.id]||h(b.name)}</span>
+          </button>
         </div>
         <span class="bank-pct">${b.total?pct(b.done,b.total)+'% выполнено':'нет данных'}</span>
       </div>
