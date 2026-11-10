@@ -2745,6 +2745,27 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   .sidebar-brand-sticker{display:none}
 }
 
+
+/* ===== Life Pay brand icon in the finance summary tile ===== */
+.finance-hero-logo{
+  display:block!important;
+  width:38px!important;height:38px!important;max-width:38px!important;
+  object-fit:contain!important;object-position:center!important;
+  opacity:.98;
+  filter:brightness(0) saturate(100%) invert(46%) sepia(82%) saturate(1050%) hue-rotate(116deg) brightness(96%) contrast(94%) drop-shadow(0 4px 9px rgba(0,165,106,.18))!important;
+  animation:lifePayIconFloat 5.5s ease-in-out infinite;
+}
+@keyframes lifePayIconFloat{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-2px) scale(1.035)}
+}
+@media(max-width:600px){
+  .finance-hero-logo{width:32px!important;height:32px!important;max-width:32px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .finance-hero-logo{animation:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -3865,7 +3886,7 @@ function financeHero(){
         <div class="finance-hero-badge">Финансы</div>
         <div class="finance-hero-brand">
           <div class="finance-hero-logo-wrap" aria-label="Life Pay">
-            <img class="finance-hero-logo" src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" alt="LIFE PAY" loading="lazy" decoding="async">
+            <img class="_logo_1oa4c_84 finance-hero-logo" src="/assets/logo-DN3c4oJz.png" alt="logo icon" loading="lazy" decoding="async">
             
           </div>
           <div class="finance-hero-copy">
