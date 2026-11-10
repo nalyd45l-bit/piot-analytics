@@ -2787,6 +2787,284 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   }
 }
 
+
+
+/* ==========================================================
+   RESPONSIVE FINISH — PHONE / TABLET / iOS / ANDROID
+   Только адаптация интерфейса. Расчёты и обработчики не меняются.
+   ========================================================== */
+.mobile-brand{display:none}
+.exit-icon{display:block;width:16px;height:16px;flex:0 0 16px}
+
+@media (max-width: 980px){
+  .brandbar{min-width:0}
+  .top-meta{min-width:0}
+  .main,.workspace,.shell{min-width:0}
+  .sidebar{min-width:0}
+}
+
+@media (max-width: 850px){
+  .brandbar{
+    display:flex!important;
+    justify-content:space-between!important;
+    align-items:center!important;
+    gap:10px!important;
+    height:auto!important;
+    min-height:68px!important;
+    padding:9px 14px!important;
+  }
+  .mobile-brand{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex:0 1 auto;
+    min-width:0;
+    color:var(--text);
+  }
+  .mobile-brand-mark{
+    position:relative;
+    isolation:isolate;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 42px;
+    width:42px;
+    height:42px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.7);
+    border-radius:14px;
+    background:linear-gradient(145deg,#14232d,#263c43);
+    box-shadow:0 7px 18px rgba(13,25,40,.2),inset 0 1px 0 rgba(255,255,255,.18);
+  }
+  .mobile-brand-mark img{
+    position:relative;
+    z-index:1;
+    display:block;
+    width:34px;
+    height:34px;
+    object-fit:contain;
+    filter:brightness(0) invert(1);
+  }
+  .mobile-brand-mark.logo-fallback::before{content:"LP";color:#fff;font-size:15px;font-weight:900;letter-spacing:-1px}
+  .mobile-brand-copy{display:flex;flex-direction:column;gap:3px;min-width:0;line-height:1.05}
+  .mobile-brand-copy strong{font-size:15px;font-weight:850;letter-spacing:-.35px;white-space:nowrap}
+  .mobile-brand-copy small{font-size:8px;font-weight:850;letter-spacing:1.05px;color:var(--green);white-space:nowrap}
+  .top-meta{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    flex:0 0 auto;
+    gap:6px!important;
+    min-width:0;
+    margin-left:auto!important;
+  }
+  .top-meta .theme-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:40px;
+    min-height:40px;
+    padding:7px 9px;
+  }
+  .top-meta #themeToggle{width:40px;flex:0 0 40px}
+  .top-meta #themeToggle .theme-label{display:none!important}
+  .top-meta .lock-app-btn{
+    gap:6px;
+    min-width:0;
+    min-height:40px;
+    padding:7px 10px;
+    white-space:nowrap;
+  }
+  .top-meta .lock-app-btn .theme-label{display:inline!important;font-size:11px;line-height:1}
+  .top-meta #topSave{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;font-size:10px;padding:5px 8px}
+  .sidebar-brand-sticker{display:none!important}
+  .workspace{grid-template-columns:58px minmax(0,1fr)!important;gap:10px!important;padding:0 12px 24px!important}
+  .sidebar{padding:8px 4px 12px!important;gap:8px!important}
+  .navbtn{min-width:0;justify-content:center;padding:10px 3px!important}
+  .main{min-width:0;width:100%}
+  .pagebar{gap:10px;margin:14px 0!important}
+  .controls{min-width:0;max-width:100%}
+  .month-wrap{min-width:0}
+  .month-wrap select{min-width:0;max-width:100%}
+  .table-wrap{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+  .chart-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
+  .chart-svg{min-width:560px}
+}
+
+@media (max-width: 600px){
+  html{width:100%;min-height:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{width:100%;min-width:0;min-height:100vh;min-height:100dvh;overflow-x:hidden}
+  .shell{
+    width:auto!important;
+    max-width:100%!important;
+    min-height:calc(100vh - 8px)!important;
+    min-height:calc(100dvh - 8px)!important;
+    margin:4px!important;
+    border-radius:20px!important;
+  }
+  .brandbar{min-height:62px!important;padding:8px 10px!important;gap:7px!important}
+  .mobile-brand{gap:7px}
+  .mobile-brand-mark{width:38px;height:38px;flex-basis:38px;border-radius:12px}
+  .mobile-brand-mark img{width:31px;height:31px}
+  .mobile-brand-copy strong{font-size:14px}
+  .mobile-brand-copy small{font-size:7px;letter-spacing:.8px}
+  .top-meta{gap:5px!important}
+  .top-meta #themeToggle{width:36px;min-width:36px;min-height:36px;flex-basis:36px;padding:5px}
+  .top-meta .lock-app-btn{min-height:36px;padding:6px 8px;gap:5px}
+  .top-meta .lock-app-btn .theme-label{display:inline!important;font-size:10px}
+  .top-meta .lock-app-btn .exit-icon{width:14px;height:14px;flex-basis:14px}
+  .top-meta #topSave{font-size:9px;padding:4px 7px}
+  .workspace{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:0!important;padding:0 10px calc(94px + env(safe-area-inset-bottom))!important}
+  .sidebar{
+    position:fixed!important;
+    top:auto!important;
+    bottom:calc(6px + env(safe-area-inset-bottom))!important;
+    left:6px!important;
+    right:6px!important;
+    width:auto!important;
+    min-height:0!important;
+    padding:5px 6px!important;
+    z-index:100!important;
+    border-radius:18px!important;
+    background:rgba(238,244,251,.96);
+    -webkit-backdrop-filter:blur(22px) saturate(155%);
+    backdrop-filter:blur(22px) saturate(155%);
+  }
+  nav{display:flex!important;flex-direction:row!important;justify-content:space-around!important;align-items:stretch;gap:2px!important}
+  .navbtn{
+    display:flex!important;
+    flex:1 1 0!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+    align-items:center!important;
+    min-width:0!important;
+    min-height:48px;
+    gap:3px!important;
+    padding:6px 2px!important;
+    border-radius:11px!important;
+    white-space:normal!important;
+    text-align:center!important;
+    font-size:9px!important;
+    line-height:1.1!important;
+  }
+  .navbtn .ico{width:18px!important;height:18px!important;flex:0 0 18px!important}
+  .nav-label{display:block!important;max-width:100%;font-size:7.5px!important;line-height:1.1!important;white-space:normal!important;overflow-wrap:anywhere}
+  .sidebar-foot{display:none!important}
+  .main{width:100%;min-width:0;overflow:visible}
+  .pagebar{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:11px!important;margin:14px 0 16px!important;min-height:0!important}
+  .pagebar h1{font-size:clamp(25px,7vw,34px)!important;line-height:1.08!important;letter-spacing:-.8px!important;overflow-wrap:anywhere}
+  .controls{display:grid!important;grid-template-columns:minmax(0,1fr) 40px 40px!important;gap:7px!important;width:100%;max-width:100%;}
+  .month-wrap{display:flex!important;width:100%;min-width:0!important;min-height:40px;padding:2px!important}
+  .month-wrap select{flex:1 1 auto!important;width:1%;min-width:0!important;padding:7px 3px!important;font-size:14px!important;text-align:center}
+  .month-wrap .icon-btn{width:27px!important;min-width:27px!important;flex:0 0 27px!important;height:34px!important}
+  .controls>.icon-btn{width:40px!important;height:40px!important;min-width:40px!important}
+  .filterbar{position:sticky!important;top:4px!important;z-index:45!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important;padding:9px!important;margin-bottom:14px!important}
+  .filterbar input[type="search"]{grid-column:1/-1!important;width:100%;min-width:0!important;font-size:16px!important}
+  .filterbar select{width:100%;min-width:0!important;font-size:13px!important;padding:9px 8px!important}
+  .filterbar .btn{min-height:40px;width:100%;padding:7px 8px!important;font-size:11px!important}
+  .filterbar details{grid-column:1/-1!important}
+  .card,.income-overview,.finance-hero,.profit-hero{max-width:100%;min-width:0;margin-bottom:14px!important}
+  .card{padding:16px!important}
+  .cardhead{align-items:flex-start;flex-wrap:wrap;gap:9px;margin-bottom:13px}
+  .card h2{font-size:17px}
+  .hero-grid,.row-main,.row2,.bank-grid,.settings-grid{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+  .kpis,.income-kpis,.bank-summary-grid,.income-overview .income-kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .kpi{min-width:0;padding:12px!important}
+  .kpi strong{font-size:clamp(18px,5.3vw,25px)!important;overflow-wrap:anywhere}
+  .hero{padding:17px!important}
+  .hero-body{gap:13px!important}
+  .hero-metrics{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
+  .hero-metric{min-width:0;padding:9px 7px!important}
+  .hero-metric b{font-size:clamp(15px,4.5vw,20px)!important;overflow-wrap:anywhere}
+  .ring{width:116px!important;height:116px!important}
+  .finance-hero{padding:16px!important}
+  .finance-hero-top{gap:10px!important;flex-wrap:wrap}
+  .finance-hero-brand{min-width:0;max-width:100%;gap:10px!important}
+  .finance-hero-logo-wrap{width:58px!important;height:58px!important;flex:0 0 58px!important}
+  .finance-hero-title{font-size:clamp(21px,6vw,28px)!important;line-height:1.12!important;overflow-wrap:anywhere}
+  .finance-hero-description{font-size:13px!important;line-height:1.55!important;overflow-wrap:anywhere}
+  .finance-hero-actions{width:100%;display:flex;flex-wrap:wrap;gap:8px}
+  .finance-hero-actions .btn{width:100%;min-height:44px;justify-content:center}
+  .finance-hero-body{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+  .finance-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .finance-metric-card{min-width:0;min-height:90px!important;padding:12px!important}
+  .finance-metric-value{font-size:clamp(19px,5.5vw,26px)!important;overflow-wrap:anywhere}
+  .bank-card{min-width:0;padding:16px!important}
+  .bank-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .table-wrap{max-width:100%;overflow:auto!important;border-radius:12px;-webkit-overflow-scrolling:touch}
+  .table-wrap table{min-width:620px}
+  .table-wrap th,.table-wrap td{padding:9px 10px!important;font-size:11px!important}
+  input,select,textarea{max-width:100%;font-size:16px}
+  .btn,.icon-btn,.theme-toggle{touch-action:manipulation}
+  .btn{min-height:40px}
+  .toasts{right:10px!important;bottom:calc(82px + env(safe-area-inset-bottom))!important;max-width:calc(100vw - 20px)!important}
+  .footer{padding-bottom:8px;overflow-wrap:anywhere}
+}
+
+@media (max-width: 390px){
+  .brandbar{padding-left:8px!important;padding-right:8px!important;gap:5px!important}
+  .mobile-brand{gap:5px}
+  .mobile-brand-mark{width:34px;height:34px;flex-basis:34px}
+  .mobile-brand-mark img{width:28px;height:28px}
+  .mobile-brand-copy strong{font-size:13px}
+  .mobile-brand-copy small{display:none}
+  .top-meta{gap:4px!important}
+  .top-meta #themeToggle{width:34px;min-width:34px;flex-basis:34px}
+  .top-meta .lock-app-btn{padding:5px 6px;gap:4px}
+  .top-meta .lock-app-btn .theme-label{font-size:9px}
+  .top-meta #topSave{font-size:8px;padding:4px 5px}
+  .workspace{padding-left:8px!important;padding-right:8px!important}
+  .navbtn{padding-left:1px!important;padding-right:1px!important}
+  .nav-label{font-size:7px!important}
+}
+
+@media (max-width: 350px){
+  .top-meta #topSave{display:none!important}
+  .mobile-brand-copy strong{font-size:12px}
+  .top-meta .lock-app-btn .theme-label{font-size:9px}
+  .controls{grid-template-columns:minmax(0,1fr) 36px 36px!important}
+  .controls>.icon-btn{width:36px!important;min-width:36px!important;height:38px!important}
+  .kpis,.income-kpis,.bank-summary-grid,.income-overview .income-kpis{grid-template-columns:minmax(0,1fr)!important}
+}
+
+@media (min-width: 601px) and (max-width: 850px){
+  .workspace{grid-template-columns:54px minmax(0,1fr)!important;gap:9px!important;padding:0 10px 20px!important}
+  .sidebar{min-height:calc(100dvh - 104px);padding:8px 3px!important}
+  .navbtn{padding:10px 1px!important}
+}
+
+@media (max-height: 520px) and (orientation: landscape) and (max-width: 850px){
+  .brandbar{min-height:54px!important;padding-top:5px!important;padding-bottom:5px!important}
+  .mobile-brand-mark{width:34px;height:34px;flex-basis:34px}
+  .workspace{padding-bottom:18px!important}
+  .sidebar{bottom:4px!important}
+  .navbtn{min-height:42px!important}
+  .nav-label{font-size:7px!important}
+}
+
+@media (hover: none) and (pointer: coarse){
+  .navbtn:hover,.card:hover,.glass:hover,.hero:hover,.bank-card:hover{transform:none}
+  .navbtn:active,.btn:active,.icon-btn:active{transform:scale(.98)}
+}
+
+@media (max-width: 850px) and (prefers-reduced-motion: no-preference){
+  .mobile-brand-mark{animation:mobileBrandFloat 5.8s ease-in-out infinite}
+  .mobile-brand-mark::after{
+    content:"";position:absolute;z-index:2;top:-35%;bottom:-35%;left:-65%;width:38%;
+    transform:rotate(22deg);pointer-events:none;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);
+    animation:mobileBrandShine 6.5s ease-in-out infinite;
+  }
+  .navbtn,.theme-toggle,.icon-btn,.btn{transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .22s ease,background .22s ease}
+  .motion #page.anim>*{animation-duration:.58s}
+}
+@keyframes mobileBrandFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes mobileBrandShine{0%,22%{left:-65%;opacity:0}42%{opacity:.9}70%,100%{left:145%;opacity:0}}
+
+@supports (height: 100dvh){
+  @media(max-width:600px){.shell{min-height:calc(100dvh - 8px)!important}}
+}
+
 </style>
 </head>
 <body>
@@ -2830,9 +3108,15 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
 <div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="shell">
   <header class="brandbar">
+    <div class="mobile-brand" aria-label="Life Pay">
+      <span class="mobile-brand-mark">
+        <img src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" alt="Life Pay" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('logo-fallback')">
+      </span>
+      <span class="mobile-brand-copy"><strong>Life Pay</strong><small>АНАЛИТИКА</small></span>
+    </div>
     <div class="top-meta">
       <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false"><span class="theme-icon">☾</span><span class="theme-label">Тёмная тема</span></button>
-      <button type="button" class="theme-toggle lock-app-btn" id="lockApp" title="Заблокировать приложение"><span aria-hidden="true">⌑</span><span class="theme-label">Заблокировать</span></button>
+      <button type="button" class="theme-toggle lock-app-btn" id="lockApp" title="Выйти из приложения" aria-label="Выйти из приложения"><svg class="exit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg><span class="theme-label">Выйти</span></button>
       <span id="topSave" class="pill ok">Загрузка</span>
     </div>
   </header>
