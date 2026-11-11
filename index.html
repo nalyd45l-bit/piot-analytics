@@ -4295,6 +4295,625 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
 :root[data-theme="ubuntu"] #topSave.warn{
   background:#fff0ce!important;color:#704313!important;-webkit-text-fill-color:#704313!important;
 }
+
+
+/* =============================================================
+   LIFE PAY / BANKS 2026 — PREMIUM PAYMENT INTELLIGENCE
+   CSS-only redesign of KPIs and banking cards for all 3 themes.
+   No change to calculations outside the F-column payment breakdown.
+   ============================================================= */
+:root{
+  --bank-ink:#17283e;--bank-sub:#5d7085;
+  --bank-panel:linear-gradient(145deg,#fff,rgba(241,248,255,.96));
+  --bank-line:rgba(159,185,216,.36);
+  --bank-paid:#0ead82;--bank-unpaid:#ed6483;
+  --kpi-ink:#122b43;
+}
+:root[data-theme="dark"]{
+  --bank-ink:#f2f7ff;--bank-sub:#bbcadb;
+  --bank-panel:linear-gradient(148deg,#20354b,#101f32);
+  --bank-line:rgba(190,217,246,.20);
+  --bank-paid:#42dda9;--bank-unpaid:#ff7c99;
+  --kpi-ink:#f4f8ff;
+}
+:root[data-theme="ubuntu"]{
+  --bank-ink:#381629;--bank-sub:#755466;
+  --bank-panel:linear-gradient(144deg,#fff,#fff8fc 60%,#fcebf3);
+  --bank-line:rgba(147,52,99,.19);
+  --bank-paid:#ae316f;--bank-unpaid:#e08a98;
+  --kpi-ink:#3a132b;
+}
+/* Dashboard KPI cards: same component on Home, Plan, Finance, Banks and others. */
+.kpi.kpi-v2,
+:root[data-theme="ubuntu"] .kpi.kpi-v2,
+:root[data-theme="dark"] .kpi.kpi-v2{
+  position:relative!important;isolation:isolate!important;
+  min-height:137px!important;padding:19px 19px 17px!important;
+  display:flex!important;flex-direction:column!important;
+  overflow:hidden!important;border-radius:21px!important;
+  background:var(--bank-panel)!important;
+  border:1px solid var(--bank-line)!important;
+  box-shadow:0 10px 28px rgba(28,50,79,.095),inset 0 1px rgba(255,255,255,.86)!important;
+  transition:transform .28s cubic-bezier(.22,1,.36,1),box-shadow .28s ease!important;
+}
+.kpi-v2:before{content:""!important;position:absolute!important;inset:0 0 auto!important;height:3px!important;
+  background:linear-gradient(90deg,var(--kpi-accent),color-mix(in srgb,var(--kpi-accent),transparent 82%))!important;opacity:1!important}
+.kpi-v2[data-kpi-tone="info"]{--kpi-accent:#498de2}
+.kpi-v2[data-kpi-tone="success"]{--kpi-accent:#17b58b}
+.kpi-v2[data-kpi-tone="warning"]{--kpi-accent:#e36c87}
+.kpi-v2[data-kpi-tone="neutral"]{--kpi-accent:#8074cf}
+:root[data-theme="ubuntu"] .kpi-v2[data-kpi-tone="info"]{--kpi-accent:#8f54ac}
+:root[data-theme="ubuntu"] .kpi-v2[data-kpi-tone="success"]{--kpi-accent:#b32c6a}
+:root[data-theme="ubuntu"] .kpi-v2[data-kpi-tone="warning"]{--kpi-accent:#d76d86}
+.kpi-v2:after{content:"";position:absolute;z-index:-1;width:115px;height:115px;right:-48px;top:-58px;
+ border-radius:40px;transform:rotate(-24deg);
+ background:linear-gradient(135deg,color-mix(in srgb,var(--kpi-accent),transparent 80%),transparent);pointer-events:none}
+.kpi-v2 .kpi-v2-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
+.kpi-v2 .label,
+:root[data-theme="ubuntu"] .kpi.kpi-v2 .label,
+:root[data-theme="dark"] .kpi.kpi-v2 .label{
+  color:var(--bank-sub)!important;-webkit-text-fill-color:var(--bank-sub)!important;
+  font-size:clamp(10px,.85vw,12.5px)!important;font-weight:750!important;
+  text-transform:uppercase;letter-spacing:.5px;line-height:1.35;
+}
+.kpi-v2 .kpi-v2-icon{width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  flex:0 0 28px;border-radius:9px;color:var(--kpi-accent);background:color-mix(in srgb,var(--kpi-accent),transparent 88%);
+  border:1px solid color-mix(in srgb,var(--kpi-accent),transparent 78%);font-size:17px;font-weight:850}
+.kpi-v2 strong,
+:root[data-theme="ubuntu"] .kpi.kpi-v2 strong,
+:root[data-theme="dark"] .kpi.kpi-v2 strong{
+  font-size:clamp(25px,2vw,33px)!important;line-height:1.15!important;
+  margin:14px 0 9px!important;letter-spacing:-1.15px!important;font-weight:850!important;
+  color:var(--kpi-ink)!important;-webkit-text-fill-color:var(--kpi-ink)!important;
+  background:none!important;overflow-wrap:anywhere!important
+}
+.kpi-v2 .kpi-v2-rule{margin-top:auto;width:41px;height:3px;border-radius:5px;background:var(--kpi-accent);opacity:.75}
+@media(hover:hover){.kpi-v2:hover{transform:translateY(-4px)!important;box-shadow:0 16px 34px rgba(28,50,79,.16),inset 0 1px rgba(255,255,255,.86)!important}}
+/* New bank overview hero */
+.bank-premium-intro{display:flex;align-items:center;justify-content:space-between;gap:20px;
+  position:relative;overflow:hidden;border-radius:25px;padding:23px 27px;margin:0 0 14px;
+  background:linear-gradient(115deg,#142b45,#1f4670 60%,#286c85);
+  border:1px solid rgba(129,176,218,.36);box-shadow:0 16px 35px rgba(20,44,67,.17)}
+.bank-premium-intro:before{content:"";position:absolute;inset:0;
+ background:radial-gradient(circle at 80% 10%,rgba(150,242,229,.22),transparent 37%),
+ repeating-linear-gradient(130deg,transparent 0 35px,rgba(255,255,255,.035) 36px 37px,transparent 38px 90px);pointer-events:none}
+.bank-premium-intro>div{position:relative;z-index:1}
+.bank-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:1.4px;color:#9cf3db;font-weight:900}
+.bank-eyebrow-dot{width:8px;height:8px;background:#51ecbb;border-radius:50%;box-shadow:0 0 0 5px rgba(81,236,187,.16)}
+.bank-premium-intro h2{font-size:clamp(20px,2.2vw,30px);letter-spacing:-.8px;line-height:1.18;color:#fff;margin:10px 0 8px;font-weight:850}
+.bank-premium-intro p{max-width:660px;color:#cde4ef;font-size:12px;font-weight:560;line-height:1.55}
+.bank-intro-mark{min-width:115px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;opacity:.9}
+.bank-intro-mark span{width:66px;height:66px;display:grid;place-items:center;font-size:25px;font-weight:850;color:#fff;border:1px solid rgba(255,255,255,.42);
+  border-radius:21px;background:rgba(255,255,255,.14);box-shadow:inset 0 1px rgba(255,255,255,.3);backdrop-filter:blur(12px)}
+.bank-intro-mark small{text-align:center;font-size:8px;font-weight:800;line-height:1.35;letter-spacing:1.6px;color:#d3e9fa}
+:root[data-theme="ubuntu"] .bank-premium-intro{background:linear-gradient(118deg,#3d102c,#7d204b 62%,#b84671);border-color:rgba(181,91,138,.35);box-shadow:0 15px 40px rgba(112,22,72,.20)}
+:root[data-theme="ubuntu"] .bank-eyebrow{color:#ffc9d9}
+:root[data-theme="ubuntu"] .bank-eyebrow-dot{background:#ff98bd;box-shadow:0 0 0 5px rgba(255,142,188,.2)}
+:root[data-theme="ubuntu"] .bank-premium-intro p{color:#ffe2ec}
+:root[data-theme="dark"] .bank-premium-intro{background:linear-gradient(120deg,#082435,#0b3d49 68%,#0b5b52)}
+.bank-summary-grid.bank-summary-premium{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:0 0 14px}
+.bank-summary-premium .kpi.kpi-v2{min-height:127px!important;padding:15px 15px 13px!important}
+.bank-summary-premium .kpi-v2 strong{font-size:clamp(22px,2vw,32px)!important}
+/* Payment ratio panel */
+.bank-collection-status,
+:root[data-theme="ubuntu"] .bank-collection-status,
+:root[data-theme="dark"] .bank-collection-status{
+  padding:18px 22px 16px!important;margin:0 0 21px!important;border-radius:22px!important;
+  background:var(--bank-panel)!important;border:1px solid var(--bank-line)!important;
+  box-shadow:0 7px 22px rgba(27,51,73,.08)!important}
+.bank-collection-head{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.bank-collection-head>div:first-child{margin-right:auto}
+.bank-collection-kicker{display:block;font-size:10px;letter-spacing:1.1px;color:var(--bank-sub);font-weight:800;margin-bottom:2px}
+.bank-collection-head strong{display:block;font-size:35px;font-weight:880;letter-spacing:-1.5px;color:var(--bank-ink);line-height:1.1}
+.bank-collection-head strong small{font-size:19px;margin-left:2px}
+.bank-collection-head p{font-size:11.5px;color:var(--bank-sub);margin:2px 0 0}
+.bank-collection-number{display:flex;align-items:center;gap:8px;color:var(--bank-sub);font-size:12px;font-weight:680}
+.bank-collection-number b{font-size:18px;color:var(--bank-ink)}
+.bank-dot{width:8px;height:8px;flex:0 0 8px;display:inline-block;border-radius:50%;vertical-align:middle}
+.bank-dot-paid{background:var(--bank-paid);box-shadow:0 0 0 3px color-mix(in srgb,var(--bank-paid),transparent 84%)}
+.bank-dot-unpaid{background:var(--bank-unpaid);box-shadow:0 0 0 3px color-mix(in srgb,var(--bank-unpaid),transparent 84%)}
+.bank-collection-track{height:13px;background:color-mix(in srgb,var(--bank-unpaid),white 62%);border-radius:99px;overflow:hidden;margin:14px 0 10px;box-shadow:inset 0 1px 3px rgba(0,0,0,.11)}
+.bank-collection-track i{display:block;height:100%;background:linear-gradient(90deg,var(--bank-paid),color-mix(in srgb,var(--bank-paid),white 25%));border-radius:99px;transition:width 1s cubic-bezier(.22,1,.36,1)}
+.bank-collection-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:11px;color:var(--bank-sub)}
+.bank-payment-link{border:0;padding:5px 0;background:none;color:var(--bank-ink);font-size:12px;font-weight:800}
+.bank-payment-link span{color:var(--bank-unpaid);margin-left:4px}
+.bank-payment-link:hover:not(:disabled){color:var(--bank-unpaid)}
+.bank-payment-link:disabled{opacity:.5;cursor:default}
+/* Bank tiles */
+.bank-grid.bank-grid-premium{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:0 0 21px}
+.bank-card.bank-card-premium,
+:root[data-theme="ubuntu"] .bank-card.bank-card-premium,
+:root[data-theme="dark"] .bank-card.bank-card-premium{
+  --brand-glow:color-mix(in srgb,var(--brand),transparent 78%);
+  min-height:440px!important;display:flex!important;flex-direction:column!important;
+  padding:22px 22px 17px!important;border-radius:27px!important;
+  background:var(--bank-panel)!important;
+  border:1px solid var(--bank-line)!important;
+  box-shadow:0 10px 28px rgba(30,58,91,.095),inset 0 1px rgba(255,255,255,.8)!important;
+  overflow:hidden;position:relative;isolation:isolate;
+  transition:transform .32s cubic-bezier(.22,1,.36,1),box-shadow .32s ease!important;
+}
+.bank-card-premium:before{content:""!important;position:absolute!important;inset:0 auto 0 0!important;
+ width:4px!important;background:linear-gradient(180deg,color-mix(in srgb,var(--brand),white 35%),var(--brand))!important;z-index:2!important}
+.bank-card-premium:after{content:""!important;position:absolute!important;width:310px!important;height:310px!important;
+ left:auto!important;right:-190px!important;top:-190px!important;border-radius:50%!important;
+ background:var(--brand)!important;opacity:.13!important;z-index:-1!important;pointer-events:none}
+.bank-premium-art{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bank-premium-art span:first-child{position:absolute;top:-105px;right:-120px;width:300px;height:300px;border-radius:100px;
+ border:1px solid color-mix(in srgb,var(--brand),transparent 78%);transform:rotate(29deg)}
+.bank-premium-art span:last-child{position:absolute;top:-90px;right:-160px;width:285px;height:285px;border-radius:90px;
+ border:1px solid color-mix(in srgb,var(--brand),transparent 86%);transform:rotate(-15deg)}
+.bank-card-premium .bank-head{margin-bottom:17px;gap:8px}
+.bank-card-premium .bank-filter-chip,
+:root[data-theme="ubuntu"] .bank-card-premium .bank-filter-chip{
+  min-height:42px!important;padding:6px 11px 6px 7px!important;
+  background:color-mix(in srgb,var(--brand),white 95%)!important;
+  border:1px solid color-mix(in srgb,var(--brand),transparent 76%)!important;
+  box-shadow:0 2px 8px color-mix(in srgb,var(--brand),transparent 90%)!important;
+  border-radius:13px!important;gap:7px!important}
+.bank-card-premium .bank-chip-name{font-size:11px!important;font-weight:900!important;letter-spacing:.4px!important;
+  color:var(--bank-ink)!important;-webkit-text-fill-color:var(--bank-ink)!important}
+.bank-card-premium .bank-pct{display:inline-flex;align-items:center;gap:6px;font-size:10px!important;
+ padding:6px 9px!important;color:var(--bank-ink)!important;background:color-mix(in srgb,var(--brand),transparent 92%)!important;
+ border:1px solid color-mix(in srgb,var(--brand),transparent 78%)!important;border-radius:99px!important;
+ font-weight:760!important}
+.bank-pct-dot{height:7px;width:7px;border-radius:99px;background:var(--brand);flex:0 0 7px}
+.bank-premium-money{display:flex;justify-content:space-between;align-items:flex-end;gap:14px}
+.bank-premium-money p{font-size:11px;color:var(--bank-sub);margin-top:6px}
+.bank-premium-money .bank-revenue-label,
+:root[data-theme="ubuntu"] .bank-premium-money .bank-revenue-label{color:var(--bank-sub)!important;font-size:10px!important;letter-spacing:1.2px!important;font-weight:900!important}
+.bank-premium-money .bank-revenue,
+:root[data-theme="ubuntu"] .bank-premium-money .bank-revenue,
+:root[data-theme="dark"] .bank-premium-money .bank-revenue{
+  color:var(--bank-ink)!important;-webkit-text-fill-color:var(--bank-ink)!important;
+  font-size:clamp(33px,2.8vw,47px)!important;line-height:1.12!important;letter-spacing:-1.9px!important;
+  font-weight:900!important;background:none!important;text-shadow:none!important}
+.bank-trend-glyph{width:43px;height:43px;flex:0 0 43px;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--brand),transparent 91%);border:1px solid color-mix(in srgb,var(--brand),transparent 75%);
+  border-radius:15px;color:var(--brand);font-size:27px;font-weight:700}
+.bank-card-premium .bank-spark{height:53px;margin:11px 0 15px;min-height:53px}
+.bank-card-premium .bank-spark .spark{height:49px;filter:drop-shadow(0 4px 8px var(--brand-glow))}
+.bank-payments-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}
+.bank-payments-head span{font-size:11px;font-weight:820;color:var(--bank-sub)}
+.bank-payments-head b{font-size:19px;font-weight:900;letter-spacing:-.5px;color:var(--bank-ink)}
+.bank-payment-track{height:10px;border-radius:99px;background:color-mix(in srgb,var(--bank-unpaid),white 56%);
+  box-shadow:inset 0 1px 3px rgba(13,25,44,.10);overflow:hidden}
+.bank-payment-track-fill{display:block;height:100%;border-radius:99px;
+  background:linear-gradient(90deg,var(--bank-paid),color-mix(in srgb,var(--bank-paid),white 20%));transition:width 1.1s cubic-bezier(.22,1,.36,1)}
+.bank-payment-key{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:9px 0 13px}
+.bank-payment-key>span{display:flex;align-items:center;gap:7px;color:var(--bank-sub);font-size:11px;font-weight:680}
+.bank-payment-key b{color:var(--bank-ink);font-size:12px;font-weight:880}
+.bank-card-premium .bank-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important;margin:0 0 12px!important}
+.bank-card-premium .mini-glass,
+:root[data-theme="ubuntu"] .bank-card-premium .mini-glass,
+:root[data-theme="dark"] .bank-card-premium .mini-glass{
+  min-height:65px!important;padding:10px 8px!important;border-radius:13px!important;
+  background:color-mix(in srgb,var(--brand),white 96%)!important;
+  border:1px solid color-mix(in srgb,var(--brand),transparent 89%)!important;
+  box-shadow:0 2px 8px rgba(20,40,60,.035)!important}
+.bank-card-premium .mini-glass span,
+:root[data-theme="ubuntu"] .bank-card-premium .mini-glass span{font-size:10px!important;font-weight:700!important;color:var(--bank-sub)!important;-webkit-text-fill-color:var(--bank-sub)!important}
+.bank-card-premium .mini-glass b,
+:root[data-theme="ubuntu"] .bank-card-premium .mini-glass b{font-size:20px!important;line-height:1.1!important;font-weight:850!important;color:var(--bank-ink)!important;-webkit-text-fill-color:var(--bank-ink)!important;margin-top:7px}
+.bank-card-actions{display:flex;gap:9px;margin-top:auto;align-items:center}
+.bank-show-all,.bank-show-unpaid{border-radius:13px!important;min-height:40px;padding:8px 12px;font-size:11px;font-weight:800!important;
+ display:inline-flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.bank-show-all{flex:1;background:linear-gradient(115deg,var(--brand),color-mix(in srgb,var(--brand),black 24%));color:#fff!important;
+ box-shadow:0 6px 16px var(--brand-glow)!important}
+.bank-show-all span{font-size:17px;line-height:1;color:#fff!important}
+.bank-show-unpaid{background:color-mix(in srgb,var(--bank-unpaid),transparent 90%);color:var(--bank-ink)!important;
+ border:1px solid color-mix(in srgb,var(--bank-unpaid),transparent 76%);white-space:nowrap}
+.bank-show-unpaid b{font-weight:880!important;color:var(--bank-unpaid)!important}
+.bank-show-unpaid:disabled{opacity:.45;cursor:default}
+.bank-card-premium button:not(:disabled):hover{transform:translateY(-2px)}
+.bank-rank-item{gap:12px;align-items:center}
+.bank-rank-item em{font-style:normal;font-size:10px;line-height:1;padding:6px;border-radius:9px;font-weight:900;color:var(--bank-sub);
+ background:color-mix(in srgb,var(--bank-paid),transparent 90%);margin-right:7px}
+:root[data-theme="ubuntu"] .bank-show-all{color:#fff!important;-webkit-text-fill-color:#fff!important}
+:root[data-theme="ubuntu"] .bank-show-unpaid{color:var(--bank-ink)!important;-webkit-text-fill-color:var(--bank-ink)!important}
+:root[data-theme="dark"] .bank-card-premium .bank-filter-chip,
+:root[data-theme="dark"] .bank-card-premium .mini-glass{background:rgba(245,250,255,.055)!important}
+:root[data-theme="dark"] .bank-card-premium .bank-show-unpaid{background:rgba(255,120,150,.10)}
+:root[data-theme="dark"] .bank-collection-track,
+:root[data-theme="dark"] .bank-payment-track{background:rgba(255,133,160,.36)}
+@media(min-width:1450px){.bank-card.bank-card-premium{min-height:455px!important}}
+@media(max-width:1100px){.bank-summary-grid.bank-summary-premium{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:850px){.bank-grid.bank-grid-premium{grid-template-columns:1fr}}
+@media(max-width:630px){
+  .bank-premium-intro{padding:19px 17px;border-radius:20px}
+  .bank-premium-intro h2{font-size:22px}
+  .bank-intro-mark{display:none}
+  .bank-summary-grid.bank-summary-premium{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .bank-summary-premium .kpi.kpi-v2{min-height:116px!important;padding:12px!important}
+  .bank-summary-premium .kpi-v2:last-child{grid-column:1/-1}
+  .bank-collection-status{padding:16px!important}
+  .bank-collection-head{gap:8px 16px}
+  .bank-collection-head>div:first-child{width:100%}
+  .bank-card.bank-card-premium{min-height:420px!important;padding:18px 15px 15px!important;border-radius:22px!important}
+  .bank-premium-money .bank-revenue{font-size:clamp(29px,8.5vw,40px)!important}
+  .bank-card-premium .bank-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .bank-card-premium .mini-glass{min-height:59px!important}
+  .bank-card-actions{gap:7px}
+  .bank-show-all,.bank-show-unpaid{font-size:10px;padding:7px 9px}
+  .kpi.kpi-v2{min-height:111px!important;padding:12px!important;border-radius:17px!important}
+  .kpi-v2 strong{font-size:clamp(21px,5.7vw,30px)!important;margin-top:10px!important}
+  .kpi-v2 .kpi-v2-icon{width:25px;height:25px;flex-basis:25px;font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){
+  .bank-payment-track-fill,.bank-collection-track i,.bank-card.bank-card-premium,.bank-card-premium *, .kpi.kpi-v2{animation:none!important;transition:none!important}
+}
+
+
+.bank-recognized-badge{font-size:10px;font-weight:740;color:var(--bank-ink);border:1px solid var(--bank-line);background:var(--bank-panel);border-radius:99px;padding:7px 10px;white-space:nowrap}
+
+/* Five KPIs on the Home dashboard, with outstanding F-column amounts */
+.kpis.home-summary{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px}
+@media(max-width:1200px){.kpis.home-summary{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:630px){.kpis.home-summary{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}.kpis.home-summary>.kpi-v2:last-child{grid-column:1/-1}}
+
+
+/* ================================================================
+   LIFE PAY · BURGUNDY LIQUID GLASS 2026
+   Visual-only layer inspired by the approved burgundy preview.
+   No calculations, server calls, data, or event handlers are changed.
+   ================================================================ */
+:root[data-theme="ubuntu"]{
+ --text:#ffeaf2;--muted:#e0bdcf;--bg:#240715;
+ --green:#f45b9b;--green-d:#c92365;--green-l:#4d1732;
+ --blue:#6cc6ff;--purple:#c78bfa;--orange:#ffabbd;
+ --glass-bg:linear-gradient(145deg,rgba(138,68,97,.47),rgba(68,25,48,.75) 50%,rgba(108,45,73,.56));
+ --shadow:0 16px 38px rgba(15,0,10,.25),inset 0 1px 0 rgba(255,224,238,.22);
+ --shadow-hover:0 22px 48px rgba(15,0,10,.4),0 0 20px rgba(255,127,184,.12),inset 0 1px 0 rgba(255,230,241,.35);
+ --bank-ink:#fff0f6;--bank-sub:#edc7d8;
+ --bank-panel:linear-gradient(145deg,rgba(145,76,104,.70),rgba(80,32,58,.84));
+ --bank-line:rgba(255,196,218,.39);--bank-paid:#ff7cab;--bank-unpaid:#ffbb9b;
+ --kpi-ink:#fff0f6;
+ --burgundy-ink:#3b091f;--burgundy-blush:#ffcee0;
+ --pin-bg:linear-gradient(145deg,#1b0310,#5e1838);
+ --pin-card-bg:linear-gradient(145deg,rgba(92,30,57,.87),rgba(49,15,35,.91));
+ --pin-border:rgba(255,181,212,.43);--pin-text:#fff0f6;--pin-muted:#e4b5cb;
+ --pin-key-bg:rgba(250,174,204,.16);--pin-key-color:#fff2f8;
+ color-scheme:dark;
+}
+:root[data-theme="ubuntu"] body{
+ background-color:#270816!important;
+ background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjUwIDEwNjAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KPGRlZnM+CiA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iIzE0MDMwYiIvPjxzdG9wIG9mZnNldD0iLjQ4IiBzdG9wLWNvbG9yPSIjNDkxMTI3Ii8+PHN0b3Agb2Zmc2V0PSIuNzgiIHN0b3AtY29sb3I9IiMyNDA3MTUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM1MTBlMmQiLz48L2xpbmVhckdyYWRpZW50PgogPGxpbmVhckdyYWRpZW50IGlkPSJ3MSIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9Ii42Ij48c3RvcCBzdG9wLWNvbG9yPSIjMjYwNTE2Ii8+PHN0b3Agb2Zmc2V0PSIuMzYiIHN0b3AtY29sb3I9IiM4MjFlNDUiLz48c3RvcCBvZmZzZXQ9Ii42MCIgc3RvcC1jb2xvcj0iI2I5NGI3MiIvPjxzdG9wIG9mZnNldD0iLjgxIiBzdG9wLWNvbG9yPSIjNjEyMDNkIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjYwNjE1Ii8+PC9saW5lYXJHcmFkaWVudD4KIDxsaW5lYXJHcmFkaWVudCBpZD0idzIiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjMjUwODE3Ii8+PHN0b3Agb2Zmc2V0PSIuMzUiIHN0b3AtY29sb3I9IiM4ZDM0NTQiLz48c3RvcCBvZmZzZXQ9Ii42IiBzdG9wLWNvbG9yPSIjYzc3MzkxIi8+PHN0b3Agb2Zmc2V0PSIuODIiIHN0b3AtY29sb3I9IiM2NjIzNDQiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyMDA0MGYiLz48L2xpbmVhckdyYWRpZW50PgogPGxpbmVhckdyYWRpZW50IGlkPSJlZGdlIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2ZmYzRkMyIgc3RvcC1vcGFjaXR5PSIuMDgiLz48c3RvcCBvZmZzZXQ9Ii40MiIgc3RvcC1jb2xvcj0iI2ZmYjFjOSIgc3RvcC1vcGFjaXR5PSIuNzIiLz48c3RvcCBvZmZzZXQ9Ii43MSIgc3RvcC1jb2xvcj0iI2ZmYzBkNSIgc3RvcC1vcGFjaXR5PSIuMDgiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZmI2YzkiIHN0b3Atb3BhY2l0eT0iLjY1Ii8+PC9saW5lYXJHcmFkaWVudD4KIDxyYWRpYWxHcmFkaWVudCBpZD0iaGFsbyI+PHN0b3Agc3RvcC1jb2xvcj0iI2Y0N2RhNyIgc3RvcC1vcGFjaXR5PSIuMzUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmNDdkYTciIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CiA8ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2NSIvPjwvZmlsdGVyPgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxNjUwIiBoZWlnaHQ9IjEwNjAiIGZpbGw9InVybCgjYmcpIi8+CjxlbGxpcHNlIGN4PSIxMjcwIiBjeT0iNDAwIiByeD0iNDUwIiByeT0iMzkwIiBmaWxsPSJ1cmwoI2hhbG8pIiBmaWx0ZXI9InVybCgjYmx1cikiLz4KPHBhdGggZD0iTS0xNDAgLTYwIEw2NTUgLTYwIEM1MjUgOTggNDMwIDU4IDMwMiAxMzggQzIwMiAxOTIgNzYgMjIyIC0xNDAgMzMyWiIgZmlsbD0idXJsKCN3MikiLz4KPHBhdGggZD0iTS0xNDAgLTgwIEw1NzAgLTgwIEM1MTMgMTMgMzU0IDQ2IDIzNCAxMDkgQzEwMCAxNzkgLTEwIDE3OCAtMTQwIDIxNVoiIGZpbGw9InVybCgjdzEpIiBvcGFjaXR5PSIuNzUiLz4KPHBhdGggZD0iTS05NSAzMTkgQzYwIDI0MyAyMDMgMjE0IDMxMyAxNTUgQzQ2MyA3NCA1MjkgNDIgNjQxIC02OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2VkZ2UpIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9Ii43MyIvPgo8cGF0aCBkPSJNLTE2MCAzNzIgQzc2IDIxNSAxODUgMjE0IDMzMCAxNDAgQzQ3NyA3MSA1MjYgMTAgNjM5IC03MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTc3YTllIiBzdHJva2Utd2lkdGg9IjEuNSIgb3BhY2l0eT0iLjM5Ii8+CjxwYXRoIGQ9Ik0xNjUwIDMwIEMxNDc4IDEwMiAxNDE0IDIyNSAxNDkwIDM0MiBDMTU5NiA0ODAgMTQ3NCA1OTYgMTY1MCA2NTVaIiBmaWxsPSJ1cmwoI3cxKSIgb3BhY2l0eT0iLjkzIi8+CjxwYXRoIGQ9Ik0xNjYwIDI4IEMxNTUxIDEwNSAxNDk3IDIxNiAxNTMxIDMxMyBDMTU4MSA0NzMgMTU2MSA1MTYgMTY0NiA2MDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNlZGdlKSIgc3Ryb2tlLXdpZHRoPSIyLjMiIG9wYWNpdHk9Ii43Ii8+CjxwYXRoIGQ9Ik0tMTMwIDg1MCBDNDMgNjY2IDIzNCA2OTQgMzUyIDc4OSBDNDgzIDg5NSA1ODAgOTAzIDc0OCAxMDg1IEwtMTMwIDEwOTZaIiBmaWxsPSJ1cmwoI3cyKSIgb3BhY2l0eT0iLjgiLz4KPHBhdGggZD0iTS00NSA4MTcgQzk2IDY5NSAyMDggNzAxIDMzMyA3NzcgQzQ4MiA4ODYgNTk1IDg5NyA3MTcgMTA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2VkZ2UpIiBzdHJva2Utd2lkdGg9IjIuOCIgb3BhY2l0eT0iLjUzIi8+CjxwYXRoIGQ9Ik0xNzAwIDY5OCBDMTUyMiA2OTAgMTQ4MyA3NzAgMTM4MiA4NTQgQzEyODUgOTUwIDExMzQgOTY1IDEwMjEgMTA4OCBMMTcwMCAxMDkwWiIgZmlsbD0idXJsKCN3MikiLz4KPHBhdGggZD0iTTE3MTAgNjkwIEMxNTU2IDY5MCAxNTE2IDc1NCAxNDEwIDg0MCBDMTMzMyA5MTMgMTIwMyA5NTIgMTE2MCAxMDMyIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZWRnZSkiIHN0cm9rZS13aWR0aD0iMyIgb3BhY2l0eT0iLjU1Ii8+Cjwvc3ZnPg==")!important;
+ background-position:center top!important;background-size:cover!important;
+ background-repeat:no-repeat!important;background-attachment:fixed!important;
+ color:#fff1f6!important;
+}
+:root[data-theme="ubuntu"] .wave-bg{opacity:.08!important;filter:saturate(.6) hue-rotate(100deg)!important}
+:root[data-theme="ubuntu"] .blobs{opacity:.24!important;filter:blur(70px) hue-rotate(150deg)!important;mix-blend-mode:screen}
+:root[data-theme="ubuntu"] .shell{
+ background:linear-gradient(150deg,rgba(61,20,40,.80),rgba(55,19,39,.87) 42%,rgba(83,32,58,.76))!important;
+ border:1px solid rgba(255,181,207,.28)!important;
+ border-radius:30px!important;
+ box-shadow:0 30px 95px rgba(13,0,8,.48),inset 0 1px 0 rgba(255,230,243,.18)!important;
+ backdrop-filter:blur(30px) saturate(138%)!important;-webkit-backdrop-filter:blur(30px) saturate(138%)!important;
+}
+:root[data-theme="ubuntu"] .brandbar{border-bottom:1px solid rgba(255,195,217,.23)!important;background:rgba(58,15,36,.25)!important}
+:root[data-theme="ubuntu"] .sidebar{
+ background:linear-gradient(165deg,rgba(143,66,96,.37),rgba(69,22,46,.71))!important;
+ border:1px solid rgba(255,189,216,.39)!important;
+ box-shadow:0 16px 36px rgba(20,0,13,.25),inset 0 1px 0 rgba(255,222,237,.23)!important;
+ backdrop-filter:blur(28px) saturate(170%)!important;-webkit-backdrop-filter:blur(28px) saturate(170%)!important;
+}
+:root[data-theme="ubuntu"] .sidebar-brand-sticker{background:transparent!important}
+:root[data-theme="ubuntu"] .sidebar-lifepay-wrap,
+:root[data-theme="ubuntu"] .brand-logo-tile{
+ background:linear-gradient(140deg,#35091e,#78173e 72%,#9a345c)!important;
+ border:1px solid rgba(255,178,215,.53)!important;
+ box-shadow:0 10px 27px rgba(27,0,15,.30),inset 0 1px 0 rgba(255,222,235,.31),0 0 10px rgba(244,90,144,.20)!important;
+}
+:root[data-theme="ubuntu"] .brand-wordmark strong{color:#fff4f7!important;-webkit-text-fill-color:#fff4f7!important}
+:root[data-theme="ubuntu"] .pagebar h1{
+ background:none!important;color:#fff0f5!important;-webkit-text-fill-color:#fff0f5!important;
+ text-shadow:0 2px 19px rgba(13,0,9,.32)!important;
+}
+:root[data-theme="ubuntu"] #topSave,
+:root[data-theme="ubuntu"] .pill{
+ background:linear-gradient(145deg,rgba(131,55,88,.65),rgba(93,30,61,.77))!important;
+ color:#fff0f5!important;-webkit-text-fill-color:#fff0f5!important;
+ border:1px solid rgba(255,179,210,.37)!important;
+ box-shadow:0 5px 15px rgba(33,0,15,.14),inset 0 1px rgba(255,222,237,.20)!important;
+}
+:root[data-theme="ubuntu"] .navbtn{color:#f4d5e1!important;-webkit-text-fill-color:#f4d5e1!important}
+:root[data-theme="ubuntu"] .navbtn :is(.ico,.nav-label){color:inherit!important;-webkit-text-fill-color:inherit!important;opacity:1!important}
+:root[data-theme="ubuntu"] .navbtn:hover:not(.active){background:rgba(255,175,209,.16)!important;color:#fff!important}
+:root[data-theme="ubuntu"] .navbtn.active{
+ color:#fff!important;-webkit-text-fill-color:#fff!important;
+ background:linear-gradient(115deg,#700934,#c72b75 62%,#87113f)!important;
+ border:1px solid rgba(255,163,203,.5)!important;
+ box-shadow:0 7px 22px rgba(49,0,23,.27),inset 0 1px rgba(255,223,238,.43),0 0 18px rgba(237,54,120,.15)!important;
+}
+:root[data-theme="ubuntu"] .navbtn.active :is(.ico,.nav-label){color:#fff!important;-webkit-text-fill-color:#fff!important}
+:root[data-theme="ubuntu"] .navbtn.active::before{background:#ff8bbb!important}
+/* Filter bar, glass, regular cards and tab containers */
+:root[data-theme="ubuntu"] :is(.filterbar,.month-wrap,.table-toolbar,.tabs,dialog,.toast,.card,.glass,.income-overview,.settings-grid .card,.table-wrap,.profit-calculator,.profit-expense-editor){
+ background:linear-gradient(145deg,rgba(153,85,113,.49),rgba(101,47,73,.66) 65%,rgba(80,29,53,.69))!important;
+ border:1px solid rgba(255,194,220,.39)!important;
+ box-shadow:0 10px 29px rgba(37,2,23,.21),inset 0 1px 0 rgba(255,232,242,.26)!important;
+ color:#fff0f6!important;
+ backdrop-filter:blur(22px) saturate(165%)!important;-webkit-backdrop-filter:blur(22px) saturate(165%)!important;
+}
+:root[data-theme="ubuntu"] :is(.card h2,.cardhead p,.cardhead strong,.muted,.note,.field label,.field small,.footer,.footer *, .priority-other-heading){
+ color:#ffe6f0!important;-webkit-text-fill-color:#ffe6f0!important;
+}
+:root[data-theme="ubuntu"] :is(.card,.glass,.hero,.finance-hero,.priority-status-card,.profit-hero,.bank-card,.profit-calculator):hover{
+ box-shadow:var(--shadow-hover)!important;
+}
+:root[data-theme="ubuntu"] :is(.btn,.icon-btn,.theme-toggle,.month-wrap .icon-btn,.legend button,.bank-filter-chip,.table-toolbar button,.tabs button.active){
+ background:linear-gradient(150deg,rgba(157,78,115,.71),rgba(103,36,70,.86))!important;
+ color:#fff0f5!important;-webkit-text-fill-color:#fff0f5!important;
+ border:1px solid rgba(255,190,216,.48)!important;
+ box-shadow:0 5px 16px rgba(35,0,22,.23),inset 0 1px rgba(255,235,243,.25)!important;
+}
+:root[data-theme="ubuntu"] :is(input,select,textarea),
+:root[data-theme="ubuntu"] .filterbar :is(input,select),
+:root[data-theme="ubuntu"] .month-wrap select{
+ color:#fff7fa!important;-webkit-text-fill-color:#fff7fa!important;
+ background:linear-gradient(150deg,rgba(170,94,123,.63),rgba(114,49,80,.77))!important;
+ border:1px solid rgba(255,195,218,.44)!important;
+ box-shadow:0 3px 12px rgba(24,0,15,.17),inset 0 1px 0 rgba(255,235,243,.28)!important;
+}
+:root[data-theme="ubuntu"] input::placeholder,
+:root[data-theme="ubuntu"] textarea::placeholder{color:#ffe0ec!important;-webkit-text-fill-color:#ffe0ec!important;opacity:.88!important}
+:root[data-theme="ubuntu"] select option{background:#4b142e!important;color:#fff0f5!important}
+:root[data-theme="ubuntu"] :is(.btn.primary,.finance-hero-actions .btn,.profit-calc-save,.auth-submit){
+ background:linear-gradient(112deg,#670825,#b8175d 58%,#e24688)!important;
+ color:#fff!important;-webkit-text-fill-color:#fff!important;
+ border:1px solid rgba(255,159,202,.54)!important;
+ box-shadow:0 9px 25px rgba(44,0,22,.27),inset 0 1px rgba(255,239,247,.37)!important;
+}
+:root[data-theme="ubuntu"] .finance-hero-actions .btn:hover{filter:brightness(1.09)!important}
+/* The top income panel is rose-blush translucent glass rather than plain white. */
+:root[data-theme="ubuntu"] #page .finance-hero{
+ color:#451126!important;
+ background:
+   radial-gradient(ellipse at 19% 4%,rgba(255,216,229,.52),transparent 51%),
+   radial-gradient(ellipse at 85% 75%,rgba(250,155,193,.35),transparent 49%),
+   linear-gradient(135deg,rgba(222,135,164,.92),rgba(190,111,144,.84) 55%,rgba(139,76,109,.89))!important;
+ border:1px solid rgba(255,204,224,.62)!important;
+ box-shadow:0 13px 36px rgba(33,0,21,.29),inset 0 1px 0 rgba(255,237,246,.55)!important;
+}
+:root[data-theme="ubuntu"] #page .finance-hero :is(.finance-hero-title,.finance-hero-title *, .finance-hero-description){
+ color:#3a061b!important;-webkit-text-fill-color:#3a061b!important;
+ background:none!important;text-shadow:0 1px 3px rgba(255,222,234,.32)!important;
+}
+:root[data-theme="ubuntu"] #page .finance-hero .finance-hero-badge{color:#fff6f9!important;-webkit-text-fill-color:#fff6f9!important}
+:root[data-theme="ubuntu"] #page .finance-hero .finance-hero-logo-wrap{background:rgba(255,220,235,.59)!important;border-color:rgba(255,239,245,.70)!important}
+:root[data-theme="ubuntu"] #page .finance-hero .finance-total-card{
+ color:#fff!important;
+ background:
+    radial-gradient(ellipse at 82% 1%,rgba(255,104,168,.43),transparent 45%),
+    linear-gradient(139deg,#3c001a 0%,#780b3a 61%,#b72063 100%)!important;
+ border:1px solid rgba(255,145,192,.55)!important;
+ box-shadow:0 11px 30px rgba(49,0,27,.33),inset 0 1px 0 rgba(255,227,240,.30),0 0 18px rgba(252,92,153,.13)!important;
+}
+:root[data-theme="ubuntu"] #page .finance-hero .finance-total-card::after{opacity:.26!important}
+:root[data-theme="ubuntu"] #page .finance-hero .finance-total-card :is(.finance-total-kicker,.finance-total-note,.finance-total-value){
+ color:#fff6fa!important;-webkit-text-fill-color:#fff6fa!important;background:none!important;text-shadow:0 2px 8px rgba(11,0,8,.17)!important;
+}
+:root[data-theme="ubuntu"] #page .finance-hero .finance-metric-card{
+ color:#3a1024!important;
+ background:linear-gradient(140deg,rgba(255,209,222,.87),rgba(221,151,180,.74) 59%,rgba(181,112,147,.65))!important;
+ border:1px solid rgba(255,222,236,.76)!important;
+ box-shadow:0 5px 15px rgba(66,0,31,.17),inset 0 1px rgba(255,247,248,.54)!important;
+}
+:root[data-theme="ubuntu"] #page .finance-hero .finance-metric-card :is(.finance-metric-label,.finance-metric-desc,.finance-metric-value,.finance-metric-amount,strong,small){
+ color:#390a1f!important;-webkit-text-fill-color:#390a1f!important;background:none!important;
+}
+:root[data-theme="ubuntu"] #page .finance-hero .finance-metric-card :is(.finance-metric-value,.finance-metric-amount,strong){font-weight:900!important}
+/* Plan and workload: two complementary glass shades. */
+:root[data-theme="ubuntu"] #page .hero:not(.blue){
+ color:#fff1f6!important;
+ background:radial-gradient(ellipse at 92% 5%,rgba(255,155,195,.26),transparent 53%),
+ linear-gradient(135deg,rgba(154,78,111,.79),rgba(114,46,78,.84) 57%,rgba(97,35,66,.87))!important;
+ border:1px solid rgba(255,190,217,.65)!important;
+ box-shadow:0 10px 33px rgba(29,0,20,.25),inset 0 1px 0 rgba(255,232,243,.37)!important;
+}
+:root[data-theme="ubuntu"] #page .hero.blue{
+ color:#37081f!important;
+ background:radial-gradient(circle at 100% 2%,rgba(188,151,206,.28),transparent 49%),
+ linear-gradient(133deg,rgba(234,165,192,.9),rgba(175,120,162,.79) 63%,rgba(135,91,135,.84))!important;
+ border:1px solid rgba(255,215,239,.62)!important;
+ box-shadow:0 10px 33px rgba(33,0,24,.24),inset 0 1px 0 rgba(255,232,244,.4)!important;
+}
+:root[data-theme="ubuntu"] #page .hero:not(.blue) :is(h2,.hero-kicker,.hero-note,.hero-sub,.hero-right,.hero-body){
+ color:#fff4f8!important;-webkit-text-fill-color:#fff4f8!important;
+}
+:root[data-theme="ubuntu"] #page .hero.blue :is(h2,.hero-kicker,.hero-note,.hero-sub){
+ color:#3c0925!important;-webkit-text-fill-color:#3c0925!important;
+}
+:root[data-theme="ubuntu"] #page .hero.blue .hero-big{
+ color:#400d2e!important;-webkit-text-fill-color:#400d2e!important;background:none!important;
+}
+:root[data-theme="ubuntu"] .hero .hero-metric,
+:root[data-theme="ubuntu"] .hero.blue .hero-metric,
+:root[data-theme="ubuntu"] :is(.kpi.kpi-v2,.home-summary .kpi,.bank-summary-premium .kpi){
+ background:linear-gradient(145deg,rgba(255,206,223,.82),rgba(190,125,159,.77))!important;
+ border:1px solid rgba(255,231,241,.60)!important;
+ box-shadow:0 6px 15px rgba(58,0,30,.15),inset 0 1px 0 rgba(255,242,248,.41)!important;
+}
+:root[data-theme="ubuntu"] :is(.hero .hero-metric span,.kpi.kpi-v2 .label,.kpi .label,.kpi .meta,.mini-glass span){
+ color:#4a1830!important;-webkit-text-fill-color:#4a1830!important;
+}
+:root[data-theme="ubuntu"] :is(.hero .hero-metric b,.kpi.kpi-v2 strong,.kpi strong,.mini-glass b){
+ color:#3c1026!important;-webkit-text-fill-color:#3c1026!important;background:none!important;
+}
+:root[data-theme="ubuntu"] #page .hero:not(.blue) .ring-bg{stroke:rgba(255,236,245,.38)!important}
+:root[data-theme="ubuntu"] #page .hero:not(.blue) .ring-val{fill:#fff7fa!important}
+:root[data-theme="ubuntu"] #page .hero:not(.blue) .ring-cap{fill:#ffe6f2!important}
+:root[data-theme="ubuntu"] #page .hero:not(.blue) .big-progress{background:rgba(255,226,240,.28)!important}
+:root[data-theme="ubuntu"] #page .hero:not(.blue) .big-progress i{background:linear-gradient(90deg,#fc4e96,#ffb1d0)!important}
+/* Plan result and other status cards remain legible in every tab. */
+:root[data-theme="ubuntu"] #page .priority-status-card,
+:root[data-theme="ubuntu"] #page .priority-status-card.assist,
+:root[data-theme="ubuntu"] #page .priority-other-row,
+:root[data-theme="ubuntu"] #page .plan-result{
+ color:#3d1028!important;
+ background:linear-gradient(150deg,rgba(244,193,210,.90),rgba(201,139,172,.83))!important;
+ border:1px solid rgba(255,223,234,.70)!important;
+ box-shadow:0 9px 25px rgba(44,0,29,.16),inset 0 1px 0 rgba(255,239,245,.43)!important;
+}
+:root[data-theme="ubuntu"] #page :is(.priority-status-card,.priority-status-card.assist,.priority-other-row,.plan-result) :is(.priority-status-title,.priority-status-caption,.priority-kicker,.priority-status-foot, .priority-count-row>strong,.priority-count-row>span,.priority-other-name,.priority-other-value,strong,span,small){
+ color:#400e27!important;-webkit-text-fill-color:#400e27!important;
+}
+:root[data-theme="ubuntu"] #page .priority-status-card .priority-track{background:rgba(107,36,74,.18)!important}
+:root[data-theme="ubuntu"] #page .priority-status-card .priority-track i{background:linear-gradient(90deg,#b21e63,#e14c91)!important}
+/* Other widget surfaces: translucent plum / rose, never white. */
+:root[data-theme="ubuntu"] #page :is(.profit-hero,.profit-calculator,.plan-controls,.plan-history-item,.income-overview,.bank-summary-grid,.chart-details,.priority-other-list){
+ color:#fff0f6!important;
+ border-color:rgba(255,195,219,.43)!important;
+}
+:root[data-theme="ubuntu"] #page .profit-hero{
+ background:linear-gradient(140deg,rgba(136,61,98,.80),rgba(69,23,52,.85))!important;
+ border:1px solid rgba(255,186,216,.43)!important;
+}
+:root[data-theme="ubuntu"] #page .profit-hero :is(h2,.profit-heading p,.profit-kicker,.profit-hero .profit-total span,.profit-hero .profit-total small){color:#fff0f6!important;-webkit-text-fill-color:#fff0f6!important}
+:root[data-theme="ubuntu"] #page .profit-hero .profit-total{
+ background:linear-gradient(135deg,#4a0825,#9a2458 65%,#c74278)!important;
+ border:1px solid rgba(255,174,212,.52)!important;
+}
+:root[data-theme="ubuntu"] #page .profit-hero .profit-total strong{color:#fff!important;-webkit-text-fill-color:#fff!important}
+:root[data-theme="ubuntu"] #page .profit-kpis>div{
+ background:linear-gradient(145deg,rgba(248,198,216,.86),rgba(208,145,177,.83))!important;
+ border:1px solid rgba(255,225,238,.63)!important;
+}
+:root[data-theme="ubuntu"] #page .profit-kpis>div :is(span,small,strong){color:#401329!important;-webkit-text-fill-color:#401329!important}
+:root[data-theme="ubuntu"] #page :is(.profit-calculator,.profit-expense-editor){
+ background:linear-gradient(147deg,rgba(130,64,94,.75),rgba(80,34,62,.84))!important;
+ border-color:rgba(255,190,216,.46)!important;
+}
+:root[data-theme="ubuntu"] #page .profit-calculator :is(h2,h3,label,p,small,span),
+:root[data-theme="ubuntu"] #page .profit-expense-editor :is(h2,h3,label,p,small,span){color:#ffedf5!important;-webkit-text-fill-color:#ffedf5!important}
+/* Bank cards and payment breakdown: darker jewel tones and rose text. */
+:root[data-theme="ubuntu"] #page .bank-premium-intro{
+ background:linear-gradient(130deg,#370720,#71173b 63%,#a53f66)!important;
+ border:1px solid rgba(255,166,206,.43)!important;
+}
+:root[data-theme="ubuntu"] #page .bank-card.bank-card-premium,
+:root[data-theme="ubuntu"] #page .bank-collection-status{
+ background:linear-gradient(145deg,rgba(157,80,109,.83),rgba(92,37,67,.87))!important;
+ border:1px solid rgba(255,197,221,.52)!important;
+ box-shadow:0 11px 30px rgba(28,0,18,.25),inset 0 1px 0 rgba(255,235,245,.25)!important;
+}
+:root[data-theme="ubuntu"] #page .bank-card-premium :is(.bank-filter-chip,.mini-glass){
+ background:linear-gradient(140deg,rgba(255,208,226,.68),rgba(211,149,177,.60))!important;
+ border:1px solid rgba(255,232,243,.66)!important;
+}
+:root[data-theme="ubuntu"] #page .bank-card-premium :is(.bank-premium-money .bank-revenue,.bank-premium-money .bank-revenue-label,.bank-premium-money p,.bank-payments-head span,.bank-payments-head b,.bank-payment-key span,.bank-payment-key b,.bank-pct,.bank-collection-head strong,.bank-collection-head p,.bank-collection-number,.bank-collection-number b){
+ color:#fff0f6!important;-webkit-text-fill-color:#fff0f6!important;
+}
+:root[data-theme="ubuntu"] #page .bank-card-premium .bank-filter-chip :is(.bank-chip-name,.bank-chip-name *),
+:root[data-theme="ubuntu"] #page .bank-card-premium .mini-glass :is(span,b){color:#431327!important;-webkit-text-fill-color:#431327!important}
+:root[data-theme="ubuntu"] #page .bank-collection-status :is(.bank-collection-head strong,.bank-collection-head p,.bank-collection-number b,.bank-collection-kicker,.bank-collection-foot){color:#ffedf5!important;-webkit-text-fill-color:#ffedf5!important}
+:root[data-theme="ubuntu"] #page .bank-collection-track,
+:root[data-theme="ubuntu"] #page .bank-payment-track{background:rgba(255,181,213,.33)!important}
+:root[data-theme="ubuntu"] #page :is(.bank-show-unpaid,.bank-payment-link){color:#fff2f6!important;-webkit-text-fill-color:#fff2f6!important}
+/* Graphs and tables: soft plum glass with legible labels. */
+:root[data-theme="ubuntu"] :is(.chart-svg .gridline,.chart-svg .axis-base){stroke:rgba(255,196,222,.28)!important}
+:root[data-theme="ubuntu"] :is(.chart-svg text,.chart-svg .x-label,.chart-svg .axis-label){fill:#f7d6e4!important}
+:root[data-theme="ubuntu"] .chart-svg .chart-line{stroke-width:3.5!important}
+:root[data-theme="ubuntu"] .table-wrap th{background:rgba(128,53,84,.94)!important;color:#fff1f7!important;-webkit-text-fill-color:#fff1f7!important;border-color:rgba(255,195,220,.27)!important}
+:root[data-theme="ubuntu"] .table-wrap td{background:transparent!important;color:#ffe4ef!important;-webkit-text-fill-color:#ffe4ef!important;border-color:rgba(255,183,211,.18)!important}
+:root[data-theme="ubuntu"] .table-wrap tbody tr:nth-child(even){background:rgba(255,185,215,.07)!important}
+:root[data-theme="ubuntu"] .table-wrap tbody tr:hover{background:rgba(255,181,210,.18)!important}
+:root[data-theme="ubuntu"] :is(.table-wrap,.table-toolbar){border-color:rgba(255,188,217,.33)!important}
+:root[data-theme="ubuntu"] :is(.tabs button,.legend button,.filterbar summary,.tablefoot,.tablefoot span){color:#ffdfec!important;-webkit-text-fill-color:#ffdfec!important}
+:root[data-theme="ubuntu"] .chart-tip{background:#3a0826!important;color:#fff!important}
+:root[data-theme="ubuntu"] .badge.green{background:rgba(255,134,184,.22)!important;color:#ffe3ee!important}
+:root[data-theme="ubuntu"] .badge.orange{background:rgba(251,171,132,.19)!important;color:#ffe1bd!important}
+:root[data-theme="ubuntu"] .badge.red{background:rgba(255,106,127,.21)!important;color:#ffe7ed!important}
+:root[data-theme="ubuntu"] .save-status{color:#ffc9e4!important}
+/* Login, password inputs and theme picker share the same dark jewel glass. */
+:root[data-theme="ubuntu"] #pinScreen{
+ background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjUwIDEwNjAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KPGRlZnM+CiA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iIzE0MDMwYiIvPjxzdG9wIG9mZnNldD0iLjQ4IiBzdG9wLWNvbG9yPSIjNDkxMTI3Ii8+PHN0b3Agb2Zmc2V0PSIuNzgiIHN0b3AtY29sb3I9IiMyNDA3MTUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM1MTBlMmQiLz48L2xpbmVhckdyYWRpZW50PgogPGxpbmVhckdyYWRpZW50IGlkPSJ3MSIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9Ii42Ij48c3RvcCBzdG9wLWNvbG9yPSIjMjYwNTE2Ii8+PHN0b3Agb2Zmc2V0PSIuMzYiIHN0b3AtY29sb3I9IiM4MjFlNDUiLz48c3RvcCBvZmZzZXQ9Ii42MCIgc3RvcC1jb2xvcj0iI2I5NGI3MiIvPjxzdG9wIG9mZnNldD0iLjgxIiBzdG9wLWNvbG9yPSIjNjEyMDNkIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjYwNjE1Ii8+PC9saW5lYXJHcmFkaWVudD4KIDxsaW5lYXJHcmFkaWVudCBpZD0idzIiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjMjUwODE3Ii8+PHN0b3Agb2Zmc2V0PSIuMzUiIHN0b3AtY29sb3I9IiM4ZDM0NTQiLz48c3RvcCBvZmZzZXQ9Ii42IiBzdG9wLWNvbG9yPSIjYzc3MzkxIi8+PHN0b3Agb2Zmc2V0PSIuODIiIHN0b3AtY29sb3I9IiM2NjIzNDQiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyMDA0MGYiLz48L2xpbmVhckdyYWRpZW50PgogPGxpbmVhckdyYWRpZW50IGlkPSJlZGdlIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2ZmYzRkMyIgc3RvcC1vcGFjaXR5PSIuMDgiLz48c3RvcCBvZmZzZXQ9Ii40MiIgc3RvcC1jb2xvcj0iI2ZmYjFjOSIgc3RvcC1vcGFjaXR5PSIuNzIiLz48c3RvcCBvZmZzZXQ9Ii43MSIgc3RvcC1jb2xvcj0iI2ZmYzBkNSIgc3RvcC1vcGFjaXR5PSIuMDgiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZmI2YzkiIHN0b3Atb3BhY2l0eT0iLjY1Ii8+PC9saW5lYXJHcmFkaWVudD4KIDxyYWRpYWxHcmFkaWVudCBpZD0iaGFsbyI+PHN0b3Agc3RvcC1jb2xvcj0iI2Y0N2RhNyIgc3RvcC1vcGFjaXR5PSIuMzUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmNDdkYTciIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CiA8ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2NSIvPjwvZmlsdGVyPgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxNjUwIiBoZWlnaHQ9IjEwNjAiIGZpbGw9InVybCgjYmcpIi8+CjxlbGxpcHNlIGN4PSIxMjcwIiBjeT0iNDAwIiByeD0iNDUwIiByeT0iMzkwIiBmaWxsPSJ1cmwoI2hhbG8pIiBmaWx0ZXI9InVybCgjYmx1cikiLz4KPHBhdGggZD0iTS0xNDAgLTYwIEw2NTUgLTYwIEM1MjUgOTggNDMwIDU4IDMwMiAxMzggQzIwMiAxOTIgNzYgMjIyIC0xNDAgMzMyWiIgZmlsbD0idXJsKCN3MikiLz4KPHBhdGggZD0iTS0xNDAgLTgwIEw1NzAgLTgwIEM1MTMgMTMgMzU0IDQ2IDIzNCAxMDkgQzEwMCAxNzkgLTEwIDE3OCAtMTQwIDIxNVoiIGZpbGw9InVybCgjdzEpIiBvcGFjaXR5PSIuNzUiLz4KPHBhdGggZD0iTS05NSAzMTkgQzYwIDI0MyAyMDMgMjE0IDMxMyAxNTUgQzQ2MyA3NCA1MjkgNDIgNjQxIC02OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2VkZ2UpIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9Ii43MyIvPgo8cGF0aCBkPSJNLTE2MCAzNzIgQzc2IDIxNSAxODUgMjE0IDMzMCAxNDAgQzQ3NyA3MSA1MjYgMTAgNjM5IC03MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTc3YTllIiBzdHJva2Utd2lkdGg9IjEuNSIgb3BhY2l0eT0iLjM5Ii8+CjxwYXRoIGQ9Ik0xNjUwIDMwIEMxNDc4IDEwMiAxNDE0IDIyNSAxNDkwIDM0MiBDMTU5NiA0ODAgMTQ3NCA1OTYgMTY1MCA2NTVaIiBmaWxsPSJ1cmwoI3cxKSIgb3BhY2l0eT0iLjkzIi8+CjxwYXRoIGQ9Ik0xNjYwIDI4IEMxNTUxIDEwNSAxNDk3IDIxNiAxNTMxIDMxMyBDMTU4MSA0NzMgMTU2MSA1MTYgMTY0NiA2MDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNlZGdlKSIgc3Ryb2tlLXdpZHRoPSIyLjMiIG9wYWNpdHk9Ii43Ii8+CjxwYXRoIGQ9Ik0tMTMwIDg1MCBDNDMgNjY2IDIzNCA2OTQgMzUyIDc4OSBDNDgzIDg5NSA1ODAgOTAzIDc0OCAxMDg1IEwtMTMwIDEwOTZaIiBmaWxsPSJ1cmwoI3cyKSIgb3BhY2l0eT0iLjgiLz4KPHBhdGggZD0iTS00NSA4MTcgQzk2IDY5NSAyMDggNzAxIDMzMyA3NzcgQzQ4MiA4ODYgNTk1IDg5NyA3MTcgMTA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2VkZ2UpIiBzdHJva2Utd2lkdGg9IjIuOCIgb3BhY2l0eT0iLjUzIi8+CjxwYXRoIGQ9Ik0xNzAwIDY5OCBDMTUyMiA2OTAgMTQ4MyA3NzAgMTM4MiA4NTQgQzEyODUgOTUwIDExMzQgOTY1IDEwMjEgMTA4OCBMMTcwMCAxMDkwWiIgZmlsbD0idXJsKCN3MikiLz4KPHBhdGggZD0iTTE3MTAgNjkwIEMxNTU2IDY5MCAxNTE2IDc1NCAxNDEwIDg0MCBDMTMzMyA5MTMgMTIwMyA5NTIgMTE2MCAxMDMyIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZWRnZSkiIHN0cm9rZS13aWR0aD0iMyIgb3BhY2l0eT0iLjU1Ii8+Cjwvc3ZnPg==") center center/cover no-repeat!important;
+ color:#fff1f7!important;
+}
+:root[data-theme="ubuntu"] #pinScreen :is(.pin-card,.auth-card){
+ background:linear-gradient(145deg,rgba(145,67,103,.78),rgba(64,20,49,.90))!important;
+ border:1px solid rgba(255,186,214,.46)!important;
+ box-shadow:0 28px 75px rgba(17,0,12,.48),inset 0 1px 0 rgba(255,233,244,.27)!important;
+ backdrop-filter:blur(30px) saturate(145%)!important;-webkit-backdrop-filter:blur(30px) saturate(145%)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen :is(.pin-title,.auth-heading,.auth-title,.auth-label,.life-theme-entry-title){color:#fff5f8!important;-webkit-text-fill-color:#fff5f8!important}
+:root[data-theme="ubuntu"] #pinScreen :is(.pin-sub,.auth-subtitle,.auth-description,.auth-security-note){color:#f1c5da!important;-webkit-text-fill-color:#f1c5da!important}
+:root[data-theme="ubuntu"] #pinScreen .auth-password-wrap{
+ background:linear-gradient(140deg,rgba(171,102,133,.69),rgba(101,42,74,.76))!important;
+ border:1px solid rgba(255,195,218,.45)!important;
+ box-shadow:inset 0 1px rgba(255,239,244,.31),0 5px 18px rgba(31,0,21,.17)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .auth-password-wrap :is(input,button){background:transparent!important;color:#fff4f8!important;-webkit-text-fill-color:#fff4f8!important}
+:root[data-theme="ubuntu"] #pinScreen .auth-submit{
+ background:linear-gradient(113deg,#750936,#bd2165 56%,#e34b92)!important;
+ color:#fff!important;-webkit-text-fill-color:#fff!important;
+ border:1px solid rgba(255,173,215,.66)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .life-theme-entry{border-top-color:rgba(255,190,216,.25)!important}
+:root[data-theme="ubuntu"] #pinScreen .life-theme-choice{
+ background:linear-gradient(135deg,rgba(160,78,112,.62),rgba(93,32,64,.76))!important;
+ border:1px solid rgba(255,192,218,.45)!important;
+ color:#ffe5ef!important;-webkit-text-fill-color:#ffe5ef!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .life-theme-choice.selected{
+ background:linear-gradient(130deg,#730a3a,#bf2d75)!important;
+ border-color:rgba(255,175,213,.77)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
+ box-shadow:0 5px 18px rgba(23,0,16,.25),inset 0 1px rgba(255,228,240,.31)!important;
+}
+/* Premium hover treatment for fine pointers, no forced animation on touch. */
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ :root[data-theme="ubuntu"] :is(.hero,.finance-hero,.bank-card,.card,.kpi-v2,.priority-status-card){transition:transform .28s cubic-bezier(.22,1,.36,1),box-shadow .28s ease!important}
+ :root[data-theme="ubuntu"] :is(.hero,.finance-hero,.bank-card,.card,.kpi-v2,.priority-status-card):hover{transform:translateY(-3px)!important}
+}
+@media(max-width:850px){
+ :root[data-theme="ubuntu"] .sidebar{background:linear-gradient(145deg,rgba(103,37,66,.91),rgba(61,20,47,.94))!important}
+ :root[data-theme="ubuntu"] .navbtn{font-size:12px!important}
+}
+@media(max-width:600px){
+ :root[data-theme="ubuntu"] body{background-attachment:scroll!important;background-size:auto 100vh!important;background-repeat:repeat-y!important}
+ :root[data-theme="ubuntu"] .shell{margin:6px!important;border-radius:23px!important;background:linear-gradient(152deg,rgba(70,23,47,.89),rgba(59,20,47,.91))!important}
+ :root[data-theme="ubuntu"] .sidebar{background:linear-gradient(145deg,rgba(104,37,70,.96),rgba(64,22,49,.98))!important;box-shadow:0 8px 30px rgba(10,0,10,.41)!important}
+ :root[data-theme="ubuntu"] #page .finance-hero :is(.finance-total-card,.finance-metric-card){border-radius:16px!important}
+ :root[data-theme="ubuntu"] #page .hero:not(.blue) :is(.hero-metric,.hero-metric span,.hero-metric b){color:#401329!important;-webkit-text-fill-color:#401329!important}
+ :root[data-theme="ubuntu"] #pinScreen :is(.pin-card,.auth-card){background:linear-gradient(145deg,rgba(112,46,78,.90),rgba(61,19,47,.95))!important}
+ :root[data-theme="ubuntu"] #pinScreen .life-theme-choice{min-height:48px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ :root[data-theme="ubuntu"] :is(.sidebar,.finance-hero,.hero,.card,.bank-card,.navbtn,.btn,.chart-line){animation:none!important;transition:none!important}
+}
+
+
+/* Burgundy Liquid Glass · final high-contrast fields */
+:root[data-theme="ubuntu"] #page .filterbar.global-filterbar,
+:root[data-theme="ubuntu"] #page .filterbar{
+ background:linear-gradient(145deg,rgba(131,57,89,.62),rgba(83,30,58,.82))!important;
+ border-color:rgba(255,188,216,.53)!important;
+}
+:root[data-theme="ubuntu"] #page .filterbar input,
+:root[data-theme="ubuntu"] #page .filterbar select,
+:root[data-theme="ubuntu"] .pagebar .month-wrap select,
+:root[data-theme="ubuntu"] .month-wrap select,
+:root[data-theme="ubuntu"] #page .filterbar.global-filterbar :is(input,select),
+:root[data-theme="ubuntu"] #page :is(.table-toolbar,.plan-filter-controls,.advanced) :is(input,select){
+ background:linear-gradient(135deg,rgba(118,52,83,.90),rgba(85,28,58,.91))!important;
+ color:#fff7fa!important;-webkit-text-fill-color:#fff7fa!important;
+ border:1px solid rgba(255,196,220,.54)!important;
+ box-shadow:inset 0 1px 0 rgba(255,220,239,.22),0 3px 12px rgba(15,0,9,.17)!important;
+}
+:root[data-theme="ubuntu"] #page .filterbar input::placeholder,
+:root[data-theme="ubuntu"] #page .filterbar.global-filterbar input::placeholder{
+ color:#f7d6e4!important;-webkit-text-fill-color:#f7d6e4!important;opacity:1!important;
+}
+:root[data-theme="ubuntu"] #page .filterbar :is(input,select):focus{
+ border-color:#ffaad0!important;box-shadow:0 0 0 3px rgba(250,148,197,.18)!important;
+}
+:root[data-theme="ubuntu"] #page .filterbar select option,
+:root[data-theme="ubuntu"] .month-wrap select option{background:#4f1433!important;color:#fff4f9!important}
+:root[data-theme="ubuntu"] .sidebar .navbtn:not(.active) .ico{color:#f3bdd1!important;opacity:.93!important}
+:root[data-theme="ubuntu"] #page .hero:not(.blue) .hero-kicker::before{background:#ff9cc5!important}
+:root[data-theme="ubuntu"] #page .hero.blue .hero-kicker{color:#542041!important;-webkit-text-fill-color:#542041!important}
+:root[data-theme="ubuntu"] #page .hero:not(.blue) .ring-fg{stroke:#f9589a!important}
 </style>
 </head>
 <body>
@@ -5161,8 +5780,13 @@ function numericInput(field, label){
 
 /* ---- компоненты ---- */
 function kpi(label,valueHtml,meta){
-  // Подписи под числами скрыты во всех вкладках; расчёты и значения сохранены.
-  return `<section class="glass kpi"><div class="label">${h(label)}</div><strong>${valueHtml}</strong></section>`;
+  // Общий премиальный вид KPI на всех восьми вкладках без изменения числовых значений.
+  const title=String(label||'').toLowerCase();
+  const tone=/(не оплат|не распредел|остат|расход|просроч)/.test(title)?'warning':
+    /(оплат|оплач|выполн|закрыт|доход|выруч|прибыл)/.test(title)?'success':
+    /(план|всего|заяв|клиент)/.test(title)?'info':'neutral';
+  const symbol=tone==='warning'?'↘':tone==='success'?'↗':tone==='info'?'◈':'✧';
+  return `<section class="glass kpi kpi-v2" data-kpi-tone="${tone}"><div class="kpi-v2-head"><div class="label">${h(label)}</div><span class="kpi-v2-icon" aria-hidden="true">${symbol}</span></div><strong>${valueHtml}</strong><span class="kpi-v2-rule" aria-hidden="true"></span></section>`;
 }
 function card(title,body,sub,extra){
   sub=sub||''; extra=extra||'';
@@ -5541,6 +6165,9 @@ function espSummaryCard(){
 
 function home(){
   const a=Piot.eventSummary(eventRows(),cfg(),s.month);
+  // Отдельный показатель по F. Не меняет существующие «Оплачено» и выручку.
+  const unpaid=eventRows().filter(r=>r.source==='main' && Piot.hasApplication(r) &&
+    (!s.month||(r.date||'').slice(0,7)===s.month) && !(Number(r.amount)>0)).length;
   let html=filters();
   html+=financeHero();
   html+=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
@@ -5550,6 +6177,7 @@ function home(){
     ${kpi('Выполнено',cVal(a.done))}
     ${kpi('Закрыто',cVal(a.closed))}
     ${kpi('Оплачено',cVal(a.paid))}
+    ${kpi('Не оплатили',cVal(unpaid))}
   </div>`;
   if(cfg().showCharts){
     const p=Piot.activityPeriods(eventRows(),s.month?'day':'month',cfg(),s.month);
@@ -5570,56 +6198,92 @@ const BANK_LOGOS={
 };
 
 function banks(){
+  // Единый срез по фильтрам, выбранному месяцу и реальным номерам заявок.
   const all=eventRows().filter(r=>r.source==='main');
-  const scoped=rows().filter(r=>r.source==='main');
-  const bs=Piot.BANKS.map(b=>{
+  const arrivals=all.filter(r=>(!s.month||(r.date||'').slice(0,7)===s.month) && Piot.hasApplication(r));
+  const bs=Piot.BANKS.map((b,index)=>{
     const recs=all.filter(r=>Piot.bank(r,cfg())===b.id);
+    const bankArrivals=arrivals.filter(r=>Piot.bank(r,cfg())===b.id);
     const sum=Piot.eventSummary(recs,cfg(),s.month);
+    // В столбце F суммы могут приходить от сервера как 0 вместо пустой ячейки.
+    // Поэтому нет положительной суммы => «Не оплатили / без суммы».
+    const paid=bankArrivals.filter(r=>Number(r.amount)>0).length;
+    const unpaid=bankArrivals.length-paid;
+    const share=bankArrivals.length?Math.round(paid/bankArrivals.length*100):0;
     const per=Piot.periods(recs.filter(r=>!s.month||(r.date||'').slice(0,7)===s.month),s.month?'day':'month',cfg());
-    return Object.assign({},b,sum,{spark:per.map(x=>x.revenue)});
+    return Object.assign({},b,sum,{paid,unpaid,share,index,spark:per.map(x=>x.revenue)});
   });
-  const unknown=scoped.filter(r=>!Piot.bank(r,cfg())).length;
   const matched=bs.reduce((n,b)=>n+b.total,0);
   const done=bs.reduce((n,b)=>n+b.done,0);
   const revenue=bs.reduce((n,b)=>n+b.revenue,0);
+  const paid=bs.reduce((n,b)=>n+b.paid,0);
+  const unpaid=bs.reduce((n,b)=>n+b.unpaid,0);
+  const share=matched?Math.round(paid/matched*100):0;
+  const unknown=arrivals.filter(r=>!Piot.bank(r,cfg())).length;
   let html=filters();
   if(!cfg().showBanks) return html+card('Банки',empty('Карточки банков отключены в настройках.'));
-  html+=`<div class="bank-summary-grid">
+  html+=`<section class="bank-premium-intro" aria-label="Аналитика оплат банков">
+    <div><span class="bank-eyebrow"><span class="bank-eyebrow-dot"></span>БАНКОВСКАЯ АНАЛИТИКА</span>
+      <h2>Каждая оплата — под контролем</h2>
+      <p>«Не оплатили» — заявки без положительной суммы в столбце F. Данные учитывают выбранные фильтры и месяц.</p></div>
+    <div class="bank-intro-mark"><span>LP</span><small>PAYMENT<br>OVERVIEW</small></div>
+  </section>
+  <div class="bank-summary-grid bank-summary-premium">
     ${kpi('Распознано',cVal(matched))}
     ${kpi('Выручка банков',cVal(revenue,true))}
     ${kpi('Выполнено',cVal(done))}
-    ${kpi('Не распределено',cVal(unknown))}
+    ${kpi('Оплатили',cVal(paid))}
+    ${kpi('Не оплатили',cVal(unpaid))}
   </div>
-  <div class="bank-grid">${bs.map(b=>`
-    <section class="glass bank-card" style="--brand:${b.color};--bank-order:${Piot.BANKS.findIndex(v=>v.id===b.id)}" data-bank="${b.id}">
+  <section class="glass bank-collection-status" aria-label="Соотношение оплат по банкам">
+    <div class="bank-collection-head"><div><span class="bank-collection-kicker">КОНВЕРСИЯ ОПЛАТ</span>
+      <strong>${share}<small>%</small></strong><p>Заявок с заполненной суммой F</p></div>
+      <div class="bank-collection-number"><span class="bank-dot bank-dot-paid"></span><span>Оплатили</span><b>${number(paid)}</b></div>
+      <div class="bank-collection-number"><span class="bank-dot bank-dot-unpaid"></span><span>Не оплатили</span><b>${number(unpaid)}</b></div>
+    </div>
+    <div class="bank-collection-track" role="img" aria-label="Оплатили ${number(paid)} из ${number(matched)} заявок; не оплатили ${number(unpaid)}"><i style="width:${share}%"></i></div>
+    <div class="bank-collection-foot"><span>${number(matched)} распознанных заявок${unknown?' · ещё '+number(unknown)+' без определения банка':''}</span>
+      <button class="bank-payment-link" type="button" data-bank-unpaid-all ${unpaid?'':'disabled'}>Показать без оплаты <span aria-hidden="true">↗</span></button></div>
+  </section>
+  <div class="bank-grid bank-grid-premium">${bs.map(b=>`
+    <section class="glass bank-card bank-card-premium" style="--brand:${b.color};--bank-order:${b.index}" data-bank="${b.id}">
+      <div class="bank-premium-art" aria-hidden="true"><span></span><span></span></div>
       <div class="bank-head">
         <div class="bank-identity">
           <button type="button" class="bank-filter-chip" data-bank="${b.id}" title="Показать заявки банка ${h(b.name)}" aria-label="Фильтр по банку ${h(b.name)}">
-            <span class="bank-logo-tile">
-              <span class="bank-mark bank-mark-${b.id}" aria-hidden="true">${({vtb:'В',alfa:'А',psb:'П',tochka:'Т'})[b.id]||'Б'}</span>
-              <img class="bank-chip-logo" src="${BANK_LOGOS[b.id]}" alt="" loading="lazy" decoding="async">
-            </span>
+            <span class="bank-logo-tile"><span class="bank-mark bank-mark-${b.id}" aria-hidden="true">${({vtb:'В',alfa:'А',psb:'П',tochka:'Т'})[b.id]||'Б'}</span>
+            <img class="bank-chip-logo" src="${BANK_LOGOS[b.id]}" alt="" loading="lazy" decoding="async"></span>
             <span class="bank-chip-name">${({vtb:'ВТБ',alfa:'АЛЬФА',psb:'ПСБ',tochka:'ТОЧКА'})[b.id]||h(b.name)}</span>
           </button>
         </div>
-        <span class="bank-pct">${b.total?pct(b.done,b.total)+'% выполнено':'нет данных'}</span>
+        <span class="bank-pct"><span class="bank-pct-dot"></span>${b.total?pct(b.done,b.total)+'% выполнено':'Нет заявок'}</span>
       </div>
-      <div class="bank-revenue-label">ВЫРУЧКА</div>
-      <div class="bank-revenue">${cVal(b.revenue,true)}</div>
+      <div class="bank-premium-money"><div><div class="bank-revenue-label">ВЫРУЧКА БАНКА</div>
+        <div class="bank-revenue">${cVal(b.revenue,true)}</div>
+        <p>Поступления за выбранный период</p></div>
+        <span class="bank-trend-glyph" aria-hidden="true">↗</span>
+      </div>
       <div class="bank-spark">${sparkline(b.spark.length?b.spark:[0],b.color)}</div>
+      <div class="bank-payments-head"><span>Статус оплат</span><b>${b.share}%</b></div>
+      <div class="bank-payment-track" role="img" aria-label="${h(b.name)}: ${number(b.paid)} оплатили, ${number(b.unpaid)} не оплатили">
+        <span class="bank-payment-track-fill" style="width:${b.share}%"></span></div>
+      <div class="bank-payment-key"><span><i class="bank-dot bank-dot-paid"></i>Оплатили <b>${number(b.paid)}</b></span>
+        <span><i class="bank-dot bank-dot-unpaid"></i>Не оплатили <b>${number(b.unpaid)}</b></span></div>
       <div class="bank-metrics">
-        ${[['Пришло',b.total],['Оплачено',b.paid],['Выполнено',b.done],['Открыто',b.open]].map(([k,v])=>
+        ${[['Заявок',b.total],['Выполнено',b.done],['Открыто',b.open],['Не оплатили',b.unpaid]].map(([k,v])=>
           `<div class="mini-glass"><span>${k}</span><b>${number(v)}</b></div>`).join('')}
       </div>
-      <button class="text-btn" data-bank="${b.id}">Показать заявки →</button>
+      <div class="bank-card-actions">
+        <button type="button" class="bank-show-all" data-bank="${b.id}">Все заявки <span aria-hidden="true">↗</span></button>
+        <button type="button" class="bank-show-unpaid" data-bank-unpaid="${b.id}" ${b.unpaid?'':'disabled'}>Без оплаты <b>${number(b.unpaid)}</b></button>
+      </div>
     </section>`).join('')}</div>`;
   if(cfg().showCharts){
-    html+=`<div class="row-main">
-      ${card('Сравнение банков',chart(bs.map(b=>b.name),[
-        {name:'Пришло',type:'bar',values:bs.map(b=>b.total),color:'#62a9f5'},
-        {name:'Выполнено',type:'bar',values:bs.map(b=>b.done),color:'#20b889'},
-        {name:'Оплачено',type:'bar',values:bs.map(b=>b.paid),color:'#9673ed'}
-      ],{title:'Сравнение банков'}),'Количество заявок по каждому банку.')}
+    html+=`<div class="row-main bank-charts-row">
+      ${card('Оплаты и ожидание',chart(bs.map(b=>b.name),[
+        {name:'Оплатили',type:'bar',values:bs.map(b=>b.paid),color:'#1aa97a'},
+        {name:'Не оплатили',type:'bar',values:bs.map(b=>b.unpaid),color:'#ce567a'}
+      ],{title:'Оплатили и не оплатили по банкам'}),'Сравнение заявок с суммой в F и без неё.')}
       ${card('Доля выручки',donut(bs.map(b=>({name:b.name,color:b.color,value:Math.round(b.revenue)})),'₽'),'По сумме установок')}
     </div>`;
     const mk=[...new Set(all.map(r=>(r.date||'').slice(0,7)).filter(Piot.validMonth))].sort().slice(-12);
@@ -5628,10 +6292,9 @@ function banks(){
         values:mk.map(m=>all.filter(r=>Piot.bank(r,cfg())===b.id&&(r.date||'').slice(0,7)===m).reduce((n,r)=>n+Piot.rev(r,cfg()),0))})),
       {money:true,title:'Выручка по банкам'}),'Помесячно, последние 12 месяцев.');
   }
-  html+=card('Рейтинг банков',bs.slice().sort((a,b)=>b.revenue-a.revenue).map(b=>
-    `<div class="rank"><span><i class="dot" style="--color:${b.color}"></i> ${h(b.name)}</span>
-     <b>${rub(b.revenue)} <span class="muted">· ${number(b.total)} заявок</span></b></div>`).join(''),
-    'Не распределено: '+number(unknown)+' заявок.');
+  html+=card('Рейтинг банков',bs.slice().sort((a,b)=>b.revenue-a.revenue).map((b,i)=>
+    `<div class="rank bank-rank-item"><span><em>${String(i+1).padStart(2,'0')}</em><i class="dot" style="--color:${b.color}"></i> ${h(b.name)}</span>
+     <b>${rub(b.revenue)} <span class="muted">· ${number(b.total)} заявок</span></b></div>`).join(''));
   return html;
 }
 
@@ -6002,11 +6665,12 @@ const COL_HINTS={
 };
 
 function tableRows2(){
-  const sourceRows = rows().filter(r=>s.filter.source==='noesp' ? r.source==='noesp' : Piot.hasApplication(r));
+  const sourceRows = rows().filter(r=>s.filter.source==='noesp' ? r.source==='noesp' : Piot.hasApplication(r))
+    .filter(r=>!s.bankRecognizedOnly||Boolean(Piot.bank(r,cfg())));
   return sourceRows.filter(r=>!s.installation||Piot.isPaidInstallation(r,s.installation,cfg())).filter(r=>
     s.paid==='paid'?Piot.rev(r,cfg())>0:
     s.paid==='invoice'?Piot.isInvoice(r,cfg()):
-    s.paid==='zero'?r.amount===0:true
+    s.paid==='zero'?!(Number(r.amount)>0):true
   ).slice().sort((a,b)=>{
     const av=a[s.sort],bv=b[s.sort];
     return(typeof av==='number'?av-bv:String(av||'').localeCompare(String(bv||''),'ru',{numeric:true}))*s.direction;
@@ -6029,6 +6693,7 @@ function tablePage2(){
         `<option value="${k}"${s.paid===k?' selected':''}>${v}</option>`).join('')}
     </select>
     <button class="btn primary" data-export>${icon('download')} Скачать CSV</button>
+    ${s.bankRecognizedOnly?'<span class="bank-recognized-badge">Только распознанные банки</span>':''}
     <span class="toolbar-spacer"></span>
     <span class="toolbar-stat total"><strong>${rub(sum)}</strong> по выборке</span>
   </div>`;
@@ -6290,9 +6955,10 @@ async function handleClick(e){
       return;
     }
     if(el.dataset.page) await navigate(el.dataset.page);
-    else if(el.hasAttribute('data-open-table')){s.installation='';await navigate('table');}
+    else if(el.hasAttribute('data-open-table')){s.installation='';s.bankRecognizedOnly=false;await navigate('table');}
     else if(el.hasAttribute('data-paid-installation')){
       s.installation=el.dataset.paidInstallation;
+      s.bankRecognizedOnly=false;
       s.paid='';
       s.tablePage=1;
       await navigate('table');
@@ -6305,10 +6971,16 @@ async function handleClick(e){
     else if(el.hasAttribute('data-plan-reset')){s.planStatus='';s.planResult='';render({fx:false});}
     else if(el.hasAttribute('data-plan-pick')){s.planResult=el.dataset.planPick;render({fx:false});}
     else if(el.hasAttribute('data-save')){ await flush(); toast('Месяц сохранён'); }
-    else if(el.hasAttribute('data-clear-filters')){ await flush(); Object.keys(s.filter).forEach(k=>s.filter[k]=''); s.installation='';s.paid='';s.tablePage=1; render(); }
+    else if(el.hasAttribute('data-clear-filters')){ await flush(); Object.keys(s.filter).forEach(k=>s.filter[k]=''); s.installation='';s.paid='';s.bankRecognizedOnly=false;s.tablePage=1; render(); }
     else if(el.dataset.gran){ s.gran=el.dataset.gran; render({fx:false}); }
-    else if(el.dataset.bank){ s.installation='';s.filter.bank=el.dataset.bank; await navigate('table'); }
-    else if(el.hasAttribute('data-task-status')){ s.installation='';s.paid='';s.filter.task=el.dataset.taskStatus; s.tablePage=1; await navigate('table'); }
+    else if(el.hasAttribute('data-bank-unpaid-all')){
+      s.installation='';s.paid='zero';s.bankRecognizedOnly=true;s.tablePage=1;await navigate('table');
+    }
+    else if(el.hasAttribute('data-bank-unpaid')){
+      s.installation='';s.paid='zero';s.bankRecognizedOnly=false;s.filter.bank=el.dataset.bankUnpaid;s.tablePage=1;await navigate('table');
+    }
+    else if(el.dataset.bank){ s.installation='';s.paid='';s.bankRecognizedOnly=false;s.filter.bank=el.dataset.bank;s.tablePage=1;await navigate('table'); }
+    else if(el.hasAttribute('data-task-status')){ s.installation='';s.paid='';s.bankRecognizedOnly=false;s.filter.task=el.dataset.taskStatus; s.tablePage=1; await navigate('table'); }
     else if(el.dataset.tab){ await flush(); s.tab=el.dataset.tab; render(); }
     else if(el.dataset.sort){ if(s.sort===el.dataset.sort)s.direction*=-1; else{s.sort=el.dataset.sort;s.direction=1;} s.tablePage=1; render({fx:false}); }
     else if(el.dataset.pag){ s.tablePage+=Number(el.dataset.pag); render({fx:false}); }
