@@ -5,7 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Life Pay</title>
-<link rel="icon" type="image/svg+xml" href="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg">
+<!-- Самодостаточная иконка вкладки: работает и при размещении одного HTML на GitHub Pages -->
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB6klEQVR4nGNkwAI4NPT/YxOnBvhx4yIjMp8Fm8V2M3Mu08oBh9Kn/Ed2CNw1yJYfSp+ii00zl756Ly6Dv128WUyMA5DN/3HjIiMjMZbjs5gchyDbA3cANstJsZhUh8DsY6SF5aQ4ggmbBDUsJ9YcrA6gJ8BwALV8T6x5LPgkezLTPILtbbUZGBgY/Krqlly+d/8lIXUw8OX7919PXr/5uOno8RvTbz1i+Pb9O+kOIAf4VdUtuXL/wUsrbS25eeUlQWWRYba2qqoMgXEZDP//YxawNEkD////Zzh65eqjvefO3WVgYGCwNDFkMDXUw6qWponw+dt3n2FsGSkJ4hxAbJFKDJAUFuKFsZ88e4FVDdXTAAMDAwMjIyODpZamnLORkTIDAwPD8TPnGU6fv0S8A75dvFlMbnbc1NYUw8DAwPD1+49fd+8/YF6/dRfD7MUrsSZAnA6AOYKBgeEqqQ6AZVdioxJvFPx5/0kbnzw28PP2w5hvV24SrZ7oXPDz9sMYUh1DDCA6Ee5cvZCBgYEBJVgt3IMZ7j96zPDn/SeyHYCzOqYHwFkd0xOMOmDUAQSzodzaIooteRTch1NuwEMAb7+AlgBmHzwEDqVP0aVlnxCb5QwM0CiAdRTp4QisfUMYoFPvGG45AwMDAwC8jvAM61DTLgAAAABJRU5ErkJggg==">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<meta name="theme-color" content="#082c31">
+<meta name="apple-mobile-web-app-title" content="Life Pay">
 <style>
 /* ===== PASSWORD ACCESS SCREEN ===== */
 #pinScreen{
@@ -758,6 +762,27 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   .bank-card .chart-line,.bank-card .mini-glass,.plan-result,.sidebar-foot small,.finance-hero::before,.finance-hero::after,.finance-hero-logo-wrap,.finance-total-card::after,.finance-metric-card::after{animation:none!important;transition:none!important}
 }
 
+
+/* ===== FOUR RESULT CARDS: paid installations for Life Pay and Авт.Биз ===== */
+.priority-status-card.paid-lp{
+  --accent:#059e7a;
+  background:linear-gradient(145deg,rgba(232,253,243,.97),rgba(255,255,255,.91) 56%,rgba(219,246,240,.9));
+}
+.priority-status-card.paid-autobiz{
+  --accent:#7762dc;
+  background:linear-gradient(145deg,rgba(239,236,255,.97),rgba(255,255,255,.91) 56%,rgba(229,238,255,.92));
+}
+:root[data-theme="dark"] .priority-status-card.paid-lp{
+  background:linear-gradient(145deg,rgba(22,75,64,.88),rgba(21,35,49,.93));
+}
+:root[data-theme="dark"] .priority-status-card.paid-autobiz{
+  background:linear-gradient(145deg,rgba(55,47,89,.88),rgba(21,35,49,.93));
+}
+.plan-result.paid-lp{border-color:rgba(0,165,106,.24);background:linear-gradient(145deg,rgba(230,253,241,.96),rgba(255,255,255,.89));}
+.plan-result.paid-autobiz{border-color:rgba(124,91,224,.23);background:linear-gradient(145deg,rgba(238,234,255,.96),rgba(255,255,255,.89));}
+:root[data-theme="dark"] .plan-result.paid-lp{background:linear-gradient(145deg,rgba(19,74,61,.73),rgba(22,34,51,.9));}
+:root[data-theme="dark"] .plan-result.paid-autobiz{background:linear-gradient(145deg,rgba(64,49,103,.68),rgba(22,34,51,.9));}
+/* The existing two-column grid becomes four cards on desktop, a single column on phones. */
 
 /* ===== DEEP GLASS DARK MODE ===== */
 :root[data-theme="dark"] body{
@@ -3065,6 +3090,51 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   @media(max-width:600px){.shell{min-height:calc(100dvh - 8px)!important}}
 }
 
+
+/* ===== Minimal KPI captions: shared across desktop, iPhone and Android ===== */
+.kpi strong{margin-bottom:4px}
+.esp-figures{grid-template-columns:repeat(3,minmax(0,1fr))}
+.finance-metric-card{min-height:88px!important}
+@media(max-width:1000px){.esp-figures{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+  .finance-metric-card{min-height:82px!important}
+  .esp-figures{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+
+/* Compact LP tab mark is full color; do not invert its dark background on phones. */
+.mobile-brand-mark img{filter:none!important;border-radius:9px}
+/* ===== LIFE PAY · emerald login refinement 2026-11-11 ===== */
+#pinScreen .auth-card{width:min(410px,calc(100vw - 30px));margin-inline:auto;text-align:center;
+  background:linear-gradient(150deg,rgba(255,255,255,.93),rgba(236,249,246,.84) 58%,rgba(224,244,246,.81));
+  border:1px solid rgba(255,255,255,.92);
+  box-shadow:0 29px 72px rgba(19,60,73,.17),inset 0 1px 0 #fff;
+  -webkit-backdrop-filter:blur(30px) saturate(175%);backdrop-filter:blur(30px) saturate(175%)}
+#pinScreen .auth-brand-sticker{margin:0 auto 29px;box-shadow:0 25px 47px rgba(4,42,45,.27),0 0 0 7px rgba(255,255,255,.44),inset 0 1px 0 rgba(255,255,255,.48)}
+#pinScreen .auth-card .pin-title,#pinScreen .auth-card .pin-sub{text-align:center}
+#pinScreen .auth-submit{position:relative;isolation:isolate;overflow:hidden;justify-content:center;
+  min-height:57px;border-radius:17px;gap:17px;
+  color:#f7fffd;background:linear-gradient(116deg,#074139 0%,#075d4b 45%,#087c5c 100%)!important;
+  border:1px solid rgba(79,224,175,.65)!important;
+  box-shadow:0 16px 33px rgba(4,83,67,.32),0 0 0 1px rgba(255,255,255,.26),inset 0 1px 0 rgba(199,255,234,.35)!important;
+  transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s ease,filter .25s ease}
+#pinScreen .auth-submit::before{content:"";position:absolute;z-index:-1;inset:0;
+  background:linear-gradient(110deg,transparent 0%,rgba(157,255,218,.16) 47%,transparent 74%);
+  transform:translateX(-120%);animation:emeraldLoginSheen 5.7s ease-in-out infinite;pointer-events:none}
+#pinScreen .auth-submit::after{content:"";position:absolute;inset:1px;border-radius:inherit;
+  border-top:1px solid rgba(240,255,250,.24);pointer-events:none}
+#pinScreen .auth-submit:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.09);
+  box-shadow:0 21px 42px rgba(4,83,67,.38),0 0 0 1px rgba(147,255,215,.24),inset 0 1px 0 rgba(240,255,250,.38)!important}
+#pinScreen .auth-submit:focus-visible{outline:3px solid #40d1a4;outline-offset:4px}
+#pinScreen .auth-submit:disabled::before{animation:none}
+@keyframes emeraldLoginSheen{0%,18%{transform:translateX(-120%);opacity:0}37%{opacity:1}54%,100%{transform:translateX(120%);opacity:0}}
+:root[data-theme="dark"] #pinScreen .auth-card{background:linear-gradient(155deg,rgba(23,49,58,.97),rgba(11,35,42,.95));
+  border-color:rgba(152,231,211,.22);box-shadow:0 30px 78px rgba(0,0,0,.35),inset 0 1px 0 rgba(235,255,250,.09)}
+:root[data-theme="dark"] #pinScreen .auth-submit{background:linear-gradient(115deg,#075b45,#087b60 57%,#075446)!important}
+.plan-no-months{text-align:center;padding:24px!important;color:var(--muted);white-space:normal!important}
+@media(max-width:480px){#pinScreen .auth-card{padding:35px 22px 27px;border-radius:27px}}
+@media(prefers-reduced-motion:reduce){#pinScreen .auth-submit::before{animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -3074,7 +3144,7 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   <button type="button" class="theme-toggle" id="pinThemeToggle" aria-label="Переключить тему" aria-pressed="false"><span class="theme-icon">☾</span><span class="theme-label">Тёмная тема</span></button>
   <div class="pin-card auth-card">
     <div class="auth-brand-sticker">
-      <img src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" alt="LIFE PAY" loading="lazy" decoding="async">
+      <img src="data:image/png;base64,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" alt="LIFE PAY" loading="lazy" decoding="async">
     </div>
     <div class="pin-title">Добро пожаловать</div>
     <div class="pin-sub">Введите пароль, чтобы открыть аналитику</div>
@@ -3110,7 +3180,7 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   <header class="brandbar">
     <div class="mobile-brand" aria-label="Life Pay">
       <span class="mobile-brand-mark">
-        <img src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" alt="Life Pay" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('logo-fallback')">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAOw0lEQVR4nO3dfWxV9R3H8W8pfYQBgjAFFdRSnAyBgXtwE91UNG5Mo2ZmD8EsG5hFJBHcMtS5ObexB9FowESJZGjYdMyIc8QHjDpwiIBohxGqKFAoCi2FUnvb3va2+0MrpU/3nnN+T+f83q8/iTnnZ8/v87m/87vn3isCAAD8k2d7ACoVnzO5w/YY4IfmnRWJyE5s/ycIO1wTx1KIzYAJPOImDoXg9AAJPZLC1TJwclAEH0nlWhE4MxhCD9+4UAbWB6A6+DMemrdd5fGA7tbfuHSSyuPZLAKrBRA1/IQdrohaCrZKwMpJowSf0MN1UcrAdBEYPVnY4BN6xFXYMjBVBMYKIEz4wwZf9T2aaaWTJyxRdaxUReVCVceC2TlpogSMFECQ8Af9A8c17CpDHhbloIbOOau7BLQePOirfi5/yDgG3oWw54pSiE7HPNZVBNoKQPWrfpyCH6fAZ0MhhKd6XusoAS0FkGv4s/2BCL1bKIPwVM111SWgvABUhD8uwfch9H2hDMJRMe9VloDSAoga/jgE3+fQ94UyCC5qBlSVgLICyCX8cX7VJ/jZUQTBRM2DihJQUgBRwu9y8Al9eJRB7qJkI2oJRC6AJIaf4KtDEeTGVglEKoCkhZ/g60MRZGejBEIXQNjwuxh8EcJvAiWQm7C5CVMC2gogLuEn+OZRBNmFyY+xAkhC+Am+fRRB/0yUwICggyL8UIXr0L/ecpPticKgn78J1BZxDz8Tzl2sBvqmcyUQeAUQBOFHrrg+fdOZo5wLIMyrvwtKJ09YwuSKB65V7lTdCihZAbi69GcyxRPXracw+wG5yKkA+msTwg8duH49BS2BXFYBWQsg6K4i4YcqXMeeguYrW34j3QK4eN/PpEkWrmd2UXLYbwHE7dWfyZJMXNcTqVwF9PteYZB7f5vhZ4L4g+cFjguSwb6eCwh1C+DS0p/w+4Xr3bcwueyzAIIs/229+jMZ/MR1/0SQ3PWVZ61PAgJwW68FEId7f14F/Mb1/0T3/AV9LiCWKwAuPkSYByoEKgAXNv+46OiK+dBTkJz2KACXN/+42OiN7/MiymZgbG4BfL/I6B/zI5ycC8CVzT8APQXZDOwqFisA2h25YJ4Ed0IBBH323wQuKoJgvmTXNec5rQBc2P0HEEwuuQ11C2Dq/p82Rxi+zpswuXR2D8DXiwg1mD+5cbYAAOj3WQG4tAFIe0MF5lHfOvOedQXABiAQX9nyG/gWQPcGIK0NlXybT0HzyR4A4DGnCsC3toYZzKu+OVUAAMxypgBoaejE/OqdMwUAwDwKAPCYEwXA8gwmMM96cqIAANhBAQAes14ALMtgEvPtRNYLAIA9FADgMasFwHIMNjDvjmMFAHiMAgA8RgEAHqMAAI9RAIDHrBUAO7Gwifn3iYG2B6DLH2/86czrv3mRlu8vXLd1266599z3tI5ju0Dn3y6qTHt7R7q1ra2lNZ1Jt7VlUs3N6dqjx1I19fWp2vr6xgO1hxt2VR84vKv6QN2+Q4eOZtrbnfm2axcltgCQTPkDBuSVFBUWlBQVFnz6T4PGnXLKSb39t+nWtsz23bsPbt6xc//mHZX7t1RWVjc2NacNDtd5FAASq7BgYP608vGjp5WPH/2zq2Z9Od3alnnlrYrdaze9XvniG2++n7I9QAdQAPBGYcHA/JnnTyubef60ssam5vSq1U/Jw48+LvuqP7Q9NGt4FwBeGlRSXDh39vfl9eefkgf//FsZfcrnbQ/JCgoAXsvPHyDXzrpCNj67Wm69aY4UFRXaHpJRFAAgIiXFxfLzeXPkhdUrpfzsM20PxxgKAOjinPFnywv/XCnXX/1t20MxggIAuikpLpYHFv9a5s+5wfZQtKMAgD7cvuAmuX3BTbaHoRUFAPRj/pwb5Cc//J7tYWhDAQBZ3L1ogXzrwq/ZHoYWFACQRX7+AFn2p7tk+EnDbA9FOWsFkKqoXGjr3EBQw08aJovvuNX2MJRjBQDk6OorZ8pFF3zF9jCUogCAAH5x81zbQ1CKAgACmD5lUqJWAXwaEEaF+TKVvLw8GVxSUjSktLRo6OBBxeWnjRkxpezsU6dNKB/9xTPHGf8Uz49/cJ38Z+Prpk+rBQUA53V0dEhDKtXSkEq1VNfWHntnz95Da17duENE5Atjzxg5e+alU66ZceHEwoKB+SbGc+mMC2TYkM/J0WMNJk6nldVbAN4JQFQ79lbVLFq+Yt1Vt9+5amfVvhoT5ywoKJDvXH6JiVNpxx4AEmFn1b6a795256p1W7ftMnG+i7+ejH0ACgCJ0drWlrn5/qVrt+58t1r3ub46faruUxhhvQC4DYBKLa2tbfPuX/rvppZ0q87zjBwxXM4ae7rOUxhhvQAA1Q4eOfLximef26b7POVlZ+k+hXYUABLpkbXPvdHe0aH1NwHGnT5G5+GNcKIAuA2AakcaGpre/mD3QZ3nGEsBAO7asP3tvTqPP3LEcJ2HN4ICQGJV19Qe03n80pISnYc3wpkC4DYAqtUda2jSefzSUgoAcNaxVKpZ5/GLC+P/GwJOFQCrAKg0dFBpsc7jN7W06Dy8EU4VAKDS8CFDtK7RU01a7zCMcK4AWAVAldNHjRyq8/hNTVrvMIxwrgAAVS48b9I4ncc/VHtY5+GNcLIAWAUgqpOHDi09d+wZo3SeY0+V9s8caedkAQBRzZ115fl5eXlaz7F3PwWgDasAhDX65BFDZl926XTd56nc9YHuU2jnbAGIUAIIrrSoqGDp3Dlzior0vkd/sKZW9lTt13oOE5wuACCIooKCgctuuXnW1PMmaj/Xpq1vaT+HCc4XAKsA5GLiuLGjnll8948unjL5TBPne+W/m0ycRrtYfCtwqqJyYenkCUtsjwPumThu7KjZl1829ZoZ3zh3YH6+kRe0dDota1942cSptItFAcBveXl5Mqi4uHDIoNLiYYMHF5efNmbE1PFlp06fUD7m3HFjtb7V15sX12+U+ob4fyW4SIwKgFVAMlw2/Utlux9/LNa3dStWrbY9BGWc3wPoiv0A2LZ5W4Vs2LTF9jCUiVUBiFACsOsvS5fbHoJSsSsAEUoAdjy19nlZ/9pm28NQKpYFIEIJwKzDdUfktt8nbwsqtgUAmJLJtMu8X/5G6o4ctT0U5WJdAKwCYMKvFt8rL214zfYwtIh1AYhQAtDrgeUr5ZFV/7A9DG1i8xxAfzpLgOcEoNIf7ntQ7n/4r7aHoVXsVwBdsRqACk3NzTJ/0V2JD79IwgpAhBJANDvfe19mXneDPLFmre2hGJGIW4DuPi2B7bbHgfhobm6RZSsekweWr5Tm5vh/3XeuElkAIiKZuvpJtscA92Uy7fKv59bJ3UuWSfWHH9kejnGJLQCgP42plPztyWfk4Uf/LlX7D9gejjUUALyRTqfl5Vc3yZpn18nzL22QxlTK9pCsowCQWK2trfK/dypl45ZtsmnLm7LpjTfl40ZC3xUFgFhpb2+XdLpVWlrTkk63yseNjVJ7+IjUHK6Tmto6qf7wI3n3/d3y3gd7ZHfVPslk2m0P2WkUAIxat3Xbrrn33Pe0CG/ZuoACgHEE3x2JexAIbsvUN5TZHgOOowAAj1EAgMcoAMBjFADgMQoA8BgFEEKmvqGMt7KQBDwHEEHXEuDbiBBHFIAilAHiiALQoPvtQZwKIVVRuTBTV297GDCEAjCgt/0CF0qBfQxQAJb0Fz6V5UDI0R8KIIQrLrlIDu7Q+htxkUP7xJq1Mn/RXSrGggTjbUDAYxQA4DEKAPAYBQB4jAIAPEYBAB6jAACPUQCAxygAwGMUAOAxCgDwGAUAeIwCADxGAQAeowAAj1EAgMcS+4Ugt9zxO7nljt/ZHkYs8bfzBysAwGMUAOAxCgDwGAUAeIwCADxGAQAeowAAj1EAgMcoAMBjFADgMQoA8BgFAHiMAgA8RgEAHqMAAI9RAIDHKADAYxQA4DEKAPAYBQB4jAIAPEYBAB6jAACPUQCAxygAwGMUAOAxCgDwGAUAeIwCADxGAQAeowAAj1EAgMcoAMBjFADgMQoA8BgFAHiMAgA8RgEAHqMAAI9RAIDHAhfAjIfmbdcxEADRBc1n1gJYf+PSSeGHA8CmbPn9rACad1bk6R8OABd05p09AMBjA20PwEVnPLnA9hCgSdW199oeglNCrQCSuhF4xpMLCH/CJfkah8llTgXgw0ZgUicFeufD9c4ltycUABuBQPJ1zTmbgOLHqwF64roHKIDuy4mk7gMAcdQ9j7netrMCADzWowCC7AOwCgDsC5LD7vkOtAJI6rsBvDfsp6Re9yA55RYA8FivBdDfbUBSNwOT+mqA3iXlegfZ/Ost1zwK3EXnpODtoeRKSvBV6XfDr/icyR29/Xtvr/pJ3R8AXBUkh32t6kPtARB2wD1hchl6EzCpewFAHIR98Ke7fgsg6GcDKAFAv6A56y/Hkd4G5FYAsC9KDrMWAKsAwB0qX/1FclwBBHkuQIQSAHQI+u5bLi/eSp4EpAQAvXS99Z5zAWRrE/YDAHOy5S3XW3etnwVgFQBEpzNHgQogzCqAEgDCC7P0D7JxH3gFQAkAZugOv0jIWwBKANDLRPhFNO4BUAJAOCY/bBfpa8D7+rRgV32FnncNgBNFyUrYr/SPtALI5aR9DZ7VAHCcjfCLKLgFoASAaGyFXyTiLUBXUW4HRLglgH+i5kHFL3kp/SmwXEpAhH0BIGoGVP2Mn/LfAoxaAiIUAZJLxbxX+RueWn4MVEUJiFAESA5Vc131D/hq+zXgXEtAJLfNQMoAcaN6Xuv49W6tPwcepAREKAIkg455rCP8IpoLoJPq1UBXFAJs0zlndQW/k5ECEAm+GhAJ/5wApQBdTM5J3eEXMVgAIuFKQIQHhhBfYV+MTIRfxHABdApbBCKUAdwXZQVqKvidrBRApyhFIEIZwB1RbztNB7+T1QIQiV4C3VEK0E31HpOt8Is4UACdVBcB4Dqbwe9kfQC9oQyQVC6EviunBtMdRYCkcC34nZwcVG8oA8SNq6HvyvkB9oVCgGviEPjuYjfg/lAKMCWOYQeAE/wfxNbaCAT69aUAAAAASUVORK5CYII=" alt="Life Pay" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('logo-fallback')">
       </span>
       <span class="mobile-brand-copy"><strong>Life Pay</strong><small>АНАЛИТИКА</small></span>
     </div>
@@ -3124,7 +3194,7 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
     <aside class="sidebar">
       <div class="sidebar-brand-sticker" aria-label="Life Pay">
         <div class="sidebar-lifepay-wrap">
-          <img class="sidebar-lifepay-logo" src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" alt="Life Pay" loading="eager" decoding="async">
+          <img class="sidebar-lifepay-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAAAlCAYAAADBRzJ7AAAKLUlEQVR42u2ce7BVdRXHP+cCxsMXIA8BAV+AiKgB5rvJB4mhKEaKiVljk6k5iZU5WZHZiNpMM2WamY+mYCTsQamVOlFIooyCgqagPBQvKYi8BYF7v/1x1u6uu91n798+51x8zP7O7GGffddv/R57/dZvvTYlSV0ooxlosH+xewDRGiXeC7nncm22xeg6JTwrUOD/ghcJkmLCpQoCqNjfZXyagXdigudRCGGBRLSPabJIOL2QlTKEkhiPToXgFciLkqS49iolCJ2cUHU2rVcIXIE2EcS4Hdc5xUZUIYAF6n00V0KkBQsHo8BucVbIcCi2VXA8ChRo06O5QIEP1NEc4VPOXlwMrK3DUb0XsI/d7wTeLF5FoRGzaF4BDrb7ScCfgU019nsWcC/QHVgNjAZeCGw7AjjXNsjh5jz9F3ga+BnwVM6xjAJOBYYDB5i50ggsAv4FPL6b30k/oD/Q1Tb8GuD5OvLfG9gX6ABsBd6ogU9HG+Pm3aER28UcmFI9NkCCY5SFwcBU4JwKizIYuBCYAVwLvJbB7zDge8BJtiE6xv4+FrjMBPtGYGEbCl8n4GzgeGAIsL8Jy7vAW6YMFgAPAKuq4N/R5nksMMw23J7AOmA58IRtuKWB/PoDjwKDgLdtzGsD2y4EjnJ8yvORlHWtVAsukLRXQJus62xJ643n65IGZ9CfZnShWC7puBR+50hanIPfi5LG1mHeSddoSdMkrQkYx8OSzszJf4SkuyRtzeD9gqQvSeoUwHOgpFes3VuS9ssxnudcn/2i5yEasaEtTIIU7RjHcOBuoK971gjcY1qiB3AEcLrtTIADgVuBCXZse3zRNOFA92yVaZuXgCbTGJ+1ox/jewfQxTRuvXABcL3rB2AJsNJMlq7AAPv7HsAY4BB7Pi2A/5nALY5/k/FdC+wwO70X0A0Yaut8nI3pzYz357NpzVW++6aWMzFbgr0mOk/SnnXQAuMkbTSejZIOSaF9KLZzvy2pawJdF0lTJe0wuhWSTk7QrMsdr3ckfcV2eJxfP0kTJa1y9I0ZmjavplrkeK+UdL2N+UDTTL0ljZJ0paQFjvY1W8M0/ufFTrMlkn5sz4fb/E6UdJmkByVtc7T32XpW4n2Ira8kra3wPipdL7p+ekXPQxo2xgSxS50F8XVJB1egO1nSOtf/lIBJT5J0vKRuCX97xPFaL+ncgLGeKulV125WnQRxluP5tJkLafTHx8a/WNL+FWiHSFrqaGdLGpPB/yZJb7s2V6TQDnIbNK8gvuT66FGtII4LtCFCBHGzE8QDK9D9UNJOo3vO2xRVXJ80eybCpBxtL3LjbZZ0ZI3z/5zbiG+anRjS7qiYbVtJWO5yNAsDbPDo+pGkd63dqpT1HuIE8S1J++aYu98g3aPnDTm95uY62oilAL5HOM/+IWBjDX2OM9sK4Eng7zna/hZ41o19dI3zv8Q8fYDbgUcC2z1rdtw2Z+/GsR9whvs9xezOEHwHmO/CSJ+pQLfDvb89coZ8OiTZiO2rWMR65J0VKIj7uPuLgdMsAN7kJhIZy7cDf0jpc4hzvAYY/TZa6ig9r6aE370dr5E1zn+Yu/9Nzrb3AN+0kM8Ic6x8SOfTFvqJQiWzcvKfaXw7mbNzZwLNOvfO9gJ6AhsCeA81hw+jf7faOGJTG2jE5hS+H3P3fWOecxx/y+izm7vfHzivwgaJb46oFtPv5INqmPtg9zI2WhwvDzZZ7K6P/T44JoiDXUx0XhXjexzYYoJ4DMlFLxtNkA6w3+cCNwfwnuDew4ueb0Og9goNtVSrEXcGBr5Dx1npOAndICXbgO1ss3aI0e1Rw9y7uM29s0oePrO1b0JwPOK/tQrejW4T9k4I9Ed4zK35VWZGpWEQ8Hk3tpl5MysbLFYX2R/10ogNAQJXik18ob08r1EjPnMz+vRxsWWWvttu7UtuTHL3pYRxNORIR2bF0rpbhmNLzvb7xLRTXEib7N12q3GjpG3wn5smHGja+V7gCxXW5jAzEXrZ77eB+/IK4krgULv/uNlhm+ugEf39zoBg+kzglzX0+W9buEjTTYkdaZ1jmjot6L6lxvk3OL4jgX/maNvLTIsI8bTcElvP9lXassc60yFNEJdZUH2ys1fnmIA9akfvUHOcvkzrMsJrgfWtJSLb3b4uFkgdFtCmV0YqcJwLPL+aEoea7/q+tMaQSX8XgpGkCW2Ussu6RsbGcX/O9lMshCRJzyT8vYfF9iKMqiG+qYAExn2StgSmSndZUP09fEJsxL+Y3YAZp5PNIK6ET5hHeiVwZIBWCNWIu2rUQq8Bv3e/b8qYR4SBsaOwHmgXCyuND2x3tB1/kYa+I4FmrYWnIlxHeFHzGEuVkiNkd4mlU5en2OG7zDS6AvhG8hkZtku+a9Ic4SFLvvc37ddX0qGSxsfSSqsk9amgEZtdaqtzhX59WuviOmij/pLeiI1vYgr9pRYQflbSHZYaq3UMoyRtj2mKlwLmd4qkOa7NghTaE2MZqRt8FqPCdYKkZQlaLHReA01O5tu6rpG0WtJcSZOz2udZwIcTBvmgpF9LeiyhOmZLSj7UC+KKlD69IF5Up6PxTJc9kKQNkv4q6evWx9WSfmEL6F/m2joJ4shY/xFWS7rbBPJoSYfbNV7SrTEhWWqpx9AsiSRNl3SSz+9K2tuyWpfHjvNqBDF+9c5Dn+dTgYHAbcAJCSGDpOPhaymVKuOAP9n9ipS4nK9dmwjcX6ejcYzx2ts922pHSwcz1r2DsgK4uorgcCXTZa45EzsoVwcNiAWLX3ax1UEuagHlAuDvAw8H9DUVuNyCzlAusn3GHJzNtu5D3RpHHm23gIjGDeb1y6p1QgPa4y0+vAD4Y96j2V9XmfpdbVpvl1WxrDPHY7rlRLPqEaMc8sspdAvdzjy/zk7DQZJujiX649gu6baM6qC81zGSmpxpcIYZ/FnYbnWLI3P29y1Jzwfwb5I0T9I1gRrRV9GE1mpOdW3u9H+rJsX3U7tONeN5gDkziy0qH/IZwTbbDVmB4XnGrz3ZFdd5sdzCCD+hXPV9omn9Ei3l+TOob5l+XMvssIzQPMqV4KdbYLiTaZr1NpalpkF+VUVftxj/SywM18ecr47uJFhtoZcfWJ+TTdulJRSeoqX+83zgwYCxnOXun2y1IMVXfK2wp3nqm9qwj2No+a5mGeVCVx8jHGRCUrJxrKkiDVgJfSgXyfY386qdCeETsT6us7WAciFEEsZS/n4p+g8XRtpmqYQLaV3M2xP3eUEhiLsfXhCX0/Jh2ocRi1xqr5FykcSiBLrRFgaMTsDplu7LlVkp0DbH8kcBVwK/M03eF3jOjtzZluobBZxC6zz0GuCrcUaFIL6/+LAfR3OAa8w77+dShMdWoH/DfItNaZmLAoXwVYNplD+FnU3509d4SV+ThYoeoJwj/0/iMVHYiO8LzrF45TrgHx+heY2iXHPY05RcVKk0I8vhKgSxwAcCxdFc4AOB/wGvfDzvGYjQGQAAAABJRU5ErkJggg==" alt="Life Pay" loading="eager" decoding="async">
         </div>
       </div>
       <nav id="navigation" aria-label="Основная навигация"></nav>
@@ -3522,6 +3592,24 @@ function hasApplication(r){
   var id=norm(r.numero==null?'':r.numero);
   return !!id && ['-','—','нет','н/д','na','n/a','null'].indexOf(id)===-1;
 }
+function servicePartner(r){
+  // Строго по полю «Партнёр» из исходной заявки, а НЕ по статусу оплаты.
+  // Разные написания одного сервис-партнёра распознаются как одна компания.
+  var partner=norm(r && r.partner);
+  if (!partner) return '';
+  if (contains(partner,['авт биз','авт.биз','авт-биз','автобиз','авто биз','авто.биз','автобизнес','автоматизация бизнеса','autobiz','auto biz','auto-biz'])) return 'avtbiz';
+  if (['lp','life pay','lifepay','лп','лайф пей','лайфпей'].some(function(k){return token(partner,k);})) return 'lp';
+  return '';
+}
+function isAutoBiz(r){ return servicePartner(r)==='avtbiz'; }
+function isPaidInstallation(r,kind,c){
+  // То же правило оплаты, что и у остальных финансовых показателей: сумма > 0,
+  // исключая счёт и записи без номера заявки.
+  if(!hasApplication(r)||rev(r,c)<=0)return false;
+  if(kind==='avtbiz')return servicePartner(r)==='avtbiz';
+  if(kind==='lp')return servicePartner(r)==='lp'&&bucket(r,c)==='lp';
+  return false;
+}
 function summary(records,c){
   var s={total:0,done:0,closed:0,paid:0,revenue:0,lp:0,sp:0,other:0,invoice:0,noesp:0,noespCount:0,unknownBank:0,undated:0};
   records.forEach(function(r){
@@ -3654,7 +3742,7 @@ function csv(rows,cols){
     .join('\r\n');
 }
 return{FIELDS,BANKS,norm,contains,validMonth,parseDate,amount,defaults,validateConfig,
-  isInvoice,isDone,isClosed,hasApplication,bucket,bank,rev,summary,emptyMonth,validatePatch,
+  isInvoice,isDone,isClosed,hasApplication,isPaidInstallation,bucket,bank,rev,summary,emptyMonth,validatePatch,
   monthly,eventSummary,activityPeriods,filter,income,periodKey,periods,csv};
 })();
 </script>
@@ -3706,7 +3794,7 @@ const TITLES = {home:'Главная',banks:'Банки',finance:'Финансы
 const s = {
   data:null, page:'home', month:'', gran:'month', tab:'money',
   planStatus:'', planResult:'',
-  tablePage:1, sort:'amount', direction:-1, paid:'',
+  tablePage:1, sort:'amount', direction:-1, paid:'', installation:'',
   filter:{q:'',partner:'',status:'',task:'',responsible:'',priority:'',bank:'',source:''},
   draft:{}, invalid:{}, timer:null, saving:null, saveError:'',
   configDraft:null, configDirty:false, loaded:false, fx:true
@@ -3867,7 +3955,7 @@ async function flush(){
 
 function numericInput(field, label){
   const value = Object.prototype.hasOwnProperty.call(s.draft,field) ? s.draft[field] : manual()[field];
-  const disabled = !s.month, auto = manual().auto[field];
+  const disabled = !s.month, auto = (manual().auto||{})[field];
   return `<input type="number" min="0" max="9999999999" step="${['sp','esp'].includes(field)?'.01':'1'}"
     data-field="${field}" aria-label="${h(label)}" value="${value==null?'':value}"
     placeholder="${auto!=null?'Авто: '+auto:'Введите значение'}"
@@ -3876,7 +3964,8 @@ function numericInput(field, label){
 
 /* ---- компоненты ---- */
 function kpi(label,valueHtml,meta){
-  return `<section class="glass kpi"><div class="label">${h(label)}</div><strong>${valueHtml}</strong><div class="meta">${h(meta||'')}</div></section>`;
+  // Подписи под числами скрыты во всех вкладках; расчёты и значения сохранены.
+  return `<section class="glass kpi"><div class="label">${h(label)}</div><strong>${valueHtml}</strong></section>`;
 }
 function card(title,body,sub,extra){
   sub=sub||''; extra=extra||'';
@@ -3885,7 +3974,7 @@ function card(title,body,sub,extra){
 const empty = text => `<div class="empty"><strong>Нет данных</strong><p>${h(text||'Измените период или фильтры.')}</p></div>`;
 
 function filters(){
-  const sets = {partner:'Все партнёры',status:'Все статусы',task:'Все передачи',responsible:'Все ответственные',priority:'Все приоритеты'};
+  const sets = {partner:'Все сервис-партнёры',status:'Все статусы',task:'Все передачи',responsible:'Все ответственные',priority:'Все приоритеты'};
   function sel(k){
     const vals = [...new Set(s.data.records.map(r=>r[k==='task'?'taskStatus':k]).filter(Boolean))].sort();
     return `<select data-filter="${k}" aria-label="${sets[k]}"><option value="">${sets[k]}</option>${
@@ -3911,7 +4000,7 @@ function filters(){
 function chart(labels, series, opts){
   opts = opts||{};
   series = (series||[]).filter(Boolean);
-  if(!labels.length||!series.length) return empty('Нет записей для графика.');
+  if(!labels.length||!series.length) return empty('Нет данных для графика.');
   const uid = 'c'+(++chartId);
   const W=1000,H=320,L=72,R=opts.dual?72:28,T=26,B=52;
   const plotW=W-L-R, plotH=H-T-B, baseY=T+plotH, n=labels.length;
@@ -4062,7 +4151,7 @@ function heroPlan(source){
   const left=plan!=null?Math.max(0,plan-done):null;
   const ledger=s.data.ledger||{};
   const monthly=Piot.monthly(records,cfg());
-  const historyKeys=!s.month?Array.from(new Set(Object.keys(ledger).concat(s.data.months||[],Object.keys(monthly)))).filter(Piot.validMonth).sort().reverse():[];
+  const historyKeys=!s.month?Object.keys(ledger).filter(k=>Piot.validMonth(k)&&ledger[k]&&ledger[k].plan!=null&&Number.isFinite(Number(ledger[k].plan))).sort().reverse():[];
   const historyMarkup=!s.month?`<div class="plan-history-inline">
     <div class="plan-history-inline-head"><strong>История планов</strong><span>${historyKeys.length?number(historyKeys.length)+' мес.':'за всё время'}</span></div>
     ${historyKeys.length?`<div class="plan-history-inline-list">${historyKeys.map(k=>{
@@ -4109,8 +4198,9 @@ function heroPlan(source){
 }
 
 function heroOpen(source){
-  const a=Piot.eventSummary(source||s.data.records,cfg(),s.month);
-  const act=Piot.activityPeriods(source||s.data.records,s.month?'day':'month',cfg(),s.month);
+  const records=source||eventRows();
+  const a=Piot.eventSummary(records,cfg(),s.month);
+  const act=Piot.activityPeriods(records,s.month?'day':'month',cfg(),s.month);
   const series=act.map(x=>Math.max(0,x.total-x.done));
   const share=a.total?Math.round(a.open/a.total*100):0;
   return `<section class="hero blue">
@@ -4134,18 +4224,28 @@ function heroOpen(source){
 }
 
 function taskStatusDashboard(){
-  const src=Piot.filter(s.data.records,Object.assign({month:s.month},s.filter,{task:''}),cfg()).filter(r=>r.source==='main'&&String(r.taskStatus||'').trim());
+  // Результаты встреч сохраняют прежний подсчёт; платные установки считаются
+  // отдельно из тех же заявок за месяц и с теми же общими фильтрами.
+  const base=Piot.filter(s.data.records,Object.assign({month:s.month},s.filter),cfg()).filter(r=>r.source==='main');
+  const src=base.filter(r=>String(r.taskStatus||'').trim());
   const total=src.length;
+  const paidTotal=base.filter(Piot.hasApplication).length;
   const priority=[
     {name:'Клиент сам установил',tone:'',index:'01',label:'РЕЗУЛЬТАТ № 1',caption:'Самостоятельная установка · количество клиентов'},
-    {name:'Клиент настроен с нашей помощью',tone:'assist',index:'02',label:'РЕЗУЛЬТАТ № 2',caption:'Установка с помощью нашей команды'}
+    {name:'Клиент настроен с нашей помощью',tone:'assist',index:'02',label:'РЕЗУЛЬТАТ № 2',caption:'Установка с помощью нашей команды'},
+    {name:'Платные установки Life Pay',tone:'paid-lp',index:'03',label:'ПЛАТНЫЕ УСТАНОВКИ',caption:'Заявки Life Pay с оплаченной суммой',installation:'lp'},
+    {name:'Платные установки Авт.Биз',tone:'paid-autobiz',index:'04',label:'ПЛАТНЫЕ УСТАНОВКИ',caption:'Заявки партнёра Авт.Биз с оплаченной суммой',installation:'avtbiz'}
   ];
   const matches=(v,t)=>{ const a=Piot.norm(v),b=Piot.norm(t); return a===b||a.startsWith(b+':')||a.startsWith(b+' '); };
   const countFor=t=>src.filter(r=>matches(r.taskStatus,t)).length;
-  const share=k=>total?Math.round(k/total*100):0;
+  const share=(k,denom)=>denom?Math.round(k/denom*100):0;
   const featured=priority.map(p=>{
-    const k=countFor(p.name), part=share(k), active=s.filter.task===p.name;
-    return `<button type="button" class="priority-status-card ${p.tone}${active?' active':''}" data-task-status="${h(p.name)}" aria-pressed="${active}">
+    const isPaid=!!p.installation;
+    const k=isPaid?base.filter(r=>Piot.isPaidInstallation(r,p.installation,cfg())).length:countFor(p.name);
+    const part=share(k,isPaid?paidTotal:total);
+    const active=isPaid?s.installation===p.installation&&s.page==='table':s.filter.task===p.name;
+    const action=isPaid?`data-paid-installation="${p.installation}"`:`data-task-status="${h(p.name)}"`;
+    return `<button type="button" class="priority-status-card ${p.tone}${active?' active':''}" ${action} aria-pressed="${active}">
       <span class="priority-kicker"><span class="priority-index">${p.index}</span>${p.label}</span>
       <span class="priority-status-title">${h(p.name)}</span>
       <span class="priority-status-caption">${p.caption}</span>
@@ -4156,7 +4256,7 @@ function taskStatusDashboard(){
   const counts=new Map();
   src.forEach(r=>{ const name=String(r.taskStatus||'').trim()||'Без статуса'; counts.set(name,(counts.get(name)||0)+1); });
   const others=Array.from(counts.entries())
-    .filter(([name])=>name==='Без статуса'||!priority.some(p=>matches(name,p.name)))
+    .filter(([name])=>name==='Без статуса'||!priority.some(p=>!p.installation&&matches(name,p.name)))
     .sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'ru'));
   const otherHtml=others.length
     ?`<div class="priority-other-list">${others.map(([name,k])=>{
@@ -4168,22 +4268,22 @@ function taskStatusDashboard(){
           :`<button type="button" class="priority-other-row${active?' active':''}" data-task-status="${h(name)}" aria-pressed="${active}">${row}</button>`;
       }).join('')}</div>`
     :'<p class="note" style="margin:8px 0">Других статусов пока нет.</p>';
-  return card('Результат встреч с клиентами',
+  return card('Результат клиентами',
     `<div class="priority-status-grid">${featured}</div>
      <details class="result-catalog"><summary>Каталог остальных результатов <span>${others.length} статусов</span></summary>
        <div class="priority-other-heading"><span>Другие статусы</span><span>Количество и доля</span></div>${otherHtml}
      </details>`,
-    '01 — клиент сам установил · 02 — настроен с нашей помощью. Нажмите для просмотра заявок.');
+    'Нажмите на карточку, чтобы открыть подходящие заявки. Платные установки — с положительной суммой, без счетов.');
 }
 
 function financeHero(){
   const inc=scopedIncome();
   const metrics=[
-    {label:'Установка Life Pay',value:cVal(inc.lp,true),meta:'Только установки LP',color:'#22d092'},
-    {label:'ЕСП без задачи',value:cVal(inc.espNoTask,true),meta:number(inc.espNoTaskCount)+' записей',color:'#57b4ff'},
-    {label:'Доход ЕСП',value:cVal(inc.espManual,true),meta:'Из листа «Суммы»',color:'#a279ff'},
-    {label:'ЕСП всего',value:cVal(inc.totalEsp,true),meta:'ЕСП без задачи + доход ЕСП',color:'#f7b04a'},
-    {label:'СП отдельно',value:cVal(inc.sp,true),meta:'Не входит в общий доход',color:'#4a89ff'}
+    {label:'Установка Life Pay',value:cVal(inc.lp,true),color:'#22d092'},
+    {label:'ЕСП без задачи',value:cVal(inc.espNoTask,true),color:'#57b4ff'},
+    {label:'Доход ЕСП',value:cVal(inc.espManual,true),color:'#a279ff'},
+    {label:'ЕСП всего',value:cVal(inc.totalEsp,true),color:'#f7b04a'},
+    {label:'СП отдельно',value:cVal(inc.sp,true),color:'#4a89ff'}
   ];
   return `<section class="finance-hero">
     <div class="finance-hero-top">
@@ -4196,7 +4296,6 @@ function financeHero(){
           </div>
           <div class="finance-hero-copy">
             <h2 class="finance-hero-title">Доходы в одной сводке</h2>
-            <div class="finance-hero-sub">Все ключевые суммы собраны в одном месте: установки, ЕСП без задачи, доход ЕСП и общий доход без СП.</div>
           </div>
         </div>
       </div>
@@ -4208,7 +4307,7 @@ function financeHero(){
         <div class="finance-total-value">${cVal(inc.total,true)}</div>
         <div class="finance-total-note">Формула: установка Life Pay + ЕСП без задачи + доход ЕСП. СП показывается отдельно и в общий итог не включается.</div>
       </div>
-      <div class="finance-metric-grid">${metrics.map(m=>`<div class="finance-metric-card liquid-glass-card" style="--fm-color:${m.color}"><span class="finance-metric-label">${m.label}</span><span class="finance-metric-value">${m.value}</span><span class="finance-metric-meta">${m.meta}</span></div>`).join('')}</div>
+      <div class="finance-metric-grid">${metrics.map(m=>`<div class="finance-metric-card liquid-glass-card" style="--fm-color:${m.color}"><span class="finance-metric-label">${m.label}</span><span class="finance-metric-value">${m.value}</span></div>`).join('')}</div>
     </div>
   </section>`;
 }
@@ -4217,12 +4316,12 @@ function incomeBlock(extraBtn){
   const inc=scopedIncome();
   return card('Доходы за '+(s.month?monthLabel(s.month):'всё время'),
     `<div class="income-kpis">
-      ${kpi('Установка Life Pay',cVal(inc.lp,true),'Только установки LP')}
-      ${kpi('ЕСП без задачи',cVal(inc.espNoTask,true),number(inc.espNoTaskCount)+' записей')}
-      ${kpi('Доход ЕСП',cVal(inc.espManual,true),'Из листа «Суммы»')}
-      ${kpi('ЕСП всего',cVal(inc.totalEsp,true),'ЕСП без задачи + доход ЕСП')}
-      ${kpi('Общий доход без СП',cVal(inc.total,true),'Life Pay + ЕСП всего')}
-      ${kpi('СП отдельно',cVal(inc.sp,true),'В общий доход не входит')}
+      ${kpi('Установка Life Pay',cVal(inc.lp,true))}
+      ${kpi('ЕСП без задачи',cVal(inc.espNoTask,true))}
+      ${kpi('Доход ЕСП',cVal(inc.espManual,true))}
+      ${kpi('ЕСП всего',cVal(inc.totalEsp,true))}
+      ${kpi('Общий доход без СП',cVal(inc.total,true))}
+      ${kpi('СП отдельно',cVal(inc.sp,true))}
     </div>`,
     'Установки Life Pay + ЕСП без задачи + доход ЕСП. СП в итог не включается.',
     extraBtn||'<button class="text-btn" data-page="finance">Подробнее →</button>'
@@ -4233,12 +4332,11 @@ function espSummaryCard(){
   const inc=scopedIncome();
   return `<section class="glass card esp-details">
     <header class="cardhead"><div><h2>ЕСП без задачи — отдельный учёт</h2><p class="muted">Лист «Отсутствует задача ЕСП» · ${h(s.month?monthLabel(s.month):'за всё время')}</p></div>
-      <button type="button" class="text-btn" data-noesp-table>Показать записи →</button></header>
+      <button type="button" class="text-btn" data-noesp-table>Открыть заявки →</button></header>
     <div class="esp-figures">
-      ${kpi('Записей ЕСП',cVal(inc.espNoTaskCount),'Количество строк')}
-      ${kpi('Сумма ЕСП без задачи',cVal(inc.espNoTask,true),'Автоматически из листа')}
-      ${kpi('ЕСП из «Суммы»',cVal(inc.espManual,true),'Ручной показатель')}
-      ${kpi('ЕСП всего',cVal(inc.totalEsp,true),'Сумма двух источников')}
+      ${kpi('Сумма ЕСП без задачи',cVal(inc.espNoTask,true))}
+      ${kpi('Доход ЕСП',cVal(inc.espManual,true))}
+      ${kpi('ЕСП всего',cVal(inc.totalEsp,true))}
     </div>
     <p class="note">Сумма ЕСП включена в общий доход без СП один раз.</p>
   </section>`;
@@ -4251,10 +4349,10 @@ function home(){
   html+=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
   if(cfg().showStatuses) html+=taskStatusDashboard();
   html+=`<div class="kpis home-summary">
-    ${kpi('Всего заявок',cVal(a.total),'По дате создания')}
-    ${kpi('Выполнено',cVal(a.done),'По дате статуса')}
-    ${kpi('Закрыто',cVal(a.closed),'По дате статуса')}
-    ${kpi('Оплачено',cVal(a.paid),'Установки по заявкам')}
+    ${kpi('Всего заявок',cVal(a.total))}
+    ${kpi('Выполнено',cVal(a.done))}
+    ${kpi('Закрыто',cVal(a.closed))}
+    ${kpi('Оплачено',cVal(a.paid))}
   </div>`;
   if(cfg().showCharts){
     const p=Piot.activityPeriods(eventRows(),s.month?'day':'month',cfg(),s.month);
@@ -4262,7 +4360,7 @@ function home(){
       {name:'Создано',values:p.map(x=>x.total),color:'#62b5ff'},
       {name:'Выполнено',values:p.map(x=>x.done),color:'#00a56a'},
       {name:'Закрыто',values:p.map(x=>x.closed),color:'#9060ed',area:false}
-    ],{title:'Поток заявок'}),'Создано — по дате создания. Выполнено и закрыто — по дате статуса.');
+    ],{title:'Поток заявок'}),'');
   }
   return html;
 }
@@ -4290,10 +4388,10 @@ function banks(){
   let html=filters();
   if(!cfg().showBanks) return html+card('Банки',empty('Карточки банков отключены в настройках.'));
   html+=`<div class="bank-summary-grid">
-    ${kpi('Распознано',cVal(matched),'Заявок по банкам')}
-    ${kpi('Выручка банков',cVal(revenue,true),'Без счетов')}
-    ${kpi('Выполнено',cVal(done),'По дате статуса')}
-    ${kpi('Не распределено',cVal(unknown),'Банк не найден')}
+    ${kpi('Распознано',cVal(matched))}
+    ${kpi('Выручка банков',cVal(revenue,true))}
+    ${kpi('Выполнено',cVal(done))}
+    ${kpi('Не распределено',cVal(unknown))}
   </div>
   <div class="bank-grid">${bs.map(b=>`
     <section class="glass bank-card" style="--brand:${b.color};--bank-order:${Piot.BANKS.findIndex(v=>v.id===b.id)}" data-bank="${b.id}">
@@ -4385,7 +4483,7 @@ function periodChart(rr,title){
   return card(title,chart(ps.map(x=>shortLabel(x.key)),[
     {name:'Life Pay',values:ps.map(x=>x.lp),color:'#00a56a'},
     {name:'ЕСП без задачи',values:ps.map(x=>x.espNoTask),color:'#8a52e8'},
-    {name:'Доход ЕСП (из «Суммы»)',values:ps.map(x=>x.espManual),color:'#e99b35',area:false}
+    {name:'Доход ЕСП',values:ps.map(x=>x.espManual),color:'#e99b35',area:false}
   ],{money:true,title}),'СП исключён из дохода; ЕСП вручную распределяется только по месяцам.',granTabs());
 }
 
@@ -4399,7 +4497,7 @@ function trend(){
     {name:'Создано',values:p.map(x=>x.total),color:'#62b5ff'},
     {name:'Выполнено',values:p.map(x=>x.done),color:'#00a56a'},
     {name:'Закрыто',values:p.map(x=>x.closed),color:'#9060ed',area:false}
-  ],{title:'Поступление и выполнение'}),'Создано — дата создания. Выполнено/закрыто — дата статуса.',granTabs());
+  ],{title:'Поступление и выполнение'}),'',granTabs());
   html+=periodChart(rr,'Life Pay и ЕСП без СП');
   html+=`<div class="row2">
     ${card('Доля по банкам',donut(Piot.BANKS.map(b=>({name:b.name,color:b.color,value:rr.filter(r=>Piot.hasApplication(r)&&Piot.bank(r,cfg())===b.id).length})),'заявок'),'По числу заявок')}
@@ -4420,7 +4518,7 @@ function finance(){
   html+=espSummaryCard();
   if(cfg().showCharts)html+=periodChart(rr,'Доход без СП по периодам');
   const t=`<div class="table-wrap"><table>
-    <thead><tr><th>Период</th><th>Заявок</th><th>Life Pay</th><th>ЕСП без задачи</th><th>Доход ЕСП из «Суммы»</th><th>Доход без СП</th><th>СП отдельно</th></tr></thead>
+    <thead><tr><th>Период</th><th>Заявок</th><th>Life Pay</th><th>ЕСП без задачи</th><th>Доход ЕСП</th><th>Доход без СП</th><th>СП отдельно</th></tr></thead>
     <tbody>${ps.map(p=>`<tr>
       <td>${h(p.key==='Без даты'?p.key:s.gran==='month'?monthLabel(p.key):p.key)}</td>
       <td>${number(p.total)}</td>
@@ -4429,8 +4527,7 @@ function finance(){
       <td class="number">${s.gran==='month'?rub(p.espManual):'—'}</td>
       <td class="number">${rub(p.totalIncome)}</td>
       <td class="number">${rub(p.sp)}</td></tr>`).join('')}</tbody></table></div>
-    <p class="note">Общий доход = Life Pay + ЕСП без задачи + доход ЕСП из «Суммы». СП показан отдельно.
-      ${s.gran==='month'?'':'Ручной доход ЕСП не распределяется по дням и неделям; он учтён в общем месячном показателе выше.'}</p>`;
+`;
   html+=card('Сводка доходов по периодам',ps.length?t:empty(),'',granTabs());
   return html;
 }
@@ -4506,7 +4603,9 @@ function planMatchesResult(value,target){
 function planRecords(){
   return Piot.filter(s.data.records,Object.assign({month:s.month},s.filter),cfg()).filter(r=>r.source==='main'&&(String(r.status||'').trim()||String(r.taskStatus||'').trim())
     &&(!s.planStatus||r.status===s.planStatus)
-    &&(!s.planResult||planMatchesResult(r.taskStatus,s.planResult)));
+    &&(!s.planResult||(s.planResult==='paid-lp'?Piot.isPaidInstallation(r,'lp',cfg()):
+      s.planResult==='paid-avtbiz'?Piot.isPaidInstallation(r,'avtbiz',cfg()):
+      planMatchesResult(r.taskStatus,s.planResult))));
 }
 
 function planControls(){
@@ -4528,6 +4627,8 @@ function planControls(){
           <option value="">Все результаты</option>
           <option value="Клиент сам установил"${s.planResult==='Клиент сам установил'?' selected':''}>01 · Сам установил</option>
           <option value="Клиент настроен с нашей помощью"${s.planResult==='Клиент настроен с нашей помощью'?' selected':''}>02 · С нашей помощью</option>
+          <option value="paid-lp"${s.planResult==='paid-lp'?' selected':''}>03 · Платные установки Life Pay</option>
+          <option value="paid-avtbiz"${s.planResult==='paid-avtbiz'?' selected':''}>04 · Платные установки Авт.Биз</option>
         </select>
       </label>
     </div>
@@ -4536,25 +4637,42 @@ function planControls(){
 
 function planPage(){
   const ledger=s.data.ledger, m=ledger[s.month]||Piot.emptyMonth();
-  const source=planRecords();
-  const mm=Piot.monthly(source,cfg());
-  const auto=mm[s.month]||Piot.summary([],cfg()), done=auto.done||0;
-  const keys=Array.from(new Set(Object.keys(ledger).concat(s.data.months||[],Object.keys(mm)))).filter(Piot.validMonth).sort().reverse();
+  // One canonical event stream for plan statistics on Home and Plan pages.
+  // IMPORTANT: do not pre-filter by the application creation month: completed
+  // tasks are attributed to the month of dateStatus by Piot.eventSummary.
+  const commonRecords=eventRows();
+  const stats=Piot.eventSummary(commonRecords,cfg(),s.month);
+  const mm=Piot.monthly(commonRecords,cfg());
+  const done=stats.done;
+  // Plan-page-only dropdowns are used for the result categories below, not
+  // for changing the monthly headline (which must match Home).
+  const resultRecords=planRecords();
+  const paidResultRecords=Piot.filter(s.data.records,Object.assign({month:s.month},s.filter),cfg()).filter(r=>r.source==='main'&&(!s.planStatus||r.status===s.planStatus));
+  const keys=Object.keys(ledger).filter(k=>Piot.validMonth(k)&&ledger[k]&&ledger[k].plan!=null&&Number.isFinite(Number(ledger[k].plan))).sort().reverse();
   let html=filters();
   html+=planControls();
-  html+=`<div class="hero-grid">${heroPlan(source)}${heroOpen(source)}</div>`;
+  html+=`<div class="hero-grid">${heroPlan(commonRecords)}${heroOpen(commonRecords)}</div>`;
   if(!s.month) html+='<div class="inactive-warning">Выбран период «За всё время». История планов доступна ниже. Чтобы изменить план, выберите конкретный месяц.</div>';
   html+=`<div class="kpis">
     ${kpi('План на месяц',s.month&&m.plan!=null?cVal(m.plan):'—')}
-    ${kpi('Выполнено',s.month?cVal(done):'—','По дате статуса')}
+    ${kpi('Выполнено',s.month?cVal(done):'—')}
     ${kpi('Осталось',s.month&&m.plan!=null?cVal(Math.max(0,m.plan-done)):'—')}
     ${kpi('Выполнение',m.plan!=null&&m.plan>0?pct(done,m.plan)+'%':'—')}
   </div>`;
-  html+=card('Результат встреч с клиентами',`<div class="plan-result-grid">
-    ${['Клиент сам установил','Клиент настроен с нашей помощью'].map((name,i)=>{
-      const n=source.filter(r=>planMatchesResult(r.taskStatus,name)&&(!s.month||(r.dateStatus||r.date||'').slice(0,7)===s.month)).length;
-      return `<button class="plan-result" data-plan-pick="${h(name)}" type="button"><span>0${i+1} · ${h(name)}</span><strong>${cVal(n)}</strong><span>Открыть категорию →</span></button>`;
-    }).join('')}</div>`,'01 — самостоятельно · 02 — с нашей помощью');
+  const resultItems=[
+    {name:'Клиент сам установил',index:'01'},
+    {name:'Клиент настроен с нашей помощью',index:'02'},
+    {name:'Платные установки Life Pay',index:'03',installation:'lp',tone:'paid-lp'},
+    {name:'Платные установки Авт.Биз',index:'04',installation:'avtbiz',tone:'paid-autobiz'}
+  ];
+  html+=card('Результат клиентами',`<div class="plan-result-grid">
+    ${resultItems.map(item=>{
+      const n=item.installation
+        ?paidResultRecords.filter(r=>Piot.isPaidInstallation(r,item.installation,cfg())).length
+        :resultRecords.filter(r=>planMatchesResult(r.taskStatus,item.name)).length;
+      const action=item.installation?`data-paid-installation="${item.installation}"`:`data-plan-pick="${h(item.name)}"`;
+      return `<button class="plan-result ${item.tone||''}" ${action} type="button"><span>${item.index} · ${h(item.name)}</span><strong>${cVal(n)}</strong><span>${item.installation?'Открыть заявки →':'Открыть категорию →'}</span></button>`;
+    }).join('')}</div>`,'Откройте категорию или заявки с платными установками.');
   const tbl=`<div class="table-wrap"><table>
     <thead><tr><th>Месяц</th><th>План</th><th>Выполнено</th><th>Закрыто</th><th>Выполнение</th></tr></thead>
     <tbody>${keys.map(k=>{
@@ -4563,14 +4681,14 @@ function planPage(){
       return `<tr><td><button class="text-btn" data-select-month="${k}">${monthLabel(k)}</button></td>
         <td>${number(row.plan)}</td><td>${number(a.done)}</td><td>${number(a.closed)}</td>
         <td style="min-width:120px"><div class="progress" style="--color:#00a56a"><i style="width:${Math.min(100,pp)}%"></i></div></td></tr>`;
-    }).join('')}</tbody></table></div>`;
-  html+=card('История по месяцам',tbl,'По текущему фильтру статусов','<button class="btn small" data-page="settings">'+icon('edit')+' Изменить</button>');
-  if(cfg().showCharts){
+    }).join('')}${keys.length?'':'<tr><td colspan="5" class="plan-no-months">Планы пока не внесены. Сохраните план в «Настройках» — месяц появится здесь.</td></tr>'}</tbody></table></div>`;
+  html+=card('История по месяцам',tbl,'','<button class="btn small" data-page="settings">'+icon('edit')+' Изменить</button>');
+  if(cfg().showCharts&&keys.length){
     const recent=keys.slice().sort().slice(-12);
     html+=card('План и выполнение',chart(recent.map(shortLabel),[
       {name:'План',type:'bar',values:recent.map(k=>ledger[k]?(ledger[k].plan||0):0),color:'#a3b1c1'},
       {name:'Выполнено',type:'bar',values:recent.map(k=>mm[k]?mm[k].done:0),color:'#29c58e'}
-    ],{title:'План и выполнение'}),'Последние 12 месяцев. Выбор статуса меняет выполнено, но не общий план.');
+    ],{title:'План и выполнение'}),'');
   }
   return html;
 }
@@ -4600,7 +4718,7 @@ const COL_HINTS={
 
 function tableRows2(){
   const sourceRows = rows().filter(r=>s.filter.source==='noesp' ? r.source==='noesp' : Piot.hasApplication(r));
-  return sourceRows.filter(r=>
+  return sourceRows.filter(r=>!s.installation||Piot.isPaidInstallation(r,s.installation,cfg())).filter(r=>
     s.paid==='paid'?Piot.rev(r,cfg())>0:
     s.paid==='invoice'?Piot.isInvoice(r,cfg()):
     s.paid==='zero'?r.amount===0:true
@@ -4616,13 +4734,17 @@ function tablePage2(){
   const part=rr.slice((s.tablePage-1)*per,s.tablePage*per);
   const sum=rr.reduce((a,r)=>a+(s.paid==='invoice'?Math.max(0,r.amount):Piot.rev(r,cfg())),0);
   let html=filters()+`<div class="table-toolbar">
+    <select id="installationFilter" aria-label="Фильтрация платных установок">
+      <option value=""${s.installation===''?' selected':''}>Все установки</option>
+      <option value="lp"${s.installation==='lp'?' selected':''}>Платные установки Life Pay</option>
+      <option value="avtbiz"${s.installation==='avtbiz'?' selected':''}>Платные установки Авт.Биз</option>
+    </select>
     <select id="paidFilter" aria-label="Фильтр по сумме и учёту">
       ${[['','Все заявки'],['paid','Учитываются в выручке'],['invoice','Счета — отдельный учёт'],['zero','Без указанной суммы']].map(([k,v])=>
         `<option value="${k}"${s.paid===k?' selected':''}>${v}</option>`).join('')}
     </select>
     <button class="btn primary" data-export>${icon('download')} Скачать CSV</button>
     <span class="toolbar-spacer"></span>
-    <span class="toolbar-stat"><strong>${rr.length}</strong> записей</span>
     <span class="toolbar-stat total"><strong>${rub(sum)}</strong> по выборке</span>
   </div>`;
   html+=`<section class="glass card"><div class="table-info"><span class="info-dot"></span><span><b>Как читать таблицу:</b> клиент и партнёр — поля исходной заявки; ответственный — сотрудник, указанный в записи; заказчик и юр. лицо показаны так, как они записаны в исходной таблице. Нажмите на заголовок столбца для сортировки.</span></div><div class="table-wrap"><table>
@@ -4864,7 +4986,13 @@ async function handleClick(e){
       return;
     }
     if(el.dataset.page) await navigate(el.dataset.page);
-    else if(el.hasAttribute('data-open-table')) await navigate('table');
+    else if(el.hasAttribute('data-open-table')){s.installation='';await navigate('table');}
+    else if(el.hasAttribute('data-paid-installation')){
+      s.installation=el.dataset.paidInstallation;
+      s.paid='';
+      s.tablePage=1;
+      await navigate('table');
+    }
     else if(el.hasAttribute('data-noesp-table')){
       Object.keys(s.filter).forEach(k=>s.filter[k]='');
       s.filter.source='noesp';
@@ -4873,10 +5001,10 @@ async function handleClick(e){
     else if(el.hasAttribute('data-plan-reset')){s.planStatus='';s.planResult='';render({fx:false});}
     else if(el.hasAttribute('data-plan-pick')){s.planResult=el.dataset.planPick;render({fx:false});}
     else if(el.hasAttribute('data-save')){ await flush(); toast('Месяц сохранён'); }
-    else if(el.hasAttribute('data-clear-filters')){ await flush(); Object.keys(s.filter).forEach(k=>s.filter[k]=''); s.tablePage=1; render(); }
+    else if(el.hasAttribute('data-clear-filters')){ await flush(); Object.keys(s.filter).forEach(k=>s.filter[k]=''); s.installation='';s.paid='';s.tablePage=1; render(); }
     else if(el.dataset.gran){ s.gran=el.dataset.gran; render({fx:false}); }
-    else if(el.dataset.bank){ s.filter.bank=el.dataset.bank; await navigate('table'); }
-    else if(el.hasAttribute('data-task-status')){ s.filter.task=el.dataset.taskStatus; s.tablePage=1; await navigate('table'); }
+    else if(el.dataset.bank){ s.installation='';s.filter.bank=el.dataset.bank; await navigate('table'); }
+    else if(el.hasAttribute('data-task-status')){ s.installation='';s.paid='';s.filter.task=el.dataset.taskStatus; s.tablePage=1; await navigate('table'); }
     else if(el.dataset.tab){ await flush(); s.tab=el.dataset.tab; render(); }
     else if(el.dataset.sort){ if(s.sort===el.dataset.sort)s.direction*=-1; else{s.sort=el.dataset.sort;s.direction=1;} s.tablePage=1; render({fx:false}); }
     else if(el.dataset.pag){ s.tablePage+=Number(el.dataset.pag); render({fx:false}); }
@@ -4932,6 +5060,7 @@ document.addEventListener('change',async e=>{
   else if(el.dataset.planResult!==undefined){ s.planResult=el.value; render({fx:false}); }
   else if(el.dataset.filter){ s.filter[el.dataset.filter]=el.value; s.tablePage=1; render({fx:false}); }
   else if(el.id==='paidFilter'){ s.paid=el.value; s.tablePage=1; render({fx:false}); }
+  else if(el.id==='installationFilter'){ s.installation=el.value; s.paid=''; s.tablePage=1; render({fx:false}); }
 });
 document.addEventListener('keydown',e=>{
   if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.field){ e.preventDefault(); flush().catch(()=>{}); }
