@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Life Pay</title>
 <!-- Самодостаточная иконка вкладки: работает и при размещении одного HTML на GitHub Pages -->
-<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB6klEQVR4nGNkwAI4NPT/YxOnBvhx4yIjMp8Fm8V2M3Mu08oBh9Kn/Ed2CNw1yJYfSp+ii00zl756Ly6Dv128WUyMA5DN/3HjIiMjMZbjs5gchyDbA3cANstJsZhUh8DsY6SF5aQ4ggmbBDUsJ9YcrA6gJ8BwALV8T6x5LPgkezLTPILtbbUZGBgY/Krqlly+d/8lIXUw8OX7919PXr/5uOno8RvTbz1i+Pb9O+kOIAf4VdUtuXL/wUsrbS25eeUlQWWRYba2qqoMgXEZDP//YxawNEkD////Zzh65eqjvefO3WVgYGCwNDFkMDXUw6qWponw+dt3n2FsGSkJ4hxAbJFKDJAUFuKFsZ88e4FVDdXTAAMDAwMjIyODpZamnLORkTIDAwPD8TPnGU6fv0S8A75dvFlMbnbc1NYUw8DAwPD1+49fd+8/YF6/dRfD7MUrsSZAnA6AOYKBgeEqqQ6AZVdioxJvFPx5/0kbnzw28PP2w5hvV24SrZ7oXPDz9sMYUh1DDCA6Ee5cvZCBgYEBJVgt3IMZ7j96zPDn/SeyHYCzOqYHwFkd0xOMOmDUAQSzodzaIooteRTch1NuwEMAb7+AlgBmHzwEDqVP0aVlnxCb5QwM0CiAdRTp4QisfUMYoFPvGG45AwMDAwC8jvAM61DTLgAAAABJRU5ErkJggg==">
+<link id="lifePayFavicon" rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB6klEQVR4nGNkwAI4NPT/YxOnBvhx4yIjMp8Fm8V2M3Mu08oBh9Kn/Ed2CNw1yJYfSp+ii00zl756Ly6Dv128WUyMA5DN/3HjIiMjMZbjs5gchyDbA3cANstJsZhUh8DsY6SF5aQ4ggmbBDUsJ9YcrA6gJ8BwALV8T6x5LPgkezLTPILtbbUZGBgY/Krqlly+d/8lIXUw8OX7919PXr/5uOno8RvTbz1i+Pb9O+kOIAf4VdUtuXL/wUsrbS25eeUlQWWRYba2qqoMgXEZDP//YxawNEkD////Zzh65eqjvefO3WVgYGCwNDFkMDXUw6qWponw+dt3n2FsGSkJ4hxAbJFKDJAUFuKFsZ88e4FVDdXTAAMDAwMjIyODpZamnLORkTIDAwPD8TPnGU6fv0S8A75dvFlMbnbc1NYUw8DAwPD1+49fd+8/YF6/dRfD7MUrsSZAnA6AOYKBgeEqqQ6AZVdioxJvFPx5/0kbnzw28PP2w5hvV24SrZ7oXPDz9sMYUh1DDCA6Ee5cvZCBgYEBJVgt3IMZ7j96zPDn/SeyHYCzOqYHwFkd0xOMOmDUAQSzodzaIooteRTch1NuwEMAb7+AlgBmHzwEDqVP0aVlnxCb5QwM0CiAdRTp4QisfUMYoFPvGG45AwMDAwC8jvAM61DTLgAAAABJRU5ErkJggg==">
 <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
-<meta name="theme-color" content="#082c31">
+<meta id="lifePayThemeColor" name="theme-color" content="#082c31">
 <meta name="apple-mobile-web-app-title" content="Life Pay">
 <style>
 /* ===== PASSWORD ACCESS SCREEN ===== */
@@ -3135,6 +3135,849 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
 @media(max-width:480px){#pinScreen .auth-card{padding:35px 22px 27px;border-radius:27px}}
 @media(prefers-reduced-motion:reduce){#pinScreen .auth-submit::before{animation:none!important}}
 
+
+/* ===== Ubuntu Neon · complete theme · progressive enhancement for all pages ===== */
+.mobile-brand-wordmark{
+  display:block; width:77px; height:auto; max-width:100%;
+  object-fit:contain; filter:brightness(0) saturate(100%) invert(14%) sepia(14%) saturate(2200%) hue-rotate(176deg);
+}
+:root[data-theme="dark"] .mobile-brand-wordmark,
+:root[data-theme="ubuntu"] .mobile-brand-wordmark{
+  filter:brightness(0) invert(1) drop-shadow(0 0 6px rgba(246,191,255,.25));
+}
+@media (max-width:390px){.mobile-brand-wordmark{width:68px}}
+.top-meta{position:relative}
+.life-theme-menu{
+  position:absolute;z-index:300;right:0;top:calc(100% + 11px);width:182px;
+  display:flex;flex-direction:column;gap:5px;padding:8px;
+  background:var(--glass-bg);color:var(--text);border:1px solid rgba(180,200,222,.45);
+  border-radius:18px;box-shadow:0 20px 42px rgba(15,24,50,.26);backdrop-filter:blur(22px);
+}
+.life-theme-menu[hidden]{display:none!important}
+.life-theme-menu-choice{display:flex;align-items:center;gap:11px;text-align:left;width:100%;min-height:38px;
+  padding:8px 11px;border:1px solid transparent;border-radius:12px;color:var(--text);font-weight:750;font-size:12px}
+.life-theme-menu-choice span{font-size:18px;width:21px;text-align:center}
+.life-theme-menu-choice:hover,.life-theme-menu-choice.selected{
+  background:rgba(126,138,188,.13);border-color:rgba(140,154,191,.27)}
+.life-theme-entry{width:100%;margin:18px auto 0;padding-top:15px;border-top:1px solid rgba(133,157,184,.22)}
+.life-theme-entry-title{font-size:10px;font-weight:850;letter-spacing:.8px;text-align:center;color:var(--pin-muted);margin-bottom:11px}
+.life-theme-entry-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;width:100%}
+.life-theme-choice{min-height:74px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
+  padding:9px 4px;background:rgba(255,255,255,.28);color:var(--pin-text);
+  border:1px solid rgba(135,153,175,.27);border-radius:16px;font-size:11px;font-weight:760;
+  transition:background .25s,transform .25s,border-color .25s,box-shadow .25s}
+.life-theme-choice:hover{transform:translateY(-2px)}
+.life-theme-choice.selected{border-color:#079e74;box-shadow:0 0 0 2px rgba(8,169,111,.12);background:rgba(0,165,106,.11)}
+.life-theme-choice-symbol{font-size:23px;line-height:1.2}
+.life-settings-themes{display:flex;gap:7px;flex-wrap:wrap;padding-top:8px}
+.life-settings-themes [data-theme-choice].selected{outline:2px solid var(--green);outline-offset:1px}
+#pinThemeToggle{display:none!important}
+@media(max-width:420px){.life-theme-choice{min-height:67px;padding:8px 2px}.life-theme-entry{margin-top:13px}}
+
+:root[data-theme="ubuntu"]{
+  color-scheme:dark;
+  --text:#fcf5ff;--muted:#dac3e8;--green:#ff9c32;--green-l:#3b1b55;--green-d:#ff782e;
+  --blue:#ac79ff;--purple:#c066ff;--orange:#ff8a35;--bg:#150920;
+  --glass-bg:linear-gradient(145deg,rgba(68,24,89,.87),rgba(30,12,56,.92));
+  --shadow:0 8px 27px rgba(12,2,26,.33),inset 0 1px 0 rgba(255,220,253,.16);
+  --shadow-hover:0 20px 40px rgba(12,2,26,.45),0 0 24px rgba(219,73,227,.11),inset 0 1px 0 rgba(255,210,253,.21);
+  --pin-bg:radial-gradient(ellipse at 88% 3%,rgba(255,105,17,.36),transparent 41%),
+           radial-gradient(ellipse at 0% 90%,rgba(175,57,254,.33),transparent 41%),
+           linear-gradient(145deg,#11051f,#2e0940 63%,#1a092b);
+  --pin-card-bg:linear-gradient(150deg,rgba(58,20,76,.95),rgba(24,9,48,.95));
+  --pin-border:rgba(240,138,255,.31);--pin-text:#fff7ff;--pin-muted:#d5b5e5;
+  --pin-key-bg:rgba(185,84,235,.1);--pin-key-border:rgba(246,164,255,.22);--pin-key-color:#ffedff;
+  --u-orange:#ff9a26;--u-magenta:#fc3cb4;--u-violet:#b56bff;--u-cyan:#7fddff;
+}
+:root[data-theme="ubuntu"] body{
+  color:var(--text);
+  background:radial-gradient(ellipse at 92% 9%,rgba(244,84,32,.27),transparent 38%),
+    radial-gradient(ellipse at 7% 33%,rgba(149,44,222,.31),transparent 39%),
+    radial-gradient(ellipse at 52% 100%,rgba(151,33,121,.22),transparent 43%),
+    #100619!important;background-attachment:fixed!important;
+}
+:root[data-theme="ubuntu"] .wave-bg{filter:hue-rotate(155deg) saturate(190%);opacity:.13;mix-blend-mode:screen}
+:root[data-theme="ubuntu"] .blobs{opacity:.34;filter:blur(58px) hue-rotate(190deg) saturate(150%)}
+:root[data-theme="ubuntu"] .shell{
+  background:linear-gradient(150deg,rgba(44,14,70,.86),rgba(24,8,43,.91) 57%,rgba(57,14,55,.89))!important;
+  border:1px solid rgba(255,164,247,.22)!important;
+  box-shadow:0 14px 68px rgba(5,0,17,.4),inset 0 1px 0 rgba(255,232,255,.08)!important;
+}
+:root[data-theme="ubuntu"] .brandbar{border-bottom-color:rgba(235,160,255,.19)!important}
+:root[data-theme="ubuntu"] .pagebar h1{
+  background:linear-gradient(105deg,#fff8ff,#ffbaff 54%,#ffad7b)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;
+}
+:root[data-theme="ubuntu"] .mobile-brand-mark,
+:root[data-theme="ubuntu"] .brand-logo-tile,
+:root[data-theme="ubuntu"] .sidebar-lifepay-wrap{
+  background:linear-gradient(130deg,#281039,#4d1756,#2d1038)!important;
+  border-color:rgba(255,149,219,.42)!important;
+  box-shadow:0 8px 24px rgba(255,69,157,.12),inset 0 1px 0 rgba(255,228,247,.19)!important;
+}
+:root[data-theme="ubuntu"] .mobile-brand-mark img{filter:hue-rotate(230deg) saturate(1.6)!important}
+:root[data-theme="ubuntu"] .brand-wordmark strong{color:#fff8ff!important}
+:root[data-theme="ubuntu"] .mobile-brand-copy small,
+:root[data-theme="ubuntu"] .brand-wordmark small{color:#ffad74!important}
+:root[data-theme="ubuntu"] .sidebar,
+:root[data-theme="ubuntu"] .glass,
+:root[data-theme="ubuntu"] .card,
+:root[data-theme="ubuntu"] .filterbar,
+:root[data-theme="ubuntu"] .income-overview,
+:root[data-theme="ubuntu"] .month-wrap,
+:root[data-theme="ubuntu"] .table-toolbar,
+:root[data-theme="ubuntu"] dialog,
+:root[data-theme="ubuntu"] .toast{
+  background:linear-gradient(145deg,rgba(75,29,98,.85),rgba(34,13,61,.86) 60%,rgba(63,21,66,.83))!important;
+  border-color:rgba(231,137,250,.24)!important;color:var(--text)!important;
+  box-shadow:var(--shadow)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(160%);backdrop-filter:blur(22px) saturate(160%);
+}
+:root[data-theme="ubuntu"] :is(.sidebar,.glass,.card,.filterbar,.income-overview,.bank-card,.finance-hero):hover{box-shadow:var(--shadow-hover)!important}
+:root[data-theme="ubuntu"] .navbtn{color:#e2caec!important}
+:root[data-theme="ubuntu"] .navbtn.active,
+:root[data-theme="ubuntu"] .navbtn:hover{
+  color:#fff9ff!important;background:linear-gradient(135deg,rgba(163,73,215,.24),rgba(247,76,155,.13))!important;
+  border-color:rgba(236,126,255,.24)!important;
+}
+:root[data-theme="ubuntu"] .navbtn.active::before{background:linear-gradient(180deg,#ffc04d,#f04bb6)!important}
+:root[data-theme="ubuntu"] .navbtn.active .ico{color:#ffb347!important}
+:root[data-theme="ubuntu"] :is(.btn,.icon-btn,.theme-toggle,.life-theme-menu-choice,.tabs button,.navbtn,.switchrow) {color:#fceeff}
+:root[data-theme="ubuntu"] :is(.btn,.icon-btn,.theme-toggle,.pill,.life-theme-menu){
+  border-color:rgba(248,159,255,.29)!important;background:linear-gradient(135deg,rgba(125,48,151,.47),rgba(66,24,89,.77))!important;
+  box-shadow:0 5px 18px rgba(17,4,36,.2),inset 0 1px 0 rgba(255,236,255,.12)!important;
+}
+:root[data-theme="ubuntu"] :is(.btn.primary,.auth-submit,.finance-hero-actions .btn,.life-theme-choice.selected){
+  background:linear-gradient(115deg,#8136db 0%,#db3cac 52%,#ff872b 100%)!important;
+  border-color:rgba(255,167,218,.67)!important;color:#fff!important;
+  box-shadow:0 12px 30px rgba(228,45,157,.24),inset 0 1px 0 rgba(255,255,255,.27)!important;
+}
+:root[data-theme="ubuntu"] .btn:not(:disabled):hover{filter:brightness(1.09);transform:translateY(-2px)}
+:root[data-theme="ubuntu"] .pill.ok{color:#ffe2bc!important;background:rgba(255,147,45,.16)!important;border-color:rgba(255,173,74,.34)!important}
+:root[data-theme="ubuntu"] :is(input,select,textarea),
+:root[data-theme="ubuntu"] :is(.field input,.filterbar input,.filterbar select,.month-wrap select,.plan-filter-controls select){
+  color:#fef5ff!important;background:linear-gradient(135deg,rgba(47,17,69,.92),rgba(84,28,92,.67))!important;
+  border-color:rgba(236,161,255,.28)!important;box-shadow:inset 0 1px 0 rgba(255,234,255,.08)!important;
+}
+:root[data-theme="ubuntu"] select option{color:#f8eeff!important;background:#251034!important}
+:root[data-theme="ubuntu"] input::placeholder,
+:root[data-theme="ubuntu"] textarea::placeholder{color:#c3a8d5!important}
+:root[data-theme="ubuntu"] :is(input,textarea,select):focus{outline-color:#de87ff;box-shadow:0 0 0 3px rgba(192,81,239,.22)!important}
+:root[data-theme="ubuntu"] .hero,
+:root[data-theme="ubuntu"] .priority-status-card,
+:root[data-theme="ubuntu"] .finance-hero,
+:root[data-theme="ubuntu"] .profit-hero,
+:root[data-theme="ubuntu"] .bank-card,
+:root[data-theme="ubuntu"] .plan-filter-card,
+:root[data-theme="ubuntu"] .priority-other-row,
+:root[data-theme="ubuntu"] .plan-history-inline{
+  color:var(--text)!important;
+  background:radial-gradient(ellipse at 95% 8%,rgba(255,110,46,.15),transparent 40%),
+             linear-gradient(145deg,rgba(90,32,118,.78),rgba(44,16,74,.87) 58%,rgba(75,24,90,.87))!important;
+  border-color:rgba(236,148,255,.27)!important;
+  box-shadow:var(--shadow)!important;
+}
+:root[data-theme="ubuntu"] :is(.hero,.priority-status-card,.bank-card)::after{background:rgba(255,117,36,.18)!important}
+:root[data-theme="ubuntu"] .priority-status-card.assist{--accent:#ad73ff!important}
+:root[data-theme="ubuntu"] .priority-status-card,
+:root[data-theme="ubuntu"] .hero{--accent:var(--u-orange)!important}
+:root[data-theme="ubuntu"] .priority-status-title,
+:root[data-theme="ubuntu"] .priority-status-caption,
+:root[data-theme="ubuntu"] .priority-status-foot,
+:root[data-theme="ubuntu"] .priority-status-card span,
+:root[data-theme="ubuntu"] .card h2,
+:root[data-theme="ubuntu"] .cardhead p,
+:root[data-theme="ubuntu"] .finance-hero-title,
+:root[data-theme="ubuntu"] .priority-status-card b{color:#fcefff!important}
+:root[data-theme="ubuntu"] .finance-hero-badge,
+:root[data-theme="ubuntu"] .priority-kicker{color:#ffb85c!important}
+:root[data-theme="ubuntu"] :is(.kpi,.hero-metric,.mini-glass,.finance-metric-card,.finance-total,
+  .finance-total-card,.profit-total,.profit-kpis>div,.bank-summary-grid .kpi,
+  .income-overview .income-kpis .kpi,.home-summary .kpi,.plan-history-item,
+  .priority-other-row,.priority-count-row>span,.priority-index,.priority-stat,
+  .plan-result,.plan-filter-controls,.security-stat){
+  color:#fef7ff!important;
+  background:linear-gradient(155deg,rgba(126,52,142,.30),rgba(55,24,89,.63))!important;
+  border-color:rgba(238,154,255,.20)!important;
+  box-shadow:0 3px 13px rgba(17,5,30,.15),inset 0 1px 0 rgba(255,232,255,.07)!important;
+}
+:root[data-theme="ubuntu"] :is(.kpi strong,.hero-metric b,.mini-glass b,.profit-total strong,.bank-revenue,
+  .finance-metric-value,.finance-total-value,.hero-big,.priority-count-row strong){color:#fff8ff!important}
+:root[data-theme="ubuntu"] :is(.muted,.note,.kpi .meta,.kpi .label,.hero-sub,.hero-note,.footer,
+  .finance-hero-description,.finance-metric-label,.finance-total-note,
+  .priority-status-caption,.plan-history-meta,.plan-history-month,
+  .tablefoot,.chart-details summary,.bank-revenue-label){color:#d7bee7!important}
+:root[data-theme="ubuntu"] .finance-total-value,
+:root[data-theme="ubuntu"] .hero-big{
+  background:linear-gradient(112deg,#fff5ff,#fdb1fc 52%,#ffa64c)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;
+}
+:root[data-theme="ubuntu"] .finance-hero-logo-wrap,
+:root[data-theme="ubuntu"] .finance-hero-logo{filter:drop-shadow(0 0 8px rgba(255,132,72,.28)) hue-rotate(155deg) saturate(1.4)!important}
+:root[data-theme="ubuntu"] .ring-bg{stroke:rgba(238,178,255,.19)!important}
+:root[data-theme="ubuntu"] .ring-fg{filter:hue-rotate(180deg) saturate(1.6) drop-shadow(0 0 5px #c565fa)}
+:root[data-theme="ubuntu"] .priority-track,
+:root[data-theme="ubuntu"] .progress,
+:root[data-theme="ubuntu"] .big-progress,
+:root[data-theme="ubuntu"] .plan-history-track{background:rgba(225,178,248,.18)!important}
+:root[data-theme="ubuntu"] :is(.priority-track i,.progress i,.big-progress i,.plan-history-track i,.plan-history-track b){
+  background:linear-gradient(90deg,#aa5efa,#f74bad,#ffa73a)!important;
+  box-shadow:0 0 10px rgba(235,71,179,.2)!important;
+}
+:root[data-theme="ubuntu"] .tabs,
+:root[data-theme="ubuntu"] .legend,
+:root[data-theme="ubuntu"] .table-wrap,
+:root[data-theme="ubuntu"] .table-toolbar{
+  background:rgba(55,22,78,.65)!important;border-color:rgba(245,174,255,.24)!important;
+}
+:root[data-theme="ubuntu"] .tabs button.active,
+:root[data-theme="ubuntu"] .legend button,
+:root[data-theme="ubuntu"] .bank-filter-chip{
+  color:#fbf0ff!important;background:linear-gradient(125deg,rgba(123,55,160,.43),rgba(69,24,102,.55))!important;
+  border-color:rgba(236,152,254,.31)!important;
+}
+:root[data-theme="ubuntu"] .table-wrap table,
+:root[data-theme="ubuntu"] .table-wrap td{color:#f5e9ff!important;border-color:rgba(239,180,253,.17)!important}
+:root[data-theme="ubuntu"] .table-wrap th{
+  color:#f1ccff!important;background:#4b2264!important;border-color:rgba(239,184,255,.24)!important;
+}
+:root[data-theme="ubuntu"] .table-wrap tbody tr:hover{background:rgba(190,92,215,.14)!important}
+:root[data-theme="ubuntu"] .chart-svg text,
+:root[data-theme="ubuntu"] .chart-svg .axis-label,
+:root[data-theme="ubuntu"] .chart-svg .x-label{fill:#dbc0ed!important}
+:root[data-theme="ubuntu"] .chart-svg .gridline{stroke:rgba(230,161,255,.22)!important}
+:root[data-theme="ubuntu"] .chart-svg .axis-base{stroke:rgba(232,169,253,.32)!important}
+:root[data-theme="ubuntu"] :is(.chart-svg .chart-line,.chart-svg .chart-area,.chart-svg .chart-bar,
+  .spark,.donut,.donut-arc,.legend .dot,.bank-spark){filter:hue-rotate(225deg) saturate(170%)!important}
+:root[data-theme="ubuntu"] .chart-tip{background:rgba(32,8,50,.96)!important;border-color:rgba(243,160,255,.30)!important;color:#fff7ff!important}
+:root[data-theme="ubuntu"] .dot{background:var(--u-magenta);box-shadow:0 0 0 3px rgba(253,60,180,.15)}
+:root[data-theme="ubuntu"] :is(.plan-result:hover,.priority-status-card:hover,.bank-filter-chip:hover){transform:translateY(-3px);box-shadow:var(--shadow-hover)!important}
+:root[data-theme="ubuntu"] #pinScreen{
+  background:radial-gradient(circle at 95% 1%,rgba(255,103,22,.4),transparent 39%),
+             radial-gradient(circle at 0% 95%,rgba(178,44,245,.36),transparent 47%),
+             linear-gradient(135deg,#180621 0%,#340f50 58%,#1a082a 100%)!important;
+  color:#fff7ff!important;
+}
+:root[data-theme="ubuntu"] #pinScreen::before,
+:root[data-theme="ubuntu"] #pinScreen::after{content:"";position:absolute;pointer-events:none;z-index:0;width:67vw;height:23vh;
+  border:1px solid rgba(255,150,241,.3);border-radius:50%;transform:rotate(-25deg);filter:drop-shadow(0 0 24px rgba(215,58,233,.13));
+  animation:ubuntuRibbons 11s ease-in-out infinite alternate}
+:root[data-theme="ubuntu"] #pinScreen::before{left:-20%;bottom:10%}
+:root[data-theme="ubuntu"] #pinScreen::after{right:-26%;top:14%;border-color:rgba(255,147,80,.45);animation-delay:-5s}
+@keyframes ubuntuRibbons{from{transform:translateY(-7%) rotate(-25deg)}to{transform:translateY(10%) rotate(-20deg)}}
+:root[data-theme="ubuntu"] #pinScreen .auth-card{
+  position:relative;z-index:1;
+  background:linear-gradient(150deg,rgba(68,20,82,.96),rgba(35,10,66,.96) 65%,rgba(65,17,70,.94))!important;
+  border:1px solid rgba(245,156,255,.34)!important;
+  box-shadow:0 32px 80px rgba(7,0,19,.56),0 0 52px rgba(248,72,173,.12),inset 0 1px 0 rgba(255,239,255,.13)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen :is(.pin-title,.pin-sub,.auth-label){color:#fff6ff!important}
+:root[data-theme="ubuntu"] #pinScreen .pin-sub{color:#d5b8e9!important}
+:root[data-theme="ubuntu"] #pinScreen .auth-brand-sticker{
+  background:linear-gradient(135deg,#22092d,#421450 62%,#21102f)!important;
+  border-color:rgba(255,150,223,.39)!important;
+  box-shadow:0 21px 42px rgba(8,0,20,.54),0 0 0 5px rgba(234,87,243,.11),inset 0 1px 0 rgba(255,225,250,.18)!important;
+  animation:ubuntuLogoFloat 6s ease-in-out infinite!important;
+}
+@keyframes ubuntuLogoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+:root[data-theme="ubuntu"] #pinScreen .auth-password-wrap{
+  border-radius:17px;border-color:rgba(227,143,251,.48)!important;
+  background:rgba(45,14,66,.82)!important;box-shadow:0 0 0 3px rgba(175,87,232,.08)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .auth-password-wrap :is(input,button){color:#fef2ff!important}
+:root[data-theme="ubuntu"] #pinScreen .auth-submit{
+  background:linear-gradient(112deg,#8338e4 0%,#d536ad 54%,#ff8828 100%)!important;
+  border-color:rgba(255,174,211,.68)!important;color:#fff!important;
+  box-shadow:0 14px 36px rgba(237,55,148,.27),inset 0 1px 0 rgba(255,232,255,.29)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .auth-submit::before{
+  background:linear-gradient(110deg,transparent,rgba(255,211,246,.42),transparent)!important;
+  animation:emeraldLoginSheen 5.2s ease-in-out infinite!important;
+}
+:root[data-theme="ubuntu"] .life-theme-entry{border-color:rgba(242,149,255,.25)}
+:root[data-theme="ubuntu"] .life-theme-entry-title{color:#dec0ec}
+:root[data-theme="ubuntu"] .life-theme-choice{color:#fff1ff;background:rgba(116,38,142,.35);border-color:rgba(241,157,255,.22)}
+:root[data-theme="ubuntu"] .life-theme-choice.selected{
+  background:linear-gradient(135deg,rgba(154,65,236,.68),rgba(244,76,156,.62),rgba(255,140,47,.55))!important;
+  border-color:#ffa158!important;box-shadow:0 0 0 2px rgba(255,132,67,.16),0 9px 26px rgba(231,62,165,.18)!important;
+}
+:root[data-theme="ubuntu"] .life-theme-menu{background:linear-gradient(145deg,#532368,#29123e)!important;border-color:rgba(255,166,247,.4)!important}
+:root[data-theme="ubuntu"] .life-theme-menu-choice.selected,
+:root[data-theme="ubuntu"] .life-theme-menu-choice:hover{background:rgba(228,84,195,.25)!important;border-color:rgba(255,181,226,.39)!important}
+:root[data-theme="ubuntu"] .switch:checked{background:linear-gradient(90deg,#b35cfc,#fb54aa)!important}
+:root[data-theme="ubuntu"] .loading .spinner{border-top-color:#ff9b38!important}
+@media(max-width:600px){
+  :root[data-theme="ubuntu"] .sidebar{background:linear-gradient(145deg,rgba(69,22,100,.97),rgba(32,11,56,.96))!important;
+    border-color:rgba(249,162,251,.31)!important;box-shadow:0 10px 38px rgba(11,1,29,.55)!important}
+  :root[data-theme="ubuntu"] .nav-label{color:#efd8fb!important}
+  :root[data-theme="ubuntu"] .navbtn.active .nav-label{color:#ffcfaa!important}
+  :root[data-theme="ubuntu"] .finance-hero-actions .btn{width:100%}
+  :root[data-theme="ubuntu"] .finance-hero{box-shadow:0 6px 25px rgba(5,0,21,.23)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  :root[data-theme="ubuntu"] *, :root[data-theme="ubuntu"] *::before,
+  :root[data-theme="ubuntu"] *::after{animation:none!important;transition-duration:0.01ms!important}
+}
+
+
+/* Ubuntu final contrast and series-colour pass */
+:root[data-theme="ubuntu"] .finance-hero .finance-hero-title{
+  background:none!important;color:#fff4ff!important;-webkit-text-fill-color:#fff4ff!important;
+  text-shadow:0 2px 9px rgba(18,0,37,.24)!important;
+}
+:root[data-theme="ubuntu"] .finance-metric-card .finance-metric-value{
+  background:none!important;color:#fff9ff!important;-webkit-text-fill-color:#fff9ff!important;
+  text-shadow:0 0 12px rgba(240,176,255,.12)!important;
+}
+:root[data-theme="ubuntu"] .finance-hero .finance-hero-copy :is(p,span),
+:root[data-theme="ubuntu"] .finance-hero .finance-metric-label,
+:root[data-theme="ubuntu"] .finance-total-card :is(p,small){
+  color:#e6ccec!important;-webkit-text-fill-color:#e6ccec!important;
+}
+:root[data-theme="ubuntu"] .filterbar .btn,
+:root[data-theme="ubuntu"] .filterbar button[data-clear-filters],
+:root[data-theme="ubuntu"] .global-filterbar button[data-clear-filters]{
+  color:#fff7ff!important;
+  background:linear-gradient(125deg,rgba(113,48,152,.91),rgba(83,29,112,.96))!important;
+  border:1px solid rgba(241,150,255,.34)!important;
+  text-shadow:none!important;
+}
+:root[data-theme="ubuntu"] .filterbar button[data-clear-filters]:hover{background:linear-gradient(125deg,#8735b8,#b14397)!important}
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#62b5ff"],
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#61b5f6"],
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#3d8ef0"]{
+  stroke:#b778ff!important;color:#b778ff!important;filter:drop-shadow(0 0 3px rgba(175,95,255,.55))!important;
+}
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#00a56a"],
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#22d092"]{
+  stroke:#ffad44!important;color:#ffad44!important;filter:drop-shadow(0 0 3px rgba(255,157,55,.52))!important;
+}
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#9060ed"],
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#8a52e8"]{
+  stroke:#ff60be!important;color:#ff60be!important;filter:drop-shadow(0 0 3px rgba(251,75,185,.52))!important;
+}
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#e99b35"]{
+  stroke:#ffa65d!important;color:#ffa65d!important;
+}
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#61b5f6"]{
+  stroke:#b778ff!important;color:#b778ff!important;
+}
+:root[data-theme="ubuntu"] .chart-svg .chart-point[fill="#62b5ff"],
+:root[data-theme="ubuntu"] .chart-svg .chart-point[fill="#61b5f6"]{fill:#b778ff!important}
+:root[data-theme="ubuntu"] .chart-svg .chart-point[fill="#00a56a"]{fill:#ffad44!important}
+:root[data-theme="ubuntu"] .chart-svg .chart-point[fill="#9060ed"]{fill:#ff60be!important}
+:root[data-theme="ubuntu"] .legend button:nth-child(1) .dot{background:#b778ff!important}
+:root[data-theme="ubuntu"] .legend button:nth-child(2) .dot{background:#ffad44!important}
+:root[data-theme="ubuntu"] .legend button:nth-child(3) .dot{background:#ff60be!important}
+@media(prefers-reduced-motion:reduce){
+  :root[data-theme="ubuntu"] #pinScreen .auth-submit::before,
+  :root[data-theme="ubuntu"] #pinScreen .auth-brand-sticker,
+  :root[data-theme="ubuntu"] #pinScreen::before,
+  :root[data-theme="ubuntu"] #pinScreen::after{animation:none!important;transition:none!important}
+}
+
+
+/* Ubuntu: financial result and expense editing contrast */
+:root[data-theme="ubuntu"] .profit-heading h2{
+  color:#fff3ff!important;-webkit-text-fill-color:#fff3ff!important;
+  background:none!important;text-shadow:0 0 12px rgba(247,128,251,.1)!important;
+}
+:root[data-theme="ubuntu"] .profit-kicker{color:#ffbd71!important}
+:root[data-theme="ubuntu"] .profit-heading p,
+:root[data-theme="ubuntu"] .profit-kpis span,
+:root[data-theme="ubuntu"] .profit-kpis small{color:#dec6ea!important}
+:root[data-theme="ubuntu"] .profit-kpis strong{color:#fff8ff!important}
+:root[data-theme="ubuntu"] .profit-expense-editor{
+  background:linear-gradient(125deg,rgba(99,35,123,.81),rgba(51,19,81,.88))!important;
+  border-color:rgba(234,160,255,.28)!important;color:#f8ebff!important;
+  box-shadow:var(--shadow)!important;
+}
+:root[data-theme="ubuntu"] .profit-expense-editor strong{color:#fff6ff!important}
+:root[data-theme="ubuntu"] .profit-expense-editor p,
+:root[data-theme="ubuntu"] .profit-expense-editor span,
+:root[data-theme="ubuntu"] .profit-expense-editor .profit-input-wrap{color:#dfcaee!important}
+:root[data-theme="ubuntu"] .profit-expense-editor input{color:#fff!important;background:#39144e!important}
+:root[data-theme="ubuntu"] .profit-table th{background:#49215d!important;color:#f2defd!important}
+:root[data-theme="ubuntu"] .profit-table td{color:#f9edff!important}
+
+
+:root[data-theme="ubuntu"] .finance-total-card .finance-total-kicker,
+:root[data-theme="ubuntu"] .finance-hero .finance-total-kicker{
+  color:#ffd0a7!important;-webkit-text-fill-color:#ffd0a7!important;
+}
+:root[data-theme="ubuntu"] .finance-total-card .finance-total-note,
+:root[data-theme="ubuntu"] .finance-hero .finance-total-note{
+  color:#edd4f4!important;-webkit-text-fill-color:#edd4f4!important;
+}
+
+/* ===== UBUNTU BURGUNDY GLASS · IOS WHITE EDITION ===== */
+:root[data-theme="ubuntu"]{
+  color-scheme:light;
+  --text:#2f1a27;--muted:#725c6c;--green:#8e294f;--green-d:#6c1d3d;--green-l:#fae8f0;
+  --blue:#a45689;--purple:#8e4e91;--orange:#b95a78;--bg:#f8f5f7;
+  --glass-bg:linear-gradient(145deg,rgba(255,255,255,.88),rgba(254,250,252,.74) 64%,rgba(248,231,240,.58));
+  --shadow:0 9px 30px rgba(84,27,52,.10),inset 0 1px 0 rgba(255,255,255,.95);
+  --shadow-hover:0 20px 46px rgba(84,27,52,.18),inset 0 1px 0 #fff;
+  --pin-text:#291927;--pin-muted:#765d6e;
+  --pin-card-bg:linear-gradient(145deg,rgba(255,255,255,.94),rgba(252,245,249,.87));
+  --pin-border:rgba(255,255,255,.96);--pin-key-bg:rgba(255,255,255,.88);
+  --pin-key-border:rgba(147,78,114,.20);--pin-key-color:#331b2b;
+}
+:root[data-theme="ubuntu"] body{
+  background-color:#fbf9fb!important;
+  background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDkyMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgc2xpY2UiPgo8ZGVmcz4KIDxsaW5lYXJHcmFkaWVudCBpZD0ic2lsazEiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjMjgwNTExIi8+PHN0b3Agb2Zmc2V0PSIuNDIiIHN0b3AtY29sb3I9IiM3NDMwNDgiLz48c3RvcCBvZmZzZXQ9Ii43OCIgc3RvcC1jb2xvcj0iI2FkNjQ4MCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y1ZThlZiIvPjwvbGluZWFyR3JhZGllbnQ+CiA8bGluZWFyR3JhZGllbnQgaWQ9InNpbGsyIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2Q4YTViNyIvPjxzdG9wIG9mZnNldD0iLjM4IiBzdG9wLWNvbG9yPSIjNjUxZjM3Ii8+PHN0b3Agb2Zmc2V0PSIuODMiIHN0b3AtY29sb3I9IiMyMDA2MGQiLz48L2xpbmVhckdyYWRpZW50PgogPGxpbmVhckdyYWRpZW50IGlkPSJzaWx2ZXIiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIwIj48c3RvcCBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9Ii43OCIvPjxzdG9wIG9mZnNldD0iLjUiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iLjEyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9Ii43NSIvPjwvbGluZWFyR3JhZGllbnQ+CiA8ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIzMCIvPjwvZmlsdGVyPgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxNDQwIiBoZWlnaHQ9IjkyMCIgZmlsbD0iI2ZhZjlmYiIvPgo8cGF0aCBkPSJNLTIyMCAtMTIwIEMxNDAgNDAgMzAwIC0xNjAgNTYwIDIwIEM4MjAgMjAwIDQ2MCAyMjAgMjYwIDMzMCBDNDAgNDUwIC02MCA1MDAgLTIyMCAzMjBaIiBmaWxsPSJ1cmwoI3NpbGsxKSIgb3BhY2l0eT0iLjY5Ii8+CjxwYXRoIGQ9Ik0xNDUwIC0xMTAgQzEyMjAgMTAwIDE0MzUgMjQwIDExMjAgMzY1IEM5MjUgNDQwIDEwMTAgNTM1IDE0ODAgNDQwWiIgZmlsbD0idXJsKCNzaWxrMikiIG9wYWNpdHk9Ii42MSIvPgo8cGF0aCBkPSJNLTE1MCA3OTAgQzE3NSA1MjUgMjU1IDY0NSA0MTAgNzAwIEM2NzAgNzk1IDgxNSA5NjAgMTExNSA5NzAgTC0xNjAgMTEwMFoiIGZpbGw9InVybCgjc2lsazIpIiBvcGFjaXR5PSIuNDgiLz4KPHBhdGggZD0iTTE1ODAgNzUwIEMxMjMwIDU2MCAxMTI1IDc0MCAxMDEwIDgzNSBDOTAwIDkyNSAxMDIwIDEwMzAgMTUwMCAxMDYwWiIgZmlsbD0idXJsKCNzaWxrMSkiIG9wYWNpdHk9Ii40Ii8+CjxwYXRoIGQ9Ik0tMTUwIDIyNSBDMTIwIDMzNSAyNjUgMjc1IDQwMiAxOTUgQzU4NSA4NSAzOTAgMTUgNTkwIC0zNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZThiNmM3IiBzdHJva2Utd2lkdGg9IjIuNCIgb3BhY2l0eT0iLjcyIi8+CjxwYXRoIGQ9Ik0xNTAwIDQ1IEMxMTgwIDI2MCAxNDYwIDM1MCAxMTkwIDQ4MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzU4MzllIiBzdHJva2Utd2lkdGg9IjIuMiIgb3BhY2l0eT0iLjU1Ii8+CjxwYXRoIGQ9Ik0tMTUwIDkxNSBDMjEwIDU5NSA0MDAgNzQwIDU5OCA4NTUgQzc1NSA5NTggOTUwIDkyMCAxMTQ1IDc4MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzg4YjlmIiBzdHJva2Utd2lkdGg9IjIuMiIgb3BhY2l0eT0iLjU4Ii8+CjxlbGxpcHNlIGN4PSI4MTUiIGN5PSI0MTUiIHJ4PSI0MDAiIHJ5PSIyNjAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIuNzUiIGZpbHRlcj0idXJsKCNibHVyKSIvPgo8cmVjdCB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI5MjAiIGZpbGw9InVybCgjc2lsdmVyKSIgb3BhY2l0eT0iLjI1Ii8+Cjwvc3ZnPg==')!important;
+  background-size:cover!important;background-position:center center!important;background-attachment:fixed!important;color:var(--text)!important;
+}
+:root[data-theme="ubuntu"] .wave-bg{opacity:.08!important;filter:grayscale(1)!important;mix-blend-mode:multiply!important}
+:root[data-theme="ubuntu"] .blobs{opacity:.11!important;filter:blur(80px) saturate(58%)!important}
+:root[data-theme="ubuntu"] .shell{background:rgba(255,255,255,.57)!important;border-color:rgba(255,255,255,.92)!important;
+  backdrop-filter:blur(22px) saturate(145%)!important;box-shadow:0 21px 70px rgba(80,24,52,.12),inset 0 1px 0 #fff!important}
+:root[data-theme="ubuntu"] .pagebar h1{background:linear-gradient(105deg,#221b2a,#75304c 70%,#4e2235)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+:root[data-theme="ubuntu"] .mobile-brand-wordmark{filter:brightness(0) saturate(100%) invert(14%) sepia(31%) saturate(1084%) hue-rotate(288deg)!important}
+:root[data-theme="ubuntu"] .brand-wordmark strong{color:#2f1c2b!important}
+:root[data-theme="ubuntu"] .brand-wordmark small,:root[data-theme="ubuntu"] .mobile-brand-copy small{color:#95405f!important}
+:root[data-theme="ubuntu"] .brandbar{border-bottom-color:rgba(138,79,111,.16)!important}
+:root[data-theme="ubuntu"] :is(.mobile-brand-mark,.brand-logo-tile,.sidebar-lifepay-wrap){
+  background:linear-gradient(130deg,#31101d,#652a3d,#4e1a30)!important;
+  border-color:rgba(255,255,255,.59)!important;box-shadow:0 8px 28px rgba(109,38,71,.20),inset 0 1px 0 rgba(255,238,246,.29)!important}
+:root[data-theme="ubuntu"] :is(.sidebar,.glass,.card,.filterbar,.income-overview,.month-wrap,.table-toolbar,dialog,.toast){
+  background:var(--glass-bg)!important;border:1px solid rgba(255,255,255,.94)!important;
+  color:var(--text)!important;box-shadow:var(--shadow)!important;
+  -webkit-backdrop-filter:blur(25px) saturate(170%)!important;backdrop-filter:blur(25px) saturate(170%)!important;
+}
+:root[data-theme="ubuntu"] :is(.hero,.finance-hero,.bank-card,.priority-status-card,.profit-hero,.profit-expense-editor,.profit-calculator){
+  color:var(--text)!important;background:linear-gradient(140deg,rgba(255,255,255,.91),rgba(253,246,250,.79) 62%,rgba(248,228,239,.57))!important;
+  border:1px solid rgba(255,255,255,.95)!important;box-shadow:var(--shadow)!important;
+  -webkit-backdrop-filter:blur(27px) saturate(175%)!important;backdrop-filter:blur(27px) saturate(175%)!important;
+}
+:root[data-theme="ubuntu"] :is(.priority-status-card.paid-lp,.plan-result.paid-lp){background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(251,234,240,.83))!important}
+:root[data-theme="ubuntu"] :is(.priority-status-card.paid-autobiz,.plan-result.paid-autobiz){background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(242,231,250,.76))!important}
+:root[data-theme="ubuntu"] .priority-status-card.assist{--accent:#9762a4!important}
+:root[data-theme="ubuntu"] :is(.priority-status-card,.hero){--accent:#a34b70!important}
+:root[data-theme="ubuntu"] :is(.hero,.priority-status-card,.bank-card)::after{background:rgba(125,35,71,.13)!important}
+:root[data-theme="ubuntu"] :is(.navbtn,.navbtn .nav-label){color:#72586a!important}
+:root[data-theme="ubuntu"] :is(.navbtn.active,.navbtn:hover){background:rgba(255,241,248,.85)!important;color:#6e2848!important;box-shadow:0 4px 15px rgba(125,34,66,.09)!important}
+:root[data-theme="ubuntu"] :is(.navbtn.active .nav-label,.navbtn.active .ico){color:#872f51!important}
+:root[data-theme="ubuntu"] :is(input,select,textarea){color:#331e2a!important;background:rgba(255,255,255,.83)!important;
+  border-color:rgba(150,99,127,.3)!important;box-shadow:inset 0 1px 1px rgba(255,255,255,.45)!important}
+:root[data-theme="ubuntu"] :is(input::placeholder,textarea::placeholder){color:#9f8b99!important}
+:root[data-theme="ubuntu"] :is(.btn,.icon-btn,.theme-toggle,.month-wrap .icon-btn,.legend button,.tabs button.active,.bank-filter-chip){
+  color:#612e49!important;background:linear-gradient(155deg,rgba(255,255,255,.96),rgba(252,240,247,.91))!important;
+  border-color:rgba(255,255,255,.98)!important;box-shadow:0 6px 18px rgba(94,35,62,.09)!important}
+:root[data-theme="ubuntu"] :is(.btn.primary,.finance-hero-actions .btn,.profit-calc-save){background:linear-gradient(112deg,#4b152a,#7d2546 56%,#b75a77)!important;
+  color:#fffaff!important;border-color:rgba(221,146,179,.65)!important;box-shadow:0 9px 26px rgba(111,31,63,.25),inset 0 1px 0 rgba(255,242,247,.34)!important}
+:root[data-theme="ubuntu"] :is(.btn.primary,.profit-calc-save):hover{filter:brightness(1.06)!important}
+:root[data-theme="ubuntu"] :is(.priority-status-title,.priority-status-caption,.priority-status-foot,.priority-status-card span,.card h2,.cardhead p,.finance-hero-title,.priority-status-card b,
+  .finance-hero-copy,.finance-hero-copy p,.finance-metric-label,.finance-total-card p,.profit-heading h2){
+  color:#382235!important;-webkit-text-fill-color:#382235!important;text-shadow:none!important}
+:root[data-theme="ubuntu"] :is(.finance-hero-badge,.priority-kicker,.profit-kicker){color:#8b3155!important}
+:root[data-theme="ubuntu"] :is(.kpi,.hero-metric,.mini-glass,.finance-metric-card,.finance-total,.finance-total-card,.profit-kpis>div,.bank-summary-grid .kpi,
+  .income-overview .income-kpis .kpi,.home-summary .kpi,.plan-history-item,.priority-other-row,.priority-count-row>span,.priority-index,
+  .priority-stat,.plan-result,.plan-filter-controls,.security-stat){color:#34202d!important;
+  background:linear-gradient(150deg,rgba(255,255,255,.89),rgba(255,247,250,.68))!important;
+  border:1px solid rgba(255,255,255,.9)!important;box-shadow:0 4px 13px rgba(95,26,56,.08)!important}
+:root[data-theme="ubuntu"] :is(.kpi strong,.hero-metric b,.mini-glass b,.profit-total strong,.bank-revenue,.finance-metric-value,
+  .finance-total-value,.hero-big,.priority-count-row strong,.profit-kpis strong){
+  background:none!important;color:#4e2038!important;-webkit-text-fill-color:#4e2038!important;text-shadow:none!important}
+:root[data-theme="ubuntu"] :is(.muted,.note,.kpi .meta,.kpi .label,.hero-sub,.hero-note,.footer,
+  .finance-hero-description,.finance-metric-label,.finance-total-note,.priority-status-caption,
+  .plan-history-meta,.plan-history-month,.tablefoot,.chart-details summary,.bank-revenue-label){color:#755e6d!important;-webkit-text-fill-color:#755e6d!important}
+:root[data-theme="ubuntu"] :is(.priority-track,.progress,.big-progress,.plan-history-track){background:rgba(140,84,108,.14)!important}
+:root[data-theme="ubuntu"] :is(.priority-track i,.progress i,.big-progress i,.plan-history-track i){
+  background:linear-gradient(90deg,#70243e,#af4d76,#df9bac)!important;box-shadow:0 0 11px rgba(163,77,119,.15)!important}
+:root[data-theme="ubuntu"] .ring-bg{stroke:rgba(127,64,100,.16)!important}
+:root[data-theme="ubuntu"] .ring-fg{filter:hue-rotate(185deg) saturate(85%) drop-shadow(0 0 4px rgba(155,54,101,.3))!important}
+:root[data-theme="ubuntu"] :is(.tabs,.legend,.table-wrap,.table-toolbar){background:rgba(255,255,255,.57)!important;border-color:rgba(171,113,145,.2)!important}
+:root[data-theme="ubuntu"] :is(.tabs button.active,.legend button,.bank-filter-chip){color:#5d2b49!important;background:rgba(255,255,255,.87)!important;border-color:rgba(169,104,133,.20)!important}
+:root[data-theme="ubuntu"] :is(.table-wrap table,.table-wrap td){color:#362432!important;border-color:rgba(161,108,135,.14)!important}
+:root[data-theme="ubuntu"] .table-wrap th{color:#6e3856!important;background:#f8edf4!important;border-color:rgba(171,101,132,.22)!important}
+:root[data-theme="ubuntu"] .table-wrap tbody tr:hover{background:rgba(165,74,107,.08)!important}
+:root[data-theme="ubuntu"] :is(.chart-svg text,.chart-svg .axis-label,.chart-svg .x-label){fill:#7d6473!important}
+:root[data-theme="ubuntu"] .chart-svg .gridline{stroke:rgba(142,88,111,.2)!important}
+:root[data-theme="ubuntu"] .chart-svg .axis-base{stroke:rgba(142,88,111,.34)!important}
+:root[data-theme="ubuntu"] :is(.chart-svg .chart-line,.chart-svg .chart-area,.chart-svg .chart-bar,.spark,.donut,.donut-arc,.legend .dot,.bank-spark){
+  filter:hue-rotate(135deg) saturate(70%)!important}
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#3d8ef0"],:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#62b5ff"]{stroke:#a34d7d!important;filter:none!important}
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#00a56a"],:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#22d092"]{stroke:#7a2645!important;filter:none!important}
+:root[data-theme="ubuntu"] .chart-tip{background:rgba(55,21,42,.95)!important;border-color:rgba(255,220,239,.18)!important;color:#fff!important}
+:root[data-theme="ubuntu"] .dot{background:#9a416b!important;box-shadow:0 0 0 3px rgba(154,65,107,.14)!important}
+:root[data-theme="ubuntu"] .profit-total{background:linear-gradient(130deg,#4f1832,#853e5f 65%,#ad718e)!important;color:#fff!important}
+:root[data-theme="ubuntu"] .profit-total strong{color:#fff!important;-webkit-text-fill-color:#fff!important}
+:root[data-theme="ubuntu"] #pinScreen{background:#fbf9fb url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDkyMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgc2xpY2UiPgo8ZGVmcz4KIDxsaW5lYXJHcmFkaWVudCBpZD0ic2lsazEiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjMjgwNTExIi8+PHN0b3Agb2Zmc2V0PSIuNDIiIHN0b3AtY29sb3I9IiM3NDMwNDgiLz48c3RvcCBvZmZzZXQ9Ii43OCIgc3RvcC1jb2xvcj0iI2FkNjQ4MCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y1ZThlZiIvPjwvbGluZWFyR3JhZGllbnQ+CiA8bGluZWFyR3JhZGllbnQgaWQ9InNpbGsyIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2Q4YTViNyIvPjxzdG9wIG9mZnNldD0iLjM4IiBzdG9wLWNvbG9yPSIjNjUxZjM3Ii8+PHN0b3Agb2Zmc2V0PSIuODMiIHN0b3AtY29sb3I9IiMyMDA2MGQiLz48L2xpbmVhckdyYWRpZW50PgogPGxpbmVhckdyYWRpZW50IGlkPSJzaWx2ZXIiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIwIj48c3RvcCBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9Ii43OCIvPjxzdG9wIG9mZnNldD0iLjUiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iLjEyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9Ii43NSIvPjwvbGluZWFyR3JhZGllbnQ+CiA8ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIzMCIvPjwvZmlsdGVyPgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxNDQwIiBoZWlnaHQ9IjkyMCIgZmlsbD0iI2ZhZjlmYiIvPgo8cGF0aCBkPSJNLTIyMCAtMTIwIEMxNDAgNDAgMzAwIC0xNjAgNTYwIDIwIEM4MjAgMjAwIDQ2MCAyMjAgMjYwIDMzMCBDNDAgNDUwIC02MCA1MDAgLTIyMCAzMjBaIiBmaWxsPSJ1cmwoI3NpbGsxKSIgb3BhY2l0eT0iLjY5Ii8+CjxwYXRoIGQ9Ik0xNDUwIC0xMTAgQzEyMjAgMTAwIDE0MzUgMjQwIDExMjAgMzY1IEM5MjUgNDQwIDEwMTAgNTM1IDE0ODAgNDQwWiIgZmlsbD0idXJsKCNzaWxrMikiIG9wYWNpdHk9Ii42MSIvPgo8cGF0aCBkPSJNLTE1MCA3OTAgQzE3NSA1MjUgMjU1IDY0NSA0MTAgNzAwIEM2NzAgNzk1IDgxNSA5NjAgMTExNSA5NzAgTC0xNjAgMTEwMFoiIGZpbGw9InVybCgjc2lsazIpIiBvcGFjaXR5PSIuNDgiLz4KPHBhdGggZD0iTTE1ODAgNzUwIEMxMjMwIDU2MCAxMTI1IDc0MCAxMDEwIDgzNSBDOTAwIDkyNSAxMDIwIDEwMzAgMTUwMCAxMDYwWiIgZmlsbD0idXJsKCNzaWxrMSkiIG9wYWNpdHk9Ii40Ii8+CjxwYXRoIGQ9Ik0tMTUwIDIyNSBDMTIwIDMzNSAyNjUgMjc1IDQwMiAxOTUgQzU4NSA4NSAzOTAgMTUgNTkwIC0zNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZThiNmM3IiBzdHJva2Utd2lkdGg9IjIuNCIgb3BhY2l0eT0iLjcyIi8+CjxwYXRoIGQ9Ik0xNTAwIDQ1IEMxMTgwIDI2MCAxNDYwIDM1MCAxMTkwIDQ4MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzU4MzllIiBzdHJva2Utd2lkdGg9IjIuMiIgb3BhY2l0eT0iLjU1Ii8+CjxwYXRoIGQ9Ik0tMTUwIDkxNSBDMjEwIDU5NSA0MDAgNzQwIDU5OCA4NTUgQzc1NSA5NTggOTUwIDkyMCAxMTQ1IDc4MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzg4YjlmIiBzdHJva2Utd2lkdGg9IjIuMiIgb3BhY2l0eT0iLjU4Ii8+CjxlbGxpcHNlIGN4PSI4MTUiIGN5PSI0MTUiIHJ4PSI0MDAiIHJ5PSIyNjAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIuNzUiIGZpbHRlcj0idXJsKCNibHVyKSIvPgo8cmVjdCB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI5MjAiIGZpbGw9InVybCgjc2lsdmVyKSIgb3BhY2l0eT0iLjI1Ii8+Cjwvc3ZnPg==') center center/cover no-repeat!important;color:#2f1a27!important}
+:root[data-theme="ubuntu"] #pinScreen::before,:root[data-theme="ubuntu"] #pinScreen::after{display:none!important}
+:root[data-theme="ubuntu"] #pinScreen .auth-card{background:linear-gradient(150deg,rgba(255,255,255,.92),rgba(253,248,251,.81))!important;
+  border-color:rgba(255,255,255,.98)!important;box-shadow:0 30px 70px rgba(70,20,43,.19),inset 0 1px 0 #fff!important;
+  backdrop-filter:blur(36px) saturate(175%)!important}
+:root[data-theme="ubuntu"] #pinScreen :is(.pin-title,.pin-sub,.auth-label){color:#372332!important;-webkit-text-fill-color:#372332!important}
+:root[data-theme="ubuntu"] #pinScreen .pin-sub{color:#806879!important}
+:root[data-theme="ubuntu"] #pinScreen .auth-brand-sticker{
+  background:linear-gradient(145deg,#3b1021,#712f49 70%,#4b1c2f)!important;border-color:rgba(255,220,233,.56)!important;
+  box-shadow:0 16px 38px rgba(85,27,50,.26),0 0 0 6px rgba(255,255,255,.72),inset 0 1px 0 rgba(255,255,255,.2)!important;
+  animation:ubuntuLogoFloat 6s ease-in-out infinite!important}
+:root[data-theme="ubuntu"] #pinScreen .auth-password-wrap{background:rgba(255,255,255,.85)!important;border-color:rgba(157,89,123,.34)!important;box-shadow:0 0 0 3px rgba(135,52,90,.07)!important}
+:root[data-theme="ubuntu"] #pinScreen .auth-password-wrap :is(input,button){color:#3b2433!important;-webkit-text-fill-color:#3b2433!important}
+:root[data-theme="ubuntu"] #pinScreen .auth-submit{background:linear-gradient(112deg,#491222,#742444 57%,#a64f70)!important;
+  border-color:rgba(219,146,180,.65)!important;color:#fff!important;box-shadow:0 14px 34px rgba(104,26,56,.29),inset 0 1px 0 rgba(255,255,255,.26)!important}
+:root[data-theme="ubuntu"] #pinScreen .auth-submit::before{background:linear-gradient(100deg,transparent,rgba(255,230,244,.31),transparent)!important}
+:root[data-theme="ubuntu"] .life-theme-entry{border-color:rgba(151,82,115,.20)!important}
+:root[data-theme="ubuntu"] .life-theme-entry-title{color:#846878!important}
+:root[data-theme="ubuntu"] .life-theme-choice{color:#4f2840!important;background:rgba(255,255,255,.8)!important;border-color:rgba(159,100,132,.24)!important}
+:root[data-theme="ubuntu"] .life-theme-choice.selected{color:#fff!important;background:linear-gradient(135deg,#53182e,#853151,#c17c98)!important;
+  border-color:#a75a7b!important;box-shadow:0 0 0 2px rgba(158,79,115,.13),0 9px 26px rgba(120,41,74,.18)!important}
+:root[data-theme="ubuntu"] .life-theme-menu{background:rgba(255,251,253,.96)!important;border-color:rgba(150,87,121,.23)!important}
+:root[data-theme="ubuntu"] :is(.life-theme-menu-choice.selected,.life-theme-menu-choice:hover){background:rgba(148,56,92,.11)!important;border-color:rgba(166,81,123,.24)!important}
+:root[data-theme="ubuntu"] .switch:checked{background:linear-gradient(90deg,#65223e,#a64e79)!important}
+:root[data-theme="ubuntu"] .loading .spinner{border-top-color:#9d3e63!important}
+@media(max-width:600px){
+ :root[data-theme="ubuntu"] body{background-position:35% center!important;background-attachment:scroll!important}
+ :root[data-theme="ubuntu"] .sidebar{background:rgba(255,249,253,.91)!important;border-color:rgba(255,255,255,.98)!important;box-shadow:0 10px 38px rgba(72,24,51,.16)!important}
+ :root[data-theme="ubuntu"] :is(.nav-label,.navbtn.active .nav-label){color:#65344f!important}
+ :root[data-theme="ubuntu"] .finance-hero{box-shadow:var(--shadow)!important}
+}
+/* Expenses and profit calculator: all three themes. */
+.profit-calculator{margin:0 0 18px;padding:21px;border-radius:23px;position:relative;overflow:hidden}
+.profit-calculator-title{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:17px}
+.profit-calculator-title h3{font:760 clamp(19px,2vw,26px)/1.2 Bounded,Hint,sans-serif;margin:4px 0 7px}
+.profit-calculator-title p{font-size:11px;color:var(--muted);line-height:1.6}
+.profit-calc-kicker{font-size:9px;font-weight:850;letter-spacing:1px;color:var(--green)}
+.profit-calc-symbol{display:grid;place-items:center;flex:0 0 52px;width:52px;height:52px;border-radius:17px;background:rgba(150,54,91,.10);font-size:30px;color:var(--green);font-weight:850}
+.profit-calc-lines{display:flex;flex-direction:column;gap:10px}
+.profit-calc-line{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(120px,1fr) 38px;gap:10px;align-items:end}
+.profit-calc-line label{font-size:11px;font-weight:750;color:var(--muted)}
+.profit-calc-line label input{display:block;width:100%;margin-top:5px;min-height:43px}
+.profit-calc-delete{width:38px;height:43px;border-radius:11px;background:rgba(160,70,90,.10);color:var(--muted);font-size:22px}
+.profit-calc-add{margin-top:12px}
+.profit-calc-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0}
+.profit-calc-results>div{border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:7px;background:rgba(255,255,255,.57);border:1px solid rgba(180,180,195,.2)}
+.profit-calc-results span{font-size:11px;color:var(--muted)}
+.profit-calc-results b{font-size:clamp(16px,2vw,24px);color:var(--text)}
+.profit-calc-results strong{font-size:clamp(20px,2.4vw,30px);color:var(--green)}
+.profit-calc-results .profit-calc-result-main{background:linear-gradient(135deg,rgba(107,33,69,.12),rgba(216,147,179,.12))}
+.profit-calc-save{min-height:46px;padding-inline:30px}
+.profit-calc-error{font-size:11px;color:#b93258;min-height:16px}
+.profit-calc-hint{font-size:10px;color:var(--muted);margin-top:12px;line-height:1.5}
+:root[data-theme="dark"] .profit-calculator{background:linear-gradient(140deg,rgba(24,42,55,.96),rgba(14,31,43,.95));border-color:rgba(175,216,224,.15)}
+:root[data-theme="dark"] .profit-calc-results>div{background:rgba(255,255,255,.065);border-color:rgba(255,255,255,.09)}
+:root[data-theme="ubuntu"] .profit-calc-results>div{background:rgba(255,255,255,.74);border-color:rgba(157,98,123,.15)}
+@media(max-width:600px){.profit-calculator{padding:16px}.profit-calc-line{grid-template-columns:minmax(0,1fr) minmax(0,.68fr) 36px;gap:6px}.profit-calc-results{grid-template-columns:1fr}}
+@media(max-width:370px){.profit-calc-line{grid-template-columns:1fr 36px}.profit-calc-line label:first-child{grid-column:1/-1}.profit-calc-line label:nth-child(2){grid-column:1;grid-row:2}.profit-calc-delete{grid-column:2;grid-row:2}}
+@media(prefers-reduced-motion:reduce){:root[data-theme="ubuntu"] *, :root[data-theme="ubuntu"] *::before, :root[data-theme="ubuntu"] *::after{animation:none!important}}
+
+
+/* ===================================================================
+   Life Pay · Ubuntu SILK / Pearl Glass Design 2.0
+   Presentation-only overrides; financial formulas and API unchanged.
+   =================================================================== */
+:root[data-theme="ubuntu"]{
+  color-scheme:light;
+  --text:#291924;--muted:#765967;--green:#822b4d;--green-d:#59172e;--green-l:#fbeaf1;
+  --blue:#aa5678;--purple:#85518e;--bg:#fcfafb;
+  --glass-bg:linear-gradient(146deg,rgba(255,255,255,.93),rgba(255,251,253,.76) 63%,rgba(250,236,244,.59));
+  --shadow:0 9px 34px rgba(89,29,57,.095),0 1px 3px rgba(83,20,45,.035),inset 0 1px 0 rgba(255,255,255,.97);
+  --shadow-hover:0 22px 50px rgba(91,28,61,.15),inset 0 1px 0 #fff;
+}
+:root[data-theme="ubuntu"] body{
+  background-color:#fcfafb!important;
+  background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDEwNTAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0id2luZSIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiMxYzA4MTIiLz48c3RvcCBvZmZzZXQ9Ii4zNiIgc3RvcC1jb2xvcj0iIzRhMTQyZSIvPjxzdG9wIG9mZnNldD0iLjY5IiBzdG9wLWNvbG9yPSIjOGMzNTVkIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZDhhMGI0Ii8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJkZWVwIiB4MT0iLjIiIHkxPSIuMiIgeDI9Ii44IiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2QzYTJiOCIvPjxzdG9wIG9mZnNldD0iLjIiIHN0b3AtY29sb3I9IiM4MTI1NDgiLz48c3RvcCBvZmZzZXQ9Ii42NCIgc3RvcC1jb2xvcj0iIzM1MTAxZSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzE3MDYwZSIvPjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ2xlYW0iIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9Ii41NSIvPjxzdG9wIG9mZnNldD0iLjQ2IiBzdG9wLWNvbG9yPSIjZmZlM2U4IiBzdG9wLW9wYWNpdHk9Ii4wNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2M5ODJhMiIgc3RvcC1vcGFjaXR5PSIuMzUiLz48L2xpbmVhckdyYWRpZW50Pgo8cmFkaWFsR3JhZGllbnQgaWQ9Imdsb3ciPjxzdG9wIHN0b3AtY29sb3I9IiNlOWM1ZDUiIHN0b3Atb3BhY2l0eT0iLjYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZGZiZmMiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iMTA1MCIgZmlsbD0iI2ZkZmJmYyIvPgo8ZWxsaXBzZSBjeD0iMTE2MCIgY3k9IjI3MCIgcng9IjcwMCIgcnk9IjYxMCIgZmlsbD0idXJsKCNnbG93KSIgb3BhY2l0eT0iLjU1Ii8+CjxlbGxpcHNlIGN4PSIxMzUiIGN5PSI4NTAiIHJ4PSI3NTAiIHJ5PSIzOTAiIGZpbGw9InVybCgjZ2xvdykiIG9wYWNpdHk9Ii4zNSIvPgo8cGF0aCBkPSJNLTkwLTkwSDU2MEM1NDggMjUgNDc4IDEwNyAzNTIgMTY0IDIxNyAyMjQgMTA3IDMxMy0xMDAgNDEzWiIgZmlsbD0idXJsKCN3aW5lKSIgb3BhY2l0eT0iLjk5Ii8+CjxwYXRoIGQ9Ik0tNzAtODhINDQ3QzQ0MSAyIDM0NSA3MyAyMjcgMTE5IDExMCAxNjUgNjcgMjYxLTkwIDI5N1oiIGZpbGw9InVybCgjZGVlcCkiIG9wYWNpdHk9Ii44MiIvPgo8cGF0aCBkPSJNLTExMCAzMTZDNzEgMjg0IDE3MCAyMTggMjUwIDE2MiAzNTggODggNDY1IDExMiA1NTUtNjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNnbGVhbSkiIHN0cm9rZS13aWR0aD0iMi40IiBvcGFjaXR5PSIuODUiLz4KPHBhdGggZD0iTS05MCAyNjVDMTQ2IDIzMSAyMTQgMTE3IDMzNCA4NiA0MjUgNjIgNDY2IDEzIDQ4OS01MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmJjOGRjIiBzdHJva2Utd2lkdGg9IjEuNCIgb3BhY2l0eT0iLjQiLz4KPHBhdGggZD0iTTE2ODAgMjAwQzE0MDAgMjQ2IDE0NjYgMzY3IDE1NTAgNDk2IDE2MTMgNTg2IDE2OTYgNjg2WiIgZmlsbD0idXJsKCN3aW5lKSIgb3BhY2l0eT0iLjQ4Ii8+CjxwYXRoIGQ9Ik0xNjgwIDEwNTBIOTk1QzEwMzIgOTM0IDExNTAgODY5IDEyOTYgODIwIDE0MTAgNzgxIDE1MTQgNjk3IDE2ODAgNjE5WiIgZmlsbD0idXJsKCNkZWVwKSIgb3BhY2l0eT0iLjk0Ii8+CjxwYXRoIGQ9Ik0xNjgwIDEwNTBIMTIwMUMxMjU0IDkzOSAxMzQ1IDg4NCAxNDU3IDgzMyAxNTQwIDc5NSAxNjI1IDcwOSAxNjgwIDYzN1oiIGZpbGw9InVybCgjd2luZSkiIG9wYWNpdHk9Ii42NCIvPgo8cGF0aCBkPSJNOTMzIDEwNzJDMTEyMCA5MDggMTI4NSA4ODAgMTQxNSA4MDQgMTUyOCA3MzggMTU3NyA2NTMgMTY2MSA2MTUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YyYmJkMSIgc3Ryb2tlLXdpZHRoPSIyLjYiIG9wYWNpdHk9Ii42Ii8+CjxwYXRoIGQ9Ik0xMTk0IDExMDBDMTMyOSA5NTIgMTQ3OCA5MzcgMTU5MSA3OTciIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNnbGVhbSkiIHN0cm9rZS13aWR0aD0iMS43IiBvcGFjaXR5PSIuNzIiLz4KPHBhdGggZD0iTS0zMCAxMDUwQzIwMCA5MTQgMzU4IDk2MSA0NjAgMTA1NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzU4MWExIiBzdHJva2Utd2lkdGg9IjEuNyIgb3BhY2l0eT0iLjIyIi8+Cjwvc3ZnPg==')!important;
+  background-position:center center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-attachment:fixed!important;
+  color:var(--text)!important;
+}
+:root[data-theme="ubuntu"] .wave-bg{opacity:.045!important;filter:grayscale(1) blur(2px)!important}
+:root[data-theme="ubuntu"] .blobs{opacity:.07!important;filter:blur(100px) saturate(30%)!important}
+:root[data-theme="ubuntu"] .shell{
+  border-radius:32px!important;
+  background:linear-gradient(150deg,rgba(255,255,255,.75),rgba(255,253,254,.50) 62%,rgba(255,255,255,.57))!important;
+  border:1px solid rgba(255,255,255,.98)!important;
+  box-shadow:0 21px 72px rgba(68,23,46,.12),0 3px 10px rgba(68,23,46,.03),inset 0 1px 0 #fff!important;
+  -webkit-backdrop-filter:blur(31px) saturate(155%)!important;backdrop-filter:blur(31px) saturate(155%)!important;
+}
+:root[data-theme="ubuntu"] .brandbar{background:linear-gradient(180deg,rgba(255,255,255,.65),rgba(255,255,255,.22))!important;border-bottom:1px solid rgba(137,85,107,.11)!important}
+:root[data-theme="ubuntu"] .pagebar h1{letter-spacing:-1.4px!important;background:linear-gradient(102deg,#281c27 12%,#773152 78%,#a85980)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+:root[data-theme="ubuntu"] :is(.sidebar,.glass,.card,.filterbar,.income-overview,.month-wrap,.table-toolbar,dialog,.toast,.profit-calculator){
+  background:var(--glass-bg)!important;border:1px solid rgba(255,255,255,.95)!important;
+  box-shadow:var(--shadow)!important;
+  -webkit-backdrop-filter:blur(28px) saturate(185%)!important;backdrop-filter:blur(28px) saturate(185%)!important;
+}
+:root[data-theme="ubuntu"] :is(.sidebar,.card,.income-overview,.finance-hero,.profit-hero,.profit-calculator){border-radius:25px!important}
+:root[data-theme="ubuntu"] :is(.finance-hero,.hero,.priority-status-card,.profit-hero,.bank-card){
+  background:linear-gradient(140deg,rgba(255,255,255,.96),rgba(255,249,252,.83) 62%,rgba(255,240,247,.59))!important;
+  border:1px solid rgba(255,255,255,.96)!important;
+  box-shadow:0 10px 38px rgba(96,31,58,.10),inset 0 1px 0 #fff,inset 0 -1px 0 rgba(151,73,105,.03)!important;
+  -webkit-backdrop-filter:blur(30px) saturate(175%)!important;backdrop-filter:blur(30px) saturate(175%)!important;
+}
+:root[data-theme="ubuntu"] :is(.finance-hero,.hero,.bank-card,.priority-status-card,.profit-hero,.card,.glass,.profit-calculator){
+  transition:transform .28s cubic-bezier(.2,.8,.25,1),box-shadow .28s ease,border-color .28s ease!important;
+}
+:root[data-theme="ubuntu"] :is(.finance-hero,.hero,.bank-card,.priority-status-card,.card,.profit-calculator):hover{
+  box-shadow:0 18px 48px rgba(100,37,65,.14),inset 0 1px 0 #fff!important;
+}
+:root[data-theme="ubuntu"] :is(.hero,.priority-status-card,.bank-card)::after{background:linear-gradient(145deg,rgba(206,130,165,.14),rgba(157,61,104,.04))!important}
+:root[data-theme="ubuntu"] :is(.finance-hero,.profit-hero){isolation:isolate!important}
+:root[data-theme="ubuntu"] :is(.priority-status-card.paid-lp,.plan-result.paid-lp){
+  background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(255,243,247,.87))!important;
+}
+:root[data-theme="ubuntu"] :is(.priority-status-card.paid-autobiz,.plan-result.paid-autobiz){
+  background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(246,239,252,.89))!important;
+}
+:root[data-theme="ubuntu"] .priority-status-card.assist{--accent:#94609e!important}
+:root[data-theme="ubuntu"] .priority-status-card:not(.assist){--accent:#a4456d!important}
+:root[data-theme="ubuntu"] :is(.priority-status-title,.card h2,.finance-hero-title,.profit-heading h2){color:#291924!important;-webkit-text-fill-color:#291924!important}
+:root[data-theme="ubuntu"] :is(.finance-total-card,.finance-metric-card,.finance-total,.kpi,.hero-metric,.mini-glass,.profit-kpis>div,.profit-calc-results>div,
+  .plan-history-item,.priority-other-row,.plan-result){
+  background:linear-gradient(145deg,rgba(255,255,255,.95),rgba(255,250,253,.78))!important;
+  border:1px solid rgba(255,255,255,.96)!important;
+  box-shadow:0 5px 18px rgba(75,22,47,.065),inset 0 1px 0 #fff!important;
+}
+:root[data-theme="ubuntu"] :is(.finance-total-value,.finance-metric-value,.kpi strong,.hero-metric b,.mini-glass b,.hero-big){
+  color:#4d1d36!important;-webkit-text-fill-color:#4d1d36!important;background:none!important;
+}
+:root[data-theme="ubuntu"] .finance-hero :is(.finance-total-kicker,.finance-total-note){color:#795b6a!important;-webkit-text-fill-color:#795b6a!important}
+:root[data-theme="ubuntu"] .finance-hero .finance-hero-title{background:linear-gradient(95deg,#251821,#7a3052)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;-webkit-text-fill-color:transparent!important}
+:root[data-theme="ubuntu"] .profit-total{
+  background:linear-gradient(122deg,#2b0b20,#652242 52%,#9d4d74 88%,#c186a3)!important;
+  box-shadow:0 18px 42px rgba(85,26,53,.18),inset 0 1px 0 rgba(255,255,255,.21)!important;
+  border:1px solid rgba(255,236,245,.36)!important;
+}
+:root[data-theme="ubuntu"] .profit-total strong{color:#fff9fc!important;-webkit-text-fill-color:#fff9fc!important}
+:root[data-theme="ubuntu"] .profit-calculator{
+  padding:clamp(16px,2vw,28px)!important;
+  background:linear-gradient(148deg,rgba(255,255,255,.98),rgba(254,245,251,.87))!important;
+}
+:root[data-theme="ubuntu"] .profit-calc-title h3{letter-spacing:-.4px!important}
+:root[data-theme="ubuntu"] .profit-calc-kicker{color:#9b3b61!important}
+:root[data-theme="ubuntu"] .profit-calc-symbol{
+  background:linear-gradient(155deg,#702844,#a25d7c)!important;color:#fff9fc!important;
+  box-shadow:0 9px 20px rgba(114,40,77,.22),inset 0 1px 0 rgba(255,255,255,.25)!important;
+}
+:root[data-theme="ubuntu"] :is(input,select,textarea){
+  background:rgba(255,255,255,.94)!important;
+  border:1px solid rgba(151,101,130,.23)!important;
+  box-shadow:inset 0 1px 2px rgba(80,24,57,.03),0 2px 9px rgba(75,23,45,.035)!important;
+  color:#33202c!important;
+}
+:root[data-theme="ubuntu"] :is(input,select,textarea):focus{
+  border-color:#b76a91!important;box-shadow:0 0 0 3px rgba(168,72,119,.12),0 6px 18px rgba(98,27,62,.08)!important;
+}
+:root[data-theme="ubuntu"] :is(.btn,.icon-btn,.theme-toggle,.tabs button.active,.legend button){
+  background:linear-gradient(150deg,rgba(255,255,255,.98),rgba(255,245,250,.9))!important;
+  border:1px solid rgba(255,255,255,.98)!important;
+  color:#63304a!important;
+  box-shadow:0 6px 18px rgba(94,32,59,.085),inset 0 1px 0 #fff!important;
+}
+:root[data-theme="ubuntu"] :is(.btn.primary,.finance-hero-actions .btn,.profit-calc-save){
+  background:linear-gradient(105deg,#411427 0%,#772a4e 58%,#a75680 100%)!important;
+  border:1px solid rgba(255,221,239,.35)!important;color:#fff!important;
+  box-shadow:0 10px 26px rgba(95,26,60,.23),inset 0 1px 0 rgba(255,255,255,.24)!important;
+}
+:root[data-theme="ubuntu"] :is(.btn.primary,.finance-hero-actions .btn,.profit-calc-save):hover{
+  transform:translateY(-2px)!important;filter:brightness(1.06)!important;
+  box-shadow:0 15px 30px rgba(95,26,60,.3),inset 0 1px 0 rgba(255,255,255,.27)!important;
+}
+:root[data-theme="ubuntu"] :is(.navbtn.active,.navbtn:hover){
+  background:linear-gradient(125deg,rgba(255,246,250,.99),rgba(252,231,243,.88))!important;
+  border-color:rgba(255,255,255,.98)!important;
+  color:#74294a!important;
+}
+:root[data-theme="ubuntu"] .navbtn.active::before{background:linear-gradient(180deg,#60203c,#b8668d)!important}
+:root[data-theme="ubuntu"] :is(.progress,.priority-track,.big-progress,.plan-history-track){background:rgba(156,91,119,.125)!important}
+:root[data-theme="ubuntu"] :is(.progress i,.priority-track i,.big-progress i,.plan-history-track i){
+  background:linear-gradient(90deg,#6e2242,#ad567f,#d89ab8)!important;
+  box-shadow:0 0 11px rgba(172,73,122,.16)!important;
+}
+:root[data-theme="ubuntu"] :is(.chart-svg .gridline,.chart-svg .axis-base){stroke:rgba(147,86,118,.22)!important}
+:root[data-theme="ubuntu"] :is(.chart-svg text,.chart-svg .axis-label,.chart-svg .x-label){fill:#775a6e!important}
+:root[data-theme="ubuntu"] .table-wrap th{
+  background:linear-gradient(180deg,#fcf0f6,#faedf3)!important;color:#65394e!important;
+}
+:root[data-theme="ubuntu"] .table-wrap tbody tr:hover{background:rgba(159,57,106,.045)!important}
+:root[data-theme="ubuntu"] #pinScreen{
+  background-color:#fcfafb!important;
+  background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDEwNTAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0id2luZSIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiMxYzA4MTIiLz48c3RvcCBvZmZzZXQ9Ii4zNiIgc3RvcC1jb2xvcj0iIzRhMTQyZSIvPjxzdG9wIG9mZnNldD0iLjY5IiBzdG9wLWNvbG9yPSIjOGMzNTVkIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZDhhMGI0Ii8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJkZWVwIiB4MT0iLjIiIHkxPSIuMiIgeDI9Ii44IiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2QzYTJiOCIvPjxzdG9wIG9mZnNldD0iLjIiIHN0b3AtY29sb3I9IiM4MTI1NDgiLz48c3RvcCBvZmZzZXQ9Ii42NCIgc3RvcC1jb2xvcj0iIzM1MTAxZSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzE3MDYwZSIvPjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ2xlYW0iIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9Ii41NSIvPjxzdG9wIG9mZnNldD0iLjQ2IiBzdG9wLWNvbG9yPSIjZmZlM2U4IiBzdG9wLW9wYWNpdHk9Ii4wNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2M5ODJhMiIgc3RvcC1vcGFjaXR5PSIuMzUiLz48L2xpbmVhckdyYWRpZW50Pgo8cmFkaWFsR3JhZGllbnQgaWQ9Imdsb3ciPjxzdG9wIHN0b3AtY29sb3I9IiNlOWM1ZDUiIHN0b3Atb3BhY2l0eT0iLjYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZGZiZmMiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iMTA1MCIgZmlsbD0iI2ZkZmJmYyIvPgo8ZWxsaXBzZSBjeD0iMTE2MCIgY3k9IjI3MCIgcng9IjcwMCIgcnk9IjYxMCIgZmlsbD0idXJsKCNnbG93KSIgb3BhY2l0eT0iLjU1Ii8+CjxlbGxpcHNlIGN4PSIxMzUiIGN5PSI4NTAiIHJ4PSI3NTAiIHJ5PSIzOTAiIGZpbGw9InVybCgjZ2xvdykiIG9wYWNpdHk9Ii4zNSIvPgo8cGF0aCBkPSJNLTkwLTkwSDU2MEM1NDggMjUgNDc4IDEwNyAzNTIgMTY0IDIxNyAyMjQgMTA3IDMxMy0xMDAgNDEzWiIgZmlsbD0idXJsKCN3aW5lKSIgb3BhY2l0eT0iLjk5Ii8+CjxwYXRoIGQ9Ik0tNzAtODhINDQ3QzQ0MSAyIDM0NSA3MyAyMjcgMTE5IDExMCAxNjUgNjcgMjYxLTkwIDI5N1oiIGZpbGw9InVybCgjZGVlcCkiIG9wYWNpdHk9Ii44MiIvPgo8cGF0aCBkPSJNLTExMCAzMTZDNzEgMjg0IDE3MCAyMTggMjUwIDE2MiAzNTggODggNDY1IDExMiA1NTUtNjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNnbGVhbSkiIHN0cm9rZS13aWR0aD0iMi40IiBvcGFjaXR5PSIuODUiLz4KPHBhdGggZD0iTS05MCAyNjVDMTQ2IDIzMSAyMTQgMTE3IDMzNCA4NiA0MjUgNjIgNDY2IDEzIDQ4OS01MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmJjOGRjIiBzdHJva2Utd2lkdGg9IjEuNCIgb3BhY2l0eT0iLjQiLz4KPHBhdGggZD0iTTE2ODAgMjAwQzE0MDAgMjQ2IDE0NjYgMzY3IDE1NTAgNDk2IDE2MTMgNTg2IDE2OTYgNjg2WiIgZmlsbD0idXJsKCN3aW5lKSIgb3BhY2l0eT0iLjQ4Ii8+CjxwYXRoIGQ9Ik0xNjgwIDEwNTBIOTk1QzEwMzIgOTM0IDExNTAgODY5IDEyOTYgODIwIDE0MTAgNzgxIDE1MTQgNjk3IDE2ODAgNjE5WiIgZmlsbD0idXJsKCNkZWVwKSIgb3BhY2l0eT0iLjk0Ii8+CjxwYXRoIGQ9Ik0xNjgwIDEwNTBIMTIwMUMxMjU0IDkzOSAxMzQ1IDg4NCAxNDU3IDgzMyAxNTQwIDc5NSAxNjI1IDcwOSAxNjgwIDYzN1oiIGZpbGw9InVybCgjd2luZSkiIG9wYWNpdHk9Ii42NCIvPgo8cGF0aCBkPSJNOTMzIDEwNzJDMTEyMCA5MDggMTI4NSA4ODAgMTQxNSA4MDQgMTUyOCA3MzggMTU3NyA2NTMgMTY2MSA2MTUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YyYmJkMSIgc3Ryb2tlLXdpZHRoPSIyLjYiIG9wYWNpdHk9Ii42Ii8+CjxwYXRoIGQ9Ik0xMTk0IDExMDBDMTMyOSA5NTIgMTQ3OCA5MzcgMTU5MSA3OTciIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNnbGVhbSkiIHN0cm9rZS13aWR0aD0iMS43IiBvcGFjaXR5PSIuNzIiLz4KPHBhdGggZD0iTS0zMCAxMDUwQzIwMCA5MTQgMzU4IDk2MSA0NjAgMTA1NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzU4MWExIiBzdHJva2Utd2lkdGg9IjEuNyIgb3BhY2l0eT0iLjIyIi8+Cjwvc3ZnPg==')!important;
+  background-position:center center!important;background-size:cover!important;background-repeat:no-repeat!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .auth-card{
+  width:min(428px,calc(100vw - 28px))!important;
+  padding:40px 34px 30px!important;
+  border-radius:34px!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(255,251,253,.87) 68%,rgba(253,242,249,.77))!important;
+  border:1px solid rgba(255,255,255,.97)!important;
+  box-shadow:0 28px 78px rgba(81,22,48,.18),0 2px 8px rgba(64,25,44,.06),inset 0 1px 0 #fff!important;
+  -webkit-backdrop-filter:blur(38px) saturate(180%)!important;backdrop-filter:blur(38px) saturate(180%)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .auth-brand-sticker{
+  width:185px!important;margin-bottom:33px!important;border-radius:26px!important;
+  background:linear-gradient(132deg,#210b18,#64243f 63%,#8a4a66)!important;
+  border:1px solid rgba(255,220,236,.44)!important;
+  box-shadow:0 17px 38px rgba(86,30,54,.24),0 0 0 6px rgba(255,255,255,.74),inset 0 1px 0 rgba(255,255,255,.27)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .pin-title{font-size:clamp(23px,5.5vw,28px)!important;font-weight:850!important;letter-spacing:-.6px!important;color:#2b1a26!important}
+:root[data-theme="ubuntu"] #pinScreen .pin-sub{font-size:12px!important;color:#7b6472!important;line-height:1.5!important}
+:root[data-theme="ubuntu"] #pinScreen .auth-label{color:#70475d!important}
+:root[data-theme="ubuntu"] #pinScreen .auth-password-wrap{
+  min-height:58px!important;border-radius:16px!important;background:rgba(255,255,255,.94)!important;
+  border:1px solid rgba(155,92,127,.27)!important;
+  box-shadow:inset 0 1px 1px rgba(96,29,56,.035),0 0 0 4px rgba(158,74,113,.04)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .auth-password-wrap:focus-within{
+  border-color:#aa5e84!important;box-shadow:0 0 0 4px rgba(162,72,117,.11),0 10px 22px rgba(76,27,48,.065)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .auth-submit{
+  min-height:59px!important;border-radius:17px!important;
+  background:linear-gradient(105deg,#3c1024,#7d2c4e 59%,#ad678b)!important;
+  box-shadow:0 13px 31px rgba(95,30,59,.24),inset 0 1px 0 rgba(255,255,255,.26)!important;
+  color:white!important;transition:transform .28s ease,box-shadow .28s ease,filter .28s ease!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .auth-submit:hover{transform:translateY(-2px)!important;filter:brightness(1.05)!important}
+:root[data-theme="ubuntu"] #pinScreen .life-theme-entry{border-top:1px solid rgba(153,99,129,.16)!important}
+:root[data-theme="ubuntu"] #pinScreen .life-theme-entry-title{color:#806374!important;letter-spacing:1.1px!important}
+:root[data-theme="ubuntu"] #pinScreen .life-theme-choice{
+  border:1px solid rgba(162,113,139,.21)!important;border-radius:15px!important;
+  background:linear-gradient(150deg,rgba(255,255,255,.94),rgba(255,248,252,.86))!important;
+  color:#63304e!important;box-shadow:0 3px 11px rgba(76,28,50,.045)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .life-theme-choice.selected{
+  background:linear-gradient(140deg,#512038,#953f65)!important;color:#fff!important;
+  border-color:#8b3157!important;box-shadow:0 8px 22px rgba(111,37,71,.20),inset 0 1px 0 rgba(255,255,255,.18)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .life-theme-choice:hover{transform:translateY(-2px)!important}
+@media(max-width:600px){
+  :root[data-theme="ubuntu"] body{
+    background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgOTgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9IndpbmUiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjMTYwNTBmIi8+PHN0b3Agb2Zmc2V0PSIuNDAiIHN0b3AtY29sb3I9IiM0YTExMmIiLz48c3RvcCBvZmZzZXQ9Ii43OCIgc3RvcC1jb2xvcj0iIzhjMzk1YSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2U1YjRjNSIvPjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0ic2lsayIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNhZDY4OGEiLz48c3RvcCBvZmZzZXQ9Ii40MiIgc3RvcC1jb2xvcj0iIzViMWIzYSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFjMDYxNCIvPjwvbGluZWFyR3JhZGllbnQ+CjxyYWRpYWxHcmFkaWVudCBpZD0iZ2xvdyI+PHN0b3Agc3RvcC1jb2xvcj0iI2VmZDFkZiIgc3RvcC1vcGFjaXR5PSIuOCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZkZmJmYyIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iNDQwIiBoZWlnaHQ9Ijk4MCIgZmlsbD0iI2ZjZjlmYiIvPgo8ZWxsaXBzZSBjeD0iMzc1IiBjeT0iMjEwIiByeD0iMzEwIiByeT0iNDEwIiBmaWxsPSJ1cmwoI2dsb3cpIiBvcGFjaXR5PSIuNyIvPgo8ZWxsaXBzZSBjeD0iNTAiIGN5PSI4NjUiIHJ4PSIzNjAiIHJ5PSIzMzAiIGZpbGw9InVybCgjZ2xvdykiIG9wYWNpdHk9Ii42NSIvPgo8cGF0aCBkPSJNLTMwLTMwSDI3MEMyNjggNjEgMTc1IDk1IDEwOSAxNTAgNDEgMjA1LTkgMjE3LTMwIDIyNFoiIGZpbGw9InVybCgjd2luZSkiLz4KPHBhdGggZD0iTS0zMC0zMEgyMTVDMTkyIDQ5IDExNSA4OCA1NSAxMjAtMTIgMTYyLTMwIDE5OS0zMCAxOTlaIiBmaWxsPSJ1cmwoI3NpbGspIiBvcGFjaXR5PSIuODIiLz4KPHBhdGggZD0iTS0yNyAyMThDNjIgMTc2IDEwNiAxMTUgMTczIDg4IDIyMSA3MCAyNTUgMTkgMjY4LTMwIiBzdHJva2U9IiNmNGJkZDMiIHN0cm9rZS13aWR0aD0iMS44IiBmaWxsPSJub25lIiBvcGFjaXR5PSIuNyIvPgo8cGF0aCBkPSJNNDY4IDYxNkMzNjMgNjgxIDM2NyA3MzIgMzE1IDc4MCAyNjkgODI1IDI0NCA4OTEgMjYwIDEwMTBINDgwWiIgZmlsbD0idXJsKCNzaWxrKSIgb3BhY2l0eT0iLjkyIi8+CjxwYXRoIGQ9Ik00ODAgNjgwQzM4NyA3NDEgNDEwIDgwMiAzNDMgODU4IDMxMCA4ODggMzAxIDk0NCAzMzQgMTAyNEg0NzhaIiBmaWxsPSJ1cmwoI3dpbmUpIiBvcGFjaXR5PSIuODUiLz4KPHBhdGggZD0iTTQ3MSA2MTJDMzY1IDY3NSAzODcgNzMxIDMyMiA3OTIgMjY3IDg0NSAyNTUgODk3IDI1OCAxMDAzIiBzdHJva2U9IiNmM2MwZDAiIHN0cm9rZS13aWR0aD0iMS44IiBmaWxsPSJub25lIiBvcGFjaXR5PSIuNyIvPgo8cGF0aCBkPSJNNDQwIDczOEMzODkgNzgzIDM5MCA4MzYgMzQ2IDg5MyIgc3Ryb2tlPSIjZmZlZmVjIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIG9wYWNpdHk9Ii4zMiIvPgo8L3N2Zz4=')!important;
+    background-position:center top!important;background-size:100% auto!important;background-repeat:repeat-y!important;
+    background-attachment:scroll!important;
+  }
+  :root[data-theme="ubuntu"] #pinScreen{
+    background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgOTgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9IndpbmUiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjMTYwNTBmIi8+PHN0b3Agb2Zmc2V0PSIuNDAiIHN0b3AtY29sb3I9IiM0YTExMmIiLz48c3RvcCBvZmZzZXQ9Ii43OCIgc3RvcC1jb2xvcj0iIzhjMzk1YSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2U1YjRjNSIvPjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0ic2lsayIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNhZDY4OGEiLz48c3RvcCBvZmZzZXQ9Ii40MiIgc3RvcC1jb2xvcj0iIzViMWIzYSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFjMDYxNCIvPjwvbGluZWFyR3JhZGllbnQ+CjxyYWRpYWxHcmFkaWVudCBpZD0iZ2xvdyI+PHN0b3Agc3RvcC1jb2xvcj0iI2VmZDFkZiIgc3RvcC1vcGFjaXR5PSIuOCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZkZmJmYyIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iNDQwIiBoZWlnaHQ9Ijk4MCIgZmlsbD0iI2ZjZjlmYiIvPgo8ZWxsaXBzZSBjeD0iMzc1IiBjeT0iMjEwIiByeD0iMzEwIiByeT0iNDEwIiBmaWxsPSJ1cmwoI2dsb3cpIiBvcGFjaXR5PSIuNyIvPgo8ZWxsaXBzZSBjeD0iNTAiIGN5PSI4NjUiIHJ4PSIzNjAiIHJ5PSIzMzAiIGZpbGw9InVybCgjZ2xvdykiIG9wYWNpdHk9Ii42NSIvPgo8cGF0aCBkPSJNLTMwLTMwSDI3MEMyNjggNjEgMTc1IDk1IDEwOSAxNTAgNDEgMjA1LTkgMjE3LTMwIDIyNFoiIGZpbGw9InVybCgjd2luZSkiLz4KPHBhdGggZD0iTS0zMC0zMEgyMTVDMTkyIDQ5IDExNSA4OCA1NSAxMjAtMTIgMTYyLTMwIDE5OS0zMCAxOTlaIiBmaWxsPSJ1cmwoI3NpbGspIiBvcGFjaXR5PSIuODIiLz4KPHBhdGggZD0iTS0yNyAyMThDNjIgMTc2IDEwNiAxMTUgMTczIDg4IDIyMSA3MCAyNTUgMTkgMjY4LTMwIiBzdHJva2U9IiNmNGJkZDMiIHN0cm9rZS13aWR0aD0iMS44IiBmaWxsPSJub25lIiBvcGFjaXR5PSIuNyIvPgo8cGF0aCBkPSJNNDY4IDYxNkMzNjMgNjgxIDM2NyA3MzIgMzE1IDc4MCAyNjkgODI1IDI0NCA4OTEgMjYwIDEwMTBINDgwWiIgZmlsbD0idXJsKCNzaWxrKSIgb3BhY2l0eT0iLjkyIi8+CjxwYXRoIGQ9Ik00ODAgNjgwQzM4NyA3NDEgNDEwIDgwMiAzNDMgODU4IDMxMCA4ODggMzAxIDk0NCAzMzQgMTAyNEg0NzhaIiBmaWxsPSJ1cmwoI3dpbmUpIiBvcGFjaXR5PSIuODUiLz4KPHBhdGggZD0iTTQ3MSA2MTJDMzY1IDY3NSAzODcgNzMxIDMyMiA3OTIgMjY3IDg0NSAyNTUgODk3IDI1OCAxMDAzIiBzdHJva2U9IiNmM2MwZDAiIHN0cm9rZS13aWR0aD0iMS44IiBmaWxsPSJub25lIiBvcGFjaXR5PSIuNyIvPgo8cGF0aCBkPSJNNDQwIDczOEMzODkgNzgzIDM5MCA4MzYgMzQ2IDg5MyIgc3Ryb2tlPSIjZmZlZmVjIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIG9wYWNpdHk9Ii4zMiIvPgo8L3N2Zz4=')!important;background-position:center center!important;background-size:cover!important;
+  }
+  :root[data-theme="ubuntu"] .shell{margin:6px!important;border-radius:24px!important;background:rgba(255,255,255,.64)!important}
+  :root[data-theme="ubuntu"] :is(.card,.finance-hero,.hero,.priority-status-card,.profit-hero,.profit-calculator){border-radius:22px!important}
+  :root[data-theme="ubuntu"] .sidebar{
+    background:linear-gradient(140deg,rgba(255,255,255,.96),rgba(255,248,252,.88))!important;
+    border:1px solid rgba(255,255,255,.99)!important;
+    box-shadow:0 10px 31px rgba(80,32,55,.12),inset 0 1px 0 #fff!important;
+  }
+  :root[data-theme="ubuntu"] #pinScreen .auth-card{padding:31px 24px 25px!important;border-radius:28px!important}
+  :root[data-theme="ubuntu"] #pinScreen .auth-brand-sticker{width:169px!important;margin-bottom:28px!important}
+  :root[data-theme="ubuntu"] #pinScreen .life-theme-choice{min-height:67px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  :root[data-theme="ubuntu"] :is(.auth-brand-sticker,.finance-hero,.hero,.priority-status-card,.profit-hero){animation:none!important;transition:none!important}
+}
+
+
+/* Final legibility pass: counter older high-specificity Ubuntu Neon selectors. */
+:root[data-theme="ubuntu"] .finance-hero .finance-metric-card .finance-metric-value,
+:root[data-theme="ubuntu"] .finance-hero .finance-metric-card strong,
+:root[data-theme="ubuntu"] .finance-hero .finance-metric-value,
+:root[data-theme="ubuntu"] .finance-hero .finance-metric-amount{
+  color:#4d1d36!important;-webkit-text-fill-color:#4d1d36!important;
+  background:none!important;text-shadow:none!important;
+}
+:root[data-theme="ubuntu"] .finance-hero .finance-metric-card .finance-metric-label,
+:root[data-theme="ubuntu"] .finance-hero .finance-metric-card small,
+:root[data-theme="ubuntu"] .finance-hero .finance-metric-card .finance-metric-desc{
+  color:#765a6a!important;-webkit-text-fill-color:#765a6a!important;
+}
+:root[data-theme="ubuntu"] .filterbar.global-filterbar :is(select,input[type="search"],input[type="text"]),
+:root[data-theme="ubuntu"] .filterbar.global-filterbar select,
+:root[data-theme="ubuntu"] .month-wrap select,
+:root[data-theme="ubuntu"] .plan-filter-controls select,
+:root[data-theme="ubuntu"] .bank-filter-controls select{
+  color:#4c2b3d!important;-webkit-text-fill-color:#4c2b3d!important;
+  background:linear-gradient(155deg,rgba(255,255,255,.99),rgba(255,248,252,.95))!important;
+  border:1px solid rgba(160,104,132,.21)!important;
+  box-shadow:0 4px 14px rgba(83,29,58,.065),inset 0 1px 0 #fff!important;
+}
+:root[data-theme="ubuntu"] .filterbar.global-filterbar select option,
+:root[data-theme="ubuntu"] select option{color:#3d2635!important;background:#fffafd!important}
+:root[data-theme="ubuntu"] .filterbar.global-filterbar :is(input,select):focus{
+  outline:none!important;border-color:#b55b85!important;box-shadow:0 0 0 3px rgba(160,65,113,.12)!important;
+}
+:root[data-theme="ubuntu"] .month-wrap{
+  background:linear-gradient(155deg,rgba(255,255,255,.97),rgba(255,250,253,.93))!important;
+  border:1px solid rgba(255,255,255,.98)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .auth-password-wrap input{
+  background:transparent!important;border:0!important;box-shadow:none!important;
+  color:#3b2433!important;-webkit-text-fill-color:#3b2433!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .auth-password-wrap input:focus{
+  outline:0!important;border:0!important;box-shadow:none!important;background:transparent!important;
+}
+:root[data-theme="ubuntu"] .profit-calculator :is(input,textarea,select){
+  color:#342031!important;-webkit-text-fill-color:#342031!important;background:#fff!important;
+}
+:root[data-theme="ubuntu"] :is(.priority-status-card,.plan-result,.finance-metric-card,.finance-total-card,.profit-kpis>div){
+  opacity:1;
+}
+
+/* Ivory Silk: all profit surfaces use the same readable ink / wine palette. */
+:root[data-theme="ubuntu"] .profit-hero{opacity:1!important}
+:root[data-theme="ubuntu"] .profit-hero::before{
+  background:radial-gradient(circle,rgba(177,94,135,.14),transparent 66%)!important;
+}
+:root[data-theme="ubuntu"] .finance-hero::before{
+  background:radial-gradient(circle,rgba(184,92,133,.13),transparent 70%)!important;
+}
+:root[data-theme="ubuntu"] .finance-hero::after{
+  background:radial-gradient(circle,rgba(130,43,77,.09),transparent 70%)!important;
+}
+:root[data-theme="ubuntu"] .finance-total-card::after{
+  background:linear-gradient(132deg,rgba(175,86,125,.11),rgba(238,177,207,.05))!important;
+}
+:root[data-theme="ubuntu"] .finance-metric-card::after{
+  background:radial-gradient(circle,rgba(169,88,127,.12),transparent 68%)!important;
+}
+:root[data-theme="ubuntu"] .profit-hero .profit-heading p,
+:root[data-theme="ubuntu"] .profit-hero .profit-heading small,
+:root[data-theme="ubuntu"] .profit-hero .profit-kpis span,
+:root[data-theme="ubuntu"] .profit-hero .profit-kpis small{
+  color:#765a6a!important;-webkit-text-fill-color:#765a6a!important;
+}
+:root[data-theme="ubuntu"] .profit-hero .profit-kicker{
+  color:#984065!important;-webkit-text-fill-color:#984065!important;
+}
+:root[data-theme="ubuntu"] .profit-hero .profit-kicker::before{
+  background:#a84d78!important;box-shadow:0 0 0 5px rgba(167,76,117,.12)!important;
+}
+:root[data-theme="ubuntu"] .profit-hero .profit-total{
+  opacity:1!important;
+  background:linear-gradient(122deg,#2a0b1d 0%,#5e203c 52%,#9b4b71 100%)!important;
+  border:1px solid rgba(255,227,241,.4)!important;
+  box-shadow:0 17px 39px rgba(96,26,62,.2),inset 0 1px 0 rgba(255,255,255,.19)!important;
+}
+:root[data-theme="ubuntu"] .profit-hero .profit-total>span{
+  color:#f0cedd!important;-webkit-text-fill-color:#f0cedd!important;
+}
+:root[data-theme="ubuntu"] .profit-hero .profit-total small{
+  color:#f0dce7!important;-webkit-text-fill-color:#f0dce7!important;
+}
+:root[data-theme="ubuntu"] .profit-hero .profit-total strong{
+  color:white!important;-webkit-text-fill-color:white!important;
+}
+:root[data-theme="ubuntu"] .profit-hero .profit-kpis>div{
+  background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(255,250,253,.85))!important;
+  border:1px solid rgba(255,255,255,.96)!important;
+}
+:root[data-theme="ubuntu"] .profit-hero .profit-kpis>div strong{
+  color:#4e2038!important;-webkit-text-fill-color:#4e2038!important;
+}
+
+/* Profit hero: outrank legacy theme's highly specific :is() group. */
+:root[data-theme="ubuntu"] #page .profit-hero .profit-total{
+  color:#fff!important;
+  background:linear-gradient(120deg,#2a0b1d 0%,#5e203c 53%,#9b4b71 100%)!important;
+  border-color:rgba(255,223,240,.41)!important;
+  box-shadow:0 17px 39px rgba(96,26,62,.20),inset 0 1px 0 rgba(255,255,255,.2)!important;
+}
+:root[data-theme="ubuntu"] #page .profit-hero .profit-total :is(span,small){color:#f0d5e3!important;-webkit-text-fill-color:#f0d5e3!important}
+:root[data-theme="ubuntu"] #page .profit-hero .profit-total strong{color:#fff!important;-webkit-text-fill-color:#fff!important}
 </style>
 </head>
 <body>
@@ -3159,6 +4002,14 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
       <button type="submit" id="authSubmit" class="auth-submit"><span>Войти в аналитику</span><span aria-hidden="true">→</span></button>
       <div class="pin-error-msg" id="pinError" role="alert" aria-live="polite"></div>
     </form>
+    <div class="life-theme-entry" role="group" aria-label="Выбор оформления перед входом">
+      <div class="life-theme-entry-title">ВЫБЕРИТЕ ТЕМУ ИНТЕРФЕЙСА</div>
+      <div class="life-theme-entry-options">
+        <button type="button" class="life-theme-choice" data-theme-choice="light" aria-pressed="true"><span class="life-theme-choice-symbol">☀</span><span>Светлая</span></button>
+        <button type="button" class="life-theme-choice" data-theme-choice="dark" aria-pressed="false"><span class="life-theme-choice-symbol">☾</span><span>Тёмная</span></button>
+        <button type="button" class="life-theme-choice" data-theme-choice="ubuntu" aria-pressed="false"><span class="life-theme-choice-symbol">✦</span><span>Ubuntu</span></button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -3182,10 +4033,15 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
       <span class="mobile-brand-mark">
         <img src="data:image/png;base64,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" alt="Life Pay" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('logo-fallback')">
       </span>
-      <span class="mobile-brand-copy"><strong>Life Pay</strong><small>АНАЛИТИКА</small></span>
+      <span class="mobile-brand-copy"><img class="mobile-brand-wordmark" src="data:image/png;base64,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" alt="Life Pay"><small>АНАЛИТИКА</small></span>
     </div>
     <div class="top-meta">
-      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false"><span class="theme-icon">☾</span><span class="theme-label">Тёмная тема</span></button>
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Выбрать тему оформления" aria-expanded="false" aria-controls="lifePayThemeMenu"><span class="theme-icon">☾</span><span class="theme-label">Тема</span></button>
+      <div class="life-theme-menu" id="lifePayThemeMenu" role="group" aria-label="Выбор темы сайта" hidden>
+        <button type="button" class="life-theme-menu-choice" data-theme-choice="light"><span aria-hidden="true">☀</span> Светлая</button>
+        <button type="button" class="life-theme-menu-choice" data-theme-choice="dark"><span aria-hidden="true">☾</span> Тёмная</button>
+        <button type="button" class="life-theme-menu-choice" data-theme-choice="ubuntu"><span aria-hidden="true">✦</span> Ubuntu Neon</button>
+      </div>
       <button type="button" class="theme-toggle lock-app-btn" id="lockApp" title="Выйти из приложения" aria-label="Выйти из приложения"><svg class="exit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg><span class="theme-label">Выйти</span></button>
       <span id="topSave" class="pill ok">Загрузка</span>
     </div>
@@ -3242,58 +4098,75 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
    ===================================================== */
 (function(){
   'use strict';
-  const KEY = 'piot_theme';
-  const root = document.documentElement;
-
+  // Three visual themes; this controller changes only presentation, not finance calculations.
+  const KEY='piot_theme';
+  const root=document.documentElement;
+  const initialFavicon=document.getElementById('lifePayFavicon')?.href || '';
+  const originalAppleIcon=document.querySelector('link[rel="apple-touch-icon"]')?.href || '';
+  const ubuntuAppleIcon='data:image/png;base64,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';
+  const ubuntuFavicon='data:image/png;base64,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';
+  const labels={light:'Светлая',dark:'Тёмная',ubuntu:'Ubuntu Neon'};
+  const symbols={light:'☀',dark:'☾',ubuntu:'✦'};
+  const barColors={light:'#e2e9f3',dark:'#0b1320',ubuntu:'#210932'};
+  const themes=['light','dark','ubuntu'];
   function storedTheme(){
-    try{
-      const value = localStorage.getItem(KEY);
-      return value === 'dark' || value === 'light' ? value : 'light';
-    }catch(err){
-      return 'light';
-    }
+    try{const v=localStorage.getItem(KEY);return themes.includes(v)?v:'light';}
+    catch(e){return 'light';}
   }
-
   function syncButtons(){
-    const dark = root.dataset.theme === 'dark';
+    const theme=root.dataset.theme||'light';
     document.querySelectorAll('#themeToggle,#pinThemeToggle,[data-theme-toggle]').forEach(btn=>{
-      const icon = btn.querySelector('.theme-icon');
-      const label = btn.querySelector('.theme-label');
-      if(icon) icon.textContent = dark ? '☀' : '☾';
-      if(label) label.textContent = dark ? 'Светлая тема' : 'Тёмная тема';
-      btn.setAttribute('aria-pressed', String(dark));
-      btn.setAttribute('aria-label', dark ? 'Включить светлую тему' : 'Включить тёмную тему');
-      btn.title = dark ? 'Переключить на светлую тему' : 'Переключить на тёмную тему';
+      const icon=btn.querySelector('.theme-icon');
+      const label=btn.querySelector('.theme-label');
+      if(icon)icon.textContent=symbols[theme];
+      if(label)label.textContent=labels[theme];
+      btn.setAttribute('aria-label','Тема: '+labels[theme]+'. Выбрать другую тему');
+      btn.title='Текущая тема: '+labels[theme];
+    });
+    document.querySelectorAll('[data-theme-choice]').forEach(btn=>{
+      const active=btn.dataset.themeChoice===theme;
+      btn.classList.toggle('selected',active);
+      btn.setAttribute('aria-pressed',String(active));
     });
   }
-
   function setTheme(value){
-    const theme = value === 'dark' ? 'dark' : 'light';
-    root.dataset.theme = theme;
-    try{ localStorage.setItem(KEY, theme); }catch(err){}
+    const theme=themes.includes(value)?value:'light';
+    root.dataset.theme=theme;
+    try{localStorage.setItem(KEY,theme);}catch(e){}
+    const meta=document.getElementById('lifePayThemeColor');
+    if(meta)meta.content=barColors[theme];
+    const favicon=document.getElementById('lifePayFavicon');
+    if(favicon)favicon.href=theme==='ubuntu'?ubuntuFavicon:initialFavicon;
+    const apple=document.querySelector('link[rel="apple-touch-icon"]');
+    if(apple)apple.href=theme==='ubuntu'?ubuntuAppleIcon:originalAppleIcon;
     syncButtons();
     return theme;
   }
-
   function toggleTheme(){
-    return setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
+    const next=(themes.indexOf(root.dataset.theme)+1)%themes.length;
+    return setTheme(themes[next]);
   }
-
+  function closeMenu(){
+    const menu=document.getElementById('lifePayThemeMenu');
+    if(menu)menu.hidden=true;
+    document.getElementById('themeToggle')?.setAttribute('aria-expanded','false');
+  }
+  function openMenu(){
+    const menu=document.getElementById('lifePayThemeMenu');
+    if(!menu)return;
+    menu.hidden=!menu.hidden;
+    document.getElementById('themeToggle')?.setAttribute('aria-expanded',String(!menu.hidden));
+  }
   setTheme(storedTheme());
-
-  document.addEventListener('click', function(event){
-    const button = event.target.closest('#themeToggle,#pinThemeToggle,[data-theme-toggle]');
-    if(!button) return;
-    event.preventDefault();
-    toggleTheme();
+  document.addEventListener('click',event=>{
+    const choice=event.target.closest('[data-theme-choice]');
+    if(choice){event.preventDefault();setTheme(choice.dataset.themeChoice);closeMenu();return;}
+    if(event.target.closest('#themeToggle,[data-theme-toggle]')){event.preventDefault();openMenu();return;}
+    if(event.target.closest('#pinThemeToggle')){event.preventDefault();toggleTheme();return;}
+    if(!event.target.closest('#lifePayThemeMenu'))closeMenu();
   });
-
-  window.PIOT_THEME = {
-    get: function(){ return root.dataset.theme || 'light'; },
-    set: setTheme,
-    toggle: toggleTheme,
-    sync: syncButtons
-  };
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});
+  window.PIOT_THEME={get:()=>root.dataset.theme||'light',set:setTheme,toggle:toggleTheme,sync:syncButtons};
 })();
 </script>
 
@@ -3602,13 +4475,20 @@ function servicePartner(r){
   return '';
 }
 function isAutoBiz(r){ return servicePartner(r)==='avtbiz'; }
+function paymentDestination(r){
+  // Лист «Заявка», столбец E: статус передачи задачи.
+  // Сумма в F не является подтверждением оплаты: наличие положительной суммы
+  // само по себе НЕ делает установку оплаченной.
+  var raw=norm(r && r.taskStatus).replace(/[.,;:]+/g,' ').replace(/\s+/g,' ').trim();
+  if(!raw || /(?:не оплат|неоплач|оплат.*отмен|возврат средств|ошибочн.*оплат)/.test(raw)) return '';
+  if(!/(?:оплатил|оплатила|оплатили|оплачено|оплачен|оплачена|оплата прошла|получена оплата)/.test(raw))return '';
+  var lp=/(?:оплатил|оплатила|оплатили|оплачено|оплачен|оплачена|оплата прошла|получена оплата)\s*(?:у\s*)?(?:lp|лп|life\s*pay|лайф\s*пей|лайфпей)(?=$|\s)/.test(raw);
+  var sp=/(?:оплатил|оплатила|оплатили|оплачено|оплачен|оплачена|оплата прошла|получена оплата)\s*(?:у\s*)?(?:сп|sp)(?=$|\s)/.test(raw);
+  // Не распределяем неоднозначные статусы по двум карточкам одновременно.
+  return lp&&!sp?'lp':sp&&!lp?'avtbiz':'';
+}
 function isPaidInstallation(r,kind,c){
-  // То же правило оплаты, что и у остальных финансовых показателей: сумма > 0,
-  // исключая счёт и записи без номера заявки.
-  if(!hasApplication(r)||rev(r,c)<=0)return false;
-  if(kind==='avtbiz')return servicePartner(r)==='avtbiz';
-  if(kind==='lp')return servicePartner(r)==='lp'&&bucket(r,c)==='lp';
-  return false;
+  return hasApplication(r) && !isInvoice(r,c||defaults()) && paymentDestination(r)===kind;
 }
 function summary(records,c){
   var s={total:0,done:0,closed:0,paid:0,revenue:0,lp:0,sp:0,other:0,invoice:0,noesp:0,noespCount:0,unknownBank:0,undated:0};
@@ -3742,7 +4622,7 @@ function csv(rows,cols){
     .join('\r\n');
 }
 return{FIELDS,BANKS,norm,contains,validMonth,parseDate,amount,defaults,validateConfig,
-  isInvoice,isDone,isClosed,hasApplication,isPaidInstallation,bucket,bank,rev,summary,emptyMonth,validatePatch,
+  isInvoice,isDone,isClosed,hasApplication,paymentDestination,isPaidInstallation,bucket,bank,rev,summary,emptyMonth,validatePatch,
   monthly,eventSummary,activityPeriods,filter,income,periodKey,periods,csv};
 })();
 </script>
@@ -3797,7 +4677,7 @@ const s = {
   tablePage:1, sort:'amount', direction:-1, paid:'', installation:'',
   filter:{q:'',partner:'',status:'',task:'',responsible:'',priority:'',bank:'',source:''},
   draft:{}, invalid:{}, timer:null, saving:null, saveError:'',
-  configDraft:null, configDirty:false, loaded:false, fx:true
+  configDraft:null, configDirty:false, loaded:false, fx:true, profitLines:Object.create(null), profitSheetConnected:false, profitSheetLoaded:false
 };
 let chartId = 0;
 const CHARTS = Object.create(null);
@@ -3806,7 +4686,7 @@ const CHARTS = Object.create(null);
    API — прямой fetch к GAS (работает с GitHub Pages)
    ===================================================== */
 function rpc(name, arg){
-  const allowed = ['apiGetData','apiSaveMonth','apiSaveConfig'];
+  const allowed = ['apiGetData','apiSaveMonth','apiSaveConfig','apiSaveProfit','apiGetProfit'];
   if(!allowed.includes(name)) return Promise.reject(Error('Метод не разрешён: '+name));
 
   // Если открыто внутри Apps Script
@@ -4233,8 +5113,8 @@ function taskStatusDashboard(){
   const priority=[
     {name:'Клиент сам установил',tone:'',index:'01',label:'РЕЗУЛЬТАТ № 1',caption:'Самостоятельная установка · количество клиентов'},
     {name:'Клиент настроен с нашей помощью',tone:'assist',index:'02',label:'РЕЗУЛЬТАТ № 2',caption:'Установка с помощью нашей команды'},
-    {name:'Платные установки Life Pay',tone:'paid-lp',index:'03',label:'ПЛАТНЫЕ УСТАНОВКИ',caption:'Заявки Life Pay с оплаченной суммой',installation:'lp'},
-    {name:'Платные установки Авт.Биз',tone:'paid-autobiz',index:'04',label:'ПЛАТНЫЕ УСТАНОВКИ',caption:'Заявки партнёра Авт.Биз с оплаченной суммой',installation:'avtbiz'}
+    {name:'Платные установки Life Pay',tone:'paid-lp',index:'03',label:'ПЛАТНЫЕ УСТАНОВКИ',caption:'Подтверждена оплата LP в статусе передачи задачи',installation:'lp'},
+    {name:'Платные установки Авт.Биз',tone:'paid-autobiz',index:'04',label:'ПЛАТНЫЕ УСТАНОВКИ',caption:'Подтверждена оплата СП в статусе передачи задачи',installation:'avtbiz'}
   ];
   const matches=(v,t)=>{ const a=Piot.norm(v),b=Piot.norm(t); return a===b||a.startsWith(b+':')||a.startsWith(b+' '); };
   const countFor=t=>src.filter(r=>matches(r.taskStatus,t)).length;
@@ -4273,7 +5153,7 @@ function taskStatusDashboard(){
      <details class="result-catalog"><summary>Каталог остальных результатов <span>${others.length} статусов</span></summary>
        <div class="priority-other-heading"><span>Другие статусы</span><span>Количество и доля</span></div>${otherHtml}
      </details>`,
-    'Нажмите на карточку, чтобы открыть подходящие заявки. Платные установки — с положительной суммой, без счетов.');
+    'Нажмите на карточку, чтобы открыть заявки. Платные установки определяются по подтверждённой оплате LP / СП в столбце E.');
 }
 
 function financeHero(){
@@ -4533,6 +5413,100 @@ function finance(){
 }
 
 
+
+/* ===== РАСХОДЫ И ЧИСТАЯ ПРИБЫЛЬ ===== */
+const PROFIT_ITEMS_KEY='life_pay_expense_items_v1';
+function profitReadLocal(){
+  try{const x=JSON.parse(localStorage.getItem(PROFIT_ITEMS_KEY)||'{}');return x&&typeof x==='object'&&!Array.isArray(x)?x:{};}
+  catch(e){return {};}
+}
+function profitWriteLocal(){
+  const all=profitReadLocal();
+  for(const [month,items] of Object.entries(s.profitLines)) if(Piot.validMonth(month)) all[month]=items;
+  try{localStorage.setItem(PROFIT_ITEMS_KEY,JSON.stringify(all));}catch(e){}
+}
+function profitLinesFor(month){
+  if(!month)return [];
+  if(!Array.isArray(s.profitLines[month])){
+    const stored=profitReadLocal()[month];
+    s.profitLines[month]=Array.isArray(stored)&&stored.length
+      ?stored.slice(0,40).map(x=>({name:String(x.name||'Прочие расходы').slice(0,100),amount:String(x.amount||'')}))
+      :[{name:'Расходы',amount:String((cfg().monthlyExpenses||{})[month]||'')}];
+  }
+  return s.profitLines[month];
+}
+function profitMoney(value){
+  const n=Piot.amount(value);
+  return n!=null&&n>=0?n:null;
+}
+function profitTotalFromLines(items){
+  let total=0;
+  for(const item of items){
+    if(!String(item.amount||'').trim())continue;
+    const n=profitMoney(item.amount);
+    if(n==null||n<0) return null;
+    total+=n;
+    if(total>1e12)return null;
+  }
+  return Math.round(total*100)/100;
+}
+function profitShowPreview(){
+  if(s.page!=='profit'||!s.month||!s.data)return;
+  const total=profitTotalFromLines(profitLinesFor(s.month));
+  const income=Piot.income(s.data.records||[],s.data.ledger||{},s.month,cfg()).total;
+  const display=total===null?'Проверьте суммы':rub(total);
+  $$('[data-profit-preview-expenses]').forEach(n=>n.textContent=display);
+  $$('[data-profit-preview-net]').forEach(n=>n.textContent=total===null?'—':rub(income-total));
+  const error=$('[data-profit-validation]'); if(error)error.textContent=total===null?'Укажите неотрицательные суммы (до 1 трлн ₽).':'';
+}
+async function saveProfitCalculator(){
+  if(!s.month)throw Error('Выберите месяц для сохранения.');
+  const items=profitLinesFor(s.month).map(x=>({name:String(x.name||'').trim().slice(0,100)||'Расходы',amount:profitMoney(x.amount||'0')}));
+  if(items.some(x=>x.amount===null))throw Error('Проверьте суммы расходов.');
+  const total=profitTotalFromLines(items);
+  if(total===null)throw Error('Общая сумма расходов слишком велика.');
+  const month=s.month;
+  const config=JSON.parse(JSON.stringify(s.configDraft||cfg()));
+  config.monthlyExpenses=config.monthlyExpenses||{};
+  config.monthlyExpenses[month]=total;
+  const cleaned=Piot.validateConfig(config);
+  // Сохраняем итог существующим серверным методом: это работает со старым Code.gs.
+  const saved=await rpc('apiSaveConfig',{config:cleaned,revision:cfg().revision});
+  s.data.config=saved; s.configDraft=null; s.configDirty=false;
+  s.profitLines[month]=items.map(x=>({name:x.name,amount:String(x.amount)}));
+  profitWriteLocal();
+  const financial=Piot.income(s.data.records||[],s.data.ledger||{},month,cfg());
+  let sheetSaved=false;
+  try{
+    // Опциональное дополнение Code.gs: запись детализации в «Чистая прибыль».
+    const result=await rpc('apiSaveProfit',{month,items,income:financial.total,sp:financial.sp});
+    sheetSaved=!!(result&&result.saved);
+  }catch(e){ /* старый Code.gs ещё не поддерживает этот метод */ }
+  s.profitSheetConnected=sheetSaved;
+  render({fx:false});
+  toast(sheetSaved?'Расходы и чистая прибыль записаны в Google Таблицу.':
+      'Сумма расходов сохранена на сервере. Для детализации в листе «Чистая прибыль» установите дополнение Code.gs.',!sheetSaved);
+}
+function profitCalculator(month,income){
+  if(!month)return `<section class="profit-expense-editor profit-expense-hint"><strong>Калькулятор расходов</strong><p>Выберите месяц в верхнем фильтре, чтобы вносить расходы и сохранять результат.</p></section>`;
+  const lines=profitLinesFor(month),expense=profitTotalFromLines(lines);
+  return `<section class="profit-calculator" aria-label="Калькулятор чистой прибыли">
+    <div class="profit-calculator-title"><div><span class="profit-calc-kicker">КАЛЬКУЛЯТОР</span><h3>Расходы за ${monthLabel(month)}</h3><p>Добавляйте статьи расходов: итог и чистая прибыль пересчитываются сразу.</p></div><span class="profit-calc-symbol">₽</span></div>
+    <div class="profit-calc-lines">${lines.map((line,i)=>`<div class="profit-calc-line">
+      <label>Статья расхода<input type="text" maxlength="100" data-profit-name="${i}" aria-label="Наименование расхода ${i+1}" value="${h(line.name)}" placeholder="Например, аренда"></label>
+      <label>Сумма, ₽<input type="text" inputmode="decimal" data-profit-amount="${i}" aria-label="Сумма расхода ${i+1}" value="${h(line.amount)}" placeholder="0,00"></label>
+      <button type="button" class="profit-calc-delete" data-profit-remove="${i}" aria-label="Удалить расход ${i+1}" title="Удалить">×</button>
+    </div>`).join('')}</div>
+    <button type="button" class="btn profit-calc-add" data-profit-add>＋ Добавить расход</button>
+    <div class="profit-calc-results"><div><span>Доход без СП</span><b>${rub(income)}</b></div>
+      <div><span>Всего расходов</span><b data-profit-preview-expenses>${expense===null?'—':rub(expense)}</b></div>
+      <div class="profit-calc-result-main"><span>Чистая прибыль</span><strong data-profit-preview-net>${expense===null?'—':rub(income-expense)}</strong></div></div>
+    <p class="profit-calc-error" data-profit-validation role="status" aria-live="polite"></p>
+    <button type="button" class="btn primary profit-calc-save" data-save-profit>Сохранить расчёт</button>
+    <p class="profit-calc-hint">Общая сумма расходов сохраняется через существующее подключение Google Apps Script. Для сохранения каждой статьи в отдельном листе нужно дополнение Code.gs из комплекта.</p>
+  </section>`;
+}
+
 function cleanProfit(){
   const ledger=s.data.ledger||{};
   const expenses=cfg().monthlyExpenses||{};
@@ -4554,24 +5528,18 @@ function cleanProfit(){
   const income=s.month?selected.income:allIncome.total;
   const expense=s.month?selected.expense:rows.reduce((sum,x)=>sum+x.expense,0);
   const profit=income-expense;
-  const expenseInput=s.month
-    ? `<div class="profit-expense-editor">
-        <div><strong>Расходы за ${monthLabel(s.month)}</strong><p>Введите общую сумму расходов за выбранный месяц. Она сохранится в настройках Google Apps Script и будет доступна на других устройствах.</p></div>
-        <label class="profit-input-wrap"><span>Расходы, ₽</span><input type="number" min="0" max="1000000000000" step="0.01" inputmode="decimal" data-expense-month="${s.month}" value="${Number(expenses[s.month])||0}" aria-label="Расходы за ${monthLabel(s.month)}"></label>
-        <button type="button" class="btn primary" data-save-profit>Сохранить расходы</button>
-      </div>`
-    : `<div class="profit-expense-editor profit-expense-hint"><strong>Чтобы внести расходы</strong><span>Выберите конкретный месяц в верхнем фильтре. В режиме «За всё время» суммируются все сохранённые месяцы.</span></div>`;
+  const expenseInput=profitCalculator(s.month,income);
   let html=`<section class="profit-hero">
     <div class="profit-heading"><span class="profit-kicker">ФИНАНСОВЫЙ РЕЗУЛЬТАТ</span><h2>Чистая прибыль</h2>
       <p>Доход Life Pay и ЕСП без СП минус расходы. Доход СП показывается отдельно и в расчёт не входит.</p></div>
     <div class="profit-total">
       <span>${s.month?monthLabel(s.month):'За всё время'}</span>
-      <strong>${rub(profit)}</strong>
+      <strong${s.month?' data-profit-preview-net':''}>${rub(profit)}</strong>
       <small>${profit<0?'Расходы превышают доходы':profit===0?'Доходы равны расходам':'Доходы за вычетом расходов'}</small>
     </div>
     <div class="profit-kpis">
       <div><span>ДОХОД БЕЗ СП</span><strong>${cVal(income,true)}</strong><small>Life Pay + ЕСП</small></div>
-      <div><span>РАСХОДЫ</span><strong>${cVal(expense,true)}</strong><small>Введены вручную по месяцам</small></div>
+      <div><span>РАСХОДЫ</span><strong${s.month?' data-profit-preview-expenses':''}>${cVal(expense,true)}</strong><small>Введены вручную по месяцам</small></div>
       <div><span>СП ОТДЕЛЬНО</span><strong>${cVal(s.month?selected.sp:allIncome.sp,true)}</strong><small>Не включается в прибыль</small></div>
     </div>
   </section>`;
@@ -4627,8 +5595,8 @@ function planControls(){
           <option value="">Все результаты</option>
           <option value="Клиент сам установил"${s.planResult==='Клиент сам установил'?' selected':''}>01 · Сам установил</option>
           <option value="Клиент настроен с нашей помощью"${s.planResult==='Клиент настроен с нашей помощью'?' selected':''}>02 · С нашей помощью</option>
-          <option value="paid-lp"${s.planResult==='paid-lp'?' selected':''}>03 · Платные установки Life Pay</option>
-          <option value="paid-avtbiz"${s.planResult==='paid-avtbiz'?' selected':''}>04 · Платные установки Авт.Биз</option>
+          <option value="paid-lp"${s.planResult==='paid-lp'?' selected':''}>03 · Оплачено у LP</option>
+          <option value="paid-avtbiz"${s.planResult==='paid-avtbiz'?' selected':''}>04 · Оплачено у СП</option>
         </select>
       </label>
     </div>
@@ -4736,8 +5704,8 @@ function tablePage2(){
   let html=filters()+`<div class="table-toolbar">
     <select id="installationFilter" aria-label="Фильтрация платных установок">
       <option value=""${s.installation===''?' selected':''}>Все установки</option>
-      <option value="lp"${s.installation==='lp'?' selected':''}>Платные установки Life Pay</option>
-      <option value="avtbiz"${s.installation==='avtbiz'?' selected':''}>Платные установки Авт.Биз</option>
+      <option value="lp"${s.installation==='lp'?' selected':''}>Оплачено у LP</option>
+      <option value="avtbiz"${s.installation==='avtbiz'?' selected':''}>Оплачено у СП</option>
     </select>
     <select id="paidFilter" aria-label="Фильтр по сумме и учёту">
       ${[['','Все заявки'],['paid','Учитываются в выручке'],['invoice','Счета — отдельный учёт'],['zero','Без указанной суммы']].map(([k,v])=>
@@ -4803,7 +5771,11 @@ function settings(){
       ${card('Таблица',`<div class="field"><label for="perPage">Строк на странице</label>
         <select id="perPage" data-config="perPage">${[10,25,50,100].map(v=>`<option ${c.perPage===v?'selected':''}>${v}</option>`).join('')}</select></div>`)}
       ${card('Цветовая тема',`<p class="note">Выберите удобное оформление. Выбор сохраняется на этом устройстве.</p>
-        <button type="button" class="btn theme-inline" data-theme-toggle><span class="theme-icon">☾</span><span class="theme-label">Тёмная тема</span></button>`)}
+        <div class="life-settings-themes" role="group" aria-label="Тема интерфейса">
+          <button type="button" class="btn small" data-theme-choice="light">☀ Светлая</button>
+          <button type="button" class="btn small" data-theme-choice="dark">☾ Тёмная</button>
+          <button type="button" class="btn small" data-theme-choice="ubuntu">✦ Ubuntu Neon</button>
+        </div>`)}
     </div>${configButtons()}`;
   }else if(s.tab==='security'){
     const info=window.PIOT_SECURITY?window.PIOT_SECURITY.getInfo():{idleMinutes:15,defaultPassword:false,logCount:0};
@@ -4926,7 +5898,22 @@ async function load(force){
   }
 }
 
-async function navigate(page){ await flush(); s.page=page; s.tablePage=1; render(); window.scrollTo({top:0,behavior:fxOn()?'smooth':'auto'}); }
+async function fetchProfitSheet(){
+  if(s.profitSheetLoaded)return;
+  s.profitSheetLoaded=true;
+  try{
+    const result=await rpc('apiGetProfit');
+    if(result&&Array.isArray(result.entries)){
+      for(const item of result.entries){
+        if(Piot.validMonth(item.month)&&Array.isArray(item.items)&&!s.profitLines[item.month]){
+          s.profitLines[item.month]=item.items.slice(0,40).map(x=>({name:String(x.name||'Расходы'),amount:String(x.amount||0)}));
+        }
+      }
+      s.profitSheetConnected=true;
+    }
+  }catch(e){/* Сервер ещё не обновлён; работаем с существующими расходами */}
+}
+async function navigate(page){ await flush(); if(page==='profit')await fetchProfitSheet(); s.page=page; s.tablePage=1; render(); window.scrollTo({top:0,behavior:fxOn()?'smooth':'auto'}); }
 async function changeMonth(month){
   if(month&&!Piot.validMonth(month)) return;
   try{ await flush(); s.month=month; s.tablePage=1; $('#month').value=month; render(); }
@@ -5015,7 +6002,9 @@ async function handleClick(e){
       setTimeout(()=>URL.revokeObjectURL(url),1500); toast('Экспортировано: '+out.length+' строк');
     }
     else if(el.dataset.selectMonth) await changeMonth(el.dataset.selectMonth);
-    else if(el.hasAttribute('data-save-profit')) await saveConfig();
+    else if(el.hasAttribute('data-profit-add')){if(s.month&&profitLinesFor(s.month).length<40){profitLinesFor(s.month).push({name:'',amount:''});render({fx:false});}}
+    else if(el.hasAttribute('data-profit-remove')){if(s.month){profitLinesFor(s.month).splice(Number(el.dataset.profitRemove),1);if(!profitLinesFor(s.month).length)profitLinesFor(s.month).push({name:'Расходы',amount:''});render({fx:false});}}
+    else if(el.hasAttribute('data-save-profit')) await saveProfitCalculator();
     else if(el.hasAttribute('data-save-config')) await saveConfig();
     else if(el.hasAttribute('data-reset-config')){
       if(confirm('Вернуть стандартные настройки?')){ s.configDraft=Piot.defaults(); s.configDirty=true; render(); }
@@ -5051,6 +6040,8 @@ document.addEventListener('input',e=>{
       if(inp){ inp.focus(); try{inp.setSelectionRange(p,p);}catch(err){} }
     },280);
   }
+  else if(el.dataset.profitName!==undefined && s.month){profitLinesFor(s.month)[+el.dataset.profitName].name=el.value;}
+  else if(el.dataset.profitAmount!==undefined && s.month){profitLinesFor(s.month)[+el.dataset.profitAmount].amount=el.value;profitShowPreview();}
   else if(el.dataset.config||el.dataset.rule||el.dataset.bankrule!=null||el.dataset.expenseMonth) configInput(el);
 });
 document.addEventListener('change',async e=>{
