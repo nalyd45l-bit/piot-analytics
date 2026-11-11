@@ -5225,6 +5225,229 @@ html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu 
  html:root .top-meta #themeToggle .theme-label{display:inline!important;opacity:1!important;visibility:visible!important}
 }
 </style>
+
+<style id="lifePayBanksGlassFinalFix">
+/* ================= BANKS FINAL LIQUID GLASS FINISH ================= */
+:root{
+  --lp-bank-glass:rgba(255,255,255,.72);
+  --lp-bank-glass-strong:rgba(255,255,255,.82);
+  --lp-bank-line:rgba(139,167,198,.25);
+  --lp-bank-ink:#18324d;
+  --lp-bank-sub:#607893;
+  --lp-bank-shadow:0 18px 40px rgba(32,54,81,.12), inset 0 1px 0 rgba(255,255,255,.78);
+  --lp-bank-shine:rgba(255,255,255,.5);
+  --lp-bank-unpaid-bg:rgba(234,118,149,.12);
+  --lp-bank-paid-bg:rgba(53,200,157,.12);
+}
+:root[data-theme="dark"]{
+  --lp-bank-glass:rgba(18,25,37,.76);
+  --lp-bank-glass-strong:rgba(22,31,47,.84);
+  --lp-bank-line:rgba(141,164,196,.18);
+  --lp-bank-ink:#f4f7fb;
+  --lp-bank-sub:#a9b7ca;
+  --lp-bank-shadow:0 20px 46px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.08);
+  --lp-bank-shine:rgba(255,255,255,.18);
+  --lp-bank-unpaid-bg:rgba(255,127,162,.12);
+  --lp-bank-paid-bg:rgba(52,194,160,.12);
+}
+:root[data-theme="ubuntu"]{
+  --lp-bank-glass:rgba(71,11,35,.34);
+  --lp-bank-glass-strong:rgba(90,16,45,.42);
+  --lp-bank-line:rgba(255,205,225,.18);
+  --lp-bank-ink:#fff7fb;
+  --lp-bank-sub:#f6dbe7;
+  --lp-bank-shadow:0 20px 54px rgba(27,0,14,.32), inset 0 1px 0 rgba(255,255,255,.12);
+  --lp-bank-shine:rgba(255,218,232,.18);
+  --lp-bank-unpaid-bg:rgba(255,125,162,.11);
+  --lp-bank-paid-bg:rgba(89,239,211,.12);
+}
+
+.bank-premium-intro,
+.bank-collection-status,
+.bank-card.bank-card-premium,
+.bank-summary-premium .kpi.kpi-v2,
+.bank-charts-row .card,
+.bank-rank-item,
+.bank-card-premium .mini-glass{
+  backdrop-filter:blur(24px) saturate(165%);
+  -webkit-backdrop-filter:blur(24px) saturate(165%);
+}
+
+.bank-premium-intro{
+  background:linear-gradient(135deg,var(--lp-bank-glass-strong), color-mix(in srgb,var(--lp-bank-glass-strong), transparent 18%)) !important;
+  border:1px solid var(--lp-bank-line) !important;
+  box-shadow:var(--lp-bank-shadow) !important;
+  overflow:hidden !important;
+}
+.bank-premium-intro::before{
+  background:
+    radial-gradient(circle at 78% 18%, color-mix(in srgb,var(--lp-bank-shine), transparent 15%) 0 8%, transparent 33%),
+    radial-gradient(circle at 92% 78%, color-mix(in srgb,var(--lp-bank-shine), transparent 40%) 0 12%, transparent 45%),
+    linear-gradient(118deg, transparent 0 30%, rgba(255,255,255,.06) 44%, transparent 58%),
+    repeating-linear-gradient(125deg, transparent 0 42px, rgba(255,255,255,.055) 43px 45px, transparent 46px 92px) !important;
+  opacity:1 !important;
+}
+.bank-premium-intro::after{
+  content:"";
+  position:absolute;
+  inset:auto -42px -38px auto;
+  width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle at 34% 34%, rgba(255,255,255,.28), rgba(255,255,255,.07) 38%, transparent 62%);
+  filter:blur(3px);
+  opacity:.65;
+  pointer-events:none;
+  animation:lpBankFloat 10s ease-in-out infinite;
+}
+.bank-premium-intro h2{margin:8px 0 0 !important;font-size:clamp(26px,2.8vw,38px) !important;color:var(--lp-bank-ink) !important;-webkit-text-fill-color:var(--lp-bank-ink) !important}
+.bank-premium-intro p{display:none !important}
+.bank-eyebrow{color:color-mix(in srgb,var(--lp-bank-sub), white 12%) !important}
+.bank-eyebrow-dot{box-shadow:0 0 0 6px color-mix(in srgb,var(--bank-paid), transparent 82%) !important}
+.bank-intro-mark{opacity:1 !important}
+.bank-intro-mark span{background:rgba(255,255,255,.10) !important;border:1px solid rgba(255,255,255,.24) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 12px 24px rgba(0,0,0,.10) !important}
+.bank-intro-mark small{color:var(--lp-bank-sub) !important}
+:root[data-theme="ubuntu"] .bank-intro-mark span{background:rgba(255,255,255,.06) !important}
+
+.bank-summary-premium .kpi.kpi-v2{
+  background:linear-gradient(135deg,var(--lp-bank-glass), color-mix(in srgb,var(--lp-bank-glass), transparent 16%)) !important;
+  border:1px solid var(--lp-bank-line) !important;
+  box-shadow:var(--lp-bank-shadow) !important;
+  position:relative;overflow:hidden;
+}
+.bank-summary-premium .kpi.kpi-v2::before{
+  content:"";position:absolute;inset:auto -40px -42px auto;width:130px;height:130px;border-radius:34px;
+  background:radial-gradient(circle at 30% 28%, rgba(255,255,255,.45), rgba(255,255,255,.08) 34%, transparent 62%);
+  opacity:.55;transform:rotate(18deg);
+}
+.bank-summary-premium .kpi.kpi-v2::after{
+  content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 0 34%, rgba(255,255,255,.07) 45%, transparent 56%);
+  pointer-events:none;animation:lpBankShine 7s linear infinite;
+}
+.bank-summary-premium .kpi-v2 .kpi-v2-label{color:var(--lp-bank-sub) !important;-webkit-text-fill-color:var(--lp-bank-sub) !important}
+.bank-summary-premium .kpi-v2 strong{color:var(--lp-bank-ink) !important;-webkit-text-fill-color:var(--lp-bank-ink) !important;text-shadow:0 1px 0 rgba(255,255,255,.08) !important}
+.bank-summary-premium .kpi-v2 .kpi-v2-icon{background:rgba(255,255,255,.16) !important;border-color:rgba(255,255,255,.18) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.25) !important}
+
+.bank-collection-status{
+  background:linear-gradient(145deg,var(--lp-bank-glass), color-mix(in srgb,var(--lp-bank-glass), transparent 12%)) !important;
+  border:1px solid var(--lp-bank-line) !important;
+  box-shadow:var(--lp-bank-shadow) !important;
+  position:relative;overflow:hidden;
+}
+.bank-collection-status::before{
+  content:"";position:absolute;inset:0;background:
+  radial-gradient(circle at 14% 20%, rgba(255,255,255,.14), transparent 28%),
+  linear-gradient(125deg, transparent 0 36%, rgba(255,255,255,.05) 48%, transparent 60%);
+  pointer-events:none;
+}
+.bank-collection-head strong,.bank-collection-number b,.bank-payment-link{color:var(--lp-bank-ink) !important;-webkit-text-fill-color:var(--lp-bank-ink) !important}
+.bank-collection-kicker,.bank-collection-head p,.bank-collection-number,.bank-collection-foot{color:var(--lp-bank-sub) !important;-webkit-text-fill-color:var(--lp-bank-sub) !important}
+.bank-collection-track{
+  height:16px !important;
+  background:linear-gradient(90deg, color-mix(in srgb,var(--bank-unpaid), white 68%), color-mix(in srgb,var(--bank-unpaid), transparent 62%)) !important;
+  border:1px solid color-mix(in srgb,var(--bank-unpaid), transparent 82%) !important;
+  box-shadow:inset 0 2px 5px rgba(11,21,34,.12), 0 0 0 1px rgba(255,255,255,.04) !important;
+}
+.bank-collection-track i{
+  background:linear-gradient(90deg, var(--bank-paid) 0%, color-mix(in srgb,var(--bank-paid), white 18%) 48%, color-mix(in srgb,var(--bank-paid), white 38%) 100%) !important;
+  box-shadow:0 0 18px color-mix(in srgb,var(--bank-paid), transparent 65%) !important;
+}
+.bank-collection-foot span{display:none !important}
+.bank-payment-link{font-weight:900 !important}
+.bank-payment-link span{color:var(--bank-unpaid) !important}
+
+.bank-card.bank-card-premium{
+  min-height:458px !important;
+  background:linear-gradient(145deg,var(--lp-bank-glass), color-mix(in srgb,var(--lp-bank-glass), transparent 10%)) !important;
+  border:1px solid var(--lp-bank-line) !important;
+  box-shadow:var(--lp-bank-shadow) !important;
+}
+.bank-card.bank-card-premium::after{opacity:.10 !important;filter:blur(2px)}
+.bank-premium-art::before{
+  content:"";position:absolute;inset:0;background:linear-gradient(118deg, transparent 0 40%, rgba(255,255,255,.05) 48%, transparent 56%);pointer-events:none;animation:lpBankShine 9s linear infinite;
+}
+.bank-card-premium .bank-filter-chip,
+.bank-card-premium .mini-glass,
+.bank-card-premium .bank-pct{
+  background:rgba(255,255,255,.08) !important;
+  border-color:rgba(255,255,255,.14) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14), 0 8px 16px rgba(0,0,0,.04) !important;
+}
+:root:not([data-theme="ubuntu"]):not([data-theme="dark"]) .bank-card-premium .bank-filter-chip,
+:root:not([data-theme="ubuntu"]):not([data-theme="dark"]) .bank-card-premium .mini-glass,
+:root:not([data-theme="ubuntu"]):not([data-theme="dark"]) .bank-card-premium .bank-pct{background:rgba(255,255,255,.55) !important}
+.bank-card-premium .bank-chip-name,
+.bank-premium-money .bank-revenue,
+.bank-premium-money .bank-revenue-label,
+.bank-payments-head b,
+.bank-payment-key b,
+.bank-show-unpaid,
+.bank-card-premium .mini-glass b,
+.bank-card-premium .bank-show-all,
+.bank-card-premium .bank-show-all span,
+.bank-card-premium .bank-show-unpaid b{color:var(--lp-bank-ink) !important;-webkit-text-fill-color:var(--lp-bank-ink) !important}
+.bank-card-premium .mini-glass span,
+.bank-premium-money p,
+.bank-payments-head span,
+.bank-payment-key>span{color:var(--lp-bank-sub) !important;-webkit-text-fill-color:var(--lp-bank-sub) !important}
+.bank-show-all{
+  background:linear-gradient(135deg, color-mix(in srgb,var(--brand), white 8%), color-mix(in srgb,var(--brand), black 10%)) !important;
+  color:#fff !important;-webkit-text-fill-color:#fff !important;
+  box-shadow:0 12px 22px color-mix(in srgb,var(--brand), transparent 72%) !important;
+}
+.bank-show-all span{color:#fff !important;-webkit-text-fill-color:#fff !important}
+.bank-show-unpaid{
+  background:var(--lp-bank-unpaid-bg) !important;
+  border-color:color-mix(in srgb,var(--bank-unpaid), transparent 70%) !important;
+}
+.bank-trend-glyph{background:var(--lp-bank-paid-bg) !important;border-color:rgba(255,255,255,.12) !important}
+.bank-payment-track{height:12px !important;background:linear-gradient(90deg, color-mix(in srgb,var(--bank-unpaid), white 74%), color-mix(in srgb,var(--bank-unpaid), transparent 64%)) !important;border:1px solid color-mix(in srgb,var(--bank-unpaid), transparent 82%) !important}
+.bank-payment-track-fill{box-shadow:0 0 15px color-mix(in srgb,var(--bank-paid), transparent 70%) !important}
+
+.bank-charts-row .card,
+.card .bank-rank-item,
+.card .rank.bank-rank-item{
+  background:linear-gradient(145deg,var(--lp-bank-glass), color-mix(in srgb,var(--lp-bank-glass), transparent 10%)) !important;
+  border:1px solid var(--lp-bank-line) !important;
+  box-shadow:var(--lp-bank-shadow) !important;
+}
+.bank-charts-row .card .title,
+.card .title{color:var(--lp-bank-ink) !important;-webkit-text-fill-color:var(--lp-bank-ink) !important}
+.bank-charts-row .muted,
+.card .muted{color:var(--lp-bank-sub) !important;-webkit-text-fill-color:var(--lp-bank-sub) !important}
+
+@keyframes lpBankShine { 0%{transform:translateX(-110%)} 100%{transform:translateX(110%)} }
+@keyframes lpBankFloat {
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(-10px,-8px,0)}
+}
+@keyframes lpBankPulse {
+  0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}
+  50%{box-shadow:0 0 22px 2px rgba(255,255,255,.08)}
+}
+:root[data-theme="ubuntu"] .bank-premium-intro,
+:root[data-theme="ubuntu"] .bank-collection-status,
+:root[data-theme="ubuntu"] .bank-card.bank-card-premium,
+:root[data-theme="ubuntu"] .bank-summary-premium .kpi.kpi-v2{animation:lpBankPulse 6.8s ease-in-out infinite}
+
+@media (max-width: 900px){
+  .bank-premium-intro h2{font-size:clamp(22px,7vw,30px) !important}
+  .bank-summary-premium .kpi.kpi-v2{min-height:118px !important}
+}
+@media (max-width: 630px){
+  .bank-premium-intro{padding:18px 16px !important;border-radius:22px !important}
+  .bank-summary-grid.bank-summary-premium{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .bank-summary-premium .kpi.kpi-v2:last-child{grid-column:1 / -1 !important}
+  .bank-collection-head strong{font-size:30px !important}
+  .bank-card.bank-card-premium{min-height:430px !important}
+}
+@media (prefers-reduced-motion:reduce){
+  .bank-premium-intro::after,.bank-premium-art::before,.bank-summary-premium .kpi.kpi-v2::after,
+  :root[data-theme="ubuntu"] .bank-premium-intro,
+  :root[data-theme="ubuntu"] .bank-collection-status,
+  :root[data-theme="ubuntu"] .bank-card.bank-card-premium,
+  :root[data-theme="ubuntu"] .bank-summary-premium .kpi.kpi-v2{animation:none !important}
+}
+</style>
+
 </head>
 <body>
 
