@@ -4914,6 +4914,120 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
 :root[data-theme="ubuntu"] #page .hero:not(.blue) .hero-kicker::before{background:#ff9cc5!important}
 :root[data-theme="ubuntu"] #page .hero.blue .hero-kicker{color:#542041!important;-webkit-text-fill-color:#542041!important}
 :root[data-theme="ubuntu"] #page .hero:not(.blue) .ring-fg{stroke:#f9589a!important}
+
+/* ===== Global daily / weekly / monthly period filter ===== */
+.period-picker{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:12px 20px;
+  padding:13px 18px;margin-bottom:12px;border:1px solid rgba(255,255,255,.78);border-radius:19px;
+  background:var(--glass-bg);box-shadow:var(--shadow);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);flex-wrap:wrap;}
+.period-picker-heading{display:flex;flex-direction:column;gap:1px;min-width:190px;flex:1}
+.period-picker-kicker{font-size:10px;font-weight:820;letter-spacing:1.05px;color:var(--green)}
+.period-picker-heading strong{color:var(--text);font-size:14px;line-height:1.35;overflow-wrap:anywhere}
+.period-picker-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.period-picker-modes{display:flex;padding:4px;border-radius:14px;background:rgba(162,183,206,.18);border:1px solid rgba(174,195,215,.25);gap:3px}
+.period-picker-modes button{padding:9px 13px;min-height:38px;white-space:nowrap;border-radius:10px;color:var(--muted);font-size:12px;font-weight:750;line-height:1.1}
+.period-picker-modes button.active{background:var(--glass-bg);box-shadow:0 3px 9px rgba(20,40,70,.12);color:var(--text)}
+.period-picker-date{display:flex;align-items:center;gap:4px;max-width:100%}
+.period-picker-date button{width:38px;height:38px;min-width:38px;border-radius:12px;color:var(--text);font-size:24px;line-height:1;background:rgba(130,150,180,.12)}
+.period-picker-date input{width:155px;min-height:38px;padding:7px 9px;background:var(--glass-bg);color:var(--text);font-size:12px;font-weight:700;color-scheme:light}
+.period-picker-hint{width:100%;margin:0;color:var(--muted);font-size:10.5px;line-height:1.5}
+.period-month-note{font-size:11px;line-height:1.55;color:var(--muted);font-weight:600}
+.period-note-block{border-radius:13px;padding:10px 14px;margin:0 0 14px;border:1px solid rgba(170,190,210,.25);background:rgba(190,210,230,.11)}
+:root[data-theme="dark"] .period-picker-modes, :root[data-theme="dark"] .period-picker-date button{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.13)}
+:root[data-theme="dark"] .period-picker-modes button.active{background:rgba(104,151,188,.23);color:#fff}
+:root[data-theme="dark"] .period-picker-date input{color-scheme:dark}
+:root[data-theme="ubuntu"] .period-picker{background:linear-gradient(125deg,rgba(94,27,64,.83),rgba(65,14,48,.79))!important;
+ border-color:rgba(255,179,210,.32)!important;box-shadow:0 16px 28px rgba(17,0,12,.20),inset 0 1px rgba(255,226,239,.18)!important}
+:root[data-theme="ubuntu"] .period-picker-kicker{color:#ff9ec5!important}
+:root[data-theme="ubuntu"] .period-picker-heading strong{color:#fff4fa!important;-webkit-text-fill-color:#fff4fa!important}
+:root[data-theme="ubuntu"] .period-picker-hint, :root[data-theme="ubuntu"] .period-month-note{color:#eed1dd!important;-webkit-text-fill-color:#eed1dd!important}
+:root[data-theme="ubuntu"] .period-picker-modes{background:rgba(28,4,22,.38)!important;border-color:rgba(255,170,211,.26)!important}
+:root[data-theme="ubuntu"] .period-picker-modes button{color:#fbd6e5!important;-webkit-text-fill-color:#fbd6e5!important}
+:root[data-theme="ubuntu"] .period-picker-modes button.active{color:#fff!important;-webkit-text-fill-color:#fff!important;
+ background:linear-gradient(135deg,#cf2875,#7f1047)!important;box-shadow:0 4px 12px rgba(19,0,10,.32)!important}
+:root[data-theme="ubuntu"] .period-picker-date button{background:rgba(255,189,217,.14)!important;color:#fff1f8!important;-webkit-text-fill-color:#fff1f8!important}
+:root[data-theme="ubuntu"] .period-picker-date input{background:rgba(60,9,39,.56)!important;color:#fff2f8!important;-webkit-text-fill-color:#fff2f8!important;
+ border-color:rgba(255,185,215,.4)!important;color-scheme:dark}
+:root[data-theme="ubuntu"] .period-note-block{background:rgba(83,20,53,.72)!important;border-color:rgba(255,175,215,.24)!important}
+@media(max-width:850px){.period-picker{padding:12px 13px}.period-picker-heading{min-width:150px}}
+@media(max-width:600px){.period-picker{gap:10px;padding:12px;margin-bottom:10px;border-radius:16px}
+ .period-picker-heading{flex-basis:100%}.period-picker-heading strong{font-size:12.5px}
+ .period-picker-controls{width:100%;gap:8px;justify-content:space-between}
+ .period-picker-modes{flex:1 1 auto;min-width:0}.period-picker-modes button{flex:1;min-width:0;padding:9px 6px;font-size:11px}
+ .period-picker-date{flex:1 1 100%;justify-content:space-between}
+ .period-picker-date input{flex:1;width:1%;min-width:0;text-align:center;font-size:13px}
+ .period-picker-hint{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.period-picker *{animation:none!important;transition:none!important}}
+
+
+
+/* ===== Ubuntu Neon: readable theme selector on mobile and desktop ===== */
+:root[data-theme="ubuntu"] .top-meta{position:relative;z-index:500}
+:root[data-theme="ubuntu"] .life-theme-menu{
+  width:min(196px,calc(100vw - 28px))!important;
+  max-height:min(60vh,270px)!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain;
+  padding:9px!important;
+  gap:6px!important;
+  background:linear-gradient(145deg,rgba(79,20,48,.985),rgba(38,9,27,.985))!important;
+  color:#fff7fb!important;
+  border:1px solid rgba(255,181,210,.58)!important;
+  box-shadow:0 22px 54px rgba(18,0,10,.48),inset 0 1px 0 rgba(255,235,244,.20)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(160%)!important;
+  backdrop-filter:blur(26px) saturate(160%)!important;
+  animation:lifeThemeMenuReveal .18s ease-out both;
+}
+:root[data-theme="ubuntu"] .life-theme-menu-choice{
+  display:flex!important;
+  align-items:center!important;
+  min-height:46px!important;
+  padding:10px 12px!important;
+  border:1px solid rgba(255,205,224,.12)!important;
+  border-radius:12px!important;
+  background:rgba(255,255,255,.045)!important;
+  color:#fff5f9!important;
+  -webkit-text-fill-color:#fff5f9!important;
+  font-size:13px!important;
+  font-weight:780!important;
+  line-height:1.25!important;
+  text-shadow:0 1px 1px rgba(30,0,15,.18);
+}
+:root[data-theme="ubuntu"] .life-theme-menu-choice>span{
+  color:#ffb8d2!important;
+  -webkit-text-fill-color:#ffb8d2!important;
+  flex:0 0 21px;
+}
+:root[data-theme="ubuntu"] .life-theme-menu-choice.selected,
+:root[data-theme="ubuntu"] .life-theme-menu-choice[aria-pressed="true"]{
+  background:linear-gradient(110deg,rgba(139,35,76,.99),rgba(182,54,102,.99))!important;
+  border-color:rgba(255,196,218,.72)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  box-shadow:0 5px 17px rgba(16,0,9,.25),inset 0 1px 0 rgba(255,245,250,.22)!important;
+}
+:root[data-theme="ubuntu"] .life-theme-menu-choice:hover:not(.selected),
+:root[data-theme="ubuntu"] .life-theme-menu-choice:focus-visible{
+  background:rgba(255,255,255,.13)!important;
+  border-color:rgba(255,196,218,.48)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+:root[data-theme="ubuntu"] .life-theme-menu-choice:focus-visible{
+  outline:2px solid #ffd0e1!important;
+  outline-offset:2px!important;
+}
+@keyframes lifeThemeMenuReveal{
+  from{opacity:0;transform:translateY(-7px) scale(.985)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@media(max-width:600px){
+  :root[data-theme="ubuntu"] .life-theme-menu{right:0!important;top:calc(100% + 8px)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  :root[data-theme="ubuntu"] .life-theme-menu{animation:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -4927,7 +5041,7 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
     </div>
     <div class="pin-title">Добро пожаловать</div>
     <div class="pin-sub">Введите пароль, чтобы открыть аналитику</div>
-    <form id="authForm" class="auth-form" autocomplete="on">
+    <form id="authForm" class="auth-form" autocomplete="on" novalidate>
       <label class="auth-label" for="accessPassword">Пароль доступа</label>
       <div class="auth-password-wrap">
         <span class="auth-lock-icon" aria-hidden="true">⌑</span>
@@ -5416,7 +5530,7 @@ function paymentDestination(r){
   // Сумма в F не является подтверждением оплаты: наличие положительной суммы
   // само по себе НЕ делает установку оплаченной.
   var raw=norm(r && r.taskStatus).replace(/[.,;:]+/g,' ').replace(/\s+/g,' ').trim();
-  if(!raw || /(?:не оплат|неоплач|оплат.*отмен|возврат средств|ошибочн.*оплат)/.test(raw)) return '';
+  if(!raw || /(?:не\s*опла[тч]|нет\s+оплат|без\s+оплаты|ожидает\s+оплат|оплат\S*\s+не\s+поступ|оплат.*отмен|возврат средств|ошибочн.*оплат)/.test(raw)) return '';
   if(!/(?:оплатил|оплатила|оплатили|оплачено|оплачен|оплачена|оплата прошла|получена оплата)/.test(raw))return '';
   var lp=/(?:оплатил|оплатила|оплатили|оплачено|оплачен|оплачена|оплата прошла|получена оплата)\s*(?:у\s*)?(?:lp|лп|life\s*pay|лайф\s*пей|лайфпей)(?=$|\s)/.test(raw);
   var sp=/(?:оплатил|оплатила|оплатили|оплачено|оплачен|оплачена|оплата прошла|получена оплата)\s*(?:у\s*)?(?:сп|sp)(?=$|\s)/.test(raw);
@@ -5608,7 +5722,7 @@ const TITLES = {home:'Главная',banks:'Банки',finance:'Финансы
 
 /* ---- состояние ---- */
 const s = {
-  data:null, page:'home', month:'', gran:'month', tab:'money',
+  data:null, page:'home', month:'', gran:'month', periodMode:'month', periodDate:'', tab:'money',
   planStatus:'', planResult:'',
   tablePage:1, sort:'amount', direction:-1, paid:'', installation:'',
   filter:{q:'',partner:'',status:'',task:'',responsible:'',priority:'',bank:'',source:''},
@@ -5669,9 +5783,87 @@ function cfg()     { return s.data.config; }
 function fxOn()    { return s.data && cfg().animate && !reduced(); }
 function manual()  { return s.data.ledger[s.month] || Piot.emptyMonth(); }
 function detailed(){ return Object.values(s.filter).some(Boolean); }
-function rows()    { return Piot.filter(s.data.records, Object.assign({month:s.month}, s.filter), cfg()); }
-function eventRows(){ return Piot.filter(s.data.records, s.filter, cfg()); }
-function scopedIncome(){ return Piot.income(eventRows(), detailed()?{}:s.data.ledger, s.month, cfg()); }
+/* Общий фильтр периода. Даты хранятся как YYYY-MM-DD, сравнение — по календарным дням,
+   неделя начинается в понедельник. Месячные ручные суммы не делятся на дни/недели. */
+const isoDay = v => /^\d{4}-\d{2}-\d{2}/.test(String(v||'')) ? String(v).slice(0,10) : '';
+function shiftDay(iso,delta){
+  const d=new Date(iso+'T12:00:00Z');
+  if(!Number.isFinite(d.getTime()))return '';
+  d.setUTCDate(d.getUTCDate()+delta);
+  return d.toISOString().slice(0,10);
+}
+function weekMonday(iso){
+  const d=new Date(iso+'T12:00:00Z');
+  return Number.isFinite(d.getTime())?shiftDay(iso,-((d.getUTCDay()+6)%7)):iso;
+}
+function defaultPeriodDay(month){
+  const dates=(s.data?.records||[]).flatMap(r=>[isoDay(r.date),isoDay(r.dateStatus)])
+    .filter(d=>d&&(!month||d.slice(0,7)===month)).sort();
+  return dates[dates.length-1] || (month?month+'-01':new Date().toISOString().slice(0,10));
+}
+// Cache the same calendar boundaries for every record in one view.
+// The key includes the loaded dataset so reloads cannot reuse stale dates.
+let periodWindowMemoKey='', periodWindowMemoData=null, periodWindowMemo=null;
+function periodWindow(){
+  const key=s.periodMode+'|'+s.month+'|'+s.periodDate;
+  if(periodWindowMemo!==null&&periodWindowMemoKey===key&&periodWindowMemoData===s.data)
+    return periodWindowMemo;
+  let windowRange;
+  if(s.periodMode==='month'){
+    windowRange={mode:'month',start:s.month?s.month+'-01':'',end:s.month?shiftDay(s.month+'-01',32).slice(0,7)+'-01':''};
+  }else{
+    const selected=isoDay(s.periodDate)||defaultPeriodDay(s.month);
+    const start=s.periodMode==='week'?weekMonday(selected):selected;
+    windowRange={mode:s.periodMode,start,end:shiftDay(start,s.periodMode==='week'?7:1)};
+  }
+  periodWindowMemoKey=key;periodWindowMemoData=s.data;periodWindowMemo=windowRange;
+  return windowRange;
+}
+function inPeriod(value){
+  const w=periodWindow(),d=isoDay(value);
+  if(w.mode==='month')return !s.month || !!d&&d.slice(0,7)===s.month;
+  return !!d && d>=w.start&&d<w.end;
+}
+function periodName(){
+  const w=periodWindow();
+  if(w.mode==='month')return s.month?monthLabel(s.month):'За всё время';
+  const fmt=d=>new Date(d+'T12:00:00Z').toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});
+  return w.mode==='day'?fmt(w.start):fmt(w.start)+' — '+fmt(shiftDay(w.end,-1));
+}
+function periodText(){return s.periodMode==='week'?'неделю':s.periodMode==='day'?'день':'месяц';}
+function eventRows(){return Piot.filter(s.data.records, s.filter, cfg());}
+function rows(){return eventRows().filter(r=>inPeriod(r.date));}
+function periodSummary(records){
+  if(s.periodMode==='month')return Piot.eventSummary(records,cfg(),s.month);
+  const arrivals=records.filter(r=>inPeriod(r.date));
+  const events=records.filter(r=>r.source!=='noesp'&&inPeriod(r.dateStatus));
+  const out=Piot.summary(arrivals,cfg());
+  out.done=events.filter(r=>Piot.isDone(r,cfg())).length;
+  out.closed=events.filter(r=>Piot.isClosed(r,cfg())).length;
+  out.open=arrivals.filter(r=>Piot.hasApplication(r)&&!Piot.isDone(r,cfg())).length;
+  return out;
+}
+function periodActivity(records,gran){
+  if(s.periodMode==='month')return Piot.activityPeriods(records,gran,cfg(),s.month);
+  const out=new Map();
+  function count(date,key){
+    if(!inPeriod(date))return;
+    const k=Piot.periodKey(date,gran);
+    if(!out.has(k))out.set(k,{key:k,total:0,done:0,closed:0});
+    out.get(k)[key]++;
+  }
+  records.filter(r=>r.source!=='noesp').forEach(r=>{
+    if(Piot.hasApplication(r))count(r.date,'total');
+    if(Piot.isDone(r,cfg()))count(r.dateStatus,'done');
+    if(Piot.isClosed(r,cfg()))count(r.dateStatus,'closed');
+  });
+  return [...out.values()].sort((a,b)=>a.key.localeCompare(b.key));
+}
+function scopedIncome(){
+  if(s.periodMode==='month')return Piot.income(eventRows(),detailed()?{}:s.data.ledger,s.month,cfg());
+  // Ручной доход ЕСП относится только к месяцу: не приписываем его дню/неделе.
+  return Piot.income(rows(),{},'',cfg());
+}
 
 function toast(text, error){
   const el = document.createElement('div');
@@ -5712,7 +5904,9 @@ function nav(){
 
 function options(){
   const years = {};
-  const months = (Array.isArray(s.data.months)?s.data.months:[]).filter(Piot.validMonth).slice().sort();
+  const months = (Array.isArray(s.data.months)?s.data.months:[]).filter(Piot.validMonth).slice();
+  if(s.month&&!months.includes(s.month))months.push(s.month);
+  months.sort();
   months.forEach(m => (years[m.slice(0,4)]||(years[m.slice(0,4)]=[])).push(m));
   $('#month').innerHTML = '<option value="">За всё время</option>' +
     Object.keys(years).sort().map(y =>
@@ -5724,7 +5918,7 @@ function options(){
 }
 
 function saveStatus(state){
-  const pending = Object.keys(s.draft).length > 0;
+  const pending = Object.keys(s.draft).length > 0 || s.configDirty;
   const text = state || (s.saveError?'Не сохранено':s.saving?'Сохраняю...':pending?'Есть изменения':'Сохранено');
   $('#topSave').textContent = text;
   $('#topSave').className = 'pill ' + (s.saveError?'err':pending||s.saving?'warn':'ok');
@@ -5794,6 +5988,24 @@ function card(title,body,sub,extra){
 }
 const empty = text => `<div class="empty"><strong>Нет данных</strong><p>${h(text||'Измените период или фильтры.')}</p></div>`;
 
+function periodPicker(){
+  const date=s.periodDate||defaultPeriodDay(s.month);
+  return `<section class="period-picker" aria-label="Фильтр по датам">
+    <div class="period-picker-heading"><span class="period-picker-kicker">ПЕРИОД АНАЛИТИКИ</span><strong>${h(periodName())}</strong></div>
+    <div class="period-picker-controls">
+      <div class="period-picker-modes" role="group" aria-label="Выбрать период">
+        ${[['month','Месяц'],['week','Неделя'],['day','День']].map(([key,label])=>
+          `<button type="button" data-period-mode="${key}" class="${s.periodMode===key?'active':''}" aria-pressed="${s.periodMode===key}">${label}</button>`).join('')}
+      </div>
+      ${s.periodMode!=='month'?`<div class="period-picker-date">
+        <button type="button" data-period-step="-1" aria-label="Предыдущая ${s.periodMode==='week'?'неделя':'дата'}">‹</button>
+        <input type="date" id="periodDate" aria-label="Выбрать ${periodText()}" value="${date}" required>
+        <button type="button" data-period-step="1" aria-label="Следующая ${s.periodMode==='week'?'неделя':'дата'}">›</button>
+      </div>`:''}
+    </div>
+    ${s.periodMode!=='month'?'<p class="period-picker-hint">Выполнения — по дате статуса; заявки и суммы — по дате создания. Месячный план и ручные расходы не делятся на дни.</p>':''}
+  </section>`;
+}
 function filters(){
   const sets = {partner:'Все сервис-партнёры',status:'Все статусы',task:'Все передачи',responsible:'Все ответственные',priority:'Все приоритеты'};
   function sel(k){
@@ -5801,7 +6013,7 @@ function filters(){
     return `<select data-filter="${k}" aria-label="${sets[k]}"><option value="">${sets[k]}</option>${
       vals.map(v=>`<option value="${h(v)}"${s.filter[k]===v?' selected':''}>${h(v)}</option>`).join('')}</select>`;
   }
-  return `<div class="filterbar global-filterbar">
+  return `${periodPicker()}<div class="filterbar global-filterbar">
     <input type="search" data-filter="q" aria-label="Поиск" placeholder="Поиск по клиенту, номеру, партнёру..." value="${h(s.filter.q)}">
     ${sel('partner')}
     <select data-filter="bank" aria-label="Банк"><option value="">Все банки</option>${
@@ -6010,7 +6222,7 @@ function heroPlan(source){
           <div class="hero-metric"><span>ПЛАН</span><b>${plan==null?'—':cVal(plan)}</b></div>
           <div class="hero-metric"><span>ОСТАЛОСЬ</span><b>${left==null?'—':cVal(left)}</b></div>
         </div>
-        <p class="hero-note">${hasPlan?'До выполнения плана осталось <b>'+number(left)+'</b> задач. Учёт — по дате статуса.':'Укажите план на выбранный месяц в разделе «Настройки».'}</p>`:
+        <p class="hero-note">${hasPlan?'До выполнения плана осталось <b>'+number(left)+'</b> задач. Учёт — по дате статуса.':'Укажите план на выбранный месяц в разделе «Настройки».'}</p>${s.periodMode!=='month'?'<p class="period-month-note">План и его выполнение показаны за месяц. Для заявок и доходов активен фильтр «'+periodName()+'».</p>':''}`:
         `<div class="hero-alltime-summary"><strong>${cVal(done)}</strong><span>выполнено за весь период</span></div>
         <p class="hero-note">Выбран период «За всё время». Выберите месяц в списке, чтобы открыть его план.</p>${historyMarkup}`}
       </div>
@@ -6020,8 +6232,8 @@ function heroPlan(source){
 
 function heroOpen(source){
   const records=source||eventRows();
-  const a=Piot.eventSummary(records,cfg(),s.month);
-  const act=Piot.activityPeriods(records,s.month?'day':'month',cfg(),s.month);
+  const a=periodSummary(records);
+  const act=periodActivity(records,s.periodMode==='month'?(s.month?'day':'month'):'day');
   const series=act.map(x=>Math.max(0,x.total-x.done));
   const share=a.total?Math.round(a.open/a.total*100):0;
   return `<section class="hero blue">
@@ -6047,7 +6259,7 @@ function heroOpen(source){
 function taskStatusDashboard(){
   // Результаты встреч сохраняют прежний подсчёт; платные установки считаются
   // отдельно из тех же заявок за месяц и с теми же общими фильтрами.
-  const base=Piot.filter(s.data.records,Object.assign({month:s.month},s.filter),cfg()).filter(r=>r.source==='main');
+  const base=rows().filter(r=>r.source==='main');
   const src=base.filter(r=>String(r.taskStatus||'').trim());
   const total=src.length;
   const paidTotal=base.filter(Piot.hasApplication).length;
@@ -6081,7 +6293,7 @@ function taskStatusDashboard(){
     .sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'ru'));
   const otherHtml=others.length
     ?`<div class="priority-other-list">${others.map(([name,k])=>{
-        const part=share(k), isEmpty=name==='Без статуса', active=!isEmpty&&s.filter.task===name;
+        const part=share(k,total), isEmpty=name==='Без статуса', active=!isEmpty&&s.filter.task===name;
         const row=`<span class="priority-other-name">${h(name)}</span>
           <span class="priority-other-value">${number(k)} <small>${part}%</small></span>
           <span class="priority-other-track"><i style="width:${part}%"></i></span>`;
@@ -6135,7 +6347,7 @@ function financeHero(){
 
 function incomeBlock(extraBtn){
   const inc=scopedIncome();
-  return card('Доходы за '+(s.month?monthLabel(s.month):'всё время'),
+  return card('Доходы за '+periodName(),
     `<div class="income-kpis">
       ${kpi('Установка Life Pay',cVal(inc.lp,true))}
       ${kpi('ЕСП без задачи',cVal(inc.espNoTask,true))}
@@ -6152,7 +6364,7 @@ function incomeBlock(extraBtn){
 function espSummaryCard(){
   const inc=scopedIncome();
   return `<section class="glass card esp-details">
-    <header class="cardhead"><div><h2>ЕСП без задачи — отдельный учёт</h2><p class="muted">Лист «Отсутствует задача ЕСП» · ${h(s.month?monthLabel(s.month):'за всё время')}</p></div>
+    <header class="cardhead"><div><h2>ЕСП без задачи — отдельный учёт</h2><p class="muted">Лист «Отсутствует задача ЕСП» · ${h(periodName())}</p></div>
       <button type="button" class="text-btn" data-noesp-table>Открыть заявки →</button></header>
     <div class="esp-figures">
       ${kpi('Сумма ЕСП без задачи',cVal(inc.espNoTask,true))}
@@ -6164,10 +6376,9 @@ function espSummaryCard(){
 }
 
 function home(){
-  const a=Piot.eventSummary(eventRows(),cfg(),s.month);
-  // Отдельный показатель по F. Не меняет существующие «Оплачено» и выручку.
-  const unpaid=eventRows().filter(r=>r.source==='main' && Piot.hasApplication(r) &&
-    (!s.month||(r.date||'').slice(0,7)===s.month) && !(Number(r.amount)>0)).length;
+  const a=periodSummary(eventRows());
+  // Показатель по F для выбранной даты/недели/месяца.
+  const unpaid=rows().filter(r=>r.source==='main'&&Piot.hasApplication(r)&&!(Number(r.amount)>0)).length;
   let html=filters();
   html+=financeHero();
   html+=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
@@ -6180,7 +6391,7 @@ function home(){
     ${kpi('Не оплатили',cVal(unpaid))}
   </div>`;
   if(cfg().showCharts){
-    const p=Piot.activityPeriods(eventRows(),s.month?'day':'month',cfg(),s.month);
+    const p=periodActivity(eventRows(),s.periodMode==='month'?(s.month?'day':'month'):'day');
     html+=card('Поток заявок',chart(p.map(x=>shortLabel(x.key)),[
       {name:'Создано',values:p.map(x=>x.total),color:'#62b5ff'},
       {name:'Выполнено',values:p.map(x=>x.done),color:'#00a56a'},
@@ -6200,17 +6411,17 @@ const BANK_LOGOS={
 function banks(){
   // Единый срез по фильтрам, выбранному месяцу и реальным номерам заявок.
   const all=eventRows().filter(r=>r.source==='main');
-  const arrivals=all.filter(r=>(!s.month||(r.date||'').slice(0,7)===s.month) && Piot.hasApplication(r));
+  const arrivals=all.filter(r=>inPeriod(r.date) && Piot.hasApplication(r));
   const bs=Piot.BANKS.map((b,index)=>{
     const recs=all.filter(r=>Piot.bank(r,cfg())===b.id);
     const bankArrivals=arrivals.filter(r=>Piot.bank(r,cfg())===b.id);
-    const sum=Piot.eventSummary(recs,cfg(),s.month);
+    const sum=periodSummary(recs);
     // В столбце F суммы могут приходить от сервера как 0 вместо пустой ячейки.
     // Поэтому нет положительной суммы => «Не оплатили / без суммы».
     const paid=bankArrivals.filter(r=>Number(r.amount)>0).length;
     const unpaid=bankArrivals.length-paid;
     const share=bankArrivals.length?Math.round(paid/bankArrivals.length*100):0;
-    const per=Piot.periods(recs.filter(r=>!s.month||(r.date||'').slice(0,7)===s.month),s.month?'day':'month',cfg());
+    const per=Piot.periods(recs.filter(r=>inPeriod(r.date)),s.periodMode==='month'?(s.month?'day':'month'):'day',cfg());
     return Object.assign({},b,sum,{paid,unpaid,share,index,spark:per.map(x=>x.revenue)});
   });
   const matched=bs.reduce((n,b)=>n+b.total,0);
@@ -6225,7 +6436,7 @@ function banks(){
   html+=`<section class="bank-premium-intro" aria-label="Аналитика оплат банков">
     <div><span class="bank-eyebrow"><span class="bank-eyebrow-dot"></span>БАНКОВСКАЯ АНАЛИТИКА</span>
       <h2>Каждая оплата — под контролем</h2>
-      <p>«Не оплатили» — заявки без положительной суммы в столбце F. Данные учитывают выбранные фильтры и месяц.</p></div>
+      <p>«Не оплатили» — заявки без положительной суммы в столбце F. Данные учитывают выбранные фильтры и период.</p></div>
     <div class="bank-intro-mark"><span>LP</span><small>PAYMENT<br>OVERVIEW</small></div>
   </section>
   <div class="bank-summary-grid bank-summary-premium">
@@ -6286,11 +6497,13 @@ function banks(){
       ],{title:'Оплатили и не оплатили по банкам'}),'Сравнение заявок с суммой в F и без неё.')}
       ${card('Доля выручки',donut(bs.map(b=>({name:b.name,color:b.color,value:Math.round(b.revenue)})),'₽'),'По сумме установок')}
     </div>`;
-    const mk=[...new Set(all.map(r=>(r.date||'').slice(0,7)).filter(Piot.validMonth))].sort().slice(-12);
+    const chartRecords=s.periodMode==='month'?all:all.filter(r=>inPeriod(r.date));
+    const chartGrouping=s.periodMode==='month'?'month':'day';
+    const mk=[...new Set(chartRecords.map(r=>Piot.periodKey(r.date,chartGrouping)).filter(k=>k!=='Без даты'))].sort().slice(-12);
     html+=card('Динамика выручки по банкам',chart(mk.map(shortLabel),
       Piot.BANKS.map(b=>({name:b.name,color:b.color,area:false,
-        values:mk.map(m=>all.filter(r=>Piot.bank(r,cfg())===b.id&&(r.date||'').slice(0,7)===m).reduce((n,r)=>n+Piot.rev(r,cfg()),0))})),
-      {money:true,title:'Выручка по банкам'}),'Помесячно, последние 12 месяцев.');
+        values:mk.map(m=>chartRecords.filter(r=>Piot.bank(r,cfg())===b.id&&Piot.periodKey(r.date,chartGrouping)===m).reduce((n,r)=>n+Piot.rev(r,cfg()),0))})),
+      {money:true,title:'Выручка по банкам'}),s.periodMode==='month'?'Помесячно, последние 12 месяцев.':'Выручка по дням выбранного периода.');
   }
   html+=card('Рейтинг банков',bs.slice().sort((a,b)=>b.revenue-a.revenue).map((b,i)=>
     `<div class="rank bank-rank-item"><span><em>${String(i+1).padStart(2,'0')}</em><i class="dot" style="--color:${b.color}"></i> ${h(b.name)}</span>
@@ -6324,7 +6537,7 @@ function financePeriods(rr){
     }
   });
   // Manual ESP is month-specific; do not distribute the monthly value across days or weeks.
-  if(s.gran==='month'&&!detailed()){
+  if(s.gran==='month'&&s.periodMode==='month'&&!detailed()){
     Object.entries(s.data.ledger||{}).forEach(([key,value])=>{
       if(!Piot.validMonth(key)||(s.month&&key!==s.month))return;
       const amount=Number(value&&value.esp)||0;
@@ -6352,7 +6565,7 @@ function trend(){
   if(!cfg().showCharts) return html+empty('Графики отключены в настройках.');
   const rr=rows(), ps=financePeriods(rr);
   let acc=0; const totals=ps.map(x=>acc+=x.totalIncome);
-  const p=Piot.activityPeriods(eventRows(),s.gran,cfg(),s.month);
+  const p=periodActivity(eventRows(),s.gran);
   html+=card('Создано и выполнено',chart(p.map(x=>shortLabel(x.key)),[
     {name:'Создано',values:p.map(x=>x.total),color:'#62b5ff'},
     {name:'Выполнено',values:p.map(x=>x.done),color:'#00a56a'},
@@ -6523,6 +6736,7 @@ function cleanProfit(){
       <div><span>СП ОТДЕЛЬНО</span><strong>${cVal(s.month?selected.sp:allIncome.sp,true)}</strong><small>Не включается в прибыль</small></div>
     </div>
   </section>`;
+  html+=s.periodMode!=='month'?`<p class="period-month-note period-note-block">Расходы и чистая прибыль ведутся по месяцам. Дневной/недельный доход можно посмотреть в «Финансах»; расходы без даты нельзя корректно распределить на отдельные дни.</p>`:'';
   html+=expenseInput;
   if(!s.month&&rows.length){
     const ordered=rows.slice().reverse();
@@ -6541,7 +6755,7 @@ function cleanProfit(){
       <td class="number">${rub(x.expense)}</td><td class="number profit-positive">${rub(x.profit)}</td>
     </tr>`).join('')}</tbody></table></div>`:empty('Нет данных за выбранный период.');
   html+=card('Расчёт по месяцам',body,'Помесячная детализация. Нажмите на месяц, чтобы открыть его и изменить расходы.');
-  return html;
+  return periodPicker()+html;
 }
 
 function planMatchesResult(value,target){
@@ -6549,7 +6763,7 @@ function planMatchesResult(value,target){
   return v===t||v.startsWith(t+':')||v.startsWith(t+' ');
 }
 function planRecords(){
-  return Piot.filter(s.data.records,Object.assign({month:s.month},s.filter),cfg()).filter(r=>r.source==='main'&&(String(r.status||'').trim()||String(r.taskStatus||'').trim())
+  return rows().filter(r=>r.source==='main'&&(String(r.status||'').trim()||String(r.taskStatus||'').trim())
     &&(!s.planStatus||r.status===s.planStatus)
     &&(!s.planResult||(s.planResult==='paid-lp'?Piot.isPaidInstallation(r,'lp',cfg()):
       s.planResult==='paid-avtbiz'?Piot.isPaidInstallation(r,'avtbiz',cfg()):
@@ -6595,10 +6809,11 @@ function planPage(){
   // Plan-page-only dropdowns are used for the result categories below, not
   // for changing the monthly headline (which must match Home).
   const resultRecords=planRecords();
-  const paidResultRecords=Piot.filter(s.data.records,Object.assign({month:s.month},s.filter),cfg()).filter(r=>r.source==='main'&&(!s.planStatus||r.status===s.planStatus));
+  const paidResultRecords=rows().filter(r=>r.source==='main'&&(!s.planStatus||r.status===s.planStatus));
   const keys=Object.keys(ledger).filter(k=>Piot.validMonth(k)&&ledger[k]&&ledger[k].plan!=null&&Number.isFinite(Number(ledger[k].plan))).sort().reverse();
   let html=filters();
   html+=planControls();
+  if(s.periodMode!=='month')html+=`<p class="period-month-note period-note-block">План и его выполнение остаются за ${h(monthLabel(s.month))}; результаты встреч и заявки фильтруются за ${h(periodName())}.</p>`;
   html+=`<div class="hero-grid">${heroPlan(commonRecords)}${heroOpen(commonRecords)}</div>`;
   if(!s.month) html+='<div class="inactive-warning">Выбран период «За всё время». История планов доступна ниже. Чтобы изменить план, выберите конкретный месяц.</div>';
   html+=`<div class="kpis">
@@ -6620,7 +6835,7 @@ function planPage(){
         :resultRecords.filter(r=>planMatchesResult(r.taskStatus,item.name)).length;
       const action=item.installation?`data-paid-installation="${item.installation}"`:`data-plan-pick="${h(item.name)}"`;
       return `<button class="plan-result ${item.tone||''}" ${action} type="button"><span>${item.index} · ${h(item.name)}</span><strong>${cVal(n)}</strong><span>${item.installation?'Открыть заявки →':'Открыть категорию →'}</span></button>`;
-    }).join('')}</div>`,'Откройте категорию или заявки с платными установками.');
+    }).join('')}</div>`,'Результаты по выбранному периоду. Откройте категорию или заявки с платными установками.');
   const tbl=`<div class="table-wrap"><table>
     <thead><tr><th>Месяц</th><th>План</th><th>Выполнено</th><th>Закрыто</th><th>Выполнение</th></tr></thead>
     <tbody>${keys.map(k=>{
@@ -6851,7 +7066,7 @@ async function load(force){
       throw Error('Сервер вернул неполные данные. Проверьте функцию apiGetData() в Code.gs');
     if(!s.loaded){
       const available=d.months.filter(Piot.validMonth).slice().sort();
-      s.month=available.includes('2026-11')?'2026-11':(Piot.validMonth(d.currentMonth)?d.currentMonth:(available[available.length-1]||''));
+      s.month=Piot.validMonth(d.currentMonth)&&available.includes(d.currentMonth) ? d.currentMonth : (available[available.length-1]||'');
     }
     s.data=d; s.configDraft=null; s.configDirty=false; s.loaded=true;
     if(force){ s.draft={}; s.invalid={}; s.saveError=''; }
@@ -6898,7 +7113,7 @@ async function fetchProfitSheet(){
 async function navigate(page){ await flush(); if(page==='profit')await fetchProfitSheet(); s.page=page; s.tablePage=1; render(); window.scrollTo({top:0,behavior:fxOn()?'smooth':'auto'}); }
 async function changeMonth(month){
   if(month&&!Piot.validMonth(month)) return;
-  try{ await flush(); s.month=month; s.tablePage=1; $('#month').value=month; render(); }
+  try{ await flush(); s.month=month; if(s.periodMode!=='month'){if(!month)s.periodMode='month';else s.periodDate=defaultPeriodDay(month);} s.tablePage=1; options(); render(); }
   catch(e){ $('#month').value=s.month; toast('Сначала сохраните или исправьте текущий ввод.',true); }
 }
 
@@ -6924,6 +7139,12 @@ function configInput(el){
     else {const amount=Number(value);if(Number.isFinite(amount)&&amount>=0&&amount<=1e12)c.monthlyExpenses[el.dataset.expenseMonth]=Math.round(amount*100)/100;}
   }
   s.configDirty=true;
+  // Уведомляем о несохранённых настройках сразу, без перерисовки ввода:
+  // иначе пользователь видит «Сохранено», хотя параметр уже изменён.
+  $$('#page .savebar .note').forEach(node=>{
+    if(s.page==='settings' && s.tab!=='money')node.textContent='Есть несохранённые настройки';
+  });
+  saveStatus();
 }
 
 /* ---- безопасность: смена локального пароля ---- */
@@ -6972,6 +7193,20 @@ async function handleClick(e){
     else if(el.hasAttribute('data-plan-pick')){s.planResult=el.dataset.planPick;render({fx:false});}
     else if(el.hasAttribute('data-save')){ await flush(); toast('Месяц сохранён'); }
     else if(el.hasAttribute('data-clear-filters')){ await flush(); Object.keys(s.filter).forEach(k=>s.filter[k]=''); s.installation='';s.paid='';s.bankRecognizedOnly=false;s.tablePage=1; render(); }
+    else if(el.dataset.periodMode){
+      const mode=el.dataset.periodMode;
+      if(!['month','week','day'].includes(mode))return;
+      await flush();
+      if(mode!=='month'&&!s.periodDate){s.periodDate=defaultPeriodDay(s.month);}
+      if(mode!=='month'&&!s.month){s.month=s.periodDate.slice(0,7);options();}
+      s.periodMode=mode;s.gran=mode;s.tablePage=1;render({fx:false});
+    }
+    else if(el.dataset.periodStep){
+      await flush();
+      const next=shiftDay(s.periodDate||defaultPeriodDay(s.month),Number(el.dataset.periodStep)*(s.periodMode==='week'?7:1));
+      if(!next)return;
+      s.periodDate=next;s.month=next.slice(0,7);s.tablePage=1;options();render({fx:false});
+    }
     else if(el.dataset.gran){ s.gran=el.dataset.gran; render({fx:false}); }
     else if(el.hasAttribute('data-bank-unpaid-all')){
       s.installation='';s.paid='zero';s.bankRecognizedOnly=true;s.tablePage=1;await navigate('table');
@@ -7036,6 +7271,7 @@ document.addEventListener('input',e=>{
 document.addEventListener('change',async e=>{
   const el=e.target;
   if(el.id==='month') await changeMonth(el.value);
+  else if(el.id==='periodDate'){const date=isoDay(el.value);if(date){await flush();s.periodDate=date;s.month=date.slice(0,7);s.tablePage=1;options();render({fx:false});}}
   else if(el.dataset.planStatus!==undefined){ s.planStatus=el.value; render({fx:false}); }
   else if(el.dataset.planResult!==undefined){ s.planResult=el.value; render({fx:false}); }
   else if(el.dataset.filter){ s.filter[el.dataset.filter]=el.value; s.tablePage=1; render({fx:false}); }
