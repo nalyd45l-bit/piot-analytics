@@ -5056,12 +5056,14 @@ html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .payment-conversio
 .payment-conversion-badge{display:flex;flex-direction:column;justify-content:center;gap:5px;min-width:120px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.44);border:1px solid rgba(155,177,198,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.58)}
 .payment-conversion-badge span{font-size:10px;font-weight:850;letter-spacing:.2px;color:var(--muted);text-transform:uppercase}
 .payment-conversion-badge strong{font-size:24px;line-height:1;font-weight:950;color:var(--text);font-variant-numeric:tabular-nums}
+.payment-conversion-badge small{font-size:10px;line-height:1.35;color:var(--muted);font-weight:650}
 .payment-conversion-badge.paid strong{color:#16a47f}
 .payment-conversion-badge.unpaid strong{color:#8b6faa}
 :root[data-theme="dark"] .payment-conversion-badge{background:rgba(228,242,255,.06)!important;border-color:rgba(208,228,245,.12)!important}
 :root[data-theme="ubuntu"] .payment-conversion-badge{background:rgba(255,227,238,.13)!important;border-color:rgba(255,202,222,.22)!important}
 :root[data-theme="ubuntu"] .payment-conversion-badge span{color:#ffe2ec!important;-webkit-text-fill-color:#ffe2ec!important}
 :root[data-theme="ubuntu"] .payment-conversion-badge strong{color:#fff8fb!important;-webkit-text-fill-color:#fff8fb!important}
+:root[data-theme="ubuntu"] .payment-conversion-badge small{color:#ffe2ec!important;-webkit-text-fill-color:#ffe2ec!important}
 .arrival-insights{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}
 .arrival-insight.accent-month{background:linear-gradient(135deg,rgba(36,198,148,.12),rgba(255,255,255,.52)) !important;border-color:rgba(36,198,148,.18) !important}
 :root[data-theme="dark"] .arrival-insight.accent-month{background:linear-gradient(135deg,rgba(85,215,181,.14),rgba(228,242,255,.06)) !important;border-color:rgba(85,215,181,.18) !important}
@@ -5742,6 +5744,474 @@ html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu 
 @media(prefers-reduced-motion:reduce){:root[data-theme="ubuntu"] .glass,:root[data-theme="ubuntu"] .card,:root[data-theme="ubuntu"] .payment-conversion-panel,:root[data-theme="ubuntu"] .arrival-insight{animation:none!important}}
 </style>
 
+
+<style id="lifePayThemeGreenGlassFinal">
+/* =========================================================
+   LIFE PAY — GREEN ACCENT + WHITE LIGHT MODE + CLEAR GLASS BURGUNDY
+   Theme key "ubuntu" is retained for backwards compatibility.
+   ========================================================= */
+
+/* One consistent brand accent in every theme. */
+:root,
+:root[data-theme="light"],
+:root[data-theme="dark"],
+:root[data-theme="ubuntu"]{
+  --green:#00a56a;
+  --green-l:#e6f9f1;
+  --green-d:#007a4f;
+}
+
+/* LIGHT: genuinely white canvas, calm neutral surfaces and no burgundy selection. */
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]){
+  color-scheme:light;
+  --bg:#ffffff;
+  --text:#172334;
+  --muted:#64748b;
+  --glass-bg:linear-gradient(145deg,rgba(255,255,255,.96),rgba(249,252,251,.88));
+}
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) body{
+  color:var(--text)!important;
+  background:
+    radial-gradient(ellipse at 8% 5%,rgba(0,165,106,.035),transparent 34%),
+    radial-gradient(ellipse at 94% 92%,rgba(71,151,190,.035),transparent 36%),
+    #fff!important;
+  background-attachment:fixed!important;
+}
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .shell{
+  background:rgba(255,255,255,.76)!important;
+  border-color:rgba(226,234,240,.9)!important;
+  box-shadow:0 10px 38px rgba(23,43,64,.055),inset 0 1px 0 #fff!important;
+  backdrop-filter:blur(18px) saturate(125%)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(125%)!important;
+}
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .blobs{
+  opacity:.22!important;
+}
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .brandbar{
+  border-bottom-color:rgba(100,125,145,.12)!important;
+}
+
+/* BURGUNDY: keep the deep wine canvas, but let the background breathe through the glass. */
+:root[data-theme="ubuntu"]{
+  color-scheme:dark;
+  --bg:#180812;
+  --text:#fff7fa;
+  --muted:#e6cbd6;
+  --green:#00b981;
+  --green-l:#153f34;
+  --green-d:#008f62;
+  --glass-bg:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.035));
+  --shadow:0 14px 38px rgba(10,0,5,.20),inset 0 1px 0 rgba(255,255,255,.13);
+  --shadow-hover:0 20px 48px rgba(8,0,4,.28),0 0 24px rgba(0,185,129,.08),inset 0 1px 0 rgba(255,255,255,.18);
+}
+:root[data-theme="ubuntu"] body{
+  color:var(--text)!important;
+  background:
+    radial-gradient(ellipse at 10% 10%,rgba(133,42,76,.30),transparent 38%),
+    radial-gradient(ellipse at 90% 82%,rgba(92,27,57,.26),transparent 42%),
+    linear-gradient(145deg,#160711,#230b17 54%,#170811)!important;
+  background-attachment:fixed!important;
+}
+:root[data-theme="ubuntu"] .wave-bg{
+  opacity:.16!important;
+  filter:hue-rotate(305deg) saturate(105%) brightness(.9)!important;
+  mix-blend-mode:screen!important;
+}
+:root[data-theme="ubuntu"] .blobs{
+  opacity:.25!important;
+  filter:blur(72px) saturate(1.2)!important;
+}
+:root[data-theme="ubuntu"] .shell{
+  background:linear-gradient(145deg,rgba(92,35,58,.40),rgba(29,9,18,.48) 58%,rgba(83,29,52,.34))!important;
+  border:1px solid rgba(255,218,231,.19)!important;
+  box-shadow:0 20px 70px rgba(8,0,4,.30),inset 0 1px 0 rgba(255,245,249,.12)!important;
+  backdrop-filter:blur(34px) saturate(175%)!important;
+  -webkit-backdrop-filter:blur(34px) saturate(175%)!important;
+}
+:root[data-theme="ubuntu"] .brandbar{
+  border-bottom-color:rgba(255,230,239,.16)!important;
+}
+
+/* All Burgundy panels become translucent glass instead of opaque pink slabs. */
+:root[data-theme="ubuntu"] :is(
+  .sidebar,.glass,.card,.kpi,.mini-glass,.hero-metric,
+  .filterbar,.income-overview,.month-wrap,.table-toolbar,.table-wrap,
+  dialog,.toast,.hero,.finance-hero,.finance-total-card,.finance-metric-card,
+  .payment-conversion-panel,.payment-conversion-choice,.payment-conversion-badge,
+  .arrival-insight,.arrival-exact-grid>div,.priority-status-card,.priority-other-row,
+  .bank-card,.bank-premium-intro,.bank-collection-status,
+  .bank-summary-premium .kpi.kpi-v2,.bank-card.bank-card-premium,
+  .home-summary .kpi,.bank-summary-grid .kpi,.plan-result,
+  .settings-grid>.glass.card,.bank-intro-stat
+){
+  background:linear-gradient(145deg,rgba(255,240,246,.13),rgba(91,28,53,.22) 54%,rgba(255,255,255,.055))!important;
+  border-color:rgba(255,224,236,.17)!important;
+  color:var(--text)!important;
+  box-shadow:0 12px 34px rgba(8,0,4,.18),inset 0 1px 0 rgba(255,255,255,.12)!important;
+  backdrop-filter:blur(28px) saturate(170%)!important;
+  -webkit-backdrop-filter:blur(28px) saturate(170%)!important;
+}
+:root[data-theme="ubuntu"] .table-wrap th{
+  background:rgba(255,238,245,.13)!important;
+  color:#fff5f9!important;
+  border-bottom-color:rgba(255,230,239,.15)!important;
+}
+:root[data-theme="ubuntu"] .table-wrap td{
+  background:rgba(255,255,255,.025)!important;
+  color:#fff4f8!important;
+  border-bottom-color:rgba(255,230,239,.10)!important;
+}
+:root[data-theme="ubuntu"] .table-wrap tbody tr:hover{
+  background:rgba(255,255,255,.075)!important;
+}
+:root[data-theme="ubuntu"] :is(h1,h2,h3,h4,.title,.kpi strong,.finance-total-value,.finance-metric-value,.priority-status-title,.payment-conversion-rate,.arrival-insight strong){
+  color:#fff8fb!important;
+  -webkit-text-fill-color:#fff8fb!important;
+}
+:root[data-theme="ubuntu"] :is(p,small,.muted,.note,.caption,.subtitle,.priority-status-caption,.kpi-v2-label,.finance-hero-sub,.finance-total-note,.finance-metric-label,.arrival-insight span,.arrival-insight small){
+  color:#e9cfda!important;
+  -webkit-text-fill-color:#e9cfda!important;
+}
+:root[data-theme="ubuntu"] :is(input,select,textarea,.field input,.filterbar input,.filterbar select,.month-wrap select,.plan-filter-controls select){
+  color:#fff7fa!important;
+  -webkit-text-fill-color:#fff7fa!important;
+  background:rgba(255,255,255,.075)!important;
+  border-color:rgba(255,225,237,.22)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08)!important;
+  color-scheme:dark!important;
+}
+:root[data-theme="ubuntu"] :is(input,textarea)::placeholder{
+  color:rgba(255,232,241,.62)!important;
+  -webkit-text-fill-color:rgba(255,232,241,.62)!important;
+}
+:root[data-theme="ubuntu"] select option,
+:root[data-theme="ubuntu"] select optgroup{
+  background:#32101f!important;
+  color:#fff4f8!important;
+}
+:root[data-theme="ubuntu"] .chart-svg text,
+:root[data-theme="ubuntu"] .chart-svg .axis-label,
+:root[data-theme="ubuntu"] .chart-svg .x-label{
+  fill:#f4dfe7!important;
+}
+:root[data-theme="ubuntu"] .chart-svg .gridline{
+  stroke:rgba(255,226,237,.20)!important;
+}
+:root[data-theme="ubuntu"] .chart-svg .axis-base{
+  stroke:rgba(255,226,237,.32)!important;
+}
+
+/* Brand-green primary actions in every theme. */
+:root :is(.btn.primary,.auth-submit,.finance-hero-actions .btn,.life-theme-choice.selected,.tabs button.active){
+  background:linear-gradient(135deg,#16bd85,#008f60)!important;
+  border-color:rgba(0,143,96,.36)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  box-shadow:0 8px 22px rgba(0,143,96,.22),inset 0 1px 0 rgba(255,255,255,.24)!important;
+}
+:root :is(.btn.primary,.auth-submit,.finance-hero-actions .btn,.life-theme-choice.selected,.tabs button.active):hover{
+  filter:brightness(1.06)!important;
+}
+:root :is(.switch:checked,.big-progress i,.progress i){
+  accent-color:#00a56a;
+}
+:root .switch:checked{
+  background:linear-gradient(135deg,#35d49d,#008f60)!important;
+}
+:root .navbtn.active::before{
+  background:linear-gradient(180deg,#45e0ad,#00a56a)!important;
+}
+:root .navbtn.active .ico{
+  color:#00a56a!important;
+}
+:root :is(button,a,input,select,textarea):focus-visible{
+  outline-color:#00a56a!important;
+}
+:root[data-theme="ubuntu"] .navbtn.active,
+:root[data-theme="ubuntu"] .navbtn:hover{
+  color:#fff!important;
+  background:linear-gradient(110deg,rgba(0,185,129,.22),rgba(255,255,255,.065))!important;
+  border-color:rgba(0,210,145,.30)!important;
+}
+:root[data-theme="ubuntu"] .navbtn.active .ico{
+  color:#fff!important;
+}
+:root[data-theme="ubuntu"] .navbtn.active::before{
+  background:linear-gradient(180deg,#72efc0,#00b981)!important;
+}
+:root[data-theme="ubuntu"] .pill.ok{
+  color:#caffeb!important;
+  background:rgba(0,185,129,.16)!important;
+  border-color:rgba(72,229,176,.28)!important;
+}
+:root[data-theme="ubuntu"] .payment-conversion-track{
+  background:rgba(255,255,255,.12)!important;
+  border-color:rgba(255,255,255,.14)!important;
+}
+:root[data-theme="ubuntu"] .payment-conversion-track i{
+  background:linear-gradient(90deg,#00a56a,#55e0b0)!important;
+  box-shadow:0 0 18px rgba(0,185,129,.32)!important;
+}
+
+/* Theme trigger and dropdown: white glass, green active row, monochrome white symbols. */
+#themeToggle{
+  background:linear-gradient(135deg,#16bd85,#008f60)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  border:1px solid rgba(0,143,96,.34)!important;
+  box-shadow:0 7px 18px rgba(0,143,96,.20),inset 0 1px 0 rgba(255,255,255,.25)!important;
+}
+#themeToggle .theme-icon,
+#themeToggle .theme-label{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+#themeToggle:hover{
+  filter:brightness(1.06)!important;
+  transform:translateY(-1px);
+}
+#lifePayThemeMenu.life-theme-menu{
+  border:1px solid rgba(0,165,106,.20)!important;
+  border-radius:18px!important;
+  padding:10px!important;
+  gap:7px!important;
+  -webkit-backdrop-filter:blur(30px) saturate(165%)!important;
+  backdrop-filter:blur(30px) saturate(165%)!important;
+}
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu.life-theme-menu{
+  background:rgba(255,255,255,.97)!important;
+  color:#1b2a38!important;
+  -webkit-text-fill-color:#1b2a38!important;
+  border-color:rgba(0,165,106,.18)!important;
+  box-shadow:0 20px 48px rgba(20,45,55,.14),inset 0 1px 0 #fff!important;
+}
+:root[data-theme="dark"] #lifePayThemeMenu.life-theme-menu{
+  background:rgba(14,24,38,.91)!important;
+  color:#f7fbff!important;
+  -webkit-text-fill-color:#f7fbff!important;
+  border-color:rgba(225,240,255,.17)!important;
+}
+:root[data-theme="ubuntu"] #lifePayThemeMenu.life-theme-menu{
+  background:rgba(49,13,29,.78)!important;
+  color:#fff6fa!important;
+  -webkit-text-fill-color:#fff6fa!important;
+  border-color:rgba(255,225,237,.22)!important;
+  box-shadow:0 22px 48px rgba(8,0,4,.34),inset 0 1px 0 rgba(255,255,255,.13)!important;
+}
+#lifePayThemeMenu .life-theme-menu-choice{
+  min-height:48px!important;
+  border:1px solid rgba(100,125,145,.12)!important;
+  border-radius:12px!important;
+  font-size:13px!important;
+  font-weight:800!important;
+  transition:background .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease!important;
+}
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu .life-theme-menu-choice{
+  color:#263747!important;
+  -webkit-text-fill-color:#263747!important;
+  background:rgba(245,249,248,.78)!important;
+  border-color:rgba(45,80,75,.09)!important;
+}
+:root[data-theme="dark"] #lifePayThemeMenu .life-theme-menu-choice,
+:root[data-theme="ubuntu"] #lifePayThemeMenu .life-theme-menu-choice{
+  color:#fff7fa!important;
+  -webkit-text-fill-color:#fff7fa!important;
+  background:rgba(255,255,255,.065)!important;
+  border-color:rgba(255,255,255,.12)!important;
+}
+#lifePayThemeMenu .life-theme-menu-choice>span{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex:0 0 25px!important;
+  width:25px!important;
+  height:25px!important;
+  border-radius:8px!important;
+  background:#00a56a!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  font-size:16px!important;
+  line-height:1!important;
+  opacity:1!important;
+  box-shadow:0 3px 9px rgba(0,143,96,.16)!important;
+}
+:root[data-theme="dark"] #lifePayThemeMenu .life-theme-menu-choice>span,
+:root[data-theme="ubuntu"] #lifePayThemeMenu .life-theme-menu-choice>span{
+  background:rgba(255,255,255,.12)!important;
+  border:1px solid rgba(255,255,255,.16)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  box-shadow:none!important;
+}
+#lifePayThemeMenu .life-theme-menu-choice.selected,
+#lifePayThemeMenu .life-theme-menu-choice[aria-pressed="true"]{
+  background:linear-gradient(135deg,#16bd85,#008f60)!important;
+  border-color:rgba(0,143,96,.38)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  box-shadow:0 7px 18px rgba(0,143,96,.20),inset 0 1px 0 rgba(255,255,255,.24)!important;
+}
+#lifePayThemeMenu .life-theme-menu-choice.selected>span,
+#lifePayThemeMenu .life-theme-menu-choice[aria-pressed="true"]>span{
+  background:rgba(255,255,255,.16)!important;
+  border-color:rgba(255,255,255,.16)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  box-shadow:none!important;
+}
+#lifePayThemeMenu .life-theme-menu-choice:hover:not(.selected){
+  border-color:rgba(0,165,106,.28)!important;
+  filter:brightness(1.025)!important;
+  transform:translateY(-1px);
+}
+:root[data-theme="dark"] #lifePayThemeMenu .life-theme-menu-choice:hover:not(.selected),
+:root[data-theme="ubuntu"] #lifePayThemeMenu .life-theme-menu-choice:hover:not(.selected){
+  background:rgba(255,255,255,.11)!important;
+}
+#lifePayThemeMenu .life-theme-menu-choice:focus-visible{
+  outline:2px solid #00a56a!important;
+  outline-offset:2px!important;
+}
+@media(max-width:600px){
+  #lifePayThemeMenu.life-theme-menu{
+    right:0!important;
+    top:calc(100% + 8px)!important;
+    width:min(232px,calc(100vw - 20px))!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  :root[data-theme="ubuntu"] .glass,
+  :root[data-theme="ubuntu"] .card,
+  :root[data-theme="ubuntu"] .payment-conversion-panel,
+  :root[data-theme="ubuntu"] .arrival-insight,
+  #lifePayThemeMenu,
+  #lifePayThemeMenu *{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+
+
+<style id="lifePayThemeSpecificityFinal">
+/* High-specificity final overrides: neutralize legacy pink/purple theme rules. */
+html:root[data-theme="ubuntu"] #themeToggle,
+html:root[data-theme="dark"] #themeToggle,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #themeToggle{
+  background:linear-gradient(135deg,#16bd85,#008f60)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  border:1px solid rgba(0,143,96,.36)!important;
+  box-shadow:0 7px 18px rgba(0,143,96,.20),inset 0 1px 0 rgba(255,255,255,.25)!important;
+}
+html:root[data-theme="ubuntu"] #themeToggle .theme-icon,
+html:root[data-theme="ubuntu"] #themeToggle .theme-label,
+html:root[data-theme="dark"] #themeToggle .theme-icon,
+html:root[data-theme="dark"] #themeToggle .theme-label,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #themeToggle .theme-icon,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #themeToggle .theme-label{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* Menu glass background adapts to the selected theme. */
+html:root[data-theme="ubuntu"] #lifePayThemeMenu.life-theme-menu{
+  background:rgba(49,13,29,.78)!important;
+  color:#fff6fa!important;
+  -webkit-text-fill-color:#fff6fa!important;
+  border-color:rgba(255,225,237,.22)!important;
+  box-shadow:0 22px 48px rgba(8,0,4,.34),inset 0 1px 0 rgba(255,255,255,.13)!important;
+}
+html:root[data-theme="dark"] #lifePayThemeMenu.life-theme-menu{
+  background:rgba(14,24,38,.91)!important;
+  color:#f7fbff!important;
+  -webkit-text-fill-color:#f7fbff!important;
+  border-color:rgba(225,240,255,.17)!important;
+}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu.life-theme-menu{
+  background:rgba(255,255,255,.97)!important;
+  color:#1b2a38!important;
+  -webkit-text-fill-color:#1b2a38!important;
+  border-color:rgba(0,165,106,.18)!important;
+}
+
+/* Unselected choices stay quiet; icons are monochrome white in small calm badges. */
+html:root[data-theme="ubuntu"] #lifePayThemeMenu .life-theme-menu-choice,
+html:root[data-theme="dark"] #lifePayThemeMenu .life-theme-menu-choice{
+  color:#fff7fa!important;
+  -webkit-text-fill-color:#fff7fa!important;
+  background:rgba(255,255,255,.065)!important;
+  border-color:rgba(255,255,255,.12)!important;
+}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu .life-theme-menu-choice{
+  color:#263747!important;
+  -webkit-text-fill-color:#263747!important;
+  background:rgba(245,249,248,.78)!important;
+  border-color:rgba(45,80,75,.09)!important;
+}
+html:root[data-theme="ubuntu"] #lifePayThemeMenu .life-theme-menu-choice>span,
+html:root[data-theme="dark"] #lifePayThemeMenu .life-theme-menu-choice>span{
+  background:rgba(255,255,255,.12)!important;
+  border:1px solid rgba(255,255,255,.16)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  box-shadow:none!important;
+}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu .life-theme-menu-choice>span{
+  background:#00a56a!important;
+  border:1px solid rgba(0,143,96,.20)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  box-shadow:0 3px 9px rgba(0,143,96,.16)!important;
+}
+
+/* Selected theme row is always Life Pay green, never burgundy/pink/purple. */
+html:root[data-theme="ubuntu"] #lifePayThemeMenu .life-theme-menu-choice.selected,
+html:root[data-theme="ubuntu"] #lifePayThemeMenu .life-theme-menu-choice[aria-pressed="true"],
+html:root[data-theme="dark"] #lifePayThemeMenu .life-theme-menu-choice.selected,
+html:root[data-theme="dark"] #lifePayThemeMenu .life-theme-menu-choice[aria-pressed="true"],
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu .life-theme-menu-choice.selected,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu .life-theme-menu-choice[aria-pressed="true"]{
+  background:linear-gradient(135deg,#16bd85,#008f60)!important;
+  border-color:rgba(0,143,96,.40)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  box-shadow:0 7px 18px rgba(0,143,96,.20),inset 0 1px 0 rgba(255,255,255,.24)!important;
+}
+html:root[data-theme="ubuntu"] #lifePayThemeMenu .life-theme-menu-choice.selected>span,
+html:root[data-theme="ubuntu"] #lifePayThemeMenu .life-theme-menu-choice[aria-pressed="true"]>span,
+html:root[data-theme="dark"] #lifePayThemeMenu .life-theme-menu-choice.selected>span,
+html:root[data-theme="dark"] #lifePayThemeMenu .life-theme-menu-choice[aria-pressed="true"]>span,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu .life-theme-menu-choice.selected>span,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu .life-theme-menu-choice[aria-pressed="true"]>span{
+  background:rgba(255,255,255,.16)!important;
+  border-color:rgba(255,255,255,.18)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  box-shadow:none!important;
+}
+
+/* Keep all primary actions in the same green brand language, including Burgundy. */
+html:root[data-theme="ubuntu"] :is(.btn.primary,.auth-submit,.finance-hero-actions .btn,.life-theme-choice.selected,.tabs button.active),
+html:root[data-theme="dark"] :is(.btn.primary,.auth-submit,.finance-hero-actions .btn,.life-theme-choice.selected,.tabs button.active),
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) :is(.btn.primary,.auth-submit,.finance-hero-actions .btn,.life-theme-choice.selected,.tabs button.active){
+  background:linear-gradient(135deg,#16bd85,#008f60)!important;
+  border-color:rgba(0,143,96,.40)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  box-shadow:0 8px 22px rgba(0,143,96,.22),inset 0 1px 0 rgba(255,255,255,.24)!important;
+}
+html:root[data-theme="ubuntu"] .navbtn.active::before,
+html:root[data-theme="dark"] .navbtn.active::before,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .navbtn.active::before{
+  background:linear-gradient(180deg,#45e0ad,#00a56a)!important;
+}
+html:root[data-theme="ubuntu"] .navbtn.active .ico,
+html:root[data-theme="dark"] .navbtn.active .ico{
+  color:#fff!important;
+}
+</style>
+
 </head>
 <body>
 
@@ -5870,7 +6340,7 @@ html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu 
   const ubuntuFavicon='data:image/png;base64,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';
   const labels={light:'Светлая',dark:'Тёмная',ubuntu:'Burgundy'};
   const symbols={light:'☀',dark:'☾',ubuntu:'✦'};
-  const barColors={light:'#e2e9f3',dark:'#0b1320',ubuntu:'#210932'};
+  const barColors={light:'#ffffff',dark:'#0b1320',ubuntu:'#210932'};
   const themes=['light','dark','ubuntu'];
   function storedTheme(){
     try{const v=localStorage.getItem(KEY);return themes.includes(v)?v:'light';}
@@ -6995,7 +7465,7 @@ function taskStatusDashboard(){
     const active=isPaid?s.installation===p.installation&&s.page==='table':s.filter.task===p.name;
     const action=isPaid?`data-paid-installation="${p.installation}"`:`data-task-status="${h(p.name)}"`;
     const selfPayment=p.name==='Клиент сам установил'
-      ?`<span class="priority-payment-split"><span>Оплачено <b>${number(selfPaid)}</b></span><span>Без суммы F <b>${number(selfUnpaid)}</b></span></span>`:'';
+      ?`<span class="priority-payment-split"><span>Оплачено <b>${number(selfPaid)}</b></span><span>Не оплачено <b>${number(selfUnpaid)}</b></span></span>`:'';
     return `<button type="button" class="priority-status-card ${p.tone}${active?' active':''}" ${action} aria-pressed="${active}">
       <span class="priority-kicker"><span class="priority-index">${p.index}</span>${p.label}</span>
       <span class="priority-status-title">${h(p.name)}</span>
@@ -7030,9 +7500,9 @@ function taskStatusDashboard(){
       </div>
     </div>
     <div class="payment-conversion-badges" aria-label="Сводка по самостоятельным установкам">
-      <div class="payment-conversion-badge"><span>Самостоятельно</span><strong>${number(selfRows.length)}</strong></div>
-      <div class="payment-conversion-badge paid"><span>Оплачено</span><strong>${number(selfPaid)}</strong></div>
-      <div class="payment-conversion-badge unpaid"><span>Без суммы F</span><strong>${number(selfUnpaid)}</strong></div>
+      <div class="payment-conversion-badge"><span>Самостоятельные заявки</span><strong>${number(selfRows.length)}</strong><small>Всего в выбранном периоде</small></div>
+      <div class="payment-conversion-badge paid"><span>Оплачено по F</span><strong>${number(selfPaid)}</strong><small>Заявок с суммой больше нуля</small></div>
+      <div class="payment-conversion-badge unpaid"><span>Не оплачено</span><strong>${number(selfUnpaid)}</strong><small>Заявок · F пусто или 0</small></div>
     </div>
     <div class="payment-conversion-actions">
       <button type="button" class="payment-conversion-choice paid" data-payment-amount="paid" ${amountPaid.length?'':'disabled'}>
