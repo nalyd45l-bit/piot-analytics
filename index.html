@@ -5028,6 +5028,56 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
   :root[data-theme="ubuntu"] .life-theme-menu{animation:none!important}
 }
 
+
+/* ===== Final theme + home polish patch ===== */
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu .life-theme-menu-choice.selected,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu .life-theme-menu-choice[aria-pressed="true"]{
+  background:linear-gradient(135deg,#eef9ff,#d8f1ff) !important;
+  color:#0f5678 !important; -webkit-text-fill-color:#0f5678 !important;
+  border-color:rgba(54,149,198,.42) !important;
+  box-shadow:0 10px 22px rgba(73,142,180,.18), inset 0 1px 0 rgba(255,255,255,.92) !important;
+}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu .life-theme-menu-choice.selected > span,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu .life-theme-menu-choice[aria-pressed="true"] > span{
+  color:#1690b8 !important; -webkit-text-fill-color:#1690b8 !important;
+}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .payment-conversion-panel{
+  background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(242,250,255,.74)) !important;
+  border-color:rgba(111,179,214,.24) !important;
+}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .payment-conversion-main>p{display:none !important;}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .payment-conversion-track{
+  background:rgba(77,166,228,.12) !important; border-color:rgba(77,166,228,.18) !important;
+}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .payment-conversion-choice.unpaid > span i{
+  background:#7d8fb8 !important; box-shadow:0 0 0 4px rgba(125,143,184,.14) !important;
+}
+.payment-conversion-badges{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin-top:6px}
+.payment-conversion-badge{display:flex;flex-direction:column;justify-content:center;gap:5px;min-width:120px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.44);border:1px solid rgba(155,177,198,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.58)}
+.payment-conversion-badge span{font-size:10px;font-weight:850;letter-spacing:.2px;color:var(--muted);text-transform:uppercase}
+.payment-conversion-badge strong{font-size:24px;line-height:1;font-weight:950;color:var(--text);font-variant-numeric:tabular-nums}
+.payment-conversion-badge.paid strong{color:#16a47f}
+.payment-conversion-badge.unpaid strong{color:#8b6faa}
+:root[data-theme="dark"] .payment-conversion-badge{background:rgba(228,242,255,.06)!important;border-color:rgba(208,228,245,.12)!important}
+:root[data-theme="ubuntu"] .payment-conversion-badge{background:rgba(255,227,238,.13)!important;border-color:rgba(255,202,222,.22)!important}
+:root[data-theme="ubuntu"] .payment-conversion-badge span{color:#ffe2ec!important;-webkit-text-fill-color:#ffe2ec!important}
+:root[data-theme="ubuntu"] .payment-conversion-badge strong{color:#fff8fb!important;-webkit-text-fill-color:#fff8fb!important}
+.arrival-insights{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}
+.arrival-insight.accent-month{background:linear-gradient(135deg,rgba(36,198,148,.12),rgba(255,255,255,.52)) !important;border-color:rgba(36,198,148,.18) !important}
+:root[data-theme="dark"] .arrival-insight.accent-month{background:linear-gradient(135deg,rgba(85,215,181,.14),rgba(228,242,255,.06)) !important;border-color:rgba(85,215,181,.18) !important}
+:root[data-theme="ubuntu"] .arrival-insight.accent-month{background:linear-gradient(135deg,rgba(240,91,157,.16),rgba(255,227,238,.10)) !important;border-color:rgba(255,190,216,.24) !important}
+.bank-intro-glassline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px;max-width:760px}
+.bank-intro-stat{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+.bank-intro-stat strong{font-size:clamp(22px,2.1vw,32px);line-height:1;font-weight:950;letter-spacing:-1px;color:var(--lp-bank-ink,#fff);-webkit-text-fill-color:var(--lp-bank-ink,#fff)}
+.bank-intro-stat small{font-size:11px;font-weight:750;letter-spacing:.2px;color:var(--lp-bank-sub,#e5eef8);text-transform:uppercase}
+.bank-intro-stat.primary{background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.09))}
+.bank-intro-stat.warning strong{color:#ffd0e0;-webkit-text-fill-color:#ffd0e0}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .bank-intro-stat{background:rgba(255,255,255,.58);border-color:rgba(92,162,198,.16);box-shadow:0 10px 24px rgba(58,122,156,.08), inset 0 1px 0 rgba(255,255,255,.7)}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .bank-intro-stat strong{color:#16324f !important;-webkit-text-fill-color:#16324f !important}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .bank-intro-stat small{color:#5d728c !important;-webkit-text-fill-color:#5d728c !important}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .bank-intro-stat.warning strong{color:#6d7ea5 !important;-webkit-text-fill-color:#6d7ea5 !important}
+@media (max-width:900px){.arrival-insights{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}.bank-intro-glassline{grid-template-columns:1fr !important;}}
+
 </style>
 <style id="lifePayFinalBrandThemeFix">
 
@@ -5753,7 +5803,7 @@ html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu 
       <div class="life-theme-menu" id="lifePayThemeMenu" role="group" aria-label="Выбор темы сайта" hidden>
         <button type="button" class="life-theme-menu-choice" data-theme-choice="light"><span aria-hidden="true">☀</span> Светлая</button>
         <button type="button" class="life-theme-menu-choice" data-theme-choice="dark"><span aria-hidden="true">☾</span> Тёмная</button>
-        <button type="button" class="life-theme-menu-choice" data-theme-choice="ubuntu"><span aria-hidden="true">✦</span> Ubuntu Neon</button>
+        <button type="button" class="life-theme-menu-choice" data-theme-choice="ubuntu"><span aria-hidden="true">✦</span> Burgundy</button>
       </div>
       <button type="button" class="theme-toggle lock-app-btn" id="lockApp" title="Выйти из приложения" aria-label="Выйти из приложения"><svg class="exit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg><span class="theme-label">Выйти</span></button>
       <span id="topSave" class="pill ok">Загрузка</span>
@@ -6979,8 +7029,10 @@ function taskStatusDashboard(){
         <i style="width:${paymentRate}%"></i><b style="left:${paymentRate}%"></b>
       </div>
     </div>
-    <div class="payment-conversion-self-note">
-      Самостоятельные установки: <b>${number(selfRows.length)}</b> · оплачено <b>${number(selfPaid)}</b> · без суммы F <b>${number(selfUnpaid)}</b>
+    <div class="payment-conversion-badges" aria-label="Сводка по самостоятельным установкам">
+      <div class="payment-conversion-badge"><span>Самостоятельно</span><strong>${number(selfRows.length)}</strong></div>
+      <div class="payment-conversion-badge paid"><span>Оплачено</span><strong>${number(selfPaid)}</strong></div>
+      <div class="payment-conversion-badge unpaid"><span>Без суммы F</span><strong>${number(selfUnpaid)}</strong></div>
     </div>
     <div class="payment-conversion-actions">
       <button type="button" class="payment-conversion-choice paid" data-payment-amount="paid" ${amountPaid.length?'':'disabled'}>
@@ -7068,6 +7120,9 @@ function espSummaryCard(){
 
 function requestFlowCard(){
   const records=eventRows().filter(r=>r.source!=='noesp');
+  const monthFocus=s.month||new Date().toISOString().slice(0,7);
+  const monthArrivals=records.filter(r=>Piot.hasApplication(r)&&isoDay(r.date).slice(0,7)===monthFocus).length;
+  const monthFocusLabel=s.month?monthLabel(s.month):'Текущий месяц';
   const gran=s.periodMode==='month'&&!s.month?'month':'day';
   const raw=periodActivity(records,gran);
   const byKey=new Map(raw.map(x=>[x.key,x]));
@@ -7111,6 +7166,7 @@ function requestFlowCard(){
   </details>`:'';
   const body=`<div class="arrival-insights">
       <div class="arrival-insight primary"><span>Новых заявок</span><strong>${cVal(total)}</strong><small>за ${s.periodMode==='month'?(s.month?'выбранный месяц':'всё время'):s.periodMode==='week'?'неделю':'день'}</small></div>
+      <div class="arrival-insight accent-month"><span>Заявок за месяц</span><strong>${cVal(monthArrivals)}</strong><small>${h(monthFocusLabel)}</small></div>
       <div class="arrival-insight"><span>${averageLabel}</span><strong>${number(Math.round(avg*10)/10)}</strong><small>${active.length} активных ${gran==='month'?'месяцев':'дней'}</small></div>
       <div class="arrival-insight"><span>${peakLabel}</span><strong>${peakName}</strong><small>${number(peak.total)} ${peak.total===1?'заявка':'заявок'}</small></div>
     </div>
@@ -7173,8 +7229,11 @@ function banks(){
   if(!cfg().showBanks) return html+card('Банки',empty('Карточки банков отключены в настройках.'));
   html+=`<section class="bank-premium-intro" aria-label="Аналитика оплат банков">
     <div><span class="bank-eyebrow"><span class="bank-eyebrow-dot"></span>БАНКОВСКАЯ АНАЛИТИКА</span>
-      <h2>Каждая оплата — под контролем</h2>
-      <p>«Не оплатили» — заявки без положительной суммы в столбце F. Данные учитывают выбранные фильтры и период.</p></div>
+      <div class="bank-intro-glassline">
+        <div class="bank-intro-stat primary"><strong>${share}%</strong><small>конверсия оплат</small></div>
+        <div class="bank-intro-stat"><strong>${number(paid)}</strong><small>оплатили</small></div>
+        <div class="bank-intro-stat warning"><strong>${number(unpaid)}</strong><small>без суммы F</small></div>
+      </div></div>
     <div class="bank-intro-mark"><span>LP</span><small>PAYMENT<br>OVERVIEW</small></div>
   </section>
   <div class="bank-summary-grid bank-summary-premium">
