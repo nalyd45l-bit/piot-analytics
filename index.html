@@ -3978,6 +3978,323 @@ input,select,textarea,.btn,.icon-btn,.month-wrap,.filterbar,
 }
 :root[data-theme="ubuntu"] #page .profit-hero .profit-total :is(span,small){color:#f0d5e3!important;-webkit-text-fill-color:#f0d5e3!important}
 :root[data-theme="ubuntu"] #page .profit-hero .profit-total strong{color:#fff!important;-webkit-text-fill-color:#fff!important}
+
+/* =============================================================
+   LIFE PAY · UBUNTU NEON / RUBY GLASS · CONTRAST REFINEMENT
+   Visual-only. Scoped to the Ubuntu option; light and dark intact.
+   ============================================================= */
+:root[data-theme="ubuntu"]{
+  --text:#231321;
+  --muted:#674e60;
+  --green:#a32261;
+  --green-d:#73113f;
+  --green-l:#fce8f1;
+  --blue:#7b4296;
+  --purple:#8d3c8f;
+  --orange:#c44e72;
+  --bg:#fff9fc;
+  --glass-bg:linear-gradient(145deg,rgba(255,255,255,.96),rgba(255,249,253,.87) 66%,rgba(250,230,241,.80));
+  --shadow:0 8px 25px rgba(72,12,45,.12),inset 0 1px 0 rgba(255,255,255,.98);
+  --shadow-hover:0 16px 40px rgba(93,16,55,.19),inset 0 1px 0 #fff;
+  --pin-text:#281522;
+  --pin-muted:#6f4e60;
+}
+:root[data-theme="ubuntu"] body{
+  background-color:#fff8fb!important;
+  color:#261422!important;
+}
+:root[data-theme="ubuntu"] .shell{
+  background:linear-gradient(150deg,rgba(255,255,255,.82),rgba(255,251,253,.78) 65%,rgba(255,245,250,.76))!important;
+  border:1px solid rgba(255,255,255,.98)!important;
+  box-shadow:0 26px 85px rgba(75,12,42,.19),inset 0 1px 0 white!important;
+  -webkit-backdrop-filter:blur(25px) saturate(180%)!important;
+  backdrop-filter:blur(25px) saturate(180%)!important;
+}
+:root[data-theme="ubuntu"] .sidebar{
+  background:linear-gradient(165deg,rgba(255,255,255,.98),rgba(255,243,249,.94))!important;
+  border:1px solid rgba(179,83,123,.17)!important;
+  box-shadow:0 14px 34px rgba(84,20,54,.12),inset 0 1px 0 #fff!important;
+}
+:root[data-theme="ubuntu"] .pagebar h1{
+  background:linear-gradient(110deg,#291224 0%,#68153e 50%,#bf346e 100%)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  color:transparent!important;font-weight:850!important;
+  letter-spacing:-1.1px!important;
+}
+:root[data-theme="ubuntu"] .navbtn{
+  color:#563548!important;font-size:13px!important;font-weight:680!important;
+  transition:background .23s ease,transform .23s ease,color .23s ease!important;
+}
+:root[data-theme="ubuntu"] .navbtn .ico{color:#844465!important;opacity:.95!important}
+:root[data-theme="ubuntu"] .navbtn.active{
+  background:linear-gradient(105deg,#62143a,#ad2462)!important;
+  border:1px solid rgba(202,72,129,.38)!important;
+  box-shadow:0 7px 19px rgba(139,25,81,.23),inset 0 1px 0 rgba(255,255,255,.24)!important;
+  color:#fff!important;
+}
+:root[data-theme="ubuntu"] .navbtn.active :is(.ico,.nav-label){color:white!important}
+:root[data-theme="ubuntu"] .navbtn.active::before{background:#ffb4d7!important}
+:root[data-theme="ubuntu"] .navbtn:hover:not(.active){background:#f9e2ed!important;color:#5f153a!important}
+:root[data-theme="ubuntu"] :is(.glass,.card,.income-overview,.filterbar,.month-wrap,.table-toolbar,dialog,.toast){
+  background:var(--glass-bg)!important;
+  border:1px solid rgba(171,70,115,.17)!important;
+  box-shadow:var(--shadow)!important;
+  color:#291624!important;
+}
+:root[data-theme="ubuntu"] :is(.hero,.finance-hero,.bank-card,.priority-status-card,.profit-hero,.profit-expense-editor,.profit-calculator){
+  color:#2d1728!important;
+  background:linear-gradient(143deg,#fff 0%,#fff9fc 55%,#fce6f0 100%)!important;
+  border:1px solid rgba(177,64,114,.21)!important;
+  box-shadow:0 10px 31px rgba(108,21,65,.13),inset 0 1px 0 white!important;
+}
+:root[data-theme="ubuntu"] :is(.finance-hero,.hero,.bank-card,.priority-status-card,.card,.glass,.profit-calculator):hover{
+  box-shadow:0 15px 41px rgba(110,18,62,.20),inset 0 1px 0 white!important;
+}
+:root[data-theme="ubuntu"] .finance-hero{
+  background:radial-gradient(circle at 95% 12%,rgba(239,127,172,.22),transparent 34%),
+    linear-gradient(142deg,#fff 0%,#fffafd 50%,#ffedf5 100%)!important;
+  border:1px solid rgba(166,38,99,.20)!important;
+}
+:root[data-theme="ubuntu"] .finance-hero-badge,
+:root[data-theme="ubuntu"] .hero-kicker,
+:root[data-theme="ubuntu"] :is(.priority-kicker,.profit-kicker){
+  color:#9b1b55!important;-webkit-text-fill-color:#9b1b55!important;
+  font-weight:850!important;letter-spacing:.5px!important;
+}
+:root[data-theme="ubuntu"] :is(.finance-hero-title,.card h2,.priority-status-title,.plan-result strong,.hero h2,.profit-heading h2){
+  color:#291324!important;-webkit-text-fill-color:#291324!important;
+  text-shadow:none!important;letter-spacing:-.6px!important;
+}
+:root[data-theme="ubuntu"] .finance-hero-title{
+  background:none!important;color:#37152b!important;-webkit-text-fill-color:#37152b!important;
+  font-size:clamp(22px,2.3vw,35px)!important;font-weight:850!important;line-height:1.11!important;
+}
+:root[data-theme="ubuntu"] .finance-hero-description{
+  color:#60485a!important;-webkit-text-fill-color:#60485a!important;
+  font-size:clamp(12px,1vw,14px)!important;font-weight:560!important;line-height:1.55!important;
+}
+/* A ruby hero number against clean white mini cards is the primary focal point. */
+:root[data-theme="ubuntu"] .finance-hero .finance-total-card{
+  background:radial-gradient(95% 105% at 105% -12%,rgba(255,155,205,.33),transparent 63%),
+    linear-gradient(125deg,#310d28 0%,#6f1847 55%,#ac2865 100%)!important;
+  border:1px solid rgba(144,34,85,.48)!important;
+  box-shadow:0 15px 32px rgba(89,18,60,.24),inset 0 1px 0 rgba(255,255,255,.23)!important;
+}
+:root[data-theme="ubuntu"] .finance-hero .finance-total-card::after{opacity:.14!important}
+:root[data-theme="ubuntu"] .finance-hero .finance-total-card :is(.finance-total-kicker,.finance-total-note){
+  color:#ffe3ef!important;-webkit-text-fill-color:#ffe3ef!important;
+  font-size:clamp(11px,.9vw,13px)!important;line-height:1.55!important;
+}
+:root[data-theme="ubuntu"] .finance-hero .finance-total-card .finance-total-value{
+  color:#fff!important;-webkit-text-fill-color:#fff!important;background:none!important;
+  font-size:clamp(39px,4.6vw,72px)!important;text-shadow:0 4px 15px rgba(12,0,12,.15)!important;
+}
+:root[data-theme="ubuntu"] .finance-hero .finance-metric-card{
+  background:linear-gradient(135deg,rgba(255,255,255,.99),rgba(255,237,246,.96))!important;
+  border:1px solid rgba(172,73,118,.18)!important;
+  box-shadow:0 5px 15px rgba(110,28,70,.09),inset 0 1px 0 white!important;
+}
+:root[data-theme="ubuntu"] .finance-hero .finance-metric-card::after{opacity:.12!important}
+:root[data-theme="ubuntu"] .finance-hero .finance-metric-card :is(.finance-metric-label,.finance-metric-desc,small){
+  color:#67445a!important;-webkit-text-fill-color:#67445a!important;
+  font-size:clamp(10px,.9vw,12px)!important;line-height:1.42!important;font-weight:680!important;
+}
+:root[data-theme="ubuntu"] .finance-hero .finance-metric-card :is(.finance-metric-value,.finance-metric-amount,strong){
+  color:#501536!important;-webkit-text-fill-color:#501536!important;
+  background:none!important;font-weight:850!important;
+  font-size:clamp(23px,2.4vw,38px)!important;text-shadow:none!important;
+}
+/* Workload and goal cards distinguish one another without losing contrast. */
+:root[data-theme="ubuntu"] .hero:not(.blue){
+  background:radial-gradient(circle at 100% 0%,rgba(241,95,151,.20),transparent 40%),
+    linear-gradient(148deg,#fff 0%,#fff6fa 70%,#f9e3ee 100%)!important;
+}
+:root[data-theme="ubuntu"] .hero.blue{
+  --accent:#8e3d9d!important;
+  background:radial-gradient(circle at 100% 0%,rgba(157,112,213,.18),transparent 42%),
+    linear-gradient(140deg,#fff 0%,#fbf7ff 70%,#f1e7fa 100%)!important;
+}
+:root[data-theme="ubuntu"] :is(.hero-metric,.mini-glass,.kpi,.bank-summary-grid .kpi,.home-summary .kpi,.income-overview .kpi,.profit-kpis>div){
+  background:linear-gradient(145deg,#fff,rgba(255,245,251,.95))!important;
+  border:1px solid rgba(153,66,108,.16)!important;
+  box-shadow:0 5px 14px rgba(96,20,64,.085)!important;
+}
+:root[data-theme="ubuntu"] :is(.hero-metric span,.kpi .label,.kpi .meta,.mini-glass span,.hero-sub,.hero-note,.priority-status-caption,.bank-revenue-label){
+  color:#66485a!important;-webkit-text-fill-color:#66485a!important;
+  font-size:clamp(11px,.85vw,12.5px)!important;font-weight:610!important;
+}
+:root[data-theme="ubuntu"] :is(.hero-metric b,.kpi strong,.mini-glass b,.bank-revenue,.priority-count-row>strong,.hero-big){
+  color:#37162c!important;-webkit-text-fill-color:#37162c!important;
+  background:none!important;font-weight:850!important;text-shadow:none!important;
+}
+:root[data-theme="ubuntu"] .priority-status-card{
+  border-left:4px solid #af2c6c!important;
+  background:linear-gradient(133deg,#fff 0%,#fff6fa 65%,#fce5ef 100%)!important;
+}
+:root[data-theme="ubuntu"] :is(.priority-status-card.assist,.plan-result:nth-child(2)){
+  border-left-color:#88449d!important;
+  background:linear-gradient(133deg,#fff 0%,#faf6ff 65%,#eee2f8 100%)!important;
+}
+:root[data-theme="ubuntu"] :is(.priority-status-card.paid-autobiz,.plan-result.paid-autobiz){
+  border-left-color:#8f45b0!important;
+  background:linear-gradient(140deg,#fff,rgba(236,220,249,.95))!important;
+}
+:root[data-theme="ubuntu"] .priority-status-card :is(.priority-status-caption,.priority-count-row>span,.priority-status-foot),
+:root[data-theme="ubuntu"] .plan-result :is(span,small){
+  color:#67485a!important;-webkit-text-fill-color:#67485a!important;
+  font-size:clamp(11px,.85vw,12.5px)!important;
+}
+:root[data-theme="ubuntu"] .priority-status-card .priority-status-title{font-size:clamp(17px,1.55vw,22px)!important}
+:root[data-theme="ubuntu"] :is(.priority-status-card .priority-count-row strong,.plan-result b,.plan-result strong){
+  color:#341429!important;-webkit-text-fill-color:#341429!important;
+}
+:root[data-theme="ubuntu"] :is(.priority-track,.progress,.big-progress,.plan-history-track){
+  background:#eedce6!important;border-radius:99px!important;
+}
+:root[data-theme="ubuntu"] :is(.priority-track i,.progress i,.big-progress i,.plan-history-track i){
+  background:linear-gradient(90deg,#8a1a52,#c43378,#fa80ad)!important;
+  box-shadow:0 2px 9px rgba(185,34,102,.22)!important;
+}
+:root[data-theme="ubuntu"] .hero.blue :is(.progress i,.big-progress i){
+  background:linear-gradient(90deg,#793aa1,#a75dc7)!important;
+}
+:root[data-theme="ubuntu"] .bank-card{
+  background:linear-gradient(141deg,rgba(255,255,255,.98),rgba(255,246,251,.92))!important;
+  border:1px solid rgba(150,70,111,.18)!important;
+}
+:root[data-theme="ubuntu"] :is(.bank-pct,.bank-filter-chip){font-weight:780!important}
+:root[data-theme="ubuntu"] :is(.cardhead p,.note,.muted,.tablefoot,.chart-details summary,.footer,.plan-history-meta,.plan-history-month){
+  color:#654b5c!important;-webkit-text-fill-color:#654b5c!important;
+  font-size:clamp(11px,.86vw,13px)!important;line-height:1.56!important;
+}
+:root[data-theme="ubuntu"] :is(.card h2,.cardhead h2){font-size:clamp(19px,1.6vw,24px)!important;font-weight:820!important}
+:root[data-theme="ubuntu"] :is(.filterbar.global-filterbar input,.filterbar.global-filterbar select,.month-wrap select,.plan-filter-controls select,.bank-filter-controls select,textarea){
+  color:#321c2d!important;-webkit-text-fill-color:#321c2d!important;
+  background:#fffafd!important;border:1px solid rgba(161,68,112,.29)!important;
+  font-size:clamp(12px,.95vw,14px)!important;font-weight:610!important;
+}
+:root[data-theme="ubuntu"] :is(input::placeholder,textarea::placeholder){color:#7f6474!important;opacity:1!important}
+:root[data-theme="ubuntu"] :is(.btn,.icon-btn,.theme-toggle,.month-wrap .icon-btn,.legend button,.tabs button.active,.bank-filter-chip){
+  color:#632143!important;-webkit-text-fill-color:#632143!important;
+  background:linear-gradient(145deg,#fff,#fbeaf2)!important;
+  border:1px solid rgba(175,76,119,.18)!important;
+  box-shadow:0 6px 15px rgba(89,21,58,.10)!important;
+  font-weight:720!important;
+}
+:root[data-theme="ubuntu"] :is(.btn.primary,.finance-hero-actions .btn,.profit-calc-save,#pinScreen .auth-submit){
+  background:linear-gradient(105deg,#551039 0%,#a41d5e 55%,#d53d80 100%)!important;
+  border:1px solid rgba(214,73,137,.58)!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+  box-shadow:0 10px 23px rgba(147,27,78,.25),inset 0 1px 0 rgba(255,255,255,.33)!important;
+  font-weight:820!important;
+}
+:root[data-theme="ubuntu"] :is(.btn.primary,.finance-hero-actions .btn,.profit-calc-save,#pinScreen .auth-submit):hover{
+  filter:brightness(1.09)!important;transform:translateY(-2px)!important;
+  box-shadow:0 14px 28px rgba(147,27,78,.30),inset 0 1px 0 rgba(255,255,255,.33)!important;
+}
+:root[data-theme="ubuntu"] :is(.table-wrap, .table-toolbar){border-color:rgba(148,49,104,.20)!important}
+:root[data-theme="ubuntu"] .table-wrap th{
+  background:#f3dfe9!important;color:#54203c!important;-webkit-text-fill-color:#54203c!important;
+  border-color:rgba(153,51,99,.25)!important;font-size:12px!important;
+}
+:root[data-theme="ubuntu"] .table-wrap td{color:#392235!important;-webkit-text-fill-color:#392235!important;font-size:12px!important}
+:root[data-theme="ubuntu"] .table-wrap tbody tr:nth-child(even){background:rgba(251,238,245,.58)!important}
+:root[data-theme="ubuntu"] .table-wrap tbody tr:hover{background:#f9dce9!important}
+:root[data-theme="ubuntu"] :is(.tabs button,.legend button){font-size:12px!important}
+:root[data-theme="ubuntu"] .tabs button.active{background:#f6dfeb!important;color:#651c44!important}
+/* Preserve distinct series in charts; remove the low-saturation global hue filter. */
+:root[data-theme="ubuntu"] :is(.chart-svg,.chart-svg .chart-line,.chart-svg .chart-area,.chart-svg .chart-bar,.spark,.donut,.donut-arc,.legend .dot,.bank-spark){
+  filter:none!important;
+}
+:root[data-theme="ubuntu"] .chart-svg .chart-line{
+  stroke-width:4!important;filter:drop-shadow(0 3px 3px rgba(94,21,62,.14))!important;
+}
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#62b5ff"],
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#3d8ef0"]{stroke:#a42a65!important}
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#00a56a"],
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#22d092"]{stroke:#6f3aa1!important}
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#9060ed"],
+:root[data-theme="ubuntu"] .chart-svg .chart-line[stroke="#8a52e8"]{stroke:#d15d8f!important}
+:root[data-theme="ubuntu"] :is(.chart-svg text,.chart-svg .x-label,.chart-svg .axis-label){
+  fill:#66475b!important;font-weight:680!important;font-size:12px!important;
+}
+:root[data-theme="ubuntu"] .chart-svg .gridline{stroke:rgba(133,61,103,.22)!important}
+:root[data-theme="ubuntu"] .chart-svg .axis-base{stroke:rgba(119,46,82,.42)!important}
+:root[data-theme="ubuntu"] .chart-tip{background:#3d1530!important;color:#fff!important}
+:root[data-theme="ubuntu"] .profit-hero .profit-kpis>div strong{color:#471932!important;-webkit-text-fill-color:#471932!important}
+:root[data-theme="ubuntu"] #page .profit-hero .profit-total{
+  background:linear-gradient(111deg,#330c27,#791849 56%,#b72e6d)!important;
+  border:1px solid rgba(223,117,165,.30)!important;
+  box-shadow:0 16px 35px rgba(119,24,76,.25)!important;
+}
+:root[data-theme="ubuntu"] #page .profit-hero .profit-total strong{color:#fff!important;-webkit-text-fill-color:#fff!important}
+:root[data-theme="ubuntu"] #page .profit-hero .profit-total :is(span,small){color:#ffe0ee!important;-webkit-text-fill-color:#ffe0ee!important}
+:root[data-theme="ubuntu"] .profit-calculator :is(input,textarea,select){border-color:rgba(165,55,107,.26)!important}
+:root[data-theme="ubuntu"] #pinScreen .auth-card{
+  background:linear-gradient(148deg,#fff,#fff8fc 57%,#fce5f0)!important;
+  border:1px solid rgba(182,68,118,.26)!important;
+  box-shadow:0 32px 70px rgba(99,25,57,.23),inset 0 1px 0 white!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .pin-title,
+:root[data-theme="ubuntu"] #pinScreen :is(.auth-heading,.auth-title){color:#2b1124!important;-webkit-text-fill-color:#2b1124!important}
+:root[data-theme="ubuntu"] #pinScreen :is(.auth-subtitle,.auth-description,.auth-label){color:#5f4355!important;-webkit-text-fill-color:#5f4355!important}
+:root[data-theme="ubuntu"] #pinScreen .life-theme-choice{color:#5d2242!important;font-weight:760!important}
+:root[data-theme="ubuntu"] #pinScreen .life-theme-choice.selected{
+  background:linear-gradient(138deg,#5d143d,#b72b6c)!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+  box-shadow:0 9px 19px rgba(141,27,83,.24)!important;
+}
+:root[data-theme="ubuntu"] #pinScreen .auth-submit{font-size:15px!important}
+:root[data-theme="ubuntu"] :is(a,button,input,select,textarea):focus-visible{
+  outline:2px solid #c12f74!important;outline-offset:3px!important;
+}
+@media(max-width:850px){
+  :root[data-theme="ubuntu"] .sidebar{background:linear-gradient(145deg,#fff,#ffeff6)!important}
+  :root[data-theme="ubuntu"] .navbtn{font-size:12px!important}
+}
+@media(max-width:600px){
+  :root[data-theme="ubuntu"] .shell{background:rgba(255,252,254,.84)!important}
+  :root[data-theme="ubuntu"] :is(.finance-hero,.card,.hero,.priority-status-card){border-radius:23px!important}
+  :root[data-theme="ubuntu"] .pagebar h1{font-weight:850!important}
+  :root[data-theme="ubuntu"] .finance-hero .finance-total-card .finance-total-value{font-size:clamp(38px,12vw,60px)!important}
+  :root[data-theme="ubuntu"] .finance-hero .finance-metric-card :is(.finance-metric-value,.finance-metric-amount,strong){font-size:clamp(23px,7vw,32px)!important}
+  :root[data-theme="ubuntu"] .finance-hero .finance-metric-card :is(.finance-metric-label,.finance-metric-desc,small){font-size:11px!important}
+  :root[data-theme="ubuntu"] .finance-hero-description{font-size:12.5px!important}
+  :root[data-theme="ubuntu"] .navbtn .nav-label{font-size:9px!important;letter-spacing:0!important}
+  :root[data-theme="ubuntu"] .filterbar.global-filterbar :is(input,select){min-height:41px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  :root[data-theme="ubuntu"] :is(.navbtn,.btn,.finance-hero,.hero,.priority-status-card){animation:none!important;transition:none!important}
+}
+
+
+/* Ruby hero override: high-specificity legacy glass selector previously won. */
+:root[data-theme="ubuntu"] #page .finance-hero .finance-total-card{
+  background:radial-gradient(100% 95% at 100% -15%,rgba(255,147,196,.27),transparent 65%),
+    linear-gradient(122deg,#310c27 0%,#731947 56%,#b2296c 100%)!important;
+  border:1px solid rgba(212,86,151,.45)!important;
+  box-shadow:0 17px 35px rgba(100,19,65,.27),inset 0 1px 0 rgba(255,255,255,.22)!important;
+}
+:root[data-theme="ubuntu"] #page .finance-hero .finance-total-card .finance-total-value{
+  color:#fff!important;-webkit-text-fill-color:#fff!important;background:none!important;
+  text-shadow:0 4px 16px rgba(10,0,12,.17)!important;
+}
+:root[data-theme="ubuntu"] #page .finance-hero .finance-total-card :is(.finance-total-note,.finance-total-kicker){
+  color:#ffecf3!important;-webkit-text-fill-color:#ffecf3!important;
+}
+
+/* Visible, readable save-state pill in every Ubuntu status. */
+:root[data-theme="ubuntu"] #topSave{
+  background:#f9e1ec!important;color:#671a41!important;-webkit-text-fill-color:#671a41!important;
+  border:1px solid rgba(153,39,91,.27)!important;font-weight:850!important;
+  box-shadow:0 5px 13px rgba(104,21,57,.12)!important;
+}
+:root[data-theme="ubuntu"] #topSave.err{
+  background:#ffe5e5!important;color:#8a202d!important;-webkit-text-fill-color:#8a202d!important;
+}
+:root[data-theme="ubuntu"] #topSave.warn{
+  background:#fff0ce!important;color:#704313!important;-webkit-text-fill-color:#704313!important;
+}
 </style>
 </head>
 <body>
