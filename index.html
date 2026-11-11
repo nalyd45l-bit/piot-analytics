@@ -5448,6 +5448,250 @@ html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu 
 }
 </style>
 
+<style id="lifePayFinalVisualAndAnalyticsFix">
+/* Month and filter dropdowns: consistent readable native popup in all themes. */
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) select{color-scheme:light}
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) select option,
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) select optgroup{background:#fff!important;color:#24364b!important}
+:root[data-theme="dark"] select{color-scheme:dark}
+:root[data-theme="dark"] select option,
+:root[data-theme="dark"] select optgroup{background:#142536!important;color:#eef6ff!important}
+:root[data-theme="ubuntu"] select{color-scheme:dark!important}
+:root[data-theme="ubuntu"] select option,
+:root[data-theme="ubuntu"] select optgroup,
+:root[data-theme="ubuntu"] #month option,
+:root[data-theme="ubuntu"] #month optgroup{background:#421329!important;color:#fff0f6!important}
+:root[data-theme="ubuntu"] select option:checked{background:#9c315e!important;color:#fff!important}
+:root[data-theme="ubuntu"] select optgroup{color:#ffb7d0!important;font-weight:900!important}
+
+/* Settings cards and numeric fields now belong to the selected theme. */
+.settings-grid>.glass.card{backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%)}
+:root[data-theme="ubuntu"] .settings-grid>.glass.card{
+  background:linear-gradient(145deg,rgba(116,38,70,.48),rgba(61,13,38,.60))!important;
+  border:1px solid rgba(255,191,216,.30)!important;
+  box-shadow:0 14px 32px rgba(23,0,13,.20),inset 0 1px 0 rgba(255,239,246,.14)!important;
+}
+:root[data-theme="ubuntu"] .settings-grid .field label,
+:root[data-theme="ubuntu"] .settings-grid .field small{color:#ffe5ef!important;-webkit-text-fill-color:#ffe5ef!important}
+:root[data-theme="ubuntu"] .settings-grid .field input,
+:root[data-theme="ubuntu"] .settings-grid .field select{
+  color:#fff5fa!important;-webkit-text-fill-color:#fff5fa!important;
+  background:linear-gradient(135deg,rgba(45,7,27,.76),rgba(91,23,54,.62))!important;
+  border:1px solid rgba(255,179,208,.42)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 7px 18px rgba(25,0,14,.12)!important;
+}
+:root[data-theme="ubuntu"] .settings-grid .field input::placeholder{color:#e7b8ca!important;-webkit-text-fill-color:#e7b8ca!important}
+:root[data-theme="dark"] .settings-grid>.glass.card{background:rgba(15,31,48,.72)!important;border-color:rgba(186,215,240,.18)!important}
+:root[data-theme="dark"] .settings-grid .field input,
+:root[data-theme="dark"] .settings-grid .field select{background:rgba(224,241,255,.08)!important;color:#f3f8ff!important}
+
+/* Results: clear payment conversion and an explicit split for self-installed clients. */
+.priority-payment-split{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-top:1px;font-size:10px;font-weight:750;color:var(--muted)}
+.priority-payment-split>span{padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.45);border:1px solid rgba(140,160,180,.16)}
+.priority-payment-split>span:first-child b{color:#159b76}
+.priority-payment-split>span:last-child b{color:#d24e78}
+:root[data-theme="ubuntu"] .priority-payment-split{color:#6b314b!important;-webkit-text-fill-color:#6b314b!important}
+:root[data-theme="ubuntu"] .priority-payment-split>span{background:rgba(130,30,70,.08)!important;border-color:rgba(130,30,70,.15)!important;color:#6b314b!important;-webkit-text-fill-color:#6b314b!important}
+:root[data-theme="ubuntu"] .priority-payment-split>span:first-child b{color:#087e62!important;-webkit-text-fill-color:#087e62!important}
+:root[data-theme="ubuntu"] .priority-payment-split>span:last-child b{color:#b82d62!important;-webkit-text-fill-color:#b82d62!important}
+.payment-conversion-panel{
+  position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:18px;align-items:center;
+  margin:16px 0 13px;padding:19px 20px;border-radius:22px;overflow:hidden;
+  background:linear-gradient(135deg,rgba(255,255,255,.72),rgba(255,255,255,.38));
+  border:1px solid rgba(255,255,255,.62);box-shadow:0 12px 28px rgba(26,43,66,.09),inset 0 1px 0 rgba(255,255,255,.7);
+  backdrop-filter:blur(22px) saturate(155%);-webkit-backdrop-filter:blur(22px) saturate(155%);
+}
+.payment-conversion-panel:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 8% 5%,rgba(255,255,255,.35),transparent 35%),linear-gradient(120deg,transparent 0 42%,rgba(255,255,255,.12) 52%,transparent 62%)}
+.payment-conversion-main,.payment-conversion-actions{position:relative;z-index:1}
+.payment-conversion-kicker{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:1.1px;font-weight:900;color:var(--muted)}
+.payment-conversion-kicker i{width:8px;height:8px;border-radius:50%;background:#18b98d;box-shadow:0 0 0 5px rgba(24,185,141,.14)}
+.payment-conversion-rate{display:flex;align-items:baseline;gap:3px;margin:5px 0 1px;font-size:clamp(36px,4vw,52px);line-height:1;font-weight:950;letter-spacing:-2px;color:var(--text);font-variant-numeric:tabular-nums}
+.payment-conversion-rate small{font-size:21px;letter-spacing:0}
+.payment-conversion-main>p{font-size:11px;color:var(--muted);margin:4px 0 12px}
+.payment-conversion-track{position:relative;height:13px;border-radius:99px;overflow:hidden;background:rgba(218,105,139,.18);border:1px solid rgba(218,105,139,.15);box-shadow:inset 0 2px 4px rgba(30,20,30,.10)}
+.payment-conversion-track i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#12a982,#54d8b0);box-shadow:0 0 17px rgba(30,191,148,.35);transition:width .9s cubic-bezier(.22,1,.36,1)}
+.payment-conversion-track b{position:absolute;top:50%;width:17px;height:17px;transform:translate(-50%,-50%);border-radius:50%;border:3px solid #fff;background:#16b58c;box-shadow:0 2px 9px rgba(12,107,82,.25)}
+.payment-conversion-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.payment-conversion-choice{display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-width:0;padding:13px 14px;border-radius:16px;text-align:left;border:1px solid rgba(150,170,190,.20);background:rgba(255,255,255,.45);box-shadow:inset 0 1px 0 rgba(255,255,255,.55);transition:transform .22s,box-shadow .22s;cursor:pointer}
+.payment-conversion-choice:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 10px 22px rgba(25,50,75,.11)}
+.payment-conversion-choice>span{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:850;color:var(--muted)}
+.payment-conversion-choice>span i{width:8px;height:8px;border-radius:50%;background:#17b58b;box-shadow:0 0 0 4px rgba(23,181,139,.12)}
+.payment-conversion-choice.unpaid>span i{background:#df5b83;box-shadow:0 0 0 4px rgba(223,91,131,.12)}
+.payment-conversion-choice strong{font-size:clamp(24px,2.5vw,32px);line-height:1;font-weight:950;letter-spacing:-1px;color:var(--text);font-variant-numeric:tabular-nums}
+.payment-conversion-choice small{font-size:10px;line-height:1.35;color:var(--muted)}
+.payment-conversion-choice:disabled{opacity:.48;cursor:default}
+:root[data-theme="ubuntu"] .payment-conversion-panel{
+  background:linear-gradient(135deg,rgba(255,225,237,.17),rgba(91,15,47,.38))!important;
+  border-color:rgba(255,190,216,.28)!important;
+  box-shadow:0 15px 34px rgba(28,0,15,.20),inset 0 1px 0 rgba(255,241,247,.16)!important;
+}
+:root[data-theme="ubuntu"] .payment-conversion-kicker,
+:root[data-theme="ubuntu"] .payment-conversion-main>p{color:#ffe3ed!important;-webkit-text-fill-color:#ffe3ed!important}
+:root[data-theme="ubuntu"] .payment-conversion-rate{color:#fff7fb!important;-webkit-text-fill-color:#fff7fb!important}
+:root[data-theme="ubuntu"] .payment-conversion-choice{background:rgba(255,227,238,.13)!important;border-color:rgba(255,202,222,.25)!important}
+:root[data-theme="ubuntu"] .payment-conversion-choice>span,
+:root[data-theme="ubuntu"] .payment-conversion-choice small{color:#ffe2ec!important;-webkit-text-fill-color:#ffe2ec!important}
+:root[data-theme="ubuntu"] .payment-conversion-choice strong{color:#fff8fb!important;-webkit-text-fill-color:#fff8fb!important}
+:root[data-theme="dark"] .payment-conversion-panel{background:linear-gradient(135deg,rgba(22,44,65,.78),rgba(12,26,42,.72))!important;border-color:rgba(179,211,239,.17)!important}
+:root[data-theme="dark"] .payment-conversion-choice{background:rgba(225,241,255,.06)!important;border-color:rgba(225,241,255,.12)!important}
+:root[data-theme="dark"] .priority-payment-split>span{background:rgba(240,247,255,.07);border-color:rgba(220,235,250,.12)}
+
+/* Arrival analytics: visible totals plus a legible exact-value list. */
+.arrival-insights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 12px}
+.arrival-insight{display:flex;flex-direction:column;gap:4px;min-width:0;padding:13px 14px;border-radius:15px;background:rgba(255,255,255,.48);border:1px solid rgba(155,177,198,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.55)}
+.arrival-insight>span{font-size:10px;font-weight:800;color:var(--muted)}
+.arrival-insight strong{font-size:clamp(21px,2.4vw,30px);line-height:1.1;font-weight:930;letter-spacing:-.8px;color:var(--text);overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.arrival-insight small{font-size:10px;color:var(--muted)}
+.arrival-insight.primary{background:linear-gradient(135deg,rgba(74,157,244,.10),rgba(255,255,255,.48));border-color:rgba(74,157,244,.20)}
+.arrival-exact-values{margin-top:10px;border-top:1px solid rgba(140,165,190,.18);padding-top:9px}
+.arrival-exact-values summary{cursor:pointer;font-size:11px;font-weight:800;color:var(--muted)}
+.arrival-exact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:7px;margin-top:10px}
+.arrival-exact-grid>div{display:flex;justify-content:space-between;gap:8px;padding:8px 10px;border-radius:11px;background:rgba(255,255,255,.42);border:1px solid rgba(150,175,198,.16);font-size:10px;color:var(--muted)}
+.arrival-exact-grid b{color:var(--text);font-variant-numeric:tabular-nums}
+:root[data-theme="ubuntu"] .arrival-insight,
+:root[data-theme="ubuntu"] .arrival-exact-grid>div{background:rgba(255,226,238,.12)!important;border-color:rgba(255,190,216,.20)!important}
+:root[data-theme="ubuntu"] .arrival-insight>span,
+:root[data-theme="ubuntu"] .arrival-insight small,
+:root[data-theme="ubuntu"] .arrival-exact-values summary,
+:root[data-theme="ubuntu"] .arrival-exact-grid>div{color:#f9dce7!important;-webkit-text-fill-color:#f9dce7!important}
+:root[data-theme="ubuntu"] .arrival-insight strong,
+:root[data-theme="ubuntu"] .arrival-exact-grid b{color:#fff6fa!important;-webkit-text-fill-color:#fff6fa!important}
+:root[data-theme="dark"] .arrival-insight,
+:root[data-theme="dark"] .arrival-exact-grid>div{background:rgba(228,242,255,.06)!important;border-color:rgba(208,228,245,.12)!important}
+
+/* Applications table: readable chips, stable column widths, full value on hover. */
+.table-wrap table{min-width:1320px}
+.table-wrap th,.table-wrap td{font-size:12px}
+.table-wrap th:nth-child(1),.table-wrap td:nth-child(1){min-width:88px}
+.table-wrap th:nth-child(2),.table-wrap td:nth-child(2){min-width:145px}
+.table-wrap th:nth-child(3),.table-wrap td:nth-child(3){min-width:110px}
+.table-wrap th:nth-child(4),.table-wrap td:nth-child(4){min-width:130px}
+.table-wrap th:nth-child(5),.table-wrap td:nth-child(5){min-width:190px;max-width:270px}
+.table-wrap th:nth-child(6),.table-wrap td:nth-child(6){min-width:105px}
+.table-wrap th:nth-child(7),.table-wrap td:nth-child(7){min-width:185px;max-width:260px}
+.table-wrap th:nth-child(8),.table-wrap td:nth-child(8){min-width:105px}
+.table-wrap th:nth-child(9),.table-wrap td:nth-child(9),.table-wrap th:nth-child(10),.table-wrap td:nth-child(10){min-width:112px}
+.table-wrap th:nth-child(11),.table-wrap td:nth-child(11){min-width:135px}
+.table-wrap th:nth-child(12),.table-wrap td:nth-child(12),.table-wrap th:nth-child(13),.table-wrap td:nth-child(13){min-width:170px;max-width:250px}
+.table-wrap td .badge{max-width:260px;padding:5px 9px;font-size:11px;font-weight:800;line-height:1.35;border:1px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,.10)}
+:root[data-theme="ubuntu"] .table-wrap td{color:#fff0f6!important;-webkit-text-fill-color:#fff0f6!important}
+:root[data-theme="ubuntu"] .table-wrap td .badge{
+  color:#fff8fb!important;-webkit-text-fill-color:#fff8fb!important;
+  background:rgba(255,230,240,.14)!important;border-color:rgba(255,218,232,.25)!important;
+  text-shadow:0 1px 2px rgba(30,0,15,.28)!important;
+}
+:root[data-theme="ubuntu"] .table-wrap td .badge.green{background:linear-gradient(135deg,rgba(15,160,119,.48),rgba(8,103,78,.45))!important;border-color:rgba(112,255,210,.42)!important;color:#e5fff6!important;-webkit-text-fill-color:#e5fff6!important}
+:root[data-theme="ubuntu"] .table-wrap td .badge.orange{background:linear-gradient(135deg,rgba(190,113,27,.48),rgba(112,55,13,.43))!important;border-color:rgba(255,199,117,.43)!important;color:#fff1d8!important;-webkit-text-fill-color:#fff1d8!important}
+:root[data-theme="ubuntu"] .table-wrap td .badge.red{background:linear-gradient(135deg,rgba(190,52,83,.48),rgba(112,20,47,.45))!important;border-color:rgba(255,154,180,.43)!important;color:#ffeaf0!important;-webkit-text-fill-color:#ffeaf0!important}
+:root[data-theme="dark"] .table-wrap td .badge{font-weight:800}
+:root[data-theme="dark"] .table-wrap td .badge.green{background:rgba(20,174,123,.20);color:#a9f7d8}
+:root:not([data-theme="ubuntu"]):not([data-theme="dark"]) .table-wrap td .badge{font-weight:750}
+
+@media(max-width:760px){
+  .payment-conversion-panel{grid-template-columns:1fr;padding:15px;gap:12px}
+  .payment-conversion-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .arrival-insights{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .arrival-insight:last-child{grid-column:1/-1}
+  .priority-payment-split{gap:5px}
+  .priority-payment-split>span{font-size:9px;padding:4px 7px}
+}
+@media(max-width:420px){
+  .payment-conversion-actions{grid-template-columns:1fr 1fr;gap:7px}
+  .payment-conversion-choice{padding:11px 9px}
+  .payment-conversion-choice small{font-size:9px}
+  .arrival-insight{padding:11px}
+}
+@media(prefers-reduced-motion:reduce){.payment-conversion-track i,.payment-conversion-choice{transition:none!important}}
+</style>
+
+
+<style id="lifePayBurgundyGlobalFinal">
+/* Life Pay: true burgundy glass theme. The stored theme key remains "ubuntu" for compatibility. */
+:root[data-theme="ubuntu"]{
+ color-scheme:dark;
+ --bg:#180812; --text:#fff5f8; --muted:#e2bdca;
+ --green:#f08aaf; --green-l:#5d1738; --green-d:#d94d82;
+ --blue:#e08bb4; --purple:#bd79a9; --orange:#f0a16c;
+ --glass-bg:rgba(78,25,49,.68);
+ --shadow:0 16px 42px rgba(24,3,13,.32),inset 0 1px 0 rgba(255,226,237,.16);
+ --shadow-hover:0 22px 52px rgba(18,2,10,.42),0 0 28px rgba(239,104,157,.12),inset 0 1px 0 rgba(255,226,237,.2);
+ --pin-bg:radial-gradient(ellipse at 88% 5%,rgba(222,87,139,.28),transparent 38%),radial-gradient(ellipse at 7% 82%,rgba(126,34,73,.28),transparent 42%),linear-gradient(145deg,#160711,#351022 58%,#1d0913);
+ --pin-card-bg:linear-gradient(150deg,rgba(80,27,51,.96),rgba(35,10,23,.96));
+ --pin-border:rgba(255,184,211,.28);--pin-text:#fff5f8;--pin-muted:#e4bdcd;
+ --pin-key-bg:rgba(241,125,170,.12);--pin-key-border:rgba(255,192,216,.23);--pin-key-color:#fff0f6;
+ --u-orange:#e99b76;--u-magenta:#e65d91;--u-violet:#b77aa3;--u-cyan:#9adbd0;
+}
+:root[data-theme="ubuntu"] body{
+ color:var(--text)!important;
+ background:radial-gradient(ellipse at 12% 12%,rgba(157,54,91,.26),transparent 38%),radial-gradient(ellipse at 88% 78%,rgba(104,25,61,.24),transparent 42%),linear-gradient(145deg,#160711,#220b16 55%,#160711)!important;
+ background-attachment:fixed!important;
+}
+:root[data-theme="ubuntu"] .wave-bg{opacity:.22!important;filter:hue-rotate(305deg) saturate(125%) brightness(.8)!important;mix-blend-mode:screen}
+:root[data-theme="ubuntu"] .blobs{opacity:.38!important;filter:blur(70px) saturate(1.35)!important}
+:root[data-theme="ubuntu"] .shell{
+ background:linear-gradient(145deg,rgba(62,19,39,.78),rgba(31,9,20,.84) 58%,rgba(74,23,47,.74))!important;
+ border:1px solid rgba(255,196,218,.2)!important;
+ box-shadow:0 20px 70px rgba(8,0,4,.42),inset 0 1px 0 rgba(255,237,244,.12)!important;
+ backdrop-filter:blur(28px) saturate(155%)!important;-webkit-backdrop-filter:blur(28px) saturate(155%)!important;
+}
+:root[data-theme="ubuntu"] .sidebar,:root[data-theme="ubuntu"] .glass,:root[data-theme="ubuntu"] .card,
+:root[data-theme="ubuntu"] .filterbar,:root[data-theme="ubuntu"] .income-overview,:root[data-theme="ubuntu"] .month-wrap,
+:root[data-theme="ubuntu"] .table-toolbar,:root[data-theme="ubuntu"] .table-wrap,:root[data-theme="ubuntu"] dialog,
+:root[data-theme="ubuntu"] .toast,:root[data-theme="ubuntu"] .hero,:root[data-theme="ubuntu"] .finance-hero,
+:root[data-theme="ubuntu"] .payment-conversion-panel,:root[data-theme="ubuntu"] .arrival-insight,
+:root[data-theme="ubuntu"] .arrival-exact-grid>div,:root[data-theme="ubuntu"] .priority-status-card,
+:root[data-theme="ubuntu"] .priority-other-row,:root[data-theme="ubuntu"] .bank-card,
+:root[data-theme="ubuntu"] .bank-premium-intro,:root[data-theme="ubuntu"] .bank-collection-status,
+:root[data-theme="ubuntu"] .bank-summary-premium .kpi.kpi-v2,:root[data-theme="ubuntu"] .bank-card.bank-card-premium{
+ background:linear-gradient(145deg,rgba(111,44,72,.48),rgba(48,15,31,.58) 58%,rgba(93,35,61,.42))!important;
+ border-color:rgba(255,196,218,.23)!important;color:#fff4f8!important;
+ box-shadow:0 16px 38px rgba(10,1,6,.24),inset 0 1px 0 rgba(255,238,245,.16)!important;
+ backdrop-filter:blur(24px) saturate(165%)!important;-webkit-backdrop-filter:blur(24px) saturate(165%)!important;
+}
+:root[data-theme="ubuntu"] .pagebar h1{background:linear-gradient(100deg,#fff8fb,#ffc0d6 58%,#e99ab7)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+:root[data-theme="ubuntu"] :is(h1,h2,h3,h4,.title,.kpi strong,.finance-total-value,.finance-metric-value,.priority-status-title,.payment-conversion-rate,.arrival-insight strong){color:#fff5f8!important;-webkit-text-fill-color:#fff5f8!important}
+:root[data-theme="ubuntu"] :is(p,small,.muted,.note,.caption,.subtitle,.priority-status-caption,.kpi-v2-label,.finance-hero-sub,.finance-total-note,.finance-metric-label,.arrival-insight span,.arrival-insight small,.payment-conversion-main p){color:#e5c4d0!important;-webkit-text-fill-color:#e5c4d0!important}
+:root[data-theme="ubuntu"] .navbtn{color:#f0d4df!important}
+:root[data-theme="ubuntu"] .navbtn.active,:root[data-theme="ubuntu"] .navbtn:hover{color:#fff!important;background:linear-gradient(115deg,rgba(184,69,111,.44),rgba(104,34,66,.48))!important;border-color:rgba(255,186,211,.3)!important}
+:root[data-theme="ubuntu"] .navbtn.active::before{background:linear-gradient(180deg,#ffc0d6,#d64d82)!important}
+:root[data-theme="ubuntu"] :is(.btn,.icon-btn,.theme-toggle,.pill,.tabs,.life-theme-menu,.life-theme-menu-choice,.month-wrap,.period-picker-modes){color:#fff3f7!important;border-color:rgba(255,194,216,.28)!important;background:linear-gradient(135deg,rgba(121,44,75,.52),rgba(57,17,36,.72))!important}
+:root[data-theme="ubuntu"] :is(.btn.primary,.auth-submit,.finance-hero-actions .btn,.life-theme-choice.selected,.tabs button.active){background:linear-gradient(115deg,#a52f61,#d94e83 58%,#a83a68)!important;border-color:rgba(255,207,225,.48)!important;color:#fff!important;box-shadow:0 12px 28px rgba(188,48,104,.25),inset 0 1px 0 rgba(255,255,255,.22)!important}
+:root[data-theme="ubuntu"] :is(input,select,textarea,.field input,.filterbar input,.filterbar select,.month-wrap select,.plan-filter-controls select){color:#fff5f8!important;background:rgba(54,15,33,.72)!important;border-color:rgba(255,192,216,.3)!important;box-shadow:inset 0 1px 0 rgba(255,235,243,.1)!important;color-scheme:dark!important}
+:root[data-theme="ubuntu"] :is(input,textarea)::placeholder{color:#d9adbf!important}
+:root[data-theme="ubuntu"] select option,:root[data-theme="ubuntu"] select optgroup{background:#351020!important;color:#fff1f6!important}
+:root[data-theme="ubuntu"] .table-wrap th{background:rgba(129,47,79,.76)!important;color:#fff2f7!important}
+:root[data-theme="ubuntu"] .table-wrap td{background:rgba(72,23,45,.32)!important;color:#fff1f6!important;border-bottom-color:rgba(255,209,226,.12)!important}
+:root[data-theme="ubuntu"] .table-wrap tbody tr:hover{background:rgba(224,111,153,.12)!important}
+:root[data-theme="ubuntu"] .badge,:root[data-theme="ubuntu"] .pill{color:#fff4f8!important}
+:root[data-theme="ubuntu"] .chart-svg text,:root[data-theme="ubuntu"] .chart-svg .axis-label,:root[data-theme="ubuntu"] .chart-svg .x-label{fill:#f1d8e2!important}
+:root[data-theme="ubuntu"] .chart-svg .gridline{stroke:rgba(255,208,225,.22)!important}
+:root[data-theme="ubuntu"] .chart-svg .axis-base{stroke:rgba(255,216,230,.38)!important}
+:root[data-theme="ubuntu"] .payment-conversion-panel{background:linear-gradient(135deg,rgba(108,35,67,.56),rgba(49,14,31,.64))!important}
+:root[data-theme="ubuntu"] .payment-conversion-kicker,:root[data-theme="ubuntu"] .payment-conversion-choice>span,:root[data-theme="ubuntu"] .payment-conversion-choice small{color:#f4d5e1!important;-webkit-text-fill-color:#f4d5e1!important}
+:root[data-theme="ubuntu"] .payment-conversion-rate,:root[data-theme="ubuntu"] .payment-conversion-choice strong{color:#fff7fa!important;-webkit-text-fill-color:#fff7fa!important}
+:root[data-theme="ubuntu"] .payment-conversion-track{background:rgba(255,211,228,.16)!important}
+:root[data-theme="ubuntu"] .payment-conversion-track i{background:linear-gradient(90deg,#e45a91,#ffc0d6)!important;box-shadow:0 0 18px rgba(228,90,145,.38)!important}
+:root[data-theme="ubuntu"] .payment-conversion-self-note{color:#f3d6e1!important;background:rgba(255,221,234,.08)!important;border:1px solid rgba(255,205,223,.18)!important;border-radius:12px;padding:10px 12px;margin:10px 0}
+:root[data-theme="ubuntu"] .payment-conversion-self-note b{color:#fff!important}
+:root[data-theme="ubuntu"] .priority-payment-split{color:#f8dce7!important}
+:root[data-theme="ubuntu"] .priority-payment-split>span{background:rgba(255,225,237,.09)!important;border-color:rgba(255,209,226,.18)!important}
+:root[data-theme="ubuntu"] .priority-payment-split b{color:#fff!important}
+:root[data-theme="ubuntu"] .arrival-insight.primary{background:linear-gradient(135deg,rgba(169,48,95,.48),rgba(92,28,57,.55))!important}
+:root[data-theme="ubuntu"] .arrival-exact-values{color:#f5dce6!important;border-color:rgba(255,210,226,.18)!important}
+:root[data-theme="ubuntu"] .life-theme-menu{background:rgba(53,15,32,.96)!important;border-color:rgba(255,198,218,.34)!important}
+:root[data-theme="ubuntu"] .life-theme-menu-choice{color:#fff1f6!important}
+:root[data-theme="ubuntu"] .life-theme-menu-choice.selected{background:rgba(208,76,127,.3)!important;border-color:rgba(255,190,214,.38)!important}
+:root[data-theme="ubuntu"] .life-theme-menu-choice>span{color:#ffd2e2!important;-webkit-text-fill-color:#ffd2e2!important}
+:root[data-theme="ubuntu"] .life-theme-menu-choice.selected>span{color:#fff!important;-webkit-text-fill-color:#fff!important}
+:root[data-theme="ubuntu"] .finance-hero{background:linear-gradient(135deg,rgba(116,36,69,.72),rgba(54,15,32,.78))!important;border-color:rgba(255,194,216,.3)!important}
+:root[data-theme="ubuntu"] .finance-total-card,:root[data-theme="ubuntu"] .finance-metric-card{background:rgba(255,226,237,.09)!important;border-color:rgba(255,206,224,.2)!important}
+:root[data-theme="ubuntu"] .finance-total-value,:root[data-theme="ubuntu"] .finance-metric-value{color:#fff5f8!important;-webkit-text-fill-color:#fff5f8!important}
+@keyframes lpBurgundyGlassDrift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+:root[data-theme="ubuntu"] .glass,:root[data-theme="ubuntu"] .card,:root[data-theme="ubuntu"] .payment-conversion-panel,:root[data-theme="ubuntu"] .arrival-insight{background-size:180% 180%;animation:lpBurgundyGlassDrift 18s ease-in-out infinite}
+@media(max-width:700px){:root[data-theme="ubuntu"] .table-wrap{overflow-x:auto!important}:root[data-theme="ubuntu"] .table-wrap table{min-width:920px}}
+@media(prefers-reduced-motion:reduce){:root[data-theme="ubuntu"] .glass,:root[data-theme="ubuntu"] .card,:root[data-theme="ubuntu"] .payment-conversion-panel,:root[data-theme="ubuntu"] .arrival-insight{animation:none!important}}
+</style>
+
 </head>
 <body>
 
@@ -5574,7 +5818,7 @@ html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) #lifePayThemeMenu 
   const originalAppleIcon=document.querySelector('link[rel="apple-touch-icon"]')?.href || '';
   const ubuntuAppleIcon='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAABB8ElEQVR4nO29eaAlRX32//lW9znnnrvOAjPDDjPMAmICDihLZJBdQcRlEg2CkSzGLeZN3iy+/iISY0xiTPL6viYuiFuMgVE0cYkKA84rICKrwMCwDQoIYZj9buec7qrfH919uqq6z713Zu6de2fmfu+c6e6q6urq7qeffupbSwtTblcpuNqkG9mSZfVzTpE4PEQTR6L0CYFU/1abVgwSTH2ZZm0SzQgi2ujB2MhlAdKqhhU1LK2fPjl04wtWOkkWVwlcraeqMDJVGcPqYBUvyDrWRVnIsq5zfz2gdo6mERn4rYpUuw0ajEETT2VhZm2KzQBKQgAUAS3TuB+4TRFW0NHHHm7e9FiW9nhWV9ezpoVFcJNlU4Sh1QGsiQGWVs7/VQniDwZSOUWb6LCK1JRBE5sWYCIQBCMggcxCep81g8FAJOm6EIRKAgRFUzc2Byoc0kZ/whhzw6ONGzcme60OYI1mEoE9aQhazepgjVW4pfWzX16h9iaM+RODJjlRjcG0UuCGIGIXQEjhPVmFmrUptwzAxtkGg4kBnYBbVZK4kMi0tgYSflz37PjEhs237wRYxapwHWfpyZAikwLoFMwxwIru1x9i9M5rBTktlOpAyzRaCgJAUiB7IHaLMMvR+54ZZ92UxZkE9MaAqEBqaPSGWLduaAStT/x8eN3zaXJhD9l6T/GT7W+Wdr3qzJDq6xF5nzFaBINBtwSpZKAtA3JZAWZBve+Yj74ycBt32xhMSxFWDRATN0NTe0+sGt/ZMHLTL/03/a7anmAne5qCpdVzLwyD8BuCVLRpGtKar1iSohzUblw7fBbR+4SZEsj5ILbX7TiD1iaVlxXpUi3TeFRL9ezHRr7zLKCA3ZIfuwWdRPOsi47vXrXI6K4bDfo4MAGJPq6IB9Hidh7eDhM3/azNfCvIC1OM84FdxtpJvSqoGNQgxGseGb3xyuM5vrqel8SZc2GithvIuUrB1Xp5/dxDxagblajjtWnpMkbO11O3TgmAZ6XHvmkTkhom3+7E2Nm6RutEX1eJdPNLGxo3vS2JyT1mE7FdwYysZGV4N3e3lnedf41CLkLMImNiLYhyAeyCuYyJfSCXA3oW0jPRfGZOwtylnc4GdpbGlyG6HWc0hEpEPaF18683NNZeu5KVlbu5uzWRsk0UMbKa1WoNa+LltXO+HKraWxM/stYKpeyMfDC3wzwgq/SkyqSJ8faf5eqZZC6cLTddGouztPcxpjydzdSpBImFIBAUEdEVj47e9OWJgnoiSJFVrArWsS5a0XXetQGVt8c0IkkaQjpKjDYDS2c27iQ3ZBbKM9om4KYbk43LpIi28tEpqEHFSsJqrFtXbmjc9PlEV69vjlW28fCSy4za+V8IVfi22DQbAjXINXEZmMukxVhuu7FAPOv1mDnmezYm4KYrsHbmkW6v+3FueBwQBi1Gf+ux0R9+cTxNPQ5UVoWwLlrWdfbnKnRdGdGMFIQZgH2wdmLlchb3AD2Gl2MWzzPDihXBPCQHaEkcnRk720878Y6uNgaJlYRhyzTe8tjozddliqGsjOEY5VewLlrcc94CFcsbY1qRYBQUNXKy7oK5VH5YaZ19PTbvlPesTbf5kLZZyEN0Gpc0fSfb+XpWfxKQtP2wHWanFQxG0ky1Irwc+PdNbFJ0aFUsRcpVXKXWsCZs1RcdHFD5AcYshxiFCtqSAg+gE2TldlyJJCm49qyTV2UFnbW9amWuN0iY1EZXUSv7DF1ka23aXo6Crs40tZJqEOvmlzc01l5hd7ewrQP1pb7mrnMeDqis0LS0IMrXzDb7KukgP7x16FRRLAJ5rMrirO1d61z5c9MYb4+JgrqTrrY1tca0KlKvNPXw3z/auPlPyjwfBeJbzeoArtYramefJxIs00RR5meGDjq4zba+VHDXRcr0teA+IO5D4f6VpZn97Z2ffReK8bTT0E7hOgeK9x3cuLLKv4c7FZtWU0nl4uX1cw/tpbfw8nY09CpWhWtYE63oOuc0ofJtY7QWCOxKoHOCBXDmaZwTFHfbLSilYe0T8s6y5JxnbYrNby+wWVfaaTLGlXZ4WwdLGm+Se5ynFMddR4opnWrqLC47hkIFmkiUVFbEhv8HrGjvmL4sCpXCY7mwFhNdVhGpGhNH0hYTZcArA2WexgFmCdDL80y3pZg3zAJ6b1sBzJAzlDFWGrfSl5i0ge5XAMGp+KUhaV6CV1HM81aI0qYVK8Ilz9d5DSP8J3k7nY+Vq+T47h8uMLrrOUNkBJFOutn2ZrjsbQFRxgays20xsQ9ihX+ZZm1vWSeNXFha4C5LW6jsmVIXXUFTl+tpHUMosYkee7Sx9jjbjdfWH6tZreBqHcXhZ8BoQPu6uROYofBkgCVH7Dyw8mnHFSqUZE+j1XhTrudm/6b6z73uqv3z7knaNa3T2zTLC/DuafFtjxdeJE0VaKKoompHLq+d8/Z1rItWsrLS3j9zgSzvetXpiuo3DHq+YER5nY4UUsrMeAdE8kIrct1UWJd82waxf2J2PFDYnrWpMY17zfPwzE2X3AntsaiQSIZs/8RDQTsnbeVjM3WZuw4S9tdeXIyORcIAbdZJgze8hIHta7heC8BKVlZepDfo6qr8fSi1d8dmtKlQVR9g0gHQztJi5iK72nIkX1dWHF7abNteYu0/a1NjxmvjHs9N50oDV4IU/c4WQE2Z5PBkRon0SB4iHQfUg9iMnP9I45VrIdHNic+5tupoJfUnNa1YIaGyQNlmaPFfQ8XXSFaFTLRMntZOk+dVBDql27nZD8KsTZ05wLXAXdTQrnbWWExriiD1t3PAFvW0DXpjhVn7GhCjTfzMhsbNR5FWV2U1q9UDta3Xiag3gk77N2eayWJcC6w2MydxpHFl7Jyxdyc97EuXxPyKIlY6O2zWJt98wDphhQpgsdGkjK1LK364oLbTaS++EJYsYwibkbT+7LGRtZ8MAdawJl7G2WeFKDKvSga0tl5N0VMGojIh74a7aRU+gIus6zNxWRo7fNYmz1z3mzgxSVAaZkwbH9n/mStObN0sgjG5iy7Hleu6s/Hm+rhpu/Kw4tO4OJSwHpvmCYAOAbO061VvCaiEhjgWJLBPwe9bMZZuduPGYuYchnZ60rSdpUcnUM/aZFgGEpskbKbOKug2sJMKYM7iKgWnSd/u2n4ITNaYAipl2Cy9SucJSPzPdpUzB74NdmiTYxibZhxQOW1F5bwTQkDEqNcqFQ7EJm5JMoeGx5YTqKQVwlyYZaC1/dp2eHKcItDtS1x2PDuvWdtTK1YE7Xtg95yz0xsRxGtkyRhaIQ6oE6b2j5SbC1i3YUaJQZtCnDLEUSj1l7ZkeEUIGCPmedLCdgKNv2276HLwFTWyvV10yY0PZr9RJWsSUm22SMMF/HaqWZuoJVdOG//62SCFjDq0BTmDSe6JBdYsxwxyCrC7xRWlRS49kExM52C25zSw2TvfBk2stTIvyPKu809XqBsM8UGCUSqFVhuEJZ6NzPPhu+jKpIYNZl8v22nABbK77r0hxD0Z+0LN2u6Zz5h+F9AsrKwiqK0cXM8GabxbySvzP5d5R4oVwNzj0d7OhYpo9COh1mZhGAQLYxNFYmHCBxEl23baQhprUcb0vkQZU1dnD0EJkMd6o8za7lnGmgBZx/0ybeswdMayKVNDGRO7jGxblrcGpwJo52On9fYXMCjCFaEWvTVTJtL+c3cukw9unM3Oxf1K00kehpfO3gb3TeA/CFCMm7VdM9ejUBxV0vYyYMC4L323opjEiEibZUlTubllGeb7ZLEKU5AXdoul7+1INHrW2BLpMDDm5Sbp4CfGY0nfHBDJWHGZDCkHcyG9Fe9se4xcxtrFvGZhvevmgy8Hts+seY85l6191havApixalZJTB6SIpvjHQe8iqVVSlvWpKEqDFTlb42JkJKZ80WKksEFWolUcFx00g7HyidP0wns4ulz91SUlc7O1y73rE3McnCSeiXScGtpg5v03mRsnYXmlXQL4gVQu14Q14ftVjSx4ux+0T7YbRMg1ESxSicbHwsHZXraflX5jFnUyOlSfBB3BvNYsqIQL8W0szYBkxwZypOlHd105Ixr69kicHE1gserNowLxcLVyWW6OyuT/WYIsZh5LFCXhY/VT7lssKvr0Sju4zN6Fu/rbDdPSveZtfHNqfwBbgUQbFDbkGzvK2WVxfLWP9d8rVwUPWNt2+bLEWfESvZUCTiv/CzOd71hp/e28/UyEBeliM/MYwG5c0NPHjY7Snxs8/WnIwDEkhnGHlKVc7QAmnL5YXN0pqeLLJ1APtfaYuVOuxwYCo9Fjim7W2piY83LMaaVsWBZE3cxrswz4mpml7WLYPbL4MuWTuWbDhORpKtXCeVoPWUfgxrXbIiUC4CilMjWfeYuY2U/H7cCmKfLZIndfO76UTqXu8zGBbTPssW4zhKhve2B2d+3bKiWf2x/oK0Pfr+iaMftbTOAUoogDGiONmnsHC3cCVFC90APYIhbuzQF8qSVMZcPWUOF3frqDXAFxJRU/FJr3592kAta+3i5G668clgErKuTx7JdYuixAFIcfuM/p7n52rssnfMgeWDO8/FZuYzh9z6swzBgZHCEweZOFh68iGNPWYqJ4rw7rBKi0RYP3vEggjAwMJCMdtZj36zJsjJfs/1iz3jU9jWXuejKGkvE268Ty09UI0O5266T7QKgc32Vgc1+6rIUGVgTzV0mA8p1s82wPpjdCqYtVfLtTONnPbfsMky1ZdchqIRErYitW17kFa8+jcVnLGP5iUt5yUUnpbUn62qMRHz7n/4TExu+8dGv0Wq06J7TnQxdivWUPYY2RJPpAnwxkTVS5FvteEn7Zph8GJ2nehOKNrYkyR8HW0t3Ajft8Oz+5x2SJmKyvOtckzeA5IMfsz4chTjJKocuCJUk23bFUby87PCyES4Zm+Zx7smVgRlrvUxfY6WbSlOBYuuWLSw4ZAHv/OIfsOTkpdTmdkOs0aMqoQ5bckQtpLcCwC8ffoYffuZGbvinNfTV+6nVa8Q2o0+ilXfYz+MM7nr+K3bGt9MXO+MbtLevxjjjA5MHJ9nWpqTfRrqljZcHeZ8O7eW/25XCzMbT12OlLRs0IIWl/yAU87LB7OtwP9/JtqyyE422OOeK8zj/Ha/m6NOXwnBMtBNUl0JtuQ12PglBV7KTbsDhbyAerUBTc+jyw/nNj7+dnvl93PvNO3nivifon9tP1IoY/4U8cSu46bJ806DcXedqXn//sTrjZyytraz90nf6ItBEdfJYtscM3QaaeNsZEEUKrN0ebyh5Orz8ygYNdBzpIt52+wI5l3nyTQStNcM7Bnn7//49zv6DV0OzhWmGCMOw/u9h9BnYfA8MPQNBNdlPN2HReaBCWPK7mINegYk0qr/K0IuDfOw1f8mTP32cvnn96HhyPCE+RHw2ztIU55dLAny29ZlaO+myOKt3HRaLmyKz6jQ8Z93dY+hJB7Rqp6YAaLs/tN8t1e74XzY+0dfMPiuXAT3btpeTaUoJkY5580cu56x3X0Bra4Owv4Y8fj08+JcQRxCPQnUAVJVkuhNAFLS2g25BUIeB4+D0a4nVAEElorF9lH943d/w1M82ElZCzCRUFk3Jug1k8GbRLxng6g1QTVyPXpg/sNWWLC4Y82MaDDGTA+gpqzNlYC7KjrJhXTmYc9Daf+Vg9sPth0m1f5I/gDI5P0EIwoDhbUMsOmoRZ737AvRgk0rz58hP/hQe+HBS4wrrUJuXlFI3wUTJTzch7IHqXAhqsOUeuPVtBE9+ingYagf18rr3v5Htg1sJgmByyt2+Du618UllrHqPfw/Sf+076MhAcbed+1+Ci8myvdKg1kmLuWk8fZ0u8xl6imDGC4cc5NhhgufH3rM/pQQTaxYcvZC3f+od6JEm0lWFTbfCY58CVQNVSRjZxJRq4CzOaKjNh233w2PXEARN9FDMkl9bxhv+8DdojTQIlNqj8trXwAlzrq0NTdr75Pcif3v797QMRGWAzfOeOvfkXmshLnsmS6onHbqllj/P/k2wwa9IpIsP5MIUVrvxq1RCtm/bygXvfQ1HnbYUE1WRJ74GD30U+peDabFLN003E1BHg3DbZah4M7V6F7/+8bfR299D3Ii8eUx29ZdPqaZE2rIxZ1b7WntM692BgqQruV9C3hSSh08VJ7u2V7s8+BcD3NeZn869iL7UyF6f+WsUK02yszsXW6b51R78AqUY3T7MS8/4VVa++XT0zhFUMAob/5XEB7s7rX6S6OmwF168Azbdg9YBJo749b+5HN2KHdmwKz/72jh9cSRxi4qVRqx92vdF7HtkP1TuO9V/w9oe770D5cSmpQ+PKjlD++Jl28qJL4K5yB7ivFZ9Vim+anf9F4hCN2MCCeg/ZC6EdeSpNbD1HqgM7CagU9MRdB0ED/01tEaRSsjCJYsYbQ4TBsFuljk/8zKWLetD47/5ROxYn3yktP95p/CptmkBtLEucNk5+688ZV2cMpnR3sdhk+yhyG+oU0HczZ+JNfXebl7zJ6/DNFpIYFI9PEkdjZKJXxE0eqjF/GWLOONNZzG0fZAwCHaRncu3C9fGu26ULQtkMv69mw6bEb0sO12CLNzuD1C+LAez/4rEjhPZrR9ApVZh2ZkrEBUi238OG/4h0cC69Etju2AmqVCO/BJZ/xEMIT0H93HkiUcTNVuoQO1aef1rVLqeLgvXryj5bCvbnl4oJ7bHLYWTZWO5eYqToXsXvuRm4K3bHzWy89pVS1p1DaM7hunprScSIxqBoJtJq70bDdEwWbfK5lCDkKQeMNEjGJLr1m7NM7lvye1mZAMxD89SZ1v+3vY27Fnr3mTajAG0bWWdmnwG8BnGN59lyvbZXUZRCCrIxU7JcMw9tzRPkcRNaP+NZ8U+yZANLykDYhvaOcbtVRKp4namz5qv3aaZ6bcZCejMfN5IwmxQ5zIg0YR5Cied5cjPltmgTvfGTwzgAlaT9O56NsYykzTAQAJCbVwPRad9rBIKxe8Higdqv1N+wuqQ9ZZLcso7KNm5zxRG9m1GAxoydvDDXH2tcOHu6D/Hf+vCwZ3yd2KmSTwd9YHutDdPAGE3pcOQd9ckSFx42oAIXT1dCBCMWUqxpEB+XezthIWlXVb7ITe4/Y5tMmlve2CfiTYjKoUTsTJmclsMS/bxwGznZftoZRd+gRJMK+LRWx7G6AgzcDQs/x/Q2Jx0NtrDs0Q3oH4ovOQDiEQMb9rOs/c+Ra1WBWPGLV+7L06JQLEf8uw6ZEuXyctKNv0VvonYPgNocG9cHuayspD2tyhh5rK+HgLt9BPpExGGAc3BBrf843eRWiVRGxJMno4WBRJgDKieCpvWv8jdX/8RvXP6MLEp71tilb/4kPpuuzRc8utFO12xnpI/FDOXlW3bpwBtW8YiReWYrbthNpAdOVLq3hrjT0OlWoE4ZvC5rRCPYI5ZDXNfBs3tewZsFcLoi/CSD0ClnjShb9lIIAMoE1sPpP9Xxr52vaJoZczd6VruS7bPAhrGYhV33d9WaU8dl8HF0dSqw89oQ8+cOo/e9iB3f/FuVG8dHVdh8eVtdt11M0lnpmgQDj4DDjoRIUa3Ksx78s9ZtnyQwZ0VAmWcsuWgzcvfZl+LsW2BUVa/8K/dvgpm2McBDV6lxbIyWQI5gxXHMNIOt0Hu/4UKRofgmMXdvLzvA+gn7yGQGJa8AY5/P+zYAFIpKdEYpqrQeBHCPjj9yxDOAz2ErL2KvnAzV77jQZYu2YKOAgKx3zrFOoR/Pllc2YNfdn32ddvnAW1bxk6Z+YxbdvOdfcmB7IbZbwNoNQJOXvkC9fgp5KY/g64QRhtw8K/BsneDaSY96NqMXVbLUiBhsmxshrkrYdnvASHUQnj6buSn/4CO+6hUWvzGm9bTHK0QKPHKKU457fPy30z5unXe09HhYgptvwJ0ZtlNs1u7AM8f7Vegyvs55JUvUAoGd3Zx8cUbOP3cR9HRwcjgz+GuL0C9Bt2Hwys+Ci+9KpUQI9DYAuhkW8Lkl8mL5pYE+PNPgTM+D0t+F8IABrfBT/4JehahJEI3ArrmjPKqszeyc0eNIHB7Gdpa2j6f9jmXtpLuP6xs24z3Q++JdbphRQaTYpzY6UEpw+BgjUsu3sBp5z9OvKNGEKTzdd7850njyqm/DSMRHPYGOOw1sP7jyZjCF++CoaeT0SmQuOYWXQBBBZb8Dhz8cogiqABD2+Frb4ZND0DXPDBx8jAZ4bxL1qMwrF27hL7+BnGcV+fsxhL3XOyJXPLz2Td8Frtu+zWgwfNoUGQm98WdA9mGeBhohoeqvPrCxzjtgkcxO7oIggwSKgHerR+F5+6BE6+Eo1fCSBV93P8HNVDP3wGDG11AH3YpcaWONDVKFFQCuP0f4LEfwIsPQv2gpI90Zgb0YI1zLnkEA9xy8xJ6+xrEWhDjQ9fYuzkhuzJpy75oBwSgy5jaAXEJmLOwQBmiVkC1GnPCib9Ej1a8hocUHGEXrL8enr4dLvxHWHAyak4v6Agz71RYcKpDixK3klkNuhTm+Q3Iff8Gd/5v6J4PXXMTKeKVXClDPFjl3Nc9jCCsXbuYvv4GWkuhoTIDsc3a+zMzZ7afA7pYq/dfve11KVaYAmWIogAFvPW3f0r//GHMaIioEliYGHoPgbiBue5NyPHn8dONr2PusuM59pJfgTgGu0PTMNz6V98mkIjTuv8I4hb0HwFo0DHlj2FSJjNY45zXPYxguPnmJfSm8sOYvObgdDoCZ7LE/dn2c0C7lt1ud34PKRk8kAC81QwJAsPlV97JYUu2YIaqqDIwZ6ZbGCMw5xDMM7dx+9UjNGqLOeTEhZiWTrtzGkQpotEWT//4UVoEbF51Mudf+hChjkpH8xTOQwzxzipnv+4RjAhrb1pMb18znShx7Dnm9nc7oAANY1UUycEugBHq9RarL7uXw5ZsIR7MKoGdzRjBKA1E3PCVVTRqCwnVCM/e/niSaRtTBlFC/yHzUIHhJ7cdzFFHb+alr3ySeEs3QTj+6JdAGfRglXNemzD1j249ikolTr7UTt5D7kCQGbbtl267sczXzrbUyC5GGBiGdlZZfMwWjjjuBeKd44MZAxLGqNDwjS+dwoaHFlANRhECuvrqdPV20dWX/erUerowrZi4oZnTP8pdtx/N4H/3EdRbGD0xh5pgMKMhZ67aSCAQx8p5g4w1y+v+agccoDPrdKsDBYODNRYv3soFr1uP3tE1LmMaQAsMN0O+8aWT2fDQIvr7GqAl+WSwLv8JIAYqoeaF5wb498+extDOGlKLJgRqESBWSFfEr192HzpWCahll9op9ys7YAENONpZACWG4aEqhx++jTf/zp3Uu5tI4XPBRdORQvU1eO6xg3jw3sMZGGigYzXxgbda0dPTYuuWHr76mdMZ3CVQG1QrYNlLn+eKK+4ljhXGKET8bvkHhh3QgAbbTw1xHHDUMVu44nfvpKsaJ5MuytigMFoIeprseGYOP/z+8cyZM4qOgjF6xhX/FIKOhXpXi21burnu06czurML6Zo4qPXOLo556fNcdsW9tFoKrdW4Zd8f7YAHNGQtgZrhoRoXX7KeSncL3ezgnrPMGEG6W2x5oZevfvZ0dmyro9T4nfDLfhlT1+sR27b08JXPnMbOHQlT63h8UKtAE++osfSE57n8inuIWopYq2mZG2M6bRbQgAoMO7bXOfNVj9O/YJB4JESp8TwaYJRmy3P9fO2a0xkZqlKboEzoZAKYWNFVj9i6pYc1nz6D4R1dqO4WTED6BEHC1Me+9L+54rfuI24ptOaAYuoDHtBKGXbuqLJq1UbOe/1DVBGCCWDSaIXqafL9NSeyc3udalcLvQdgdvMWursSTX3dNaexdVMvOtATGraoAk20s8axJzzP5W+7jygK0Gb/7IhUZgc0oJUyDA9XOO30X3DuGx9AD1UnNAFSHCtU/wgP33EML27qpaveQseTeym1VvT0Nnnu2TlsuOdwVP8ocTSxY4SBQe+ssexXXuC33no/zUYwdoPQfmQHLKBFTLu32ktP+iU6ChJf8jhUZrQQ9I/y8E+O5jvXnTQhKbC7FrUU/QMj3Hn7MWy86wjCgdEJPzgqMOihCkuWbWbRgiGGR0KrQ9X+awckoJOR/EKrGXDFFfdxxJItyEg4LosZLUi9xaN3HsV3r3sZ9e4WKjCTOoNBSWlBK274ysls/NmhqL5Rq9voOHsawSjDlb93DwsOGmZ4pLLfg/qAA3TinhOajZC3XH4fx574S/RQZVyPhtYC9Ra/fHI+3/y3lXTVk66dU97fxyS6uBIavv6vJ/PEA4cS9DcmxNSZj7q/t8m7f/8eFswfZmh4/Ad3X7YDDtDJ7ECGyy6/jxW/+hzxjhpqPNYyIMogYnjoriMJQ42oqWZm+/iCUppKJeYbXz6Fp1Kmnog7T5RBjwbUe5u84513s7DN1NP3WeaptAMK0EFgGB4JWbhgiBUnPofeWRv/FWySZm2pt7jx+pdx751HJ5XASfJoTNSMEQIFlWrE9V9eyeM/OxTljFrpbCow6EbK1O+8l4UHDTM0vH/KjwMG0CowDA+HLJg/wpsvu594uDKhGQc0oLoibrzuZdz7k6Po7R/Z62CG1EdtBBFDpRJzw7+u5MmfHULQ15yQ71spg2mE9PY2ee8772Hhwfun/DggAK0UDA9XmD9vlN9+x13MmTeK0tnMb51Nx4Lqilj7tRO5946jktEhk+ye21UzRlDKEFZj/v3LJ7PxoQVQjyb0kGXyo7e3xbvfcR+LFgwTRclDIiIElZCgEni/cJ/q6XRAADqOhUMWDvL7v3cXc+aMdh51YpnRCZhHd3TxyEOLqPc0p4WZy8wYIQgSt+ND9x6GVKLSL7OWmQoMphEw0N/gD658gGarggoC4ihm26bNbNu0la2btrL1xey3Oa2Y5pOtz2Tb7zv4h6HmxU09/OavP0zfwkHibfXxu4MaQboihgZrXH/NqbQaIZVKnIxGmSEWx0JvT5N77z2Mem+Tcy59CDNUnVAztyiDbtXp6RvitBOf4ge3z+GIY+Zz0VVvQo9GiMrGKBpMoPjPv7uBHVt2EtYqqEpAWKvQarXGO8y02H4N6DDQbN3exStPf4bFyzcno04mMBoEMQxuq/O1z7+cF1/oo7u+Z300psq0Fnq6m6y7ZTEGw7mXPpSco5gxZELSWVqGn0f6DuKy9x/Hrx36h/TXA+Yed3jpHiddcBJN0az54Fd5eN16tmzewsDcgUn7bPNk2pR9GjlJK+2eZE56sY6TxUmeV4B0jFPW8QphVt6BJB31T1v5PL/51gehpRJ3xTgWR4rgoCG+dc0ruP+eI5ibdgedCXA2WJ8LJp3z2RhQhh07a5x51uOce+nD6KEqqoypRSWDcYMQll4MJ/0+zF8M6ewKcVzG7oYgUBADCjbe8Rj/9anvcPua21GVEC1gjE4/X1xWPutzxpj2n59+sj6NvF8ytChDsxny8pXP85bLHyQeDVCph2Asi2NFMDDKk/cexpNPHJTMexHN/IFMWgt9/aP88JYlAOWgFpV+u2UULvgXOOEi2BlBxWBGNTyxmeDf7oOuwB0XoA3mbSvh0H4IFcecuJh3ffEPOXblUv7lfZ+ib25/UreYISPK9ztAixiaTcWcviaXv/VBzKgiMMBEOur3jfLzBxfxtS+djFLJ0Kh9xXSs6B8Y5eYfLiZGuODS9eihSjKKPANzcydc/GlYfhE0RqC3C+57DvnWw3DXMxCl3GhfKiXIPc/CWYvh/GWYExbS2jHK+X9wEQQBn3zP/6Vvbn/yzdEZAOr9CtDZByJbrYDzVz0BsSQyYxxfjtYCtYiNDy3k+i+eTFjRhMqk81zsOxbHiv7+Bj+85RiUGM67aAN6tIKSFrRG4eJrYOmFoGJ4YCt8bwP86KlEn9XCZNLJMtMG1j4O6zYirzyG6muPQ3dXOf/dFyIY/s97Pkl3bw+i1LQz9b7nthM6fJcviR4cCnnLGx/ltFf9At0MkHHO0BiBaszQtjr//sWTUaFGKT2jPBq7YjoWBgYafO8HS/jpj49EDYwS6ypc9M+w/EKoaHhwE3x4LdzyJPTXoKuS7txhQC9ATxVqAXzvEfjLm1DP7CBqxpz37lfzrk+8ExO2v+IyrbbPAFoFiqASoCNNq9Gi1WzRarSI0qXRhuFmF29b/ThnnPkL9I7axFrBDKhazD0/OQJthDCcWe653TGtSVx69x9OY9MwsvxVmBMuhngU7v9vuPrGRFbM605kxkRYNQP3wb2wswEf+B7hL7bRGmpy4XsvYumvLGVk54j1ubvpsRkPaBEhrIYMbRti64tbqPfVmXfEfOYeMo+5h81jziHzmH/kPBq6m9efcTunnvEQ8VDfhMAca0H6GvzwWyu46caldHVNfkf96TCthWpV8+Tj3Xzmc+eiTnkfsrOZTON702Owo5FIjGg3PkfXiqG3Cs/vhB9tJKiFmNGIt/3lZYmXQk8vS89oDa0CRdyM2bZ9M2e98WyCngqXvPcSDjvxiGTaWpV8e1u6Kzy89knqjw+gD3kWdf+3oHdB8s2SDkNQdDpa+5ZvHcfNNx1Lf38j6e+8l89xqkwboRaOctCpZ8G8YyEw8OiLcPMTKTPvwbcVmzHM74FvrkcuXA7zuzn2lKWccuFK7ll3f/INmmkC9owEtDFQqYQMbtnJsSct4dIPvo+Tz38ZdFdgtAUmhO6k6AKg4bhXHQUXfBS2j8Cxb4Zb/wa2PwW1gXRa2hyqOhZUb5MffX8pN/5gCXPmZPNo7D8WBIrtgyOc8z/OgarBNDXy9QcgVIkm2VNLJ9CRrz1A/K5TCaoVLn7Hq7nlez9iYc8C4saefvd892xGAjqsBOzcsZMjVhzOn/7H++k/Yj56sIWJQFUryCO3JSAVlczUWe3GLHsFxCBhAMe9Bg5aAV97Cwz/N1T72h+WN1qQqqY5GnL/zxbRVY+mu2I+6SYiRM0WCxYfgpFkVlIe3wx3PwuVSXxsA4E7fo5ccjzmyDlUemocsmghjaEmImpa3HgzC9AGwmrI4LZBDl9+GB/4r6voXzhANAxhNALf+GAiIW79Z4jTb5joCLr6kdPfASqAC/4CmsCco2D1V2HNb8DwJqj2YaIIqWgiLXz5syt54YVeuustjB678cT+QvZ0mWmXY3xToWLH5kHO+p8Xs/BlRxFrQ/D1B2CkBQM1KG0R3NUCmcTN98Ig6tsPE7/rNE4471c547Wn8x+f/TYDc+ego73vx585gDYQVBSDWwc5YtlhfPimj9BzUDdGhYTf/yu444uw7enkQvYdjNNZwWi4+WNJpefe6+HM98J574H+xbD6BljzRszQJqSnTtQyfOGal/Hkxrn09SYd9cfirGwGz31NWwtCc6iRezDqlck/iAGUtPM2xtAcaU7roz9jZKMKFaOjoxy27FA++IOr6VkwgJYK8t2/hu9+CEa3Qd8C6F+QyAwd5T+jof8Q6JkPQy/CN/8IbvpnqAJzjoDV/47pPYjhoYhrP3cKTzw5l97eXesOOp2qxDjrEy+JKMmHsU9VJc3keYtIcsxptBkBaBGhNdqi3tPNh9d+hLkL+9Ejg6jvfRS++xcJWINK0rEm7lDZiFsJuMOuxMNxw/vg5k9CNIjpPwb1lut44uGD2bBhgL6+1rhDl+ypDrPX/fSC2jjloWR91mYIoAHiKOaVb/w1+g+dg1YV1M/vgf/4XzBwWMrCE7x1Rie/vkXwtffCfz+VDLXqWcz66K301IaIOviay/uamXHTTKV10s727PyzltuMALQoodlq8sY/vhSjDTK4DW75B+idm35vZBfNmORXnwNr/w4zMgpVOOt9r2F4cCTpDllWDvIuj2AztNmlStlkmfuGsMuRhptdLNNE5jjbVZuKPPfAph3QIkIranHY4sNoRXEyKjXohid+BGG1Y8PIuGZ04vV4Yh3U6piWxohh/pELiZpR6VCiMq1qCtsuqKbKyo47Vjrb4lZM7/x+1n3iezxz2+MESjBXvCzpsxHpyanhisBoBAv7iFe/lEDgpzfcwdrrb2Fgbj/xnjTc7IFNO6BVGLBzcCdv+OPXs2DFoeiGRu76YgLGPb3yKoS4hdxzPbqpWbTyaE773bMZ2rYTFbpDvl2N6q6VM+XUANs+hsZ9M+THM212Fiu9bRIIjZ2jKCXJyJJ53XDB0sR1NxnjAoWktfHVK6BeQWuDGMPo6Oi0VgynHdCQ6MDGUCO5M9UA7rkOGjtTUO+umcSNN7gJ7v960nfBGFrDRbdSBgWx1o3XLdgHMpQBbY9KW/JAlb8pJlIp1LGh1lPjOx+4LhngqgTOXZb0mpuMBg8NzK1jzjk2Ga00GvHFD36Fvu4+4tb0sDPMEEBD5mIiuUPdcxm33+eEzCQs3T0ndSiP7VbyxU1RSzs5p0tTAPbu/ew/l3X949vaeSyXXlANefqejTz5/QcxzRhzzFw4+1h4cTj5cu3uWi2ATYNw6Usw8+qIMdz29dt5+pFnCMNwWl0vMwbQ02E2CycNKGVgysau5XHaCrPHy+3Jz8/bBbYVbj1kZazdxpIxBNWA0e0j/Oiff4B0V4h3NuA1x8Gx85Med7sD6moAm0dg5WHwyqPRw02oBtzwj9/EGDPrhy6YAMNbd78y6GemoyS/wnUe67Weh2cOE3+vIqAm58/O29bMYL8xnNDCWWfxuqXpXdDHhrUPsPbqGwj7a+hD+uDDF8AhfUkXUJH81/EyWvHP7oDjFmCuPo94Tjdhb43P/v6/8NSGn9Mz0DPtI8FnTNN3+8luxrDqffD8Q7vnsstzTPp7DBwKv/YuaEQQhsmcEzajmeybmAlHQ/YV1swyFKVfaBVbc48399Lum6OjLSD7D53GjXMZ3GAiQ7Ve4zsfuh5RirP/4lL03C7Uh86FH/8C1vwsryh2V4rPhwDDzbZm5o/PhFOPxFRDglrA5971af7j099iYM4c4hkwrcH0T2OQIqRaCfnYur9h0fGHYwYbyAcPgUrXnpwamAjCGuaqp5Ga4dk7nuQzr/kbgjAticnKkxF43q/D+UyyFwaT4ygYz3xGTtaLlUdtM7vJwW2HEwrbXtjKxR/6Dc676g1EQ02CegXZPAzffhjWbYRnt7s1Y0j6ahwxABcsx5yzBDOnm3i4QaW7xjXv/jTf/NR/MH/+PJrNyJFGB+40BgaUUuzcspOwEqC1RiSCE9+UdDTq6ts9plYBjA7CyVdA3EBLFRUIw9uH6V/Qj450G6DZ/VNkWjq5SBmkNbRTGtIvVhl7z8m1pAz5myR3zeUpNC72iuycxLdveGwYOHgO3/rQ9SBw3gffAA0NA3Xiy1+GvHoF6r82JBU+J1ONfu3xmO4KgQqQ2KB6a1z7zk/zrU/9JwfNnz+jZlGafoZGUKJoDo9y2iWn8T+//qfopkH9/E74+OnQvwjwhOy4Z5UO2x/ZBn9+P+bgY5Ga4poL/panbnuUSlcFjGmX3WXpNAuLjx1m3q3LvGdW5sko84Jo48aZwrpBI7SaLQ5efgiv/eCbWHLWcVT760Daq9R+StL1rDFwePMg9337br75jzfwzMPPUu3uItJxKeMeuAydWqVa4f519/P0/b/giBMOIz70RIK3fgm++tvQMy9h3IkwtQqTimBjJ7z9OuK5RxDUhGdufYynfvwoqhq02QssRrYCC3HpHZ5KzTyW+ZLDDrPrAtm2KSll3tneENZCnnvoaT75+o+x+IzlnPr2sxiY18dLXrcySeI+2dz11dsZaTb59se+wdMPPQOh0NXXRTQDNLNvM4KhBSEMFK1mk+6eOld//y858qRjiGMIfvwl+OrvJc3g9bmASXrW+Rak/X2HNwMK3vYV4l+5hKACT63bwGcv/RiYZGiX0fbHMV3+FXJ97DP2dFspsE0JU3ssnsiRjMXS9CqRUs3RJjuGttPfP4eXXHQSuhknYzWNSX6BcOc37mC4NUxvT18y/RcGrTUan0Wnn6FnDKAVEIQBreEmPX11/mrtX3HICYeiTYi6/Yvw42vhqduTO9ZzkFUrk4S5hzZBUIVjTocz34M+6fWo0PD0rY/zLxf9LcZoKl1ViHPtXF4BTNct/E4/lHPzGTkJs70fudRwtlNAxxbYNSZpbAoVrWaLwW2D6ZAt4wCzZ24vEgqtVozWbtwsoDsBWpK4MAxoDjfoGajzF9+9mqNOPIrWiEqGwt1xTSInvvchiBq0h2DV5yZDr0RhTn870ShUeg0bb93Apy75GBIbqrUKOtbtMrkaObFsCvSZxsy+dZIgpkNYBuZcR7vA18ZgJBHLxgaaMWhJuva29zPMAnqXZh81UAkDmiMNevt6+Ivvf4jDTzoaM9jAdNUS5nz+KTBxkoPRiRxZdGQyiLbRgN4aG9c9wqde9zG00dSq1WS6A6tMMAHX3K5jba+ZC15bYmThyZpdUXSBbNo+7BwcHsgdwMwCeven0zUJU4/uHOHgww/m3HdewPlXnkv1oF5oRsl0sDa9aiBqQa3C0DNbue3L/491n/weI9uG6arXEhddVj7JQQwuU2fhJi2XC52ZZEWXHhTBXGTnHCSQArwd74FpFtCTPz90oBQmMuwY3MqvnPqrmEBY/f7VHHnKYsxwC0m7RqqeKo/fvJ7v/9/vQMPw2F3rmTt3HkoJ6FwbZ8dsw6KErWFmM7Nvxll3gdxex64ougDP9bJbmZwF9BRNeK5EUakGjGwfQbci6j11gjBwKnRKBNOKaQ03CasVeuZ0tyc6yZg2mxQdcokhHltn+e1rZgMZimDOGdjV2tq4YXb/68x7sq8Besb4oTuZMYaoGVHrqaGkC2KD0RqDansijDGoSkD33B4w0BpttcHqsBYAefO2MXkHeUgAnt/ufcvsSV3agMU/f2NdB3fpn7fZR6/EjAd0ZkYb4gTG+fApSS68kLia4qzih4AxKUD9xq9kjyycdrgLin3RXIC64Z1Z3JSmy8OyEPsqzlzbJwCdXXpbDhgMGGlX8mzgti992pUuqeT5kLZBvi8KjaL5gPSBXNTWruSQdppi3nofADPsA4DOLrU4YTm72vFttsbqAmoxdb437Ryy/faN2zUxy5nal1t+vLvU+A9DbgJtLTuTbUYC2mdbF8w5UxsMYiRpFLAgnu3dTpcytcvgfr/n/cd8lm6vG1MCdl+KdN7fzn+mXrcZB2i7Zp5BVJukW24RjknFR+EDNEmXSYtMUxtw2Hr/hHNiYwHZX29LE+MC3Aa9XcHMTLdDZo6+njGATnq7uToZcmj63mFHERtpjySxpYjN5O2YVCC6MmT/NFsvJ8vOwAZ79IuVhwfZsms2k/T1NAE6B1hZhS8Ld0DZ3sUXJGmYEZBcUbtQdiuCmVfkQLCCpHCAnG6bYtpCOs8tWNDX7X2m97pOG0O7VTM/rsiunbwQtgghZWo7/2zL1csHBpihvIKYLV2tXIy3l3lze3lFs+yY02F7FdDtS2EBz4lLZQdI+hqzGkFSJlFp44ciW4I9mCr5tqCx+jRLqrOTW5GkP3DM924kbNqm5DEaX9Klo6vL9XXZHHv+vnvLpl1Dj8XAZa82e5R2DlZXU4O0JUquDyVdHnhWKjdKvBljCYYsXOPmV5bG39qbkN5rgLZlhO9gc9KlgMVJU5bS9mx0nnoA8gcA5+gHjjnALdXLtNezuE5SpSw//y1g13LK9plKmzJAJxLCtFvq/IYRuyJoN6+29bBVhbNfeCrNVon7WGSVPhv+7Ypgei0z8B+IVuZb9gHsgNwUw2N/v1y5OOmA0g8G2DJmqmxKAd1JRrhgtp/mXH7Y7JtD1Urflh55fsX13PIH5cA0n0WTZXlF0I7rvI9pezc6yYtOEmasCuWe2qQCOi+osTrI54ybgbHNmuKCr90MnUqF7AvFjh/Z5l+Twl/yC2yn9PtrHOhWztIuK2dhPnv7o10yqeFUDp197GO5wM592pPv6Js0QHdk5LQvhW1ZRc7dL1fZrmSQkovhMjlew0rZfnu3ajIzzb8CZT7qsjjtxZbPsTeR4+G0Wvrhie1Zq+MeAdqXCbZloPX7YdhpbdlQ5F8KIclTnbnyXG+1DWq7dHBga2fXEndou0sBWacjVwJmZr9x7Tn07HTGS2s31Pj5jRWW57Fn92m3AO3rYDcuAaDqkD6XH2UeCvdiiUnDrc5HmW4Tct9yO790R0fGyJ5fpP3HkuuQVdjs173GffnnFUBPSlhSw5UcaZp23sV0GQtnvvCpAPYuADoFoqHQKGKnAJdt/W03LmFWH7CmZOk+EElKe8658iOTC/FZa9tYWlp76Xww22k7SZZihdI9nv8WGKucu+oRmRCg/UpdxwNbg07TQVJJfPspyCEqVn6uxwInnQFUytQG47jrMgGTVTQLDD8rNTpaJzeezapZusIUvU4+rtQoq1Dax/DD/TzKyzpx1h4X0J1AbBfS9zEbG8wd9rch60uPYsUvP47N0Ha6bL8svWJiF+BAtjIgu/FFMDtxdh5WOigOFrCPk92lMtmxpy25HQHdqTtnUrAcbHlYslPWLTNXt/nIEZ+l/d5yhqQPhtM3A9cjokwKZLGh7S/lgGzi3hUrAjRbpm8547rX/H3KmNnNJ8+vrBtr/j/t0d7g6utcbviSpTNRhVjIGqtJ2mdN/1BF9Vps6LDFQlmFUCyN7rKyu54+a0mY4OWTHWHWxjP/GtlghvKOS/l6UeMWHoqxHphse4xuqWVltMtqU2NmoTjtbUXA2hkXXXN+A0qeJotzX0sGk87JYXcq6gT0/ITKPCHSbgYH2gi3GX3WxjPXjeeDs8zPXC4zXN1sL/1BA1msW/l0baKgTvJ3Y0ONGVTQm0HLB639/Lid7V2d3Aaj5QYp1ccpqO0u9wkIy+WHM36QvJRiXZSM2ZP1A7NH3e6ZD7qxGdWVER0Y29s/G/rm5+Wk8fL3y9I+Zuk55P20DaC01r+ppIKBqHC6JTkUXTDlL/qy10eeb/4UFzVXMc/8gpWHGeeP2d8u//I7Ubym5WDO708ejrde1M75stP9Lo48LwF2J2ABoRJpkX5DzfUaFFuPDJZmMXhixfJImOxrUWJJj1yCtFunvEpismYxssn6amQlKA5w9ftrzKrnXbciaNxllsaXGD7BOHHOJJHGW4I/0Y1x1v03gHu8PL1bSgNRaIx0K0IV09KJrnVFhw3sbHdf89rZljeMFLUx6Unl029JCazT7axxRDIQdxrgOgvm3TUfLPl6xrb5dgHo3npZfw077zLGLjt2tm2Tls/O9oMQShiGVYnvj0zzJ0rCUzBRDBLkGRdnK7Kbr8s6FeUXIPU1SjYBowvrzGymLoN1tqVImmzbOYirl/fXOTb2puX33G0eh2LdxPYhO6A2Lpva7KytNHbeNnsL+USO+bFK3hbpeurm0yKhikzrCwKwrP6qv69Q/2Ntmi2FVCCfrVOQduUs8x5kM4YKtOPaacFZh2wm05z9/bRAYWrbsnXs9N6bZG98N3B/tyL7ddLAZTLBZWZfamgrDeRauT3pui0vUkDns5Va+Rk7v2SfGBMpqahGa/SVIaDQ6lBU7mLr5I8ukxtuv2a/tc99XdiuvIJ/2ZndyOVqY4HfUUzt/WXMisKsTcw6aelsvQhwC5Qd5gDxta+bxs3HBrPvYLDLWGRvg6BUqMLDQsAYIx+OdPOsQGRRpmxt/Zt0zcylQgGwlsz1CwmC3aNJZ/KB7OGwGl2c2Y1yYeI32hT7SM+iebKsCD4XWD4ju3FF9nYG1XrzUfssXtb5ycaTPazLiosCqajYNP/TVJu3KIDHmjc9DHF3GTTKhbtbML8QUPRt2tqq/fopXAD3QpU97fm2Kd939rdHP//6uvHufcnW3ZHgtFM5jScWmPHSJ/GUhmPt47cKpnFaCJRGb3l0cN2LIVyVvM3NrR9Bgr8zxBrHn5BmaHXz9D0XCQsDFq8r6+HQaVp30KxJNbk7wNW+AO23gDURuaunZ910U2Vlr/yxmql9kjPefn6cfYyyyqGTj/HTt9MaQcLYtEZAXQOotJ53tWk2zZeM0c+mqDTFkyo5Qb9g1lPmax2HqdsVA/e7HuWskO9TXoOe/Zuav+L1x7sv2T1wPR4ekD0w23hohxv/DVD2JnBxkpuIIbr90dEbb4NU+R7P8dX1rG8t7zr3/aHUPhKb0YZC1WzPBOm669UoejgQ+7smALY3w1ovzce0U9qVx4ypnV53UvYCmrXJMnu+jcxlZ7tmkx6NOYxtGZnsXwSgLUPbb2/P61Fk+QTwrlckeYg0JgqohbEeWbGheeZjWVkBZDWr1c/qWxeKlp+IyGEQa0EFtqutDVSxAVsCaitNFm6nx8rL/3CPstL78gJne9am2kr0qheehNgdkGxZ4oI038Nn5kI4eGm8MECjW4HUKrFpfqE6Ku+ZS7OxjnVRm/SO53izYeSmX2rMFyBtdbZOwj0hX9jn4bZuzk+m7MTcC5DvV+Z/dOWFs//sb8p++T117wfpPdJ0moJ3PDDj9QfJwWzn5VcUrT0MKNFGb8HIV3/GjUMLWGDAJ0Hg2GMvrAbPtLYLUpXUM1zaaCIuI5fKD3B6zLnyJduvhI3FliljM/WsTa0ZD06dCCkPy7fLJMZ4zJzsl6xpq65lp9XoWAiITXzro421Z61iVbiOdRF4b+6VrKz00mt+WQ/fWaP+iZYZaQWoSi4HXGC6ssJNUwbq8pbAPMzZLvmGoH+sWZt6sxnWDoPi27X8TVwEc56mCGaDDXpXakD+9lZUaJrGsY83ztwIV7cP6WNDrWa13FPbfkxF+CbIMogCQdTuMDXeetlnifN9citj7XbcbBv3Xjd/cngfwG5YHjcWkO31wgNQAuZ8aWKRUGkdfyVuhL9zEn3RGtZksy6UYwYwy1h5kKrP34TRsYCSFEoOQNsVOxfoUA5qe87m7EDlFUA33ViFnbW9Y65GHhvI/vZ4YHa2TRHkuYfDREpCFev4zg2NG09bzepgDWucvktlo5XMalYHj3L3i0bHXw6kGuTexOKTB3gF7nQR0s+CGfv1kaxr7Kcxq1T4FRLnKZ3926t/eFt+a28OvOzetfcYA8w2Nuy0Dhgx9jIElJHonzvArCPpyUpWhndzd2tF/YJrxchbDFEoyRjEgvQAV35kGRcYuqCT83i/QLPsPPOsqKVNIbwdNg6QfW081pCudBkJYUObxh9saNxybcrObamR2Xg4UYBe3nXuJoWab4i1IIFfObTXO2lq+2CFLqFjANsPn7XpM+NBejwgO+GF9Ty+OEFNQTc3QumqNU3z84+O3njlSlZ2383dw2VlHGeimdUCawRj/kxEfc6gJXml5C1FGdjao4e9Aa4GELwvUGEccOdzQCSn5M6iNMvOM8kcqWD8uE76emwgl8a1lyYWwlrLNJ83ik/A6uBu1ox2Kt84gF4Tr2JVuK6x9trltXNNoCrXahM1QYcmqSim4BTrBLwvvVKc/znfsk/bgq3/bhM/YNamy8pAnK8XK4Tudh5enDLBiqNdt4oVQWCMeQETnfXY6C0b4Koxv/s0IfJbycrK3dzdWtZ17uUh4Zc0LQ2iFdJ+IIruOktqeJJCWWkMOD3zXHHi9tqbtek3wUaTC9gkLp/Z305brPR5faUdyWEA04CwBvyyFbbOe3zw5vUZDscr34Qsy2x57ZwrA1X9HIA2zViQYCKNJmUuO78AsxXBfcPKCKYTGztxnlbO0vlgNhgdSpdqmcaWwLResb6x7nFYHVBSCfRtlzCT9sprLu865zJF+EYReX1sWi2BQKFUJ1A7lb0JADsv3CykZ6L5lcMkzF3a6bRXR/IlBrRdfhEQGoSA8BPNsPHpiTJzZruBmPxJWdF13rWhVN8emxapB0T5bG0fpMwlV+bh2M2Czdpeto5uPFMS5u3jez8MRErCECDW0ZUbGjd9Pk0qlL8USm03poFLKopwlXpk9MYrI9P8PxoeVRIqg4kNWrt+RN8dgxNqjP0qMvhP8exvJv+8P4PltrMbZez77zTWmAQvBiEMQW7SpvVbGxo3ff5UTq2nFcAJgxn2jAhlNavVGtbEy+vnHhqY8AdGzEvEgCaOSGawc/R1csDOTd1+mlmb+dbJN21K0rjA1pEgIQSICLGOv7ShcePbkhQT08tltsfIyfTNQs7rmVM15wSq8r8M+hVJDTeKUxki/sHG7IC0p4Watb1mPn2ODeSEvw0mDqUrbJpGUwx31qhf8bPGtzbCVWoVP1RZV9DdscnCjuMbXF47572C/Eagamdo08xeRpEgAYiy3yOuW27WTbevWeaqs12t9lbaryM2GC2oSkJlAUaZT5s4vuGRxo0/8LLbo9s/mWQoJH1Agru5u3U8q3qpdb88JrpWRI4KpUJsmtmrBiAA+6sss8y8L1sJM2tAGwyKSiiiiE1rWGN+EsbVP1rf+u59AGnn/Jg9BHJmU4Ih382yrH7euwMTvjSmdW5Vaks0MdrEBS6e1c77rvlN3oJCRKEIaJnR74ZUn46l9YVHRm66I0l1lVrNeinrYLQnNpUIkmTOj3w0wdLaOYsrquuEVtyIlDIfV4QrNJEGUbNQ3rfNoqYokDCMTPQFo1kTBtXKCSM937aAm+FiSual//8B7P9raEolZbsAAAAASUVORK5CYII=';
   const ubuntuFavicon='data:image/png;base64,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';
-  const labels={light:'Светлая',dark:'Тёмная',ubuntu:'Ubuntu Neon'};
+  const labels={light:'Светлая',dark:'Тёмная',ubuntu:'Burgundy'};
   const symbols={light:'☀',dark:'☾',ubuntu:'✦'};
   const barColors={light:'#e2e9f3',dark:'#0b1320',ubuntu:'#210932'};
   const themes=['light','dark','ubuntu'];
@@ -6322,17 +6566,14 @@ function nav(){
 }
 
 function options(){
-  const years = {};
-  const months = (Array.isArray(s.data.months)?s.data.months:[]).filter(Piot.validMonth).slice();
+  // Keep the native month picker compact and predictable across Windows/Chrome,
+  // Android and Safari. Native optgroup headers were rendered as blank rows
+  // in some browsers, so the year remains in each visible month label instead.
+  const months = [...new Set((Array.isArray(s.data.months)?s.data.months:[]).filter(Piot.validMonth))];
   if(s.month&&!months.includes(s.month))months.push(s.month);
   months.sort();
-  months.forEach(m => (years[m.slice(0,4)]||(years[m.slice(0,4)]=[])).push(m));
   $('#month').innerHTML = '<option value="">За всё время</option>' +
-    Object.keys(years).sort().map(y =>
-      '<optgroup label="'+y+' год">' +
-      years[y].map(m => `<option value="${m}"${m===s.month?' selected':''}>${monthLabel(m)}</option>`).join('') +
-      '</optgroup>'
-    ).join('');
+    months.map(m => `<option value="${m}"${m===s.month?' selected':''}>${monthLabel(m)}</option>`).join('');
   $('#month').value = s.month;
 }
 
@@ -6676,12 +6917,15 @@ function heroOpen(source){
 }
 
 function taskStatusDashboard(){
-  // Результаты встреч сохраняют прежний подсчёт; платные установки считаются
-  // отдельно из тех же заявок за месяц и с теми же общими фильтрами.
+  // One shared slice: all figures use the same period and global filters.
   const base=rows().filter(r=>r.source==='main');
   const src=base.filter(r=>String(r.taskStatus||'').trim());
   const total=src.length;
-  const paidTotal=base.filter(Piot.hasApplication).length;
+  const applications=base.filter(Piot.hasApplication);
+  // The user's payment rule: a positive value in column F (amount) means paid.
+  const amountPaid=applications.filter(r=>Number(r.amount)>0);
+  const amountUnpaid=applications.filter(r=>!(Number(r.amount)>0));
+  const paymentRate=applications.length?Math.round(amountPaid.length/applications.length*100):0;
   const priority=[
     {name:'Клиент сам установил',tone:'',index:'01',label:'РЕЗУЛЬТАТ № 1',caption:'Самостоятельная установка · количество клиентов'},
     {name:'Клиент настроен с нашей помощью',tone:'assist',index:'02',label:'РЕЗУЛЬТАТ № 2',caption:'Установка с помощью нашей команды'},
@@ -6690,17 +6934,23 @@ function taskStatusDashboard(){
   ];
   const matches=(v,t)=>{ const a=Piot.norm(v),b=Piot.norm(t); return a===b||a.startsWith(b+':')||a.startsWith(b+' '); };
   const countFor=t=>src.filter(r=>matches(r.taskStatus,t)).length;
+  const selfRows=src.filter(r=>matches(r.taskStatus,'Клиент сам установил'));
+  const selfPaid=selfRows.filter(r=>Number(r.amount)>0).length;
+  const selfUnpaid=selfRows.length-selfPaid;
   const share=(k,denom)=>denom?Math.round(k/denom*100):0;
   const featured=priority.map(p=>{
     const isPaid=!!p.installation;
     const k=isPaid?base.filter(r=>Piot.isPaidInstallation(r,p.installation,cfg())).length:countFor(p.name);
-    const part=share(k,isPaid?paidTotal:total);
+    const part=share(k,isPaid?applications.length:total);
     const active=isPaid?s.installation===p.installation&&s.page==='table':s.filter.task===p.name;
     const action=isPaid?`data-paid-installation="${p.installation}"`:`data-task-status="${h(p.name)}"`;
+    const selfPayment=p.name==='Клиент сам установил'
+      ?`<span class="priority-payment-split"><span>Оплачено <b>${number(selfPaid)}</b></span><span>Без суммы F <b>${number(selfUnpaid)}</b></span></span>`:'';
     return `<button type="button" class="priority-status-card ${p.tone}${active?' active':''}" ${action} aria-pressed="${active}">
       <span class="priority-kicker"><span class="priority-index">${p.index}</span>${p.label}</span>
       <span class="priority-status-title">${h(p.name)}</span>
       <span class="priority-status-caption">${p.caption}</span>
+      ${selfPayment}
       <span class="priority-count-row"><strong>${cVal(k)}</strong><span>заявок <b>${part}%</b></span></span>
       <span class="priority-track"><i style="width:${part}%"></i></span>
       <span class="priority-status-foot">Открыть заявки <span aria-hidden="true">→</span></span></button>`;
@@ -6720,12 +6970,34 @@ function taskStatusDashboard(){
           :`<button type="button" class="priority-other-row${active?' active':''}" data-task-status="${h(name)}" aria-pressed="${active}">${row}</button>`;
       }).join('')}</div>`
     :'<p class="note" style="margin:8px 0">Других статусов пока нет.</p>';
+  const conversion=`<section class="payment-conversion-panel" aria-label="Конверсия оплат">
+    <div class="payment-conversion-main">
+      <span class="payment-conversion-kicker"><i></i> КОНВЕРСИЯ ОПЛАТ</span>
+      <div class="payment-conversion-rate">${cVal(paymentRate)}<small>%</small></div>
+      <p>Доля заявок с положительной суммой в столбце F</p>
+      <div class="payment-conversion-track" role="img" aria-label="Оплатили ${number(amountPaid.length)} из ${number(applications.length)} заявок">
+        <i style="width:${paymentRate}%"></i><b style="left:${paymentRate}%"></b>
+      </div>
+    </div>
+    <div class="payment-conversion-self-note">
+      Самостоятельные установки: <b>${number(selfRows.length)}</b> · оплачено <b>${number(selfPaid)}</b> · без суммы F <b>${number(selfUnpaid)}</b>
+    </div>
+    <div class="payment-conversion-actions">
+      <button type="button" class="payment-conversion-choice paid" data-payment-amount="paid" ${amountPaid.length?'':'disabled'}>
+        <span><i></i> Оплатили</span><strong>${cVal(amountPaid.length)}</strong><small>${share(amountPaid.length,applications.length)}% · сумма F указана</small>
+      </button>
+      <button type="button" class="payment-conversion-choice unpaid" data-payment-amount="unpaid" ${amountUnpaid.length?'':'disabled'}>
+        <span><i></i> Не оплатили</span><strong>${cVal(amountUnpaid.length)}</strong><small>${share(amountUnpaid.length,applications.length)}% · сумма F пустая или 0</small>
+      </button>
+    </div>
+  </section>`;
   return card('Результат клиентами',
     `<div class="priority-status-grid">${featured}</div>
+     ${conversion}
      <details class="result-catalog"><summary>Каталог остальных результатов <span>${others.length} статусов</span></summary>
        <div class="priority-other-heading"><span>Другие статусы</span><span>Количество и доля</span></div>${otherHtml}
      </details>`,
-    'Нажмите на карточку, чтобы открыть заявки. Платные установки определяются по подтверждённой оплате LP / СП в столбце E.');
+    'Нажмите на карточку, чтобы открыть заявки. Конверсия оплаты считается по столбцу F: положительная сумма — оплачено; пустая или нулевая — не оплачено.');
 }
 
 function financeHero(){
@@ -6794,6 +7066,59 @@ function espSummaryCard(){
   </section>`;
 }
 
+function requestFlowCard(){
+  const records=eventRows().filter(r=>r.source!=='noesp');
+  const gran=s.periodMode==='month'&&!s.month?'month':'day';
+  const raw=periodActivity(records,gran);
+  const byKey=new Map(raw.map(x=>[x.key,x]));
+  let keys=[];
+  if(s.periodMode==='month'&&s.month){
+    const first=s.month+'-01';
+    const next=shiftDay(first,32).slice(0,7)+'-01';
+    const days=Math.round((new Date(next+'T12:00:00Z')-new Date(first+'T12:00:00Z'))/86400000);
+    for(let i=0;i<days;i++)keys.push(shiftDay(first,i));
+  }else if(s.periodMode==='week'){
+    const start=periodWindow().start;
+    for(let i=0;i<7;i++)keys.push(shiftDay(start,i));
+  }else if(s.periodMode==='day'){
+    keys=[periodWindow().start];
+  }else{
+    keys=[...new Set([...raw.map(x=>x.key),...records.map(r=>isoDay(r.date).slice(0,7)).filter(Piot.validMonth)])].sort();
+  }
+  const points=keys.map(key=>{
+    const found=byKey.get(key)||{};
+    return {key,total:Number(found.total)||0,done:Number(found.done)||0,closed:Number(found.closed)||0};
+  });
+  const total=points.reduce((n,x)=>n+x.total,0);
+  const active=points.filter(x=>x.total>0);
+  const avg=active.length?(total/active.length):0;
+  const peak=points.reduce((best,x)=>x.total>best.total?x:best,{key:'',total:0});
+  const theme=document.documentElement.dataset.theme||'light';
+  const createdColor=theme==='ubuntu'?'#f05b9d':theme==='dark'?'#55d7b5':'#4a9df4';
+  const doneColor=theme==='ubuntu'?'#ffc36d':theme==='dark'?'#7fb7ff':'#20b78b';
+  const closedColor=theme==='ubuntu'?'#b78aff':theme==='dark'?'#c39bff':'#9871e8';
+  const periodUnit=gran==='month'?'месяцам':'дням';
+  const averageLabel=gran==='month'?'В среднем за месяц':'В среднем за активный день';
+  const peakLabel=gran==='month'?'Пиковый месяц':'Пиковый день';
+  const peakName=peak.key?shortLabel(peak.key):'—';
+  const chartHtml=points.length?chart(points.map(x=>shortLabel(x.key)),[
+    {name:'Создано',type:'bar',values:points.map(x=>x.total),color:createdColor},
+    {name:'Выполнено',values:points.map(x=>x.done),color:doneColor,area:false},
+    {name:'Закрыто',values:points.map(x=>x.closed),color:closedColor,area:false}
+  ],{title:'Поступление и движение заявок по '+periodUnit}):empty('Нет заявок за выбранный период.');
+  const details=points.length?`<details class="arrival-exact-values"><summary>Точные значения по ${periodUnit}</summary>
+    <div class="arrival-exact-grid">${points.map(x=>`<div><span>${h(shortLabel(x.key))}</span><b>${number(x.total)}</b></div>`).join('')}</div>
+  </details>`:'';
+  const body=`<div class="arrival-insights">
+      <div class="arrival-insight primary"><span>Новых заявок</span><strong>${cVal(total)}</strong><small>за ${s.periodMode==='month'?(s.month?'выбранный месяц':'всё время'):s.periodMode==='week'?'неделю':'день'}</small></div>
+      <div class="arrival-insight"><span>${averageLabel}</span><strong>${number(Math.round(avg*10)/10)}</strong><small>${active.length} активных ${gran==='month'?'месяцев':'дней'}</small></div>
+      <div class="arrival-insight"><span>${peakLabel}</span><strong>${peakName}</strong><small>${number(peak.total)} ${peak.total===1?'заявка':'заявок'}</small></div>
+    </div>
+    <div class="arrival-flow-chart">${chartHtml}</div>${details}`;
+  const sub=gran==='month'?'Новые заявки сгруппированы по месяцам.':'Новые заявки показаны по дням выбранного периода; выполненные и закрытые — по дате статуса.';
+  return card('Поступление заявок',body,sub);
+}
+
 function home(){
   const a=periodSummary(eventRows());
   // Показатель по F для выбранной даты/недели/месяца.
@@ -6809,14 +7134,8 @@ function home(){
     ${kpi('Оплачено',cVal(a.paid))}
     ${kpi('Не оплатили',cVal(unpaid))}
   </div>`;
-  if(cfg().showCharts){
-    const p=periodActivity(eventRows(),s.periodMode==='month'?(s.month?'day':'month'):'day');
-    html+=card('Поток заявок',chart(p.map(x=>shortLabel(x.key)),[
-      {name:'Создано',values:p.map(x=>x.total),color:'#62b5ff'},
-      {name:'Выполнено',values:p.map(x=>x.done),color:'#00a56a'},
-      {name:'Закрыто',values:p.map(x=>x.closed),color:'#9060ed',area:false}
-    ],{title:'Поток заявок'}),'');
-  }
+  // На главной всегда показываем поступление заявок: день / неделя / месяц — ключевая аналитика.
+  html+=requestFlowCard();
   return html;
 }
 
@@ -7302,6 +7621,7 @@ function tableRows2(){
   const sourceRows = rows().filter(r=>s.filter.source==='noesp' ? r.source==='noesp' : Piot.hasApplication(r))
     .filter(r=>!s.bankRecognizedOnly||Boolean(Piot.bank(r,cfg())));
   return sourceRows.filter(r=>!s.installation||Piot.isPaidInstallation(r,s.installation,cfg())).filter(r=>
+    s.paid==='amount'?Number(r.amount)>0:
     s.paid==='paid'?Piot.rev(r,cfg())>0:
     s.paid==='invoice'?Piot.isInvoice(r,cfg()):
     s.paid==='zero'?!(Number(r.amount)>0):true
@@ -7315,7 +7635,7 @@ function tablePage2(){
   const rr=tableRows2(), per=cfg().perPage, pages=Math.max(1,Math.ceil(rr.length/per));
   s.tablePage=Math.min(Math.max(1,s.tablePage),pages);
   const part=rr.slice((s.tablePage-1)*per,s.tablePage*per);
-  const sum=rr.reduce((a,r)=>a+(s.paid==='invoice'?Math.max(0,r.amount):Piot.rev(r,cfg())),0);
+  const sum=rr.reduce((a,r)=>a+(s.paid==='invoice'||s.paid==='amount'?Math.max(0,Number(r.amount)||0):Piot.rev(r,cfg())),0);
   let html=filters()+`<div class="table-toolbar">
     <select id="installationFilter" aria-label="Фильтрация платных установок">
       <option value=""${s.installation===''?' selected':''}>Все установки</option>
@@ -7323,13 +7643,13 @@ function tablePage2(){
       <option value="avtbiz"${s.installation==='avtbiz'?' selected':''}>Оплачено у СП</option>
     </select>
     <select id="paidFilter" aria-label="Фильтр по сумме и учёту">
-      ${[['','Все заявки'],['paid','Учитываются в выручке'],['invoice','Счета — отдельный учёт'],['zero','Без указанной суммы']].map(([k,v])=>
+      ${[['','Все заявки'],['amount','Оплатили — сумма F указана'],['zero','Не оплатили — нет суммы F'],['paid','Учитываются в выручке'],['invoice','Счета — отдельный учёт']].map(([k,v])=>
         `<option value="${k}"${s.paid===k?' selected':''}>${v}</option>`).join('')}
     </select>
     <button class="btn primary" data-export>${icon('download')} Скачать CSV</button>
     ${s.bankRecognizedOnly?'<span class="bank-recognized-badge">Только распознанные банки</span>':''}
     <span class="toolbar-spacer"></span>
-    <span class="toolbar-stat total"><strong>${rub(sum)}</strong> по выборке</span>
+    <span class="toolbar-stat total"><strong>${rub(sum)}</strong> ${s.paid==='amount'||s.paid==='zero'?'сумма F':'по выборке'}</span>
   </div>`;
   html+=`<section class="glass card"><div class="table-info"><span class="info-dot"></span><span><b>Как читать таблицу:</b> клиент и партнёр — поля исходной заявки; ответственный — сотрудник, указанный в записи; заказчик и юр. лицо показаны так, как они записаны в исходной таблице. Нажмите на заголовок столбца для сортировки.</span></div><div class="table-wrap"><table>
     <thead><tr>${COLS.map(([key,title])=>`<th title="${h(COL_HINTS[key]||title)}"><button class="thbtn" data-sort="${key}" title="${h(COL_HINTS[key]||title)}">${title}${s.sort===key?(s.direction===1?' ↑':' ↓'):''}</button></th>`).join('')}</tr></thead>
@@ -7339,7 +7659,7 @@ function tablePage2(){
       if(key==='source') return `<td>${v==='noesp'?'Лист «Отсутствует задача ЕСП»':'Лист «Заявка»'}</td>`;
       if(key==='status'||key==='taskStatus'||key==='sla'){
         const cls=key==='sla'?(/просроч|наруш/i.test(v||'')?'red':''):Piot.isInvoice(r,cfg())?'orange':Piot.isDone(r,cfg())?'green':'';
-        return `<td><span class="badge ${cls}">${h(v||'—')}</span></td>`;
+        return `<td><span class="badge ${cls}" title="${h(v||'—')}">${h(v||'—')}</span></td>`;
       }
       return `<td title="${h(v||'')}">${h(v||'—')}</td>`;
     }).join('')}</tr>`).join('')+(part.length?'':'<tr><td colspan="14" style="text-align:center;color:#8898aa;padding:28px">Нет заявок по фильтру</td></tr>')}
@@ -7390,7 +7710,7 @@ function settings(){
         <div class="life-settings-themes" role="group" aria-label="Тема интерфейса">
           <button type="button" class="btn small" data-theme-choice="light">☀ Светлая</button>
           <button type="button" class="btn small" data-theme-choice="dark">☾ Тёмная</button>
-          <button type="button" class="btn small" data-theme-choice="ubuntu">✦ Ubuntu Neon</button>
+          <button type="button" class="btn small" data-theme-choice="ubuntu">✦ Burgundy</button>
         </div>`)}
     </div>${configButtons()}`;
   }else if(s.tab==='security'){
@@ -7600,6 +7920,13 @@ async function handleClick(e){
       s.installation=el.dataset.paidInstallation;
       s.bankRecognizedOnly=false;
       s.paid='';
+      s.tablePage=1;
+      await navigate('table');
+    }
+    else if(el.dataset.paymentAmount){
+      s.installation='';
+      s.bankRecognizedOnly=false;
+      s.paid=el.dataset.paymentAmount==='paid'?'amount':'zero';
       s.tablePage=1;
       await navigate('table');
     }
