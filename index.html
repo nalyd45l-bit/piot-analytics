@@ -6593,6 +6593,182 @@ html:root[data-theme="ubuntu"] .mobile-brand-wordmark{
 }
 </style>
 
+
+<style id="lifePayUnifiedLogoMotion">
+/* One shared Life Pay brand treatment for desktop and mobile. */
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .sidebar-lifepay-wrap,
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .mobile-brand{
+  background:linear-gradient(135deg,#064b3d 0%,#087e5c 56%,#075342 100%)!important;
+  border:1px solid rgba(91,231,181,.56)!important;
+  box-shadow:0 10px 26px rgba(0,116,82,.22),inset 0 1px 0 rgba(255,255,255,.24)!important;
+}
+:root[data-theme="dark"] .sidebar-lifepay-wrap,
+:root[data-theme="dark"] .mobile-brand{
+  background:linear-gradient(135deg,#101a2a 0%,#263b55 56%,#14263b 100%)!important;
+  border:1px solid rgba(161,203,245,.42)!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.34),0 0 20px rgba(102,170,232,.10),inset 0 1px 0 rgba(255,255,255,.16)!important;
+}
+:root[data-theme="ubuntu"] .sidebar-lifepay-wrap,
+:root[data-theme="ubuntu"] .mobile-brand{
+  background:linear-gradient(135deg,#31091f 0%,#742448 56%,#3b1029 100%)!important;
+  border:1px solid rgba(255,190,216,.58)!important;
+  box-shadow:0 12px 30px rgba(45,0,22,.34),0 0 22px rgba(225,83,145,.13),inset 0 1px 0 rgba(255,255,255,.22)!important;
+}
+
+/* Match logo lettering across desktop and mobile. */
+.sidebar-lifepay-logo,
+.mobile-brand-wordmark{
+  filter:brightness(0) invert(1) drop-shadow(0 0 6px rgba(205,255,236,.22))!important;
+  -webkit-filter:brightness(0) invert(1) drop-shadow(0 0 6px rgba(205,255,236,.22))!important;
+  opacity:1!important;
+}
+:root[data-theme="dark"] .sidebar-lifepay-logo,
+:root[data-theme="dark"] .mobile-brand-wordmark{
+  filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(157,205,255,.28))!important;
+  -webkit-filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(157,205,255,.28))!important;
+}
+:root[data-theme="ubuntu"] .sidebar-lifepay-logo,
+:root[data-theme="ubuntu"] .mobile-brand-wordmark{
+  filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(255,190,216,.24))!important;
+  -webkit-filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(255,190,216,.24))!important;
+}
+
+/* Three lively equalizer strokes beside the wordmark. */
+.life-brand-bars{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:3px!important;
+  width:15px!important;
+  height:22px!important;
+  flex:0 0 15px!important;
+  position:relative!important;
+  z-index:3!important;
+  margin-right:1px!important;
+}
+.life-brand-bars i{
+  display:block!important;
+  width:3px!important;
+  height:7px!important;
+  border-radius:4px!important;
+  background:linear-gradient(180deg,#8dffd1,#18d69a)!important;
+  box-shadow:0 0 7px rgba(50,255,190,.42)!important;
+  transform-origin:center bottom!important;
+  animation:lifePayEqualizer 1.05s ease-in-out infinite!important;
+}
+.life-brand-bars i:nth-child(2){height:13px!important;animation-delay:.16s!important}
+.life-brand-bars i:nth-child(3){height:18px!important;animation-delay:.32s!important}
+:root[data-theme="dark"] .life-brand-bars i{
+  background:linear-gradient(180deg,#d4eaff,#75baff)!important;
+  box-shadow:0 0 8px rgba(117,186,255,.4)!important;
+}
+:root[data-theme="ubuntu"] .life-brand-bars i{
+  background:linear-gradient(180deg,#ffd8e7,#e88bb0)!important;
+  box-shadow:0 0 8px rgba(232,139,176,.4)!important;
+}
+
+/* Desktop plaque: breathing glass, orbiting edge light and a passing reflection. */
+.sidebar-lifepay-wrap{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  gap:5px!important;
+  animation:lifePayBreath 4.8s ease-in-out infinite!important;
+  will-change:transform,box-shadow;
+}
+.sidebar-lifepay-wrap::before{
+  content:""!important;
+  position:absolute!important;
+  inset:-2px!important;
+  border-radius:inherit!important;
+  z-index:0!important;
+  background:conic-gradient(from 0deg,transparent 0 24%,rgba(74,255,197,.78) 34%,rgba(120,190,255,.38) 43%,transparent 55% 100%)!important;
+  opacity:.28!important;
+  animation:lifePayOrbit 8s linear infinite!important;
+  pointer-events:none!important;
+}
+.sidebar-lifepay-wrap::after{
+  content:""!important;
+  position:absolute!important;
+  top:-55%!important;left:-65%!important;
+  width:42%!important;height:210%!important;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.34),rgba(106,255,211,.2),transparent)!important;
+  transform:rotate(22deg)!important;
+  animation:lifePaySweep 5.7s ease-in-out infinite!important;
+  z-index:2!important;pointer-events:none!important;
+}
+.sidebar-lifepay-logo{position:relative!important;z-index:1!important;width:88px!important;height:28px!important}
+
+/* Mobile plaque gets the exact desktop palette and the same gentle motion. */
+.mobile-brand{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  gap:7px!important;
+  padding:5px 9px!important;
+  border-radius:16px!important;
+  animation:lifePayBreath 4.8s ease-in-out infinite!important;
+  will-change:transform,box-shadow;
+}
+.mobile-brand-mark,.mobile-brand-copy{position:relative!important;z-index:1!important}
+.mobile-brand-mark{background:transparent!important;border:0!important;box-shadow:none!important}
+.mobile-brand-mark img{filter:brightness(0) invert(1)!important;-webkit-filter:brightness(0) invert(1)!important}
+.mobile-brand-copy{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  gap:6px!important;
+}
+.mobile-brand-copy small{display:none!important}
+.mobile-brand-wordmark{width:77px!important;height:auto!important;display:block!important}
+.mobile-brand .life-brand-bars{margin-left:1px!important}
+.mobile-brand::before{
+  content:""!important;
+  position:absolute!important;
+  inset:-2px!important;
+  border-radius:inherit!important;
+  z-index:0!important;
+  background:conic-gradient(from 0deg,transparent 0 24%,rgba(74,255,197,.72) 34%,rgba(120,190,255,.35) 43%,transparent 55% 100%)!important;
+  opacity:.25!important;
+  animation:lifePayOrbit 8s linear infinite!important;
+  pointer-events:none!important;
+}
+.mobile-brand::after{
+  content:""!important;
+  position:absolute!important;
+  top:-55%!important;left:-65%!important;
+  width:42%!important;height:210%!important;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.34),rgba(106,255,211,.2),transparent)!important;
+  transform:rotate(22deg)!important;
+  animation:lifePaySweep 5.7s ease-in-out infinite!important;
+  z-index:2!important;pointer-events:none!important;
+}
+@keyframes lifePayEqualizer{
+  0%,100%{transform:scaleY(.58);opacity:.78}
+  48%{transform:scaleY(1.08);opacity:1}
+}
+@keyframes lifePayBreath{
+  0%,100%{transform:translateY(0);filter:saturate(1)}
+  50%{transform:translateY(-2px);filter:saturate(1.12)}
+}
+@keyframes lifePayOrbit{to{transform:rotate(360deg)}}
+@keyframes lifePaySweep{
+  0%,18%{left:-65%;opacity:0}
+  40%{opacity:.9}
+  72%,100%{left:145%;opacity:0}
+}
+@media(max-width:390px){
+  .mobile-brand{gap:5px!important;padding:4px 7px!important}
+  .mobile-brand-wordmark{width:68px!important}
+  .life-brand-bars{width:13px!important;flex-basis:13px!important;gap:2px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .sidebar-lifepay-wrap,.sidebar-lifepay-wrap::before,.sidebar-lifepay-wrap::after,
+  .mobile-brand,.mobile-brand::before,.mobile-brand::after,
+  .life-brand-bars i{animation:none!important}
+}
+</style>
+
 </head>
 <body>
 
@@ -6647,7 +6823,7 @@ html:root[data-theme="ubuntu"] .mobile-brand-wordmark{
       <span class="mobile-brand-mark">
         <img src="data:image/png;base64,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" alt="Life Pay" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('logo-fallback')">
       </span>
-      <span class="mobile-brand-copy"><img class="mobile-brand-wordmark" src="data:image/png;base64,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" alt="Life Pay"><small>АНАЛИТИКА</small></span>
+      <span class="mobile-brand-copy"><img class="mobile-brand-wordmark" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAAAlCAYAAADBRzJ7AAAKLUlEQVR42u2ce7BVdRXHP+cCxsMXIA8BAV+AiKgB5rvJB4mhKEaKiVljk6k5iZU5WZHZiNpMM2WamY+mYCTsQamVOlFIooyCgqagPBQvKYi8BYF7v/1x1u6uu91n798+51x8zP7O7GGffddv/R57/dZvvTYlSV0ooxlosH+xewDRGiXeC7nncm22xeg6JTwrUOD/ghcJkmLCpQoCqNjfZXyagXdigudRCGGBRLSPabJIOL2QlTKEkhiPToXgFciLkqS49iolCJ2cUHU2rVcIXIE2EcS4Hdc5xUZUIYAF6n00V0KkBQsHo8BucVbIcCi2VXA8ChRo06O5QIEP1NEc4VPOXlwMrK3DUb0XsI/d7wTeLF5FoRGzaF4BDrb7ScCfgU019nsWcC/QHVgNjAZeCGw7AjjXNsjh5jz9F3ga+BnwVM6xjAJOBYYDB5i50ggsAv4FPL6b30k/oD/Q1Tb8GuD5OvLfG9gX6ABsBd6ogU9HG+Pm3aER28UcmFI9NkCCY5SFwcBU4JwKizIYuBCYAVwLvJbB7zDge8BJtiE6xv4+FrjMBPtGYGEbCl8n4GzgeGAIsL8Jy7vAW6YMFgAPAKuq4N/R5nksMMw23J7AOmA58IRtuKWB/PoDjwKDgLdtzGsD2y4EjnJ8yvORlHWtVAsukLRXQJus62xJ643n65IGZ9CfZnShWC7puBR+50hanIPfi5LG1mHeSddoSdMkrQkYx8OSzszJf4SkuyRtzeD9gqQvSeoUwHOgpFes3VuS9ssxnudcn/2i5yEasaEtTIIU7RjHcOBuoK971gjcY1qiB3AEcLrtTIADgVuBCXZse3zRNOFA92yVaZuXgCbTGJ+1ox/jewfQxTRuvXABcL3rB2AJsNJMlq7AAPv7HsAY4BB7Pi2A/5nALY5/k/FdC+wwO70X0A0Yaut8nI3pzYz357NpzVW++6aWMzFbgr0mOk/SnnXQAuMkbTSejZIOSaF9KLZzvy2pawJdF0lTJe0wuhWSTk7QrMsdr3ckfcV2eJxfP0kTJa1y9I0ZmjavplrkeK+UdL2N+UDTTL0ljZJ0paQFjvY1W8M0/ufFTrMlkn5sz4fb/E6UdJmkByVtc7T32XpW4n2Ira8kra3wPipdL7p+ekXPQxo2xgSxS50F8XVJB1egO1nSOtf/lIBJT5J0vKRuCX97xPFaL+ncgLGeKulV125WnQRxluP5tJkLafTHx8a/WNL+FWiHSFrqaGdLGpPB/yZJb7s2V6TQDnIbNK8gvuT66FGtII4LtCFCBHGzE8QDK9D9UNJOo3vO2xRVXJ80eybCpBxtL3LjbZZ0ZI3z/5zbiG+anRjS7qiYbVtJWO5yNAsDbPDo+pGkd63dqpT1HuIE8S1J++aYu98g3aPnDTm95uY62oilAL5HOM/+IWBjDX2OM9sK4Eng7zna/hZ41o19dI3zv8Q8fYDbgUcC2z1rdtw2Z+/GsR9whvs9xezOEHwHmO/CSJ+pQLfDvb89coZ8OiTZiO2rWMR65J0VKIj7uPuLgdMsAN7kJhIZy7cDf0jpc4hzvAYY/TZa6ig9r6aE370dr5E1zn+Yu/9Nzrb3AN+0kM8Ic6x8SOfTFvqJQiWzcvKfaXw7mbNzZwLNOvfO9gJ6AhsCeA81hw+jf7faOGJTG2jE5hS+H3P3fWOecxx/y+izm7vfHzivwgaJb46oFtPv5INqmPtg9zI2WhwvDzZZ7K6P/T44JoiDXUx0XhXjexzYYoJ4DMlFLxtNkA6w3+cCNwfwnuDew4ueb0Og9goNtVSrEXcGBr5Dx1npOAndICXbgO1ss3aI0e1Rw9y7uM29s0oePrO1b0JwPOK/tQrejW4T9k4I9Ed4zK35VWZGpWEQ8Hk3tpl5MysbLFYX2R/10ogNAQJXik18ob08r1EjPnMz+vRxsWWWvttu7UtuTHL3pYRxNORIR2bF0rpbhmNLzvb7xLRTXEib7N12q3GjpG3wn5smHGja+V7gCxXW5jAzEXrZ77eB+/IK4krgULv/uNlhm+ugEf39zoBg+kzglzX0+W9buEjTTYkdaZ1jmjot6L6lxvk3OL4jgX/maNvLTIsI8bTcElvP9lXassc60yFNEJdZUH2ys1fnmIA9akfvUHOcvkzrMsJrgfWtJSLb3b4uFkgdFtCmV0YqcJwLPL+aEoea7/q+tMaQSX8XgpGkCW2Ussu6RsbGcX/O9lMshCRJzyT8vYfF9iKMqiG+qYAExn2StgSmSndZUP09fEJsxL+Y3YAZp5PNIK6ET5hHeiVwZIBWCNWIu2rUQq8Bv3e/b8qYR4SBsaOwHmgXCyuND2x3tB1/kYa+I4FmrYWnIlxHeFHzGEuVkiNkd4mlU5en2OG7zDS6AvhG8hkZtku+a9Ic4SFLvvc37ddX0qGSxsfSSqsk9amgEZtdaqtzhX59WuviOmij/pLeiI1vYgr9pRYQflbSHZYaq3UMoyRtj2mKlwLmd4qkOa7NghTaE2MZqRt8FqPCdYKkZQlaLHReA01O5tu6rpG0WtJcSZOz2udZwIcTBvmgpF9LeiyhOmZLSj7UC+KKlD69IF5Up6PxTJc9kKQNkv4q6evWx9WSfmEL6F/m2joJ4shY/xFWS7rbBPJoSYfbNV7SrTEhWWqpx9AsiSRNl3SSz+9K2tuyWpfHjvNqBDF+9c5Dn+dTgYHAbcAJCSGDpOPhaymVKuOAP9n9ipS4nK9dmwjcX6ejcYzx2ts922pHSwcz1r2DsgK4uorgcCXTZa45EzsoVwcNiAWLX3ax1UEuagHlAuDvAw8H9DUVuNyCzlAusn3GHJzNtu5D3RpHHm23gIjGDeb1y6p1QgPa4y0+vAD4Y96j2V9XmfpdbVpvl1WxrDPHY7rlRLPqEaMc8sspdAvdzjy/zk7DQZJujiX649gu6baM6qC81zGSmpxpcIYZ/FnYbnWLI3P29y1Jzwfwb5I0T9I1gRrRV9GE1mpOdW3u9H+rJsX3U7tONeN5gDkziy0qH/IZwTbbDVmB4XnGrz3ZFdd5sdzCCD+hXPV9omn9Ei3l+TOob5l+XMvssIzQPMqV4KdbYLiTaZr1NpalpkF+VUVftxj/SywM18ecr47uJFhtoZcfWJ+TTdulJRSeoqX+83zgwYCxnOXun2y1IMVXfK2wp3nqm9qwj2No+a5mGeVCVx8jHGRCUrJxrKkiDVgJfSgXyfY386qdCeETsT6us7WAciFEEsZS/n4p+g8XRtpmqYQLaV3M2xP3eUEhiLsfXhCX0/Jh2ocRi1xqr5FykcSiBLrRFgaMTsDplu7LlVkp0DbH8kcBVwK/M03eF3jOjtzZluobBZxC6zz0GuCrcUaFIL6/+LAfR3OAa8w77+dShMdWoH/DfItNaZmLAoXwVYNplD+FnU3509d4SV+ThYoeoJwj/0/iMVHYiO8LzrF45TrgHx+heY2iXHPY05RcVKk0I8vhKgSxwAcCxdFc4AOB/wGvfDzvGYjQGQAAAABJRU5ErkJggg==" alt="Life Pay"><span class="life-brand-bars" aria-hidden="true"><i></i><i></i><i></i></span></span>
     </div>
     <div class="top-meta">
       <button type="button" class="theme-toggle lock-app-btn" id="lockApp" title="Выйти из приложения" aria-label="Выйти из приложения"><svg class="exit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg><span class="theme-label">Выйти</span></button>
@@ -6658,6 +6834,7 @@ html:root[data-theme="ubuntu"] .mobile-brand-wordmark{
     <aside class="sidebar">
       <div class="sidebar-brand-sticker" aria-label="Life Pay">
         <div class="sidebar-lifepay-wrap">
+          <span class="life-brand-bars" aria-hidden="true"><i></i><i></i><i></i></span>
           <img class="sidebar-lifepay-logo" src="data:image/png;base64,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" alt="Life Pay" loading="eager" decoding="async">
         </div>
       </div>
