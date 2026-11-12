@@ -6602,8 +6602,8 @@ html:root[data-theme="ubuntu"] .mobile-brand-wordmark{
   border:1px solid rgba(91,231,181,.56)!important;
   box-shadow:0 10px 26px rgba(0,116,82,.22),inset 0 1px 0 rgba(255,255,255,.24)!important;
 }
-:root[data-theme="dark"] .sidebar-lifepay-wrap,
-:root[data-theme="dark"] .mobile-brand{
+html:root[data-theme="dark"] .sidebar-lifepay-wrap,
+html:root[data-theme="dark"] .mobile-brand{
   background:linear-gradient(135deg,#101a2a 0%,#263b55 56%,#14263b 100%)!important;
   border:1px solid rgba(161,203,245,.42)!important;
   box-shadow:0 12px 30px rgba(0,0,0,.34),0 0 20px rgba(102,170,232,.10),inset 0 1px 0 rgba(255,255,255,.16)!important;
@@ -6622,8 +6622,8 @@ html:root[data-theme="ubuntu"] .mobile-brand-wordmark{
   -webkit-filter:brightness(0) invert(1) drop-shadow(0 0 6px rgba(205,255,236,.22))!important;
   opacity:1!important;
 }
-:root[data-theme="dark"] .sidebar-lifepay-logo,
-:root[data-theme="dark"] .mobile-brand-wordmark{
+html:root[data-theme="dark"] .sidebar-lifepay-logo,
+html:root[data-theme="dark"] .mobile-brand-wordmark{
   filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(157,205,255,.28))!important;
   -webkit-filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(157,205,255,.28))!important;
 }
@@ -6769,6 +6769,1074 @@ html:root[data-theme="ubuntu"] .mobile-brand-wordmark{
 }
 </style>
 
+
+<style id="lifePayDesktopMobileLogoExactMatch">
+/* Desktop and mobile now use the same logo composition and dimensions. */
+.sidebar-lifepay-wrap,
+.mobile-brand{
+  box-sizing:border-box!important;
+  width:130px!important;
+  min-width:130px!important;
+  max-width:130px!important;
+  height:46px!important;
+  min-height:46px!important;
+  padding:8px 13px!important;
+  border-radius:15px!important;
+  display:flex!important;
+  flex:0 0 130px!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:4px!important;
+  overflow:hidden!important;
+}
+
+/* Same green gradient in Light, same blue-black in Dark, same Burgundy in Burgundy. */
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .sidebar-lifepay-wrap,
+:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .mobile-brand{
+  background:linear-gradient(135deg,#064b3d 0%,#087e5c 56%,#075342 100%)!important;
+  border:1px solid rgba(91,231,181,.56)!important;
+  box-shadow:0 10px 26px rgba(0,116,82,.22),inset 0 1px 0 rgba(255,255,255,.24)!important;
+}
+html:root[data-theme="dark"] .sidebar-lifepay-wrap,
+html:root[data-theme="dark"] .mobile-brand{
+  background:linear-gradient(135deg,#101a2a 0%,#263b55 56%,#14263b 100%)!important;
+  border:1px solid rgba(161,203,245,.42)!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.34),0 0 20px rgba(102,170,232,.10),inset 0 1px 0 rgba(255,255,255,.16)!important;
+}
+:root[data-theme="ubuntu"] .sidebar-lifepay-wrap,
+:root[data-theme="ubuntu"] .mobile-brand{
+  background:linear-gradient(135deg,#31091f 0%,#742448 56%,#3b1029 100%)!important;
+  border:1px solid rgba(255,190,216,.58)!important;
+  box-shadow:0 12px 30px rgba(45,0,22,.34),0 0 22px rgba(225,83,145,.13),inset 0 1px 0 rgba(255,255,255,.22)!important;
+}
+
+/* Hide the old separate mobile badge: it made the mobile lockup differ from desktop. */
+.mobile-brand-mark{display:none!important}
+.mobile-brand-copy{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:4px!important;
+  min-width:0!important;
+  width:auto!important;
+  line-height:1!important;
+}
+.mobile-brand-wordmark{
+  order:2!important;
+  display:block!important;
+  width:84px!important;
+  min-width:84px!important;
+  max-width:84px!important;
+  height:28px!important;
+  object-fit:contain!important;
+  filter:brightness(0) invert(1) drop-shadow(0 0 6px rgba(205,255,236,.22))!important;
+  -webkit-filter:brightness(0) invert(1) drop-shadow(0 0 6px rgba(205,255,236,.22))!important;
+}
+.mobile-brand-copy .life-brand-bars{
+  order:1!important;
+  margin:0!important;
+  flex:0 0 15px!important;
+  width:15px!important;
+}
+.sidebar-lifepay-logo{
+  width:84px!important;
+  min-width:84px!important;
+  max-width:84px!important;
+  height:28px!important;
+  object-fit:contain!important;
+}
+
+/* Keep the mobile wordmark and the desktop wordmark white in all three themes. */
+:root[data-theme="dark"] .mobile-brand-wordmark,
+:root[data-theme="dark"] .sidebar-lifepay-logo{
+  filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(157,205,255,.28))!important;
+  -webkit-filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(157,205,255,.28))!important;
+}
+:root[data-theme="ubuntu"] .mobile-brand-wordmark,
+:root[data-theme="ubuntu"] .sidebar-lifepay-logo{
+  filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(255,190,216,.24))!important;
+  -webkit-filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(255,190,216,.24))!important;
+}
+
+@media(max-width:390px){
+  .sidebar-lifepay-wrap,.mobile-brand{
+    width:122px!important;min-width:122px!important;max-width:122px!important;
+    flex-basis:122px!important;
+  }
+  .mobile-brand-wordmark,.sidebar-lifepay-logo{
+    width:77px!important;min-width:77px!important;max-width:77px!important;
+  }
+}
+</style>
+
+
+<style id="lifePayDarkEmeraldEverywhere">
+/* ТЁМНЫЙ ИЗУМРУД: единая палитра для desktop, mobile и экрана входа.
+   Светлая и Burgundy темы не затрагиваются. */
+:root[data-theme="dark"]{
+  color-scheme:dark!important;
+  --text:#eafff7!important;
+  --muted:#a2c8ba!important;
+  --green:#18c995!important;
+  --green-l:#0c4035!important;
+  --green-d:#087b5c!important;
+  --blue:#35d6b0!important;
+  --purple:#53bca0!important;
+  --orange:#e8bd79!important;
+  --bg:#031b17!important;
+  --glass-bg:linear-gradient(145deg,rgba(8,57,47,.88),rgba(4,31,27,.92) 58%,rgba(5,42,35,.88))!important;
+  --shadow:0 8px 28px rgba(0,10,8,.28),inset 0 1px 0 rgba(220,255,242,.10)!important;
+  --shadow-hover:0 16px 38px rgba(0,8,6,.38),0 0 22px rgba(31,220,165,.10),inset 0 1px 0 rgba(220,255,242,.15)!important;
+  --pin-bg:radial-gradient(ellipse at 12% 12%,rgba(24,201,149,.22),transparent 38%),radial-gradient(ellipse at 90% 85%,rgba(35,145,112,.18),transparent 42%),linear-gradient(145deg,#031b17,#062b24 58%,#041d19)!important;
+  --pin-card-bg:linear-gradient(145deg,rgba(10,65,53,.94),rgba(4,35,30,.96))!important;
+  --pin-border:rgba(128,235,194,.24)!important;
+  --pin-text:#eafff7!important;
+  --pin-muted:#a2c8ba!important;
+  --pin-key-bg:rgba(194,255,230,.07)!important;
+  --pin-key-border:rgba(151,241,207,.18)!important;
+  --pin-key-color:#effff8!important;
+}
+:root[data-theme="dark"] body{
+  color:var(--text)!important;
+  background:
+    radial-gradient(ellipse at 8% 8%,rgba(16,153,111,.20),transparent 34%),
+    radial-gradient(ellipse at 92% 24%,rgba(11,103,80,.18),transparent 38%),
+    radial-gradient(ellipse at 52% 100%,rgba(10,80,62,.20),transparent 45%),
+    #031b17!important;
+  background-attachment:fixed!important;
+}
+:root[data-theme="dark"] .wave-bg{
+  opacity:.20!important;
+  filter:hue-rotate(105deg) saturate(1.45) brightness(.56)!important;
+}
+:root[data-theme="dark"] .blobs{
+  opacity:.25!important;
+  filter:blur(58px) hue-rotate(100deg) saturate(1.35)!important;
+}
+:root[data-theme="dark"] .shell{
+  color:var(--text)!important;
+  background:linear-gradient(145deg,rgba(5,39,33,.88),rgba(3,25,22,.92) 60%,rgba(5,47,38,.88))!important;
+  border-color:rgba(140,235,196,.18)!important;
+  box-shadow:0 12px 56px rgba(0,10,8,.34),inset 0 1px 0 rgba(235,255,247,.08)!important;
+}
+:root[data-theme="dark"] .brandbar{border-bottom-color:rgba(147,235,201,.16)!important}
+:root[data-theme="dark"] .sidebar,
+:root[data-theme="dark"] .glass,
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .filterbar,
+:root[data-theme="dark"] .income-overview,
+:root[data-theme="dark"] .month-wrap,
+:root[data-theme="dark"] .table-toolbar,
+:root[data-theme="dark"] dialog,
+:root[data-theme="dark"] .toast,
+:root[data-theme="dark"] .plan-filter-card,
+:root[data-theme="dark"] .plan-history-inline{
+  color:var(--text)!important;
+  background:linear-gradient(145deg,rgba(9,62,51,.78),rgba(4,35,30,.86) 62%,rgba(5,48,39,.80))!important;
+  border-color:rgba(140,235,196,.18)!important;
+  box-shadow:var(--shadow)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(145%)!important;
+  backdrop-filter:blur(22px) saturate(145%)!important;
+}
+:root[data-theme="dark"] .sidebar{
+  background:linear-gradient(160deg,rgba(7,54,45,.91),rgba(3,29,25,.94))!important;
+}
+:root[data-theme="dark"] .pagebar h1{
+  background:linear-gradient(100deg,#f0fff8 0%,#8ef0c7 55%,#d8fff0 100%)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;
+}
+:root[data-theme="dark"] .navbtn{color:#b8d9cc!important}
+:root[data-theme="dark"] .navbtn:hover:not(.active){
+  color:#effff8!important;background:rgba(101,224,176,.08)!important;
+}
+:root[data-theme="dark"] .navbtn.active{
+  color:#f1fff8!important;
+  background:linear-gradient(110deg,rgba(7,151,107,.48),rgba(5,91,69,.48))!important;
+  border-color:rgba(87,232,177,.28)!important;
+  box-shadow:0 6px 20px rgba(0,110,77,.20),inset 0 1px 0 rgba(220,255,242,.12)!important;
+}
+:root[data-theme="dark"] .month-wrap,
+:root[data-theme="dark"] .icon-btn,
+:root[data-theme="dark"] .theme-toggle,
+:root[data-theme="dark"] .life-theme-menu{
+  color:var(--text)!important;
+  background:linear-gradient(145deg,rgba(10,72,59,.86),rgba(4,40,34,.90))!important;
+  border-color:rgba(140,235,196,.22)!important;
+  box-shadow:var(--shadow)!important;
+}
+:root[data-theme="dark"] .month-wrap select{color:var(--text)!important}
+:root[data-theme="dark"] .pill{
+  color:#c2e5d7!important;background:rgba(157,244,207,.07)!important;
+  border-color:rgba(140,235,196,.17)!important;
+}
+:root[data-theme="dark"] .pill.ok{
+  color:#8ff2c7!important;background:rgba(14,166,113,.16)!important;
+  border-color:rgba(65,220,164,.28)!important;
+}
+:root[data-theme="dark"] .pill.warn{
+  color:#f3d69b!important;background:rgba(207,155,61,.12)!important;
+  border-color:rgba(207,155,61,.22)!important;
+}
+:root[data-theme="dark"] .pill.err{
+  color:#ff9ba5!important;background:rgba(200,50,70,.13)!important;
+  border-color:rgba(200,50,70,.24)!important;
+}
+:root[data-theme="dark"] .hero,
+:root[data-theme="dark"] .hero.blue,
+:root[data-theme="dark"] .priority-status-card,
+:root[data-theme="dark"] .finance-hero,
+:root[data-theme="dark"] .profit-hero,
+:root[data-theme="dark"] .bank-card{
+  color:var(--text)!important;
+  background:
+    radial-gradient(ellipse at 96% 4%,rgba(37,207,151,.15),transparent 38%),
+    linear-gradient(145deg,rgba(8,66,54,.90),rgba(4,37,32,.94) 60%,rgba(5,51,41,.90))!important;
+  border-color:rgba(142,236,199,.20)!important;
+  box-shadow:var(--shadow)!important;
+}
+:root[data-theme="dark"] .hero::after,
+:root[data-theme="dark"] .priority-status-card::after,
+:root[data-theme="dark"] .bank-card::after{
+  background:rgba(38,215,157,.16)!important;
+}
+:root[data-theme="dark"] .hero-metric,
+:root[data-theme="dark"] .income-overview .income-kpis .kpi,
+:root[data-theme="dark"] .bank-summary-grid .kpi,
+:root[data-theme="dark"] .home-summary .kpi,
+:root[data-theme="dark"] .kpi,
+:root[data-theme="dark"] .mini-glass,
+:root[data-theme="dark"] .finance-metric-card,
+:root[data-theme="dark"] .finance-total,
+:root[data-theme="dark"] .profit-total,
+:root[data-theme="dark"] .profit-kpis>div,
+:root[data-theme="dark"] .priority-count-row>span,
+:root[data-theme="dark"] .priority-index,
+:root[data-theme="dark"] .priority-stat,
+:root[data-theme="dark"] .plan-result,
+:root[data-theme="dark"] .plan-history-item,
+:root[data-theme="dark"] .security-stat{
+  color:var(--text)!important;
+  background:linear-gradient(150deg,rgba(164,255,218,.085),rgba(17,91,71,.18))!important;
+  border-color:rgba(145,238,198,.16)!important;
+  box-shadow:0 5px 16px rgba(0,12,9,.16),inset 0 1px 0 rgba(231,255,246,.08)!important;
+}
+:root[data-theme="dark"] .income-overview{
+  background:linear-gradient(145deg,rgba(8,64,52,.92),rgba(4,35,30,.94) 62%,rgba(6,54,43,.90))!important;
+  border-color:rgba(116,231,185,.22)!important;
+}
+:root[data-theme="dark"] .income-overview::before{
+  background:linear-gradient(90deg,#13b981,#4ce0b0,#77cbb3)!important;
+}
+:root[data-theme="dark"] .income-overview .kpi:nth-child(5){
+  background:linear-gradient(145deg,rgba(14,121,86,.34),rgba(8,66,52,.48))!important;
+  border-color:rgba(60,224,161,.30)!important;
+}
+:root[data-theme="dark"] .income-overview .kpi:nth-child(5) strong,
+:root[data-theme="dark"] .kpi strong,
+:root[data-theme="dark"] .hero-metric b,
+:root[data-theme="dark"] .mini-glass b,
+:root[data-theme="dark"] .profit-total strong,
+:root[data-theme="dark"] .bank-revenue,
+:root[data-theme="dark"] .finance-metric-value,
+:root[data-theme="dark"] .finance-total-value,
+:root[data-theme="dark"] .hero-big,
+:root[data-theme="dark"] .priority-count-row strong{
+  color:#eafff7!important;
+}
+:root[data-theme="dark"] .finance-total-value,
+:root[data-theme="dark"] .hero-big{
+  background:linear-gradient(110deg,#f0fff8,#7de8bd 58%,#d6fff0)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;
+}
+:root[data-theme="dark"] .mini-glass,
+:root[data-theme="dark"] .result-catalog,
+:root[data-theme="dark"] .priority-other-row{
+  color:var(--text)!important;
+  background:rgba(142,236,199,.055)!important;
+  border-color:rgba(140,235,196,.16)!important;
+}
+:root[data-theme="dark"] .priority-other-row:hover,
+:root[data-theme="dark"] .priority-other-row.active{background:rgba(57,210,153,.12)!important}
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] .field input,
+:root[data-theme="dark"] .filterbar input,
+:root[data-theme="dark"] .filterbar select,
+:root[data-theme="dark"] .month-wrap select,
+:root[data-theme="dark"] .plan-filter-controls select{
+  color:#eafff7!important;
+  background:linear-gradient(180deg,rgba(8,63,52,.92),rgba(4,38,32,.96))!important;
+  border-color:rgba(139,231,193,.23)!important;
+}
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder{color:#83ad9e!important}
+:root[data-theme="dark"] select option{color:#eafff7!important;background:#07372e!important}
+:root[data-theme="dark"] input:focus,
+:root[data-theme="dark"] textarea:focus,
+:root[data-theme="dark"] select:focus{
+  border-color:#31d9a4!important;box-shadow:0 0 0 3px rgba(49,217,164,.16)!important;
+}
+:root[data-theme="dark"] .btn,
+:root[data-theme="dark"] .tabs button,
+:root[data-theme="dark"] .legend button,
+:root[data-theme="dark"] .life-theme-menu-choice{
+  color:#eafff7!important;
+  background:linear-gradient(145deg,rgba(13,85,68,.78),rgba(5,49,40,.88))!important;
+  border-color:rgba(139,231,193,.18)!important;
+}
+:root[data-theme="dark"] .btn.primary,
+:root[data-theme="dark"] .auth-submit,
+:root[data-theme="dark"] .finance-hero-actions .btn,
+:root[data-theme="dark"] .tabs button.active,
+:root[data-theme="dark"] .life-theme-menu-choice.selected{
+  color:#f4fff9!important;
+  background:linear-gradient(110deg,#087e5c,#10b981 58%,#087e5c)!important;
+  border-color:rgba(110,255,195,.48)!important;
+  box-shadow:0 8px 22px rgba(0,155,105,.25),inset 0 1px 0 rgba(238,255,248,.20)!important;
+}
+:root[data-theme="dark"] .btn:not(:disabled):hover,
+:root[data-theme="dark"] .icon-btn:hover,
+:root[data-theme="dark"] .theme-toggle:hover{filter:brightness(1.12)!important}
+:root[data-theme="dark"] .big-progress{
+  background:linear-gradient(180deg,#0b3d32,#0a5140)!important;
+  box-shadow:inset 0 2px 6px rgba(0,0,0,.30)!important;
+}
+:root[data-theme="dark"] .progress,
+:root[data-theme="dark"] .priority-track,
+:root[data-theme="dark"] .plan-history-track{background:rgba(143,231,194,.16)!important}
+:root[data-theme="dark"] .progress i,
+:root[data-theme="dark"] .priority-track i,
+:root[data-theme="dark"] .big-progress i,
+:root[data-theme="dark"] .plan-history-track i,
+:root[data-theme="dark"] .plan-history-track b{
+  background:linear-gradient(90deg,#08a878,#27d7a0,#80f0c3)!important;
+  box-shadow:0 0 10px rgba(39,215,160,.28)!important;
+}
+:root[data-theme="dark"] .tabs{background:rgba(4,43,36,.88)!important;border-color:rgba(140,235,196,.17)!important}
+:root[data-theme="dark"] .tabs button{color:#acd1c1!important}
+:root[data-theme="dark"] .tabs button:hover:not(.active){color:#effff8!important;background:rgba(57,210,153,.10)!important}
+:root[data-theme="dark"] .table-wrap{
+  color:var(--text)!important;background:rgba(4,39,33,.78)!important;
+  border-color:rgba(140,235,196,.18)!important;
+}
+:root[data-theme="dark"] .table-wrap th{
+  color:#d8f8e9!important;background:rgba(8,72,57,.96)!important;
+  border-bottom-color:rgba(140,235,196,.18)!important;
+}
+:root[data-theme="dark"] .table-wrap td{color:#d8eee4!important;border-bottom-color:rgba(140,235,196,.10)!important}
+:root[data-theme="dark"] .table-wrap tbody tr:hover{background:rgba(43,196,142,.08)!important}
+:root[data-theme="dark"] .chart-svg text{fill:#b5d8c9!important}
+:root[data-theme="dark"] .chart-svg .axis-label,
+:root[data-theme="dark"] .chart-svg .x-label{fill:#91bbaa!important}
+:root[data-theme="dark"] .chart-svg .gridline{stroke:rgba(137,211,179,.20)!important;opacity:1!important}
+:root[data-theme="dark"] .chart-svg .axis-base{stroke:rgba(151,222,192,.34)!important}
+:root[data-theme="dark"] .chart-svg .chart-line{stroke:#36dca9!important}
+:root[data-theme="dark"] .chart-svg .chart-area{fill:rgba(43,210,153,.13)!important}
+:root[data-theme="dark"] .chart-svg .chart-bar{fill:#16b987!important}
+:root[data-theme="dark"] .donut .center-label{fill:#c4e9d8!important}
+:root[data-theme="dark"] .legend button{color:#bde0d0!important}
+:root[data-theme="dark"] .legend button:hover{background:rgba(59,216,157,.12)!important}
+:root[data-theme="dark"] .empty{
+  color:var(--muted)!important;background:rgba(143,231,194,.035)!important;
+  border-color:rgba(140,235,196,.16)!important;
+}
+:root[data-theme="dark"] .empty strong{color:var(--text)!important}
+:root[data-theme="dark"] .switchrow{border-bottom-color:rgba(140,235,196,.12)!important}
+:root[data-theme="dark"] dialog{color:var(--text)!important;background:rgba(4,39,33,.98)!important;border-color:rgba(140,235,196,.20)!important}
+:root[data-theme="dark"] dialog::backdrop{background:rgba(0,10,8,.72)!important}
+:root[data-theme="dark"] .toast{color:var(--text)!important;background:rgba(5,49,40,.97)!important;border-color:rgba(140,235,196,.20)!important}
+:root[data-theme="dark"] .footer{border-top-color:rgba(140,235,196,.16)!important;color:#9fc8b7!important}
+:root[data-theme="dark"] .save-status{color:#7cf0bc!important}
+:root[data-theme="dark"] .save-status.error{color:#ff9ba5!important}
+:root[data-theme="dark"] .save-status.waiting{color:#f3d69b!important}
+:root[data-theme="dark"] .inactive-warning{
+  color:#f3d69b!important;background:rgba(120,91,32,.18)!important;border-color:rgba(220,177,86,.24)!important;
+}
+html:root[data-theme="dark"] .sidebar-lifepay-wrap,
+html:root[data-theme="dark"] .mobile-brand{
+  background:linear-gradient(135deg,#032d25 0%,#075b45 54%,#06392f 100%)!important;
+  border:1px solid rgba(101,237,185,.50)!important;
+  box-shadow:0 10px 30px rgba(0,120,81,.24),0 0 20px rgba(42,220,160,.10),inset 0 1px 0 rgba(237,255,247,.20)!important;
+}
+html:root[data-theme="dark"] .sidebar-lifepay-logo,
+html:root[data-theme="dark"] .mobile-brand-wordmark{
+  filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(121,255,205,.24))!important;
+  -webkit-filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(121,255,205,.24))!important;
+}
+:root[data-theme="dark"] .life-brand-bars i{
+  background:linear-gradient(180deg,#c8ffe7,#38e6a8)!important;
+  box-shadow:0 0 8px rgba(56,230,168,.46)!important;
+}
+:root[data-theme="dark"] #pinScreen{
+  background:var(--pin-bg)!important;color:var(--pin-text)!important;
+}
+
+:root[data-theme="dark"] #pinScreen .auth-brand-sticker{
+  background:linear-gradient(135deg,#032d25,#075b45 58%,#06392f)!important;
+  border-color:rgba(101,237,185,.42)!important;
+  box-shadow:0 20px 42px rgba(0,80,56,.32),0 0 0 6px rgba(97,231,179,.08),inset 0 1px 0 rgba(237,255,247,.18)!important;
+}
+:root[data-theme="dark"] #pinScreen .auth-password-wrap{
+  background:rgba(164,255,218,.07)!important;
+  border-color:rgba(139,231,193,.24)!important;
+  box-shadow:inset 0 1px 0 rgba(231,255,246,.08),0 8px 24px rgba(0,12,9,.18)!important;
+}
+:root[data-theme="dark"] #pinScreen .auth-password-wrap:focus-within{
+  border-color:rgba(49,217,164,.72)!important;
+  box-shadow:0 0 0 4px rgba(49,217,164,.13),0 12px 28px rgba(0,50,35,.20)!important;
+}
+:root[data-theme="dark"] #pinScreen .auth-reveal{
+  color:#bcebd7!important;background:rgba(121,226,181,.10)!important;
+}
+:root[data-theme="dark"] #pinScreen .auth-reveal:hover{
+  color:#f0fff8!important;background:rgba(121,226,181,.18)!important;
+}
+
+:root[data-theme="dark"] .pin-card{
+  background:var(--pin-card-bg)!important;border-color:var(--pin-border)!important;
+  box-shadow:0 32px 80px rgba(0,12,9,.48),inset 0 1px 0 rgba(220,255,242,.12)!important;
+}
+:root[data-theme="dark"] .pin-title,
+:root[data-theme="dark"] .pin-brand-name{color:var(--pin-text)!important}
+:root[data-theme="dark"] .pin-sub{color:var(--pin-muted)!important}
+:root[data-theme="dark"] .pin-key{
+  color:var(--pin-key-color)!important;background:var(--pin-key-bg)!important;
+  border-color:var(--pin-key-border)!important;
+}
+:root[data-theme="dark"] .pin-dot.filled{
+  background:linear-gradient(135deg,#a5ffd7,#19c995)!important;border-color:#19c995!important;
+  box-shadow:0 0 14px rgba(25,201,149,.48)!important;
+}
+:root[data-theme="dark"] .auth-submit{
+  color:#f4fff9!important;background:linear-gradient(110deg,#087e5c,#10b981 58%,#087e5c)!important;
+  border:1px solid rgba(110,255,195,.48)!important;
+  box-shadow:0 10px 26px rgba(0,155,105,.25),inset 0 1px 0 rgba(238,255,248,.20)!important;
+}
+:root[data-theme="dark"] .life-theme-entry{
+  border-top-color:rgba(140,235,196,.16)!important;
+}
+:root[data-theme="dark"] .life-theme-entry-title{color:#9fc8b7!important}
+:root[data-theme="dark"] .life-theme-choice{
+  color:#d9f5e8!important;background:rgba(142,236,199,.06)!important;
+  border-color:rgba(140,235,196,.17)!important;
+}
+:root[data-theme="dark"] .life-theme-choice.selected{
+  color:#effff8!important;background:rgba(16,185,129,.20)!important;
+  border-color:rgba(83,235,177,.48)!important;
+  box-shadow:0 0 0 2px rgba(8,169,111,.14)!important;
+}
+:root[data-theme="dark"] .life-theme-menu-choice:hover,
+:root[data-theme="dark"] .life-theme-menu-choice.selected{
+  color:#effff8!important;background:linear-gradient(110deg,#087e5c,#10a978)!important;
+  border-color:rgba(110,255,195,.42)!important;
+}
+:root[data-theme="dark"] .life-theme-dock,
+:root[data-theme="dark"] #lifePayThemeDock{color:var(--text)!important}
+@media(max-width:600px){
+  :root[data-theme="dark"] .sidebar{
+    background:linear-gradient(160deg,rgba(7,54,45,.96),rgba(3,29,25,.97))!important;
+    border-color:rgba(140,235,196,.20)!important;
+    box-shadow:0 8px 28px rgba(0,12,9,.36),inset 0 1px 0 rgba(220,255,242,.10)!important;
+    -webkit-backdrop-filter:blur(24px) saturate(150%)!important;
+    backdrop-filter:blur(24px) saturate(150%)!important;
+  }
+  :root[data-theme="dark"] .navbtn.active{
+    background:linear-gradient(110deg,rgba(8,145,101,.52),rgba(5,87,66,.58))!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  :root[data-theme="dark"] .sidebar-lifepay-wrap,
+  :root[data-theme="dark"] .mobile-brand{animation:none!important}
+}
+</style>
+
+
+<style id="lifePayDarkEmeraldBrandSync">
+/* DARK ONLY — desktop/mobile brand plaque uses one identical emerald treatment.
+   The light and Burgundy themes are intentionally left untouched. */
+html:root[data-theme="dark"] .sidebar-brand-sticker{
+  background:linear-gradient(145deg,rgba(7,57,46,.82),rgba(3,31,26,.78) 62%,rgba(5,47,38,.82))!important;
+  border:1px solid rgba(115,238,190,.22)!important;
+  box-shadow:0 12px 30px rgba(0,12,9,.26),inset 0 1px 0 rgba(220,255,242,.10)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(155%)!important;
+  backdrop-filter:blur(24px) saturate(155%)!important;
+}
+html:root[data-theme="dark"] .sidebar-lifepay-wrap,
+html:root[data-theme="dark"] .mobile-brand,
+html:root[data-theme="dark"] .brand-logo-tile,
+html:root[data-theme="dark"] #pinScreen .auth-brand-sticker{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  background:linear-gradient(135deg,#032d25 0%,#075b45 54%,#06392f 100%)!important;
+  border:1px solid rgba(101,237,185,.50)!important;
+  box-shadow:0 10px 30px rgba(0,120,81,.24),0 0 20px rgba(42,220,160,.10),inset 0 1px 0 rgba(237,255,247,.20)!important;
+}
+html:root[data-theme="dark"] .sidebar-lifepay-wrap,
+html:root[data-theme="dark"] .mobile-brand{
+  border-radius:17px!important;
+  animation:lifePayDarkBrandFloat 5.2s ease-in-out infinite!important;
+}
+html:root[data-theme="dark"] .sidebar-lifepay-wrap::before,
+html:root[data-theme="dark"] .mobile-brand::before{
+  content:""!important;
+  position:absolute!important;
+  inset:-2px!important;
+  z-index:0!important;
+  border-radius:inherit!important;
+  background:conic-gradient(from 0deg,transparent 0 25%,rgba(91,255,193,.76) 35%,rgba(116,222,190,.36) 44%,transparent 56% 100%)!important;
+  opacity:.25!important;
+  animation:lifePayDarkBrandOrbit 9s linear infinite!important;
+  pointer-events:none!important;
+}
+html:root[data-theme="dark"] .sidebar-lifepay-wrap::after,
+html:root[data-theme="dark"] .mobile-brand::after{
+  content:""!important;
+  position:absolute!important;
+  top:-55%!important;
+  left:-65%!important;
+  width:42%!important;
+  height:210%!important;
+  z-index:2!important;
+  border-radius:inherit!important;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),rgba(106,255,211,.20),transparent)!important;
+  transform:rotate(22deg)!important;
+  animation:lifePayDarkBrandSweep 5.7s ease-in-out infinite!important;
+  pointer-events:none!important;
+}
+html:root[data-theme="dark"] .mobile-brand-copy,
+html:root[data-theme="dark"] .mobile-brand-copy .life-brand-bars,
+html:root[data-theme="dark"] .sidebar-lifepay-wrap .life-brand-bars,
+html:root[data-theme="dark"] .sidebar-lifepay-logo{
+  position:relative!important;
+  z-index:1!important;
+}
+html:root[data-theme="dark"] .mobile-brand-wordmark,
+html:root[data-theme="dark"] .sidebar-lifepay-logo,
+html:root[data-theme="dark"] #pinScreen .auth-brand-sticker img{
+  filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(121,255,205,.24))!important;
+  -webkit-filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(121,255,205,.24))!important;
+  opacity:1!important;
+}
+html:root[data-theme="dark"] .life-brand-bars i{
+  background:linear-gradient(180deg,#c8ffe7,#38e6a8)!important;
+  box-shadow:0 0 8px rgba(56,230,168,.46)!important;
+}
+html:root[data-theme="dark"] .brand-wordmark strong{color:#effff8!important}
+html:root[data-theme="dark"] .brand-wordmark small,
+html:root[data-theme="dark"] .mobile-brand-copy small{
+  color:#9af4ca!important;
+  -webkit-text-fill-color:#9af4ca!important;
+}
+@keyframes lifePayDarkBrandFloat{
+  0%,100%{transform:translateY(0);box-shadow:0 10px 30px rgba(0,120,81,.24),0 0 12px rgba(42,220,160,.07),inset 0 1px 0 rgba(237,255,247,.20)}
+  50%{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,120,81,.30),0 0 23px rgba(42,220,160,.18),inset 0 1px 0 rgba(237,255,247,.28)}
+}
+@keyframes lifePayDarkBrandOrbit{to{transform:rotate(360deg)}}
+@keyframes lifePayDarkBrandSweep{
+  0%,18%{left:-65%;opacity:0}
+  32%{opacity:.85}
+  58%,100%{left:130%;opacity:0}
+}
+@media(prefers-reduced-motion:reduce){
+  html:root[data-theme="dark"] .sidebar-lifepay-wrap,
+  html:root[data-theme="dark"] .mobile-brand,
+  html:root[data-theme="dark"] .sidebar-lifepay-wrap::before,
+  html:root[data-theme="dark"] .mobile-brand::before,
+  html:root[data-theme="dark"] .sidebar-lifepay-wrap::after,
+  html:root[data-theme="dark"] .mobile-brand::after{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+
+
+<style id="lifePayFinalNavyEmeraldAndSingleWordmark">
+/* FINAL BRAND: one compact wordmark, shared by desktop and mobile */
+html:root .sidebar-brand-sticker{display:none!important}
+html:root .brandbar{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+}
+html:root .mobile-brand{
+  box-sizing:border-box!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex:0 0 130px!important;
+  width:130px!important;
+  min-width:130px!important;
+  max-width:130px!important;
+  height:46px!important;
+  min-height:46px!important;
+  margin:0!important;
+  padding:0 10px!important;
+  border-radius:15px!important;
+}
+html:root .mobile-brand-copy{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex-direction:row!important;
+  width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+}
+html:root .life-pay-wordmark{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:0!important;
+  white-space:nowrap!important;
+  color:#f5fff9!important;
+  font-family:"Century Gothic","Avenir Next","Segoe UI",sans-serif!important;
+  font-size:19px!important;
+  font-weight:650!important;
+  line-height:1!important;
+  letter-spacing:.065em!important;
+  text-shadow:0 0 8px rgba(135,255,211,.18)!important;
+}
+html:root .life-pay-letter{
+  display:inline-block!important;
+  color:inherit!important;
+  animation:lifePayLetterWave 4.8s ease-in-out infinite!important;
+  animation-delay:calc(var(--letter-index,0) * 85ms)!important;
+  transform-origin:50% 80%!important;
+  will-change:transform,color,text-shadow;
+}
+html:root .life-pay-word-gap{display:inline-block!important;width:.28em!important}
+@keyframes lifePayLetterWave{
+  0%,72%,100%{transform:translateY(0);color:#f5fff9;text-shadow:0 0 5px rgba(135,255,211,.12)}
+  8%{transform:translateY(-2px);color:#a8ffda;text-shadow:0 0 11px rgba(70,242,177,.58)}
+  18%{transform:translateY(0);color:#f5fff9;text-shadow:0 0 6px rgba(135,255,211,.18)}
+}
+@media(max-width:850px){
+  html:root .brandbar{
+    justify-content:space-between!important;
+    min-height:64px!important;
+    padding:8px 12px!important;
+    gap:8px!important;
+  }
+  html:root .mobile-brand{
+    flex-basis:130px!important;
+    width:130px!important;
+    min-width:130px!important;
+    max-width:130px!important;
+    height:46px!important;
+    min-height:46px!important;
+  }
+  html:root .top-meta{margin-left:auto!important;min-width:0!important}
+}
+@media(max-width:390px){
+  html:root .mobile-brand{
+    flex-basis:120px!important;
+    width:120px!important;
+    min-width:120px!important;
+    max-width:120px!important;
+    height:43px!important;
+    min-height:43px!important;
+  }
+  html:root .life-pay-wordmark{font-size:17px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html:root .life-pay-letter{animation:none!important;transform:none!important}
+}
+
+/* DARK THEME ONLY: deep navy glass with refined emerald accents */
+:root[data-theme="dark"]{
+  color-scheme:dark!important;
+  --text:#eef6ff!important;
+  --muted:#a8bad0!important;
+  --green:#19c995!important;
+  --green-l:#123d3b!important;
+  --green-d:#079b73!important;
+  --blue:#4da3ff!important;
+  --purple:#a28bff!important;
+  --orange:#e8bd79!important;
+  --bg:#071426!important;
+  --glass-bg:linear-gradient(145deg,rgba(20,42,67,.88),rgba(8,24,43,.94) 58%,rgba(12,39,57,.88))!important;
+  --shadow:0 9px 30px rgba(0,7,18,.34),inset 0 1px 0 rgba(224,240,255,.09)!important;
+  --shadow-hover:0 17px 40px rgba(0,7,18,.42),0 0 22px rgba(25,201,149,.10),inset 0 1px 0 rgba(224,240,255,.14)!important;
+  --pin-bg:radial-gradient(ellipse at 12% 12%,rgba(62,145,231,.20),transparent 38%),radial-gradient(ellipse at 90% 85%,rgba(25,201,149,.15),transparent 42%),linear-gradient(145deg,#071426,#102943 58%,#071c2c)!important;
+  --pin-card-bg:linear-gradient(145deg,rgba(22,47,73,.96),rgba(8,25,44,.97))!important;
+  --pin-border:rgba(133,180,222,.24)!important;
+  --pin-text:#eef6ff!important;
+  --pin-muted:#a8bad0!important;
+  --pin-key-bg:rgba(185,220,255,.07)!important;
+  --pin-key-border:rgba(151,195,235,.19)!important;
+  --pin-key-color:#f3f8ff!important;
+}
+:root[data-theme="dark"] body{
+  color:var(--text)!important;
+  background:
+    radial-gradient(ellipse at 8% 8%,rgba(46,127,214,.20),transparent 35%),
+    radial-gradient(ellipse at 91% 25%,rgba(15,158,125,.13),transparent 38%),
+    radial-gradient(ellipse at 50% 100%,rgba(25,86,142,.16),transparent 46%),
+    #071426!important;
+  background-attachment:fixed!important;
+}
+:root[data-theme="dark"] .wave-bg{
+  opacity:.19!important;
+  filter:hue-rotate(190deg) saturate(1.25) brightness(.48)!important;
+}
+:root[data-theme="dark"] .blobs{
+  opacity:.22!important;
+  filter:blur(60px) hue-rotate(185deg) saturate(1.3)!important;
+}
+:root[data-theme="dark"] .shell{
+  color:var(--text)!important;
+  background:linear-gradient(145deg,rgba(12,34,57,.91),rgba(5,19,36,.95) 60%,rgba(10,34,52,.91))!important;
+  border-color:rgba(125,174,218,.20)!important;
+  box-shadow:0 14px 58px rgba(0,7,18,.40),inset 0 1px 0 rgba(230,243,255,.08)!important;
+}
+:root[data-theme="dark"] .brandbar{border-bottom-color:rgba(129,174,215,.16)!important}
+:root[data-theme="dark"] .sidebar,
+:root[data-theme="dark"] .glass,
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .filterbar,
+:root[data-theme="dark"] .income-overview,
+:root[data-theme="dark"] .month-wrap,
+:root[data-theme="dark"] .table-toolbar,
+:root[data-theme="dark"] dialog,
+:root[data-theme="dark"] .toast,
+:root[data-theme="dark"] .plan-filter-card,
+:root[data-theme="dark"] .plan-history-inline{
+  color:var(--text)!important;
+  background:linear-gradient(145deg,rgba(20,43,68,.82),rgba(8,25,44,.91) 62%,rgba(12,37,57,.86))!important;
+  border-color:rgba(128,174,216,.19)!important;
+  box-shadow:var(--shadow)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(150%)!important;
+  backdrop-filter:blur(24px) saturate(150%)!important;
+}
+:root[data-theme="dark"] .sidebar{
+  background:linear-gradient(160deg,rgba(14,39,64,.95),rgba(5,19,35,.97))!important;
+}
+:root[data-theme="dark"] .pagebar h1{
+  background:linear-gradient(100deg,#f4f8ff 0%,#a7d1ff 62%,#b6f5df 100%)!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  color:transparent!important;
+}
+:root[data-theme="dark"] .navbtn{color:#b6c9de!important}
+:root[data-theme="dark"] .navbtn:hover:not(.active){
+  color:#f1f7ff!important;background:rgba(25,201,149,.08)!important;
+}
+:root[data-theme="dark"] .navbtn.active{
+  color:#f2fff9!important;
+  background:linear-gradient(110deg,rgba(7,125,97,.46),rgba(13,69,79,.54))!important;
+  border-color:rgba(65,220,173,.30)!important;
+  box-shadow:0 7px 22px rgba(0,112,91,.20),inset 0 1px 0 rgba(225,255,246,.12)!important;
+}
+:root[data-theme="dark"] .month-wrap,
+:root[data-theme="dark"] .icon-btn,
+:root[data-theme="dark"] .theme-toggle,
+:root[data-theme="dark"] .life-theme-menu{
+  color:var(--text)!important;
+  background:linear-gradient(145deg,rgba(22,47,73,.92),rgba(8,25,44,.94))!important;
+  border-color:rgba(128,174,216,.22)!important;
+  box-shadow:var(--shadow)!important;
+}
+:root[data-theme="dark"] .month-wrap select{color:var(--text)!important}
+:root[data-theme="dark"] .pill{
+  color:#c8d9eb!important;background:rgba(156,195,232,.07)!important;
+  border-color:rgba(128,174,216,.18)!important;
+}
+:root[data-theme="dark"] .pill.ok{
+  color:#8af0c8!important;background:rgba(14,166,113,.16)!important;
+  border-color:rgba(65,220,164,.30)!important;
+}
+:root[data-theme="dark"] .pill.warn{
+  color:#f3d69b!important;background:rgba(207,155,61,.12)!important;
+  border-color:rgba(207,155,61,.22)!important;
+}
+:root[data-theme="dark"] .pill.err{
+  color:#ff9ba5!important;background:rgba(200,50,70,.13)!important;
+  border-color:rgba(200,50,70,.24)!important;
+}
+:root[data-theme="dark"] .hero,
+:root[data-theme="dark"] .hero.blue,
+:root[data-theme="dark"] .priority-status-card,
+:root[data-theme="dark"] .finance-hero,
+:root[data-theme="dark"] .profit-hero,
+:root[data-theme="dark"] .bank-card{
+  color:var(--text)!important;
+  background:
+    radial-gradient(ellipse at 96% 4%,rgba(63,146,226,.16),transparent 38%),
+    radial-gradient(ellipse at 4% 100%,rgba(25,201,149,.07),transparent 42%),
+    linear-gradient(145deg,rgba(22,45,71,.96),rgba(8,24,43,.97) 60%,rgba(12,34,54,.96))!important;
+  border-color:rgba(128,174,216,.23)!important;
+  box-shadow:var(--shadow)!important;
+}
+:root[data-theme="dark"] .hero::after,
+:root[data-theme="dark"] .priority-status-card::after,
+:root[data-theme="dark"] .bank-card::after{
+  background:rgba(62,151,232,.13)!important;
+}
+:root[data-theme="dark"] .hero-metric,
+:root[data-theme="dark"] .income-overview .income-kpis .kpi,
+:root[data-theme="dark"] .bank-summary-grid .kpi,
+:root[data-theme="dark"] .home-summary .kpi,
+:root[data-theme="dark"] .kpi,
+:root[data-theme="dark"] .mini-glass,
+:root[data-theme="dark"] .finance-metric-card,
+:root[data-theme="dark"] .finance-total,
+:root[data-theme="dark"] .profit-total,
+:root[data-theme="dark"] .profit-kpis>div,
+:root[data-theme="dark"] .priority-count-row>span,
+:root[data-theme="dark"] .priority-index,
+:root[data-theme="dark"] .priority-stat,
+:root[data-theme="dark"] .plan-result,
+:root[data-theme="dark"] .plan-history-item,
+:root[data-theme="dark"] .security-stat{
+  color:var(--text)!important;
+  background:linear-gradient(150deg,rgba(153,202,245,.075),rgba(17,54,83,.24))!important;
+  border-color:rgba(128,174,216,.18)!important;
+  box-shadow:0 5px 17px rgba(0,9,22,.20),inset 0 1px 0 rgba(231,244,255,.08)!important;
+}
+:root[data-theme="dark"] .income-overview{
+  background:linear-gradient(145deg,rgba(17,43,68,.96),rgba(7,24,43,.97) 62%,rgba(11,39,58,.94))!important;
+  border-color:rgba(76,171,239,.22)!important;
+}
+:root[data-theme="dark"] .income-overview::before{
+  background:linear-gradient(90deg,#0eb985,#29d7a0,#5ce6bb)!important;
+}
+:root[data-theme="dark"] .income-overview .kpi:nth-child(5){
+  background:linear-gradient(145deg,rgba(9,112,83,.30),rgba(8,45,54,.48))!important;
+  border-color:rgba(60,224,161,.30)!important;
+}
+:root[data-theme="dark"] .income-overview .kpi:nth-child(5) strong,
+:root[data-theme="dark"] .kpi strong,
+:root[data-theme="dark"] .hero-metric b,
+:root[data-theme="dark"] .mini-glass b,
+:root[data-theme="dark"] .profit-total strong,
+:root[data-theme="dark"] .bank-revenue,
+:root[data-theme="dark"] .finance-metric-value,
+:root[data-theme="dark"] .finance-total-value,
+:root[data-theme="dark"] .hero-big,
+:root[data-theme="dark"] .priority-count-row strong{
+  color:#f0f7ff!important;
+}
+:root[data-theme="dark"] .finance-total-value,
+:root[data-theme="dark"] .hero-big{
+  background:linear-gradient(110deg,#f5f9ff,#a8d5ff 62%,#a7f4d8)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;
+}
+:root[data-theme="dark"] .mini-glass,
+:root[data-theme="dark"] .result-catalog,
+:root[data-theme="dark"] .priority-other-row{
+  color:var(--text)!important;
+  background:rgba(151,196,235,.055)!important;
+  border-color:rgba(128,174,216,.18)!important;
+}
+:root[data-theme="dark"] .priority-other-row:hover,
+:root[data-theme="dark"] .priority-other-row.active{background:rgba(25,201,149,.12)!important}
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] .field input,
+:root[data-theme="dark"] .filterbar input,
+:root[data-theme="dark"] .filterbar select,
+:root[data-theme="dark"] .month-wrap select,
+:root[data-theme="dark"] .plan-filter-controls select{
+  color:#eef6ff!important;
+  background:linear-gradient(180deg,rgba(19,43,68,.96),rgba(8,25,44,.98))!important;
+  border-color:rgba(128,174,216,.24)!important;
+}
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder{color:#91a9c2!important}
+:root[data-theme="dark"] select option{color:#eef6ff!important;background:#102943!important}
+:root[data-theme="dark"] input:focus,
+:root[data-theme="dark"] textarea:focus,
+:root[data-theme="dark"] select:focus{
+  border-color:#24d5a0!important;box-shadow:0 0 0 3px rgba(36,213,160,.16)!important;
+}
+:root[data-theme="dark"] .btn,
+:root[data-theme="dark"] .tabs button,
+:root[data-theme="dark"] .legend button,
+:root[data-theme="dark"] .life-theme-menu-choice{
+  color:#eaf3ff!important;
+  background:linear-gradient(145deg,rgba(25,52,80,.88),rgba(9,29,50,.94))!important;
+  border-color:rgba(128,174,216,.20)!important;
+}
+:root[data-theme="dark"] .btn.primary,
+:root[data-theme="dark"] .auth-submit,
+:root[data-theme="dark"] .finance-hero-actions .btn,
+:root[data-theme="dark"] .tabs button.active,
+:root[data-theme="dark"] .life-theme-menu-choice.selected{
+  color:#f4fff9!important;
+  background:linear-gradient(110deg,#087e5c,#12b981 58%,#087e5c)!important;
+  border-color:rgba(110,255,195,.48)!important;
+  box-shadow:0 8px 23px rgba(0,155,105,.25),inset 0 1px 0 rgba(238,255,248,.20)!important;
+}
+:root[data-theme="dark"] .btn:not(:disabled):hover,
+:root[data-theme="dark"] .icon-btn:hover,
+:root[data-theme="dark"] .theme-toggle:hover{filter:brightness(1.12)!important}
+:root[data-theme="dark"] .big-progress{
+  background:linear-gradient(180deg,#102e49,#123b53)!important;
+  box-shadow:inset 0 2px 6px rgba(0,0,0,.30)!important;
+}
+:root[data-theme="dark"] .progress,
+:root[data-theme="dark"] .priority-track,
+:root[data-theme="dark"] .plan-history-track{background:rgba(145,185,222,.17)!important}
+:root[data-theme="dark"] .progress i,
+:root[data-theme="dark"] .priority-track i,
+:root[data-theme="dark"] .big-progress i,
+:root[data-theme="dark"] .plan-history-track i,
+:root[data-theme="dark"] .plan-history-track b{
+  background:linear-gradient(90deg,#079b73,#19c995,#82f0c5)!important;
+  box-shadow:0 0 11px rgba(39,215,160,.30)!important;
+}
+:root[data-theme="dark"] .tabs{background:rgba(8,26,45,.91)!important;border-color:rgba(128,174,216,.18)!important}
+:root[data-theme="dark"] .tabs button{color:#afc5dc!important}
+:root[data-theme="dark"] .tabs button:hover:not(.active){color:#f1f7ff!important;background:rgba(25,201,149,.10)!important}
+:root[data-theme="dark"] .table-wrap{
+  color:var(--text)!important;background:rgba(7,24,43,.88)!important;
+  border-color:rgba(128,174,216,.20)!important;
+}
+:root[data-theme="dark"] .table-wrap th{
+  color:#e0efff!important;background:rgba(17,45,72,.97)!important;
+  border-bottom-color:rgba(128,174,216,.20)!important;
+}
+:root[data-theme="dark"] .table-wrap td{color:#dbe8f7!important;border-bottom-color:rgba(128,174,216,.12)!important}
+:root[data-theme="dark"] .table-wrap tbody tr:hover{background:rgba(25,201,149,.075)!important}
+:root[data-theme="dark"] .chart-svg text{fill:#c0d3e8!important}
+:root[data-theme="dark"] .chart-svg .axis-label,
+:root[data-theme="dark"] .chart-svg .x-label{fill:#9bb2ca!important}
+:root[data-theme="dark"] .chart-svg .gridline{stroke:rgba(139,180,220,.20)!important;opacity:1!important}
+:root[data-theme="dark"] .chart-svg .axis-base{stroke:rgba(151,190,226,.34)!important}
+:root[data-theme="dark"] .chart-svg .chart-line{stroke:#4da3ff!important}
+:root[data-theme="dark"] .chart-svg .chart-area{fill:rgba(77,163,255,.13)!important}
+:root[data-theme="dark"] .chart-svg .chart-bar{fill:#328fe8!important}
+:root[data-theme="dark"] .donut .center-label{fill:#d5e8fb!important}
+:root[data-theme="dark"] .legend button{color:#c0d3e8!important}
+:root[data-theme="dark"] .legend button:hover{background:rgba(25,201,149,.12)!important}
+:root[data-theme="dark"] .empty{
+  color:var(--muted)!important;background:rgba(145,185,222,.035)!important;
+  border-color:rgba(128,174,216,.18)!important;
+}
+:root[data-theme="dark"] .empty strong{color:var(--text)!important}
+:root[data-theme="dark"] .switchrow{border-bottom-color:rgba(128,174,216,.13)!important}
+:root[data-theme="dark"] dialog{color:var(--text)!important;background:rgba(7,24,43,.98)!important;border-color:rgba(128,174,216,.22)!important}
+:root[data-theme="dark"] dialog::backdrop{background:rgba(0,7,18,.76)!important}
+:root[data-theme="dark"] .toast{color:var(--text)!important;background:rgba(8,29,50,.98)!important;border-color:rgba(128,174,216,.22)!important}
+:root[data-theme="dark"] .footer{border-top-color:rgba(128,174,216,.17)!important;color:#a4bad1!important}
+:root[data-theme="dark"] .save-status{color:#7cf0bc!important}
+:root[data-theme="dark"] .save-status.error{color:#ff9ba5!important}
+:root[data-theme="dark"] .save-status.waiting{color:#f3d69b!important}
+:root[data-theme="dark"] .inactive-warning{
+  color:#f3d69b!important;background:rgba(120,91,32,.18)!important;border-color:rgba(220,177,86,.24)!important;
+}
+:root[data-theme="dark"] .mobile-brand{
+  background:linear-gradient(135deg,#0a1d35 0%,#123451 58%,#075443 100%)!important;
+  border:1px solid rgba(72,220,174,.48)!important;
+  box-shadow:0 10px 28px rgba(0,7,18,.34),0 0 17px rgba(25,201,149,.11),inset 0 1px 0 rgba(225,243,255,.18)!important;
+}
+:root[data-theme="dark"] #pinScreen{
+  background:var(--pin-bg)!important;color:var(--pin-text)!important;
+}
+:root[data-theme="dark"] #pinScreen .auth-brand-sticker{
+  background:linear-gradient(135deg,#0a1d35,#123b55 58%,#075443)!important;
+  border-color:rgba(72,220,174,.40)!important;
+  box-shadow:0 20px 42px rgba(0,20,39,.38),0 0 0 6px rgba(25,201,149,.07),inset 0 1px 0 rgba(237,247,255,.18)!important;
+}
+:root[data-theme="dark"] #pinScreen .auth-password-wrap{
+  background:rgba(151,196,235,.07)!important;
+  border-color:rgba(128,174,216,.24)!important;
+  box-shadow:inset 0 1px 0 rgba(231,244,255,.08),0 8px 24px rgba(0,12,27,.20)!important;
+}
+:root[data-theme="dark"] #pinScreen .auth-password-wrap:focus-within{
+  border-color:rgba(36,213,160,.74)!important;
+  box-shadow:0 0 0 4px rgba(36,213,160,.14),0 12px 28px rgba(0,50,44,.22)!important;
+}
+:root[data-theme="dark"] #pinScreen .auth-reveal{
+  color:#bdebd9!important;background:rgba(121,226,181,.10)!important;
+}
+:root[data-theme="dark"] #pinScreen .auth-reveal:hover{
+  color:#f0fff8!important;background:rgba(121,226,181,.18)!important;
+}
+:root[data-theme="dark"] .pin-card{
+  background:var(--pin-card-bg)!important;border-color:var(--pin-border)!important;
+  box-shadow:0 32px 80px rgba(0,12,28,.48),inset 0 1px 0 rgba(220,240,255,.12)!important;
+}
+:root[data-theme="dark"] .pin-title,
+:root[data-theme="dark"] .pin-brand-name{color:var(--pin-text)!important}
+:root[data-theme="dark"] .pin-sub{color:var(--pin-muted)!important}
+:root[data-theme="dark"] .pin-key{
+  color:var(--pin-key-color)!important;background:var(--pin-key-bg)!important;
+  border-color:var(--pin-key-border)!important;
+}
+:root[data-theme="dark"] .pin-dot.filled{
+  background:linear-gradient(135deg,#a5ffd7,#19c995)!important;border-color:#19c995!important;
+  box-shadow:0 0 14px rgba(25,201,149,.44)!important;
+}
+:root[data-theme="dark"] .auth-submit{
+  color:#f4fff9!important;background:linear-gradient(110deg,#087e5c,#10b981 58%,#087e5c)!important;
+  border:1px solid rgba(110,255,195,.48)!important;
+  box-shadow:0 10px 26px rgba(0,155,105,.25),inset 0 1px 0 rgba(238,255,248,.20)!important;
+}
+:root[data-theme="dark"] .life-theme-entry{border-top-color:rgba(128,174,216,.17)!important}
+:root[data-theme="dark"] .life-theme-entry-title{color:#a4bad1!important}
+:root[data-theme="dark"] .life-theme-choice{
+  color:#dcecff!important;background:rgba(151,196,235,.06)!important;
+  border-color:rgba(128,174,216,.18)!important;
+}
+:root[data-theme="dark"] .life-theme-choice.selected{
+  color:#effff8!important;background:rgba(16,185,129,.20)!important;
+  border-color:rgba(83,235,177,.48)!important;
+  box-shadow:0 0 0 2px rgba(8,169,111,.14)!important;
+}
+:root[data-theme="dark"] .life-theme-menu-choice:hover,
+:root[data-theme="dark"] .life-theme-menu-choice.selected{
+  color:#effff8!important;background:linear-gradient(110deg,#087e5c,#10a978)!important;
+  border-color:rgba(110,255,195,.42)!important;
+}
+:root[data-theme="dark"] .life-theme-dock,
+:root[data-theme="dark"] #lifePayThemeDock{color:var(--text)!important}
+@media(max-width:600px){
+  :root[data-theme="dark"] .sidebar{
+    background:linear-gradient(160deg,rgba(14,39,64,.96),rgba(5,19,35,.98))!important;
+    border-color:rgba(128,174,216,.20)!important;
+    box-shadow:0 8px 28px rgba(0,12,28,.38),inset 0 1px 0 rgba(220,240,255,.10)!important;
+    -webkit-backdrop-filter:blur(24px) saturate(150%)!important;
+    backdrop-filter:blur(24px) saturate(150%)!important;
+  }
+}
+</style>
+
+
+<style id="lifePayFinalDarkLogoNavyCorrection">
+/* Highest-specificity final override: navy plaque, emerald edge, no emblem/ring animation. */
+html:root[data-theme="dark"] .mobile-brand{
+  background:linear-gradient(135deg,#08182d 0%,#102b48 58%,#075342 100%)!important;
+  border:1px solid rgba(65,216,169,.46)!important;
+  box-shadow:0 10px 28px rgba(0,7,18,.38),0 0 16px rgba(25,201,149,.10),inset 0 1px 0 rgba(225,243,255,.18)!important;
+}
+html:root[data-theme="dark"] .mobile-brand::before,
+html:root[data-theme="dark"] .mobile-brand::after{
+  content:none!important;
+  display:none!important;
+  animation:none!important;
+}
+html:root[data-theme="dark"] .life-pay-wordmark,
+html:root[data-theme="dark"] .life-pay-letter{
+  color:#f5fbff!important;
+  text-shadow:0 0 7px rgba(74,225,178,.22)!important;
+}
+html:root[data-theme="dark"] .life-pay-letter{
+  animation:lifePayLetterWave 4.8s ease-in-out infinite!important;
+  animation-delay:calc(var(--letter-index,0) * 85ms)!important;
+}
+@media(prefers-reduced-motion:reduce){
+  html:root[data-theme="dark"] .life-pay-letter{animation:none!important}
+}
+</style>
+
 </head>
 <body>
 
@@ -6819,12 +7887,7 @@ html:root[data-theme="ubuntu"] .mobile-brand-wordmark{
 <div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="shell">
   <header class="brandbar">
-    <div class="mobile-brand" aria-label="Life Pay">
-      <span class="mobile-brand-mark">
-        <img src="data:image/png;base64,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" alt="Life Pay" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('logo-fallback')">
-      </span>
-      <span class="mobile-brand-copy"><img class="mobile-brand-wordmark" src="data:image/png;base64,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" alt="Life Pay"><span class="life-brand-bars" aria-hidden="true"><i></i><i></i><i></i></span></span>
-    </div>
+    <div class="mobile-brand" aria-label="Life Pay"><span class="mobile-brand-copy"><span class="life-pay-wordmark" aria-label="Life Pay"><span class="life-pay-letter" style="--letter-index:0">L</span><span class="life-pay-letter" style="--letter-index:1">i</span><span class="life-pay-letter" style="--letter-index:2">f</span><span class="life-pay-letter" style="--letter-index:3">e</span><span class="life-pay-word-gap" aria-hidden="true"></span><span class="life-pay-letter" style="--letter-index:4">P</span><span class="life-pay-letter" style="--letter-index:5">a</span><span class="life-pay-letter" style="--letter-index:6">y</span></span></span></div>
     <div class="top-meta">
       <button type="button" class="theme-toggle lock-app-btn" id="lockApp" title="Выйти из приложения" aria-label="Выйти из приложения"><svg class="exit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg><span class="theme-label">Выйти</span></button>
       <span id="topSave" class="pill ok">Загрузка</span>
@@ -6832,12 +7895,7 @@ html:root[data-theme="ubuntu"] .mobile-brand-wordmark{
   </header>
   <div class="workspace">
     <aside class="sidebar">
-      <div class="sidebar-brand-sticker" aria-label="Life Pay">
-        <div class="sidebar-lifepay-wrap">
-          <span class="life-brand-bars" aria-hidden="true"><i></i><i></i><i></i></span>
-          <img class="sidebar-lifepay-logo" src="data:image/png;base64,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" alt="Life Pay" loading="eager" decoding="async">
-        </div>
-      </div>
+      
       <nav id="navigation" aria-label="Основная навигация"></nav>
     </aside>
     <main class="main">
@@ -6902,7 +7960,7 @@ html:root[data-theme="ubuntu"] .mobile-brand-wordmark{
   const ubuntuFavicon='data:image/png;base64,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';
   const labels={light:'Светлая',dark:'Тёмная',ubuntu:'Burgundy'};
   const symbols={light:'☼',dark:'☾',ubuntu:'✦'};
-  const barColors={light:'#ffffff',dark:'#0b1320',ubuntu:'#210932'};
+  const barColors={light:'#ffffff',dark:'#031b17',ubuntu:'#210932'};
   const themes=['light','dark','ubuntu'];
   // Keep the theme control independent from the header and anchor it at the lower-left edge.
   const themeToggle=document.getElementById('themeToggle');
