@@ -6450,6 +6450,149 @@ html:root[data-theme="ubuntu"] #pinThemeToggle .theme-icon{color:#ffc0d8!importa
 }
 </style>
 
+
+<style id="lifePayThemeLogoPalette">
+/* Life Pay wordmark and its plaque now follow the active app theme.
+   The lettering stays high-contrast; the plaque, rim and glow change per theme. */
+
+/* LIGHT — emerald brand plaque on the pale interface. */
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .mobile-brand,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .sidebar-lifepay-wrap,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .auth-brand-sticker,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .brand-logo-tile{
+  background:linear-gradient(135deg,#064b3d 0%,#087e5c 56%,#075342 100%)!important;
+  border-color:rgba(91,231,181,.56)!important;
+  box-shadow:0 10px 26px rgba(0,116,82,.22),inset 0 1px 0 rgba(255,255,255,.24)!important;
+}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .mobile-brand-wordmark,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .sidebar-lifepay-logo,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .auth-brand-sticker img{
+  filter:brightness(0) invert(1) drop-shadow(0 1px 5px rgba(75,255,196,.22))!important;
+  -webkit-filter:brightness(0) invert(1) drop-shadow(0 1px 5px rgba(75,255,196,.22))!important;
+}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .mobile-brand-copy small,
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .auth-brand-caption{
+  color:#b7ffe2!important;
+  -webkit-text-fill-color:#b7ffe2!important;
+  text-shadow:0 1px 3px rgba(0,30,20,.34)!important;
+}
+
+/* DARK — midnight blue / graphite plaque with a cool blue rim. */
+html:root[data-theme="dark"] .mobile-brand,
+html:root[data-theme="dark"] .sidebar-lifepay-wrap,
+html:root[data-theme="dark"] .auth-brand-sticker,
+html:root[data-theme="dark"] .brand-logo-tile{
+  background:linear-gradient(135deg,#101a2a 0%,#263b55 56%,#14263b 100%)!important;
+  border-color:rgba(161,203,245,.42)!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.34),0 0 20px rgba(102,170,232,.10),inset 0 1px 0 rgba(255,255,255,.16)!important;
+}
+html:root[data-theme="dark"] .mobile-brand-wordmark,
+html:root[data-theme="dark"] .sidebar-lifepay-logo,
+html:root[data-theme="dark"] .auth-brand-sticker img{
+  filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(157,205,255,.28))!important;
+  -webkit-filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(157,205,255,.28))!important;
+}
+html:root[data-theme="dark"] .mobile-brand-copy small,
+html:root[data-theme="dark"] .auth-brand-caption{
+  color:#b9dcff!important;
+  -webkit-text-fill-color:#b9dcff!important;
+  text-shadow:0 1px 3px rgba(0,0,0,.45)!important;
+}
+
+/* BURGUNDY — preserve the wine-red identity with a soft rose highlight. */
+html:root[data-theme="ubuntu"] .mobile-brand,
+html:root[data-theme="ubuntu"] .sidebar-lifepay-wrap,
+html:root[data-theme="ubuntu"] .auth-brand-sticker,
+html:root[data-theme="ubuntu"] .brand-logo-tile{
+  background:linear-gradient(135deg,#31091f 0%,#742448 56%,#3b1029 100%)!important;
+  border-color:rgba(255,190,216,.58)!important;
+  box-shadow:0 12px 30px rgba(45,0,22,.34),0 0 22px rgba(225,83,145,.13),inset 0 1px 0 rgba(255,255,255,.22)!important;
+}
+html:root[data-theme="ubuntu"] .mobile-brand-wordmark,
+html:root[data-theme="ubuntu"] .sidebar-lifepay-logo,
+html:root[data-theme="ubuntu"] .auth-brand-sticker img{
+  filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(255,190,216,.24))!important;
+  -webkit-filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(255,190,216,.24))!important;
+}
+html:root[data-theme="ubuntu"] .mobile-brand-copy small,
+html:root[data-theme="ubuntu"] .auth-brand-caption{
+  color:#ffd0e1!important;
+  -webkit-text-fill-color:#ffd0e1!important;
+  text-shadow:0 1px 3px rgba(25,0,12,.45)!important;
+}
+
+/* Keep the compact wordmark crisp and visible at all phone widths. */
+.mobile-brand{isolation:isolate!important}
+.mobile-brand-wordmark{opacity:1!important;visibility:visible!important}
+@media(prefers-reduced-motion:reduce){
+  .mobile-brand,.sidebar-lifepay-wrap,.auth-brand-sticker{animation:none!important}
+}
+</style>
+
+
+<style id="lifePayMobileLogoMatchDesktop">
+/* Mobile brand plaque uses the same deep finish as the desktop Life Pay logo. */
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .mobile-brand{
+  background:linear-gradient(145deg,#17343c 0%,#0e242d 62%,#203e45 100%)!important;
+  border:1px solid rgba(255,255,255,.28)!important;
+  border-radius:17px!important;
+  padding:6px 10px!important;
+  box-shadow:0 9px 22px rgba(13,37,49,.20),inset 0 1px 0 rgba(255,255,255,.28)!important;
+}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .mobile-brand-mark{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .mobile-brand-mark img{
+  filter:brightness(0) invert(1)!important;
+  -webkit-filter:brightness(0) invert(1)!important;
+}
+html:root:not([data-theme="dark"]):not([data-theme="ubuntu"]) .mobile-brand-wordmark{
+  filter:brightness(0) invert(1)!important;
+  -webkit-filter:brightness(0) invert(1)!important;
+  opacity:1!important;
+}
+
+/* Dark theme: same deep blue palette as desktop, with cool glass edging. */
+html:root[data-theme="dark"] .mobile-brand{
+  background:linear-gradient(145deg,#101a2a 0%,#263b55 56%,#14263b 100%)!important;
+  border:1px solid rgba(161,203,245,.42)!important;
+  border-radius:17px!important;
+  padding:6px 10px!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.34),0 0 20px rgba(102,170,232,.10),inset 0 1px 0 rgba(255,255,255,.16)!important;
+}
+html:root[data-theme="dark"] .mobile-brand-mark{
+  background:transparent!important;border:0!important;box-shadow:none!important;
+}
+html:root[data-theme="dark"] .mobile-brand-mark img,
+html:root[data-theme="dark"] .mobile-brand-wordmark{
+  filter:brightness(0) invert(1)!important;-webkit-filter:brightness(0) invert(1)!important;opacity:1!important;
+}
+
+/* Burgundy: preserve the original wine palette; only match the mobile treatment. */
+html:root[data-theme="ubuntu"] .mobile-brand{
+  background:linear-gradient(135deg,#31091f 0%,#742448 56%,#3b1029 100%)!important;
+  border:1px solid rgba(255,190,216,.58)!important;
+  border-radius:17px!important;
+  padding:6px 10px!important;
+  box-shadow:0 12px 30px rgba(45,0,22,.34),0 0 22px rgba(225,83,145,.13),inset 0 1px 0 rgba(255,255,255,.22)!important;
+}
+html:root[data-theme="ubuntu"] .mobile-brand-mark{
+  background:transparent!important;border:0!important;box-shadow:none!important;
+}
+html:root[data-theme="ubuntu"] .mobile-brand-mark img,
+html:root[data-theme="ubuntu"] .mobile-brand-wordmark{
+  filter:brightness(0) invert(1)!important;-webkit-filter:brightness(0) invert(1)!important;opacity:1!important;
+}
+
+.mobile-brand-copy{min-width:0!important}
+.mobile-brand-wordmark{display:block!important;max-width:100%!important}
+@media(max-width:600px){
+  .mobile-brand{max-width:calc(100vw - 150px)!important;gap:7px!important}
+}
+</style>
+
 </head>
 <body>
 
