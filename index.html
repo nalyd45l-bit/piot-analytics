@@ -7402,6 +7402,10 @@ html:root .life-pay-wordmark{
   letter-spacing:.065em!important;
   text-shadow:0 0 8px rgba(135,255,211,.18)!important;
 }
+html:root img.life-pay-wordmark{
+  display:block!important;width:100px!important;max-width:100%!important;height:28px!important;object-fit:contain!important;
+  filter:brightness(0) invert(1) drop-shadow(0 0 5px rgba(135,255,211,.18))!important;
+}
 html:root .life-pay-letter{
   display:inline-block!important;
   color:inherit!important;
@@ -7845,7 +7849,7 @@ html:root[data-theme="dark"] .life-pay-letter{
   <button type="button" class="theme-toggle" id="pinThemeToggle" aria-label="Переключить тему" aria-pressed="false"><span class="theme-icon">☾</span><span class="theme-label">Тёмная тема</span></button>
   <div class="pin-card auth-card">
     <div class="auth-brand-sticker">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAAAlCAYAAADBRzJ7AAAKLUlEQVR42u2ce7BVdRXHP+cCxsMXIA8BAV+AiKgB5rvJB4mhKEaKiVljk6k5iZU5WZHZiNpMM2WamY+mYCTsQamVOlFIooyCgqagPBQvKYi8BYF7v/1x1u6uu91n798+51x8zP7O7GGffddv/R57/dZvvTYlSV0ooxlosH+xewDRGiXeC7nncm22xeg6JTwrUOD/ghcJkmLCpQoCqNjfZXyagXdigudRCGGBRLSPabJIOL2QlTKEkhiPToXgFciLkqS49iolCJ2cUHU2rVcIXIE2EcS4Hdc5xUZUIYAF6n00V0KkBQsHo8BucVbIcCi2VXA8ChRo06O5QIEP1NEc4VPOXlwMrK3DUb0XsI/d7wTeLF5FoRGzaF4BDrb7ScCfgU019nsWcC/QHVgNjAZeCGw7AjjXNsjh5jz9F3ga+BnwVM6xjAJOBYYDB5i50ggsAv4FPL6b30k/oD/Q1Tb8GuD5OvLfG9gX6ABsBd6ogU9HG+Pm3aER28UcmFI9NkCCY5SFwcBU4JwKizIYuBCYAVwLvJbB7zDge8BJtiE6xv4+FrjMBPtGYGEbCl8n4GzgeGAIsL8Jy7vAW6YMFgAPAKuq4N/R5nksMMw23J7AOmA58IRtuKWB/PoDjwKDgLdtzGsD2y4EjnJ8yvORlHWtVAsukLRXQJus62xJ643n65IGZ9CfZnShWC7puBR+50hanIPfi5LG1mHeSddoSdMkrQkYx8OSzszJf4SkuyRtzeD9gqQvSeoUwHOgpFes3VuS9ssxnudcn/2i5yEasaEtTIIU7RjHcOBuoK971gjcY1qiB3AEcLrtTIADgVuBCXZse3zRNOFA92yVaZuXgCbTGJ+1ox/jewfQxTRuvXABcL3rB2AJsNJMlq7AAPv7HsAY4BB7Pi2A/5nALY5/k/FdC+wwO70X0A0Yaut8nI3pzYz357NpzVW++6aWMzFbgr0mOk/SnnXQAuMkbTSejZIOSaF9KLZzvy2pawJdF0lTJe0wuhWSTk7QrMsdr3ckfcV2eJxfP0kTJa1y9I0ZmjavplrkeK+UdL2N+UDTTL0ljZJ0paQFjvY1W8M0/ufFTrMlkn5sz4fb/E6UdJmkByVtc7T32XpW4n2Ira8kra3wPipdL7p+ekXPQxo2xgSxS50F8XVJB1egO1nSOtf/lIBJT5J0vKRuCX97xPFaL+ncgLGeKulV125WnQRxluP5tJkLafTHx8a/WNL+FWiHSFrqaGdLGpPB/yZJb7s2V6TQDnIbNK8gvuT66FGtII4LtCFCBHGzE8QDK9D9UNJOo3vO2xRVXJ80eybCpBxtL3LjbZZ0ZI3z/5zbiG+anRjS7qiYbVtJWO5yNAsDbPDo+pGkd63dqpT1HuIE8S1J++aYu98g3aPnDTm95uY62oilAL5HOM/+IWBjDX2OM9sK4Eng7zna/hZ41o19dI3zv8Q8fYDbgUcC2z1rdtw2Z+/GsR9whvs9xezOEHwHmO/CSJ+pQLfDvb89coZ8OiTZiO2rWMR65J0VKIj7uPuLgdMsAN7kJhIZy7cDf0jpc4hzvAYY/TZa6ig9r6aE370dr5E1zn+Yu/9Nzrb3AN+0kM8Ic6x8SOfTFvqJQiWzcvKfaXw7mbNzZwLNOvfO9gJ6AhsCeA81hw+jf7faOGJTG2jE5hS+H3P3fWOecxx/y+izm7vfHzivwgaJb46oFtPv5INqmPtg9zI2WhwvDzZZ7K6P/T44JoiDXUx0XhXjexzYYoJ4DMlFLxtNkA6w3+cCNwfwnuDew4ueb0Og9goNtVSrEXcGBr5Dx1npOAndICXbgO1ss3aI0e1Rw9y7uM29s0oePrO1b0JwPOK/tQrejW4T9k4I9Ed4zK35VWZGpWEQ8Hk3tpl5MysbLFYX2R/10ogNAQJXik18ob08r1EjPnMz+vRxsWWWvttu7UtuTHL3pYRxNORIR2bF0rpbhmNLzvb7xLRTXEib7N12q3GjpG3wn5smHGja+V7gCxXW5jAzEXrZ77eB+/IK4krgULv/uNlhm+ugEf39zoBg+kzglzX0+W9buEjTTYkdaZ1jmjot6L6lxvk3OL4jgX/maNvLTIsI8bTcElvP9lXassc60yFNEJdZUH2ys1fnmIA9akfvUHOcvkzrMsJrgfWtJSLb3b4uFkgdFtCmV0YqcJwLPL+aEoea7/q+tMaQSX8XgpGkCW2Ussu6RsbGcX/O9lMshCRJzyT8vYfF9iKMqiG+qYAExn2StgSmSndZUP09fEJsxL+Y3YAZp5PNIK6ET5hHeiVwZIBWCNWIu2rUQq8Bv3e/b8qYR4SBsaOwHmgXCyuND2x3tB1/kYa+I4FmrYWnIlxHeFHzGEuVkiNkd4mlU5en2OG7zDS6AvhG8hkZtku+a9Ic4SFLvvc37ddX0qGSxsfSSqsk9amgEZtdaqtzhX59WuviOmij/pLeiI1vYgr9pRYQflbSHZYaq3UMoyRtj2mKlwLmd4qkOa7NghTaE2MZqRt8FqPCdYKkZQlaLHReA01O5tu6rpG0WtJcSZOz2udZwIcTBvmgpF9LeiyhOmZLSj7UC+KKlD69IF5Up6PxTJc9kKQNkv4q6evWx9WSfmEL6F/m2joJ4shY/xFWS7rbBPJoSYfbNV7SrTEhWWqpx9AsiSRNl3SSz+9K2tuyWpfHjvNqBDF+9c5Dn+dTgYHAbcAJCSGDpOPhaymVKuOAP9n9ipS4nK9dmwjcX6ejcYzx2ts922pHSwcz1r2DsgK4uorgcCXTZa45EzsoVwcNiAWLX3ax1UEuagHlAuDvAw8H9DUVuNyCzlAusn3GHJzNtu5D3RpHHm23gIjGDeb1y6p1QgPa4y0+vAD4Y96j2V9XmfpdbVpvl1WxrDPHY7rlRLPqEaMc8sspdAvdzjy/zk7DQZJujiX649gu6baM6qC81zGSmpxpcIYZ/FnYbnWLI3P29y1Jzwfwb5I0T9I1gRrRV9GE1mpOdW3u9H+rJsX3U7tONeN5gDkziy0qH/IZwTbbDVmB4XnGrz3ZFdd5sdzCCD+hXPV9omn9Ei3l+TOob5l+XMvssIzQPMqV4KdbYLiTaZr1NpalpkF+VUVftxj/SywM18ecr47uJFhtoZcfWJ+TTdulJRSeoqX+83zgwYCxnOXun2y1IMVXfK2wp3nqm9qwj2No+a5mGeVCVx8jHGRCUrJxrKkiDVgJfSgXyfY386qdCeETsT6us7WAciFEEsZS/n4p+g8XRtpmqYQLaV3M2xP3eUEhiLsfXhCX0/Jh2ocRi1xqr5FykcSiBLrRFgaMTsDplu7LlVkp0DbH8kcBVwK/M03eF3jOjtzZluobBZxC6zz0GuCrcUaFIL6/+LAfR3OAa8w77+dShMdWoH/DfItNaZmLAoXwVYNplD+FnU3509d4SV+ThYoeoJwj/0/iMVHYiO8LzrF45TrgHx+heY2iXHPY05RcVKk0I8vhKgSxwAcCxdFc4AOB/wGvfDzvGYjQGQAAAABJRU5ErkJggg==" alt="LIFE PAY" loading="lazy" decoding="async">
+      <img class="_logo_1k160_78" alt="LIFE&nbsp;PAY" src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" onerror="this.onerror=null;this.src='data:image/png;base64,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'" loading="lazy" decoding="async">
     </div>
     <div class="pin-title">Добро пожаловать</div>
     <div class="pin-sub">Введите пароль, чтобы открыть аналитику</div>
@@ -7887,7 +7891,7 @@ html:root[data-theme="dark"] .life-pay-letter{
 <div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="shell">
   <header class="brandbar">
-    <div class="mobile-brand" aria-label="Life Pay"><span class="mobile-brand-copy"><span class="life-pay-wordmark" aria-label="Life Pay"><span class="life-pay-letter" style="--letter-index:0">L</span><span class="life-pay-letter" style="--letter-index:1">i</span><span class="life-pay-letter" style="--letter-index:2">f</span><span class="life-pay-letter" style="--letter-index:3">e</span><span class="life-pay-word-gap" aria-hidden="true"></span><span class="life-pay-letter" style="--letter-index:4">P</span><span class="life-pay-letter" style="--letter-index:5">a</span><span class="life-pay-letter" style="--letter-index:6">y</span></span></span></div>
+    <div class="mobile-brand" aria-label="Life Pay"><span class="mobile-brand-copy"><img class="_logo_1k160_78 life-pay-wordmark" alt="LIFE&nbsp;PAY" src="https://life-pay.ru/assets/lifepay-logo-BlyhidjW.svg" onerror="this.onerror=null;this.src='data:image/png;base64,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'"></span></div>
     <div class="top-meta">
       <button type="button" class="theme-toggle lock-app-btn" id="lockApp" title="Выйти из приложения" aria-label="Выйти из приложения"><svg class="exit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg><span class="theme-label">Выйти</span></button>
       <span id="topSave" class="pill ok">Загрузка</span>
@@ -8299,7 +8303,29 @@ function validateConfig(raw){
   });
   return out;
 }
-function isInvoice(r,c){return contains(r.taskStatus,c.invoice);}
+// ЕСП без задачи: нормализуем только явно обозначенные записи этого листа.
+function normalizeNoEspRecord(r){
+  if(!r||typeof r!=='object'||Array.isArray(r))return r;
+  var source=norm(r.source),sheet=norm(r.sheetName||r.sheet||r.sourceSheet);
+  if(source!=='noesp'&&source!=='отсутствует задача есп'&&source!=='лист «отсутствует задача есп»'&&sheet!=='отсутствует задача есп')return r;
+  var out=Object.assign({},r,{source:'noesp'});
+  // GAS может вернуть сумму числом, строкой или под заголовком столбца.
+  // Не складываем альтернативные поля: это одна и та же сумма строки.
+  var fields=['amount','sum','espAmount','noEspAmount','amountEsp','amountRub','paymentAmount','totalAmount','сумма','сумма есп','сумма, руб.','сумма, ₽','сумма оплаты'];
+  var keys=Object.keys(r), values=[];
+  fields.forEach(function(field){
+    keys.filter(function(key){return norm(key)===norm(field);}).forEach(function(key){
+      if(r[key]==null||String(r[key]).trim()==='')return;
+      var value=amount(r[key]);
+      if(value!==null)values.push(value);
+    });
+  });
+  out.amount=values.find(function(v){return v!==0;})||0;
+  // Дату берём только из явно обозначенного поля, без подстановки текущего месяца.
+  out.date=parseDate(r.date)||parseDate(r.paymentDate)||parseDate(r['Дата'])||parseDate(r['Дата оплаты'])||'';
+  return out;
+}
+function isInvoice(r,c){return r.source!=='noesp'&&contains(r.taskStatus,c.invoice);}
 function matchesStatus(text,keys){
   text=norm(text);
   if(/(?:^|\s)(?:не)\s+(?:выполн|закры|заверш|установ)/.test(text)||
@@ -8488,7 +8514,7 @@ function csv(rows,cols){
 }
 return{FIELDS,BANKS,norm,contains,validMonth,parseDate,amount,defaults,validateConfig,
   isInvoice,isDone,isClosed,hasApplication,paymentDestination,isPaidInstallation,bucket,bank,rev,summary,emptyMonth,validatePatch,
-  monthly,eventSummary,activityPeriods,filter,income,periodKey,periods,csv};
+  monthly,eventSummary,activityPeriods,filter,income,periodKey,periods,csv,normalizeNoEspRecord};
 })();
 </script>
 
@@ -9964,6 +9990,9 @@ async function load(force){
     const d=await rpc('apiGetData');
     if(!d||!Array.isArray(d.records)||!d.ledger||!d.config||!Array.isArray(d.months))
       throw Error('Сервер вернул неполные данные. Проверьте функцию apiGetData() в Code.gs');
+    d.records=d.records.map(Piot.normalizeNoEspRecord);
+    // Месяцы ЕСП должны быть доступны во всех фильтрах, даже без обычных заявок.
+    d.months=[...new Set(d.months.concat(d.records.filter(r=>r.source==='noesp').map(r=>(r.date||'').slice(0,7)).filter(Piot.validMonth)))];
     if(!s.loaded){
       const available=d.months.filter(Piot.validMonth).slice().sort();
       s.month=Piot.validMonth(d.currentMonth)&&available.includes(d.currentMonth) ? d.currentMonth : (available[available.length-1]||'');
@@ -10094,6 +10123,7 @@ async function handleClick(e){
     else if(el.hasAttribute('data-noesp-table')){
       Object.keys(s.filter).forEach(k=>s.filter[k]='');
       s.filter.source='noesp';
+      s.installation=''; s.paid=''; s.bankRecognizedOnly=false;
       await navigate('table');
     }
     else if(el.hasAttribute('data-plan-reset')){s.planStatus='';s.planResult='';render({fx:false});}
