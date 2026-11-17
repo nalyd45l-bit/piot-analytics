@@ -7985,6 +7985,55 @@ html:root[data-theme="dark"] .life-pay-letter{
 
 </style>
 <style>.previous-profit-stats{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:700px){.previous-profit-stats{grid-template-columns:1fr}}</style>
+<style>
+/* Expense rows carry their own month; pending tasks have their own payment state. */
+#page .sp-work-status-card{padding:22px 24px;margin-bottom:20px;border:1px solid rgba(61,118,189,.19);border-radius:23px;background:linear-gradient(125deg,rgba(245,250,255,.97),rgba(232,241,255,.8));box-shadow:0 10px 28px rgba(37,73,119,.065);color:var(--text)}
+.sp-work-status-heading{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.sp-work-status-heading>div:first-child{flex:1 1 380px;min-width:0}
+.sp-work-status-kicker{display:inline-flex;align-items:center;gap:7px;font-size:9px;font-weight:850;letter-spacing:1.3px;color:#426d9d;margin-bottom:8px}
+.sp-work-status-kicker i{display:block;width:6px;height:6px;border-radius:50%;background:#5c8fe6;box-shadow:0 0 0 4px rgba(92,143,230,.09)}
+.sp-work-status-heading h2{font:750 19px/1.4 Hint,Arial,sans-serif;letter-spacing:-.35px;margin:0;color:var(--text)}
+.sp-work-status-heading p{font-size:11px;line-height:1.65;color:var(--muted);margin:7px 0 0}
+.sp-work-status-value{min-width:160px;text-align:right}
+.sp-work-status-value strong{display:block;font:800 34px/1.2 Hint,Arial,sans-serif;letter-spacing:-1px;color:var(--text);font-variant-numeric:tabular-nums}
+.sp-work-status-value>span{display:block;color:var(--muted);font-size:10px;margin-top:6px;line-height:1.6}
+.sp-work-status-heading .btn{min-height:40px;font-size:11px}
+.sp-work-status-months{border-top:1px solid rgba(83,128,177,.15);padding-top:13px;margin-top:16px}
+.sp-work-status-months summary{font-size:11px;font-weight:700;color:var(--muted);cursor:pointer}
+.sp-work-status-months .table-wrap{margin-top:12px}
+#page .expense-editor-v4{padding:25px;border:1px solid rgba(103,142,164,.17);border-radius:24px;background:rgba(255,255,255,.48);margin-bottom:20px}
+#page .expense-editor-v4 .profit-calculator-title{align-items:flex-start;gap:16px}
+#page .expense-editor-v4 .profit-calculator-title h3{font-size:25px;line-height:1.25;letter-spacing:-.6px}
+#page .expense-editor-v4 .profit-calculator-title p{font-size:11px;line-height:1.7;max-width:650px;color:var(--muted)}
+.expense-month-badge{display:inline-block;flex:0 0 auto;padding:8px 12px;border:1px solid rgba(44,169,126,.2);border-radius:10px;background:rgba(33,172,125,.055);color:var(--green);font-size:11px;font-weight:750}
+#page .expense-editor-v4 .expense-row-v4{display:grid;grid-template-columns:minmax(150px,1.5fr) minmax(110px,.8fr) minmax(155px,.75fr) 34px;align-items:end;gap:12px;padding:15px;border:1px solid rgba(110,142,167,.14);border-radius:15px;background:rgba(255,255,255,.25);margin-bottom:11px}
+#page .expense-editor-v4 .expense-row-v4 label{min-width:0;font-size:10px;font-weight:700;line-height:1.6;color:var(--muted)}
+#page .expense-editor-v4 .expense-row-v4 input{width:100%;box-sizing:border-box;min-width:0;min-height:42px;margin-top:6px;font-size:12px;border-radius:10px}
+#page .expense-editor-v4 .profit-calc-delete{min-width:34px;width:34px;min-height:42px;margin:0}
+.expense-month-empty{display:grid;grid-template-columns:28px 1fr;align-items:center;column-gap:10px;padding:22px;border:1px dashed rgba(64,151,120,.25);border-radius:15px;background:rgba(30,170,120,.025);margin-bottom:13px}
+.expense-month-empty>span{grid-row:1/3;display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:rgba(29,165,113,.09);color:var(--green);font-size:14px}
+.expense-month-empty strong{font-size:13px;color:var(--text);line-height:1.5}
+.expense-month-empty p{font-size:11px;color:var(--muted);line-height:1.65;margin:4px 0 0}
+.expense-transfer-notice{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin:0 0 18px;padding:12px 15px;border:1px solid rgba(33,160,118,.2);border-radius:12px;background:rgba(33,160,118,.045);color:var(--text);font-size:11px;line-height:1.7}
+.expense-transfer-notice button{border:0;background:transparent;color:var(--green);font:750 11px/1.5 Hint,Arial,sans-serif;cursor:pointer;padding:3px 0}
+.expense-save-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:14px}
+#page .expense-save-row .profit-calc-save{margin:0;min-height:42px}
+#page .expense-save-row .profit-save-state{flex:1 1 320px;border:0;background:none;margin:0;padding:0;font-size:10px;line-height:1.7}
+#page .profit-month-context{display:inline-flex;align-items:center;padding:5px 10px;border:1px solid rgba(83,149,145,.18);border-radius:8px;background:rgba(40,147,128,.035);font-size:11px;font-weight:700;letter-spacing:.1px;margin:11px 0 8px}
+#page#page .profit-calc-results>div>strong.is-loss,#page#page .profit-kpis>div>strong.is-loss,#page#page strong[data-profit-preview-net].is-loss{color:#c6445d!important;-webkit-text-fill-color:#c6445d!important}
+#page#page [data-net-state='loss'] .finance-total-value{color:#c6445d!important;-webkit-text-fill-color:#c6445d!important;background:none!important}
+:root[data-theme='dark'] #page .sp-work-status-card{background:linear-gradient(125deg,#102b40,#16324e);border-color:rgba(117,163,218,.2)}
+:root[data-theme='dark'] .sp-work-status-kicker{color:#92b7e8}
+:root[data-theme='dark'] #page .expense-editor-v4{background:rgba(13,34,53,.55);border-color:rgba(130,168,197,.18)}
+:root[data-theme='dark'] #page .expense-editor-v4 .expense-row-v4{background:rgba(255,255,255,.018)}
+:root[data-theme='ubuntu'] #page .sp-work-status-card{background:linear-gradient(125deg,rgba(77,33,63,.65),rgba(64,27,54,.6));border-color:rgba(210,157,196,.2)}
+:root[data-theme='ubuntu'] .sp-work-status-kicker{color:#d2b1dc}
+:root[data-theme='ubuntu'] #page .expense-editor-v4{background:rgba(70,29,55,.3);border-color:rgba(200,149,177,.19)}
+:root[data-theme='ubuntu'] #page .expense-editor-v4 .expense-row-v4{background:rgba(255,255,255,.025)}
+@media(max-width:800px){#page .expense-editor-v4 .expense-row-v4{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 34px}#page .expense-editor-v4 .expense-row-v4 label:first-child{grid-column:1/3}#page .expense-editor-v4 .expense-row-v4 .profit-calc-delete{grid-column:3;grid-row:1/3;align-self:center}.sp-work-status-value{text-align:left}.sp-work-status-heading{gap:17px}}
+@media(max-width:520px){#page .sp-work-status-card,#page .expense-editor-v4{padding:18px;border-radius:20px}.sp-work-status-heading h2{font-size:17px}.sp-work-status-value strong{font-size:30px}.sp-work-status-heading .btn{width:100%;justify-content:center}.expense-month-badge{font-size:9px;padding:7px 9px}.expense-month-empty{padding:16px}.expense-save-row .profit-calc-save{width:100%}}
+
+</style>
 </head>
 <body>
 
@@ -8772,7 +8821,7 @@ const CHARTS = Object.create(null);
    API — прямой fetch к GAS (работает с GitHub Pages)
    ===================================================== */
 function rpc(name, arg){
-  const allowed = ['apiGetData','apiSaveMonth','apiSaveConfig','apiSaveProfit','apiGetProfit'];
+  const allowed = ['apiGetData','apiSaveMonth','apiSaveConfig','apiSaveProfit','apiSaveProfitBatch','apiGetProfit'];
   if(!allowed.includes(name)) return Promise.reject(Error('Метод не разрешён: '+name));
 
   // Если открыто внутри Apps Script
@@ -9419,12 +9468,12 @@ function taskStatusDashboard(){
 function financeHero(){
   const inc=scopedIncome(),result=scopedProfit(inc);
   const metrics=[
-    {label:'Выполненные задачи LP',value:cVal(inc.lp,true),color:'#22d092'},
-    {label:'ЕСП без задачи',value:cVal(inc.espNoTask,true),color:'#57b4ff'},
-    {label:'Доход ЕСП',value:cVal(inc.espManual,true),color:'#a279ff'},
+    {label:'Выполнено и оплачено LP',value:cVal(inc.lp,true),color:'#22d092'},
+    {label:'В работе у СП, Оплачено у LP',value:cVal(inc.workSp,true),color:'#5c8fe6'},
+    {label:'Доход ЕСП',value:cVal(inc.totalEsp,true),color:'#a279ff'},
     {label:'Клиенты оплатили СП',value:result.monthly?cVal(spPaymentTotal(s.month),true):'По месяцам',color:'#57b4ff'},
     {label:'Доход LP + ЕСП',value:cVal(inc.total,true),color:'#22d092'},
-    {label:'Расходы',value:result.monthly?cVal(result.expense,true):'По месяцам',color:'#d18a32'}
+    {label:'Расходы за '+periodName(),value:result.monthly?cVal(result.expense,true):'По месяцам',color:'#d18a32'}
   ];
   return `<section class="finance-hero finance-dashboard">
     <div class="finance-hero-top">
@@ -9443,7 +9492,7 @@ function financeHero(){
       <div class="finance-hero-actions"><button class="btn small" data-page="finance">Открыть финансы</button></div>
     </div>
     <div class="finance-hero-body">
-      <div class="finance-total-card liquid-glass-card">
+      <div class="finance-total-card liquid-glass-card" data-net-state="${result.monthly&&result.net!==null&&result.net<0?'loss':'profit'}">
         <div class="finance-total-kicker">${result.monthly?'Чистая прибыль LP':'Доход LP + ЕСП'}</div>
         <div class="finance-total-value" data-home-net>${cVal(result.monthly?result.net:inc.total,true)}</div>
         <div class="finance-total-note">${result.monthly?'Выполненные и оплаченные задачи LP + ЕСП − расходы.':'Чистая прибыль и расходы рассчитываются по месяцам.'}<br>LP: «Задача выполнена: клиент оплатил LP», по дате статуса.</div><button type="button" class="finance-net-link" data-page="profit">Расходы и расчёт прибыли →</button>
@@ -9466,6 +9515,18 @@ function incomeBlock(extraBtn){
   </div>`,'LP: только «Задача выполнена: клиент оплатил LP». ЕСП прибавляется к доходу; расходы вычитаются по месяцам.',
     extraBtn||'<button class="text-btn" data-page="profit">Расчёт прибыли →</button>'
   ).replace('<section class="glass card">','<section class="glass card income-overview">');
+}
+
+function spWorkStatusCard(){
+  const inc=scopedIncome();
+  const monthly=financePeriods(financeRows(),'month');
+  return `<section class="sp-work-status-card" aria-label="В работе у СП, Оплачено у LP">
+    <div class="sp-work-status-heading"><div><span class="sp-work-status-kicker"><i></i>ОПЛАТА ПОЛУЧЕНА</span><h2>В работе у СП, Оплачено у LP</h2><p>Оплата получена, задача остаётся в работе у СП. Период — по дате статуса.</p></div>
+      <div class="sp-work-status-value"><strong>${cVal(inc.workSp,true)}</strong><span>${number(inc.workSpCount)} задач · ${h(periodName())}</span></div>
+      <button type="button" class="btn" data-finance-stage="workSp" ${inc.workSpCount?'':'disabled'}>Открыть задачи →</button></div>
+    <details class="sp-work-status-months"><summary>Суммы по месяцам</summary><div class="table-wrap"><table><thead><tr><th>Месяц статуса</th><th>Сумма оплаты</th><th>Задач в работе</th></tr></thead>
+      <tbody>${monthly.map(row=>`<tr><td>${h(row.key==='Без даты'?row.key:monthLabel(row.key))}</td><td class="number">${rub(row.workSp)}</td><td>${number(row.workSpCount)}</td></tr>`).join('')}</tbody></table></div></details>
+  </section>`;
 }
 
 function monthBefore(month,offset=1){
@@ -9585,6 +9646,7 @@ function home(){
   const unpaid=rows().filter(r=>r.source==='main'&&Piot.hasApplication(r)&&!(Number(r.amount)>0)).length;
   let html=filters();
   html+=financeHero();
+  html+=spWorkStatusCard();
   html+=previousMonthProfitCard();
 
   html+=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
@@ -9793,6 +9855,7 @@ function finance(){
   const rr=financeRows(),ps=financePeriods(rr);
   let html=filters();
   html+=incomeBlock('<button class="text-btn" data-page="settings">Изменить суммы →</button>');
+  html+=spWorkStatusCard();
 
   html+=espSummaryCard();
   if(cfg().showCharts)html+=periodChart(rr,'Доход без СП по периодам');
@@ -9820,6 +9883,104 @@ const profitDirtyMonths=new Set();
 let profitSaving=false;
 let profitStorageWriteOk=true;
 const profitSyncMemory=Object.create(null);
+const PROFIT_MIGRATION_KEY='life_pay_expense_october_fix_v4';
+const PROFIT_BACKUP_KEY='life_pay_expense_backup_v4';
+let profitMigrationNotice=false;
+let expenseSequence=0;
+function newExpense(month,name='',amount=''){
+  const id=globalThis.crypto&&crypto.randomUUID?crypto.randomUUID():'expense-'+Date.now().toString(36)+'-'+(++expenseSequence);
+  return {id,month,name,amount:String(amount),schemaVersion:4};
+}
+function profitHasCorrection(){try{return localStorage.getItem(PROFIT_MIGRATION_KEY)==='done';}catch(e){return profitMigrationNotice;}}
+function profitNormalizeExpenses(){
+  const stored=profitReadLocal(),raw=Object.assign({},stored,s.profitLines);
+  Object.entries(cfg().monthlyExpenses||{}).forEach(([month,amount])=>{if(Piot.validMonth(month)&&amount!=null&&!Object.prototype.hasOwnProperty.call(raw,month))raw[month]=[{name:'Расходы',amount:String(amount)}];});
+  const before=JSON.stringify(raw),source='2026-11',target='2026-10';
+  const eligible=item=>item&&item.schemaVersion!==4&&Piot.amount(item.amount)===103350&&
+    ['сп','сп должны','расходы'].includes(Piot.norm(item.name));
+  let moved=false;
+  // The user explicitly identified this October expense. Restore it on a fresh
+  // installation only; an existing/cleared October ledger always takes priority.
+  if(!profitHasCorrection()&&!Object.prototype.hasOwnProperty.call(raw,target)&&!Object.prototype.hasOwnProperty.call(raw,source)){
+    try{if(!localStorage.getItem(PROFIT_BACKUP_KEY))localStorage.setItem(PROFIT_BACKUP_KEY,before);}catch(e){}
+    raw[target]=[Object.assign(newExpense(target,'СП за октябрь',103350),{id:'expense-october-2026-sp-103350'})];
+    raw[source]=[];moved=true;profitMigrationNotice=true;
+    [source,target].forEach(month=>{profitDirtyMonths.add(month);profitSyncWrite(month,'local');});
+  }
+  if(!profitHasCorrection()&&Array.isArray(raw[source])){
+    const at=raw[source].findIndex(eligible);
+    if(at!==-1){
+      try{if(!localStorage.getItem(PROFIT_BACKUP_KEY))localStorage.setItem(PROFIT_BACKUP_KEY,before);}catch(e){}
+      const item=raw[source][at];raw[source]=raw[source].filter((_,index)=>index!==at);
+      if(!Array.isArray(raw[target]))raw[target]=[];
+      const duplicate=raw[target].some(existing=>Piot.amount(existing.amount)===103350&&
+        ['сп','сп должны','расходы'].includes(Piot.norm(existing.name)));
+      if(!duplicate)raw[target].push(Object.assign({},item,{month:target}));
+      moved=true;profitMigrationNotice=true;
+      [source,target].forEach(month=>{profitDirtyMonths.add(month);profitSyncWrite(month,'local');});
+    }
+  }
+  const normalized=Object.create(null),ids=new Set();
+  Object.entries(raw).forEach(([bucket,items])=>{
+    if(!Piot.validMonth(bucket)||!Array.isArray(items))return;
+    normalized[bucket]=normalized[bucket]||[];
+    items.forEach(item=>{
+      if(!item||typeof item!=='object')return;
+      const owner=Piot.validMonth(item.month)?item.month:bucket;
+      const id=typeof item.id==='string'&&item.id?item.id:newExpense(owner).id;
+      if(ids.has(id))return;
+      ids.add(id);normalized[owner]=normalized[owner]||[];
+      normalized[owner].push({id,month:owner,name:String(item.name||'').slice(0,100),amount:String(item.amount==null?'':item.amount),schemaVersion:4});
+    });
+  });
+  s.profitLines=normalized;
+  // Empty source months are explicit; they must override stale server aggregates.
+  if(moved){s.profitLines[source]=s.profitLines[source]||[];s.profitLines[target]=s.profitLines[target]||[];}
+  profitStorageWriteOk=profitWriteLocal();
+  if(moved&&profitStorageWriteOk){try{localStorage.setItem(PROFIT_MIGRATION_KEY,'done');}catch(e){}}
+}
+function expenseLocate(id){
+  for(const [month,items]of Object.entries(s.profitLines)){
+    const index=Array.isArray(items)?items.findIndex(item=>item.id===id):-1;
+    if(index!==-1)return {month,index,item:items[index]};
+  }
+  return null;
+}
+function profitMarkMonths(months){
+  months.filter(Piot.validMonth).forEach(month=>{profitDirtyMonths.add(month);profitSyncWrite(month,'local');});
+  profitStorageWriteOk=profitWriteLocal();
+  if(!profitStorageWriteOk)toast('Расходы пока не сохранены: хранилище браузера недоступно.',true);
+  return profitStorageWriteOk;
+}
+function expenseChange(id,key,value){
+  const found=expenseLocate(id);if(!found)return;
+  if(key==='month'){
+    if(!Piot.validMonth(value))throw Error('Укажите месяц расхода');
+    if(value===found.month)return;
+    const destination=s.profitLines[value]||[];
+    if(destination.length>=40)throw Error('В месяце уже 40 статей расходов');
+    s.profitLines[found.month].splice(found.index,1);
+    found.item.month=value;destination.push(found.item);s.profitLines[value]=destination;
+    profitMarkMonths([found.month,value]);
+    s.data.months=[...new Set(s.data.months.concat(value))].sort();options();
+    render({fx:false});toast('Расход перенесён в '+monthLabel(value));return;
+  }
+  if(!['name','amount'].includes(key))return;
+  found.item[key]=String(value);profitMarkMonths([found.month]);profitShowPreview();
+}
+function expenseRemove(id){
+  const found=expenseLocate(id);if(!found)return;
+  s.profitLines[found.month].splice(found.index,1);profitMarkMonths([found.month]);render({fx:false});
+}
+function expensePendingMonths(){
+  const sync=profitSyncRead();
+  return [...new Set([...profitDirtyMonths,...Object.keys(sync).filter(month=>sync[month]&&sync[month].state==='local')])].filter(Piot.validMonth);
+}
+function expenseStorageText(month){
+  if((profitSyncRead()[month]||{}).state==='server')return 'Расходы за '+monthLabel(month)+' сохранены в Google Таблице';
+  return profitStorageWriteOk?'Расходы сохранены в этом браузере. Для синхронизации с Google Таблицей подключите серверный файл v4.':'Изменения не сохранены: хранилище браузера недоступно.';
+}
+
 function profitReadLocal(){
   try{const x=JSON.parse(localStorage.getItem(PROFIT_ITEMS_KEY)||'{}');return x&&typeof x==='object'&&!Array.isArray(x)?x:{};}
   catch(e){return {};}
@@ -9855,24 +10016,16 @@ function scopedProfit(inc){
   const monthly=s.periodMode==='month',expense=monthly?expenseForPeriod(s.month):null;
   return {monthly,expense,net:expense===null?null:inc.total-expense};
 }
-function profitPersistDraft(){
-  if(!s.month)return;
-  profitDirtyMonths.add(s.month);profitSyncWrite(s.month,'local');
-  profitStorageWriteOk=profitWriteLocal();
-  if(!profitStorageWriteOk)toast('Не удалось сохранить расходы на устройстве. Проверьте доступ к хранилищу браузера.',true);
-  return profitStorageWriteOk;
-}
-
+function profitPersistDraft(){return s.month?profitMarkMonths([s.month]):false;}
 function profitLinesFor(month){
   if(!month)return [];
   if(!Array.isArray(s.profitLines[month])){
-    const stored=profitReadLocal()[month];
-    s.profitLines[month]=Array.isArray(stored)&&stored.length
-      ?stored.slice(0,40).map(x=>({name:String(x.name||'Прочие расходы').slice(0,100),amount:String(x.amount||'')}))
-      :[{name:'Расходы',amount:String((cfg().monthlyExpenses||{})[month]||'')}];
+    const amount=(cfg().monthlyExpenses||{})[month];
+    s.profitLines[month]=amount==null?[]:[newExpense(month,'Расходы',amount)];
   }
   return s.profitLines[month];
 }
+
 function profitMoney(value){
   const n=Piot.amount(value);
   return n!=null&&n>=0?n:null;
@@ -9891,66 +10044,67 @@ function profitTotalFromLines(items){
 function profitShowPreview(){
   if(s.page!=='profit'||!s.month||!s.data)return;
   const expense=expenseForMonth(s.month),income=Piot.income(eventRows(),detailed()?{}:s.data.ledger,s.month,cfg()).total;
+  const net=expense===null?null:income-expense;
   $$('[data-profit-preview-expenses]').forEach(n=>n.textContent=expense===null?'Проверьте суммы':rub(expense));
-  $$('[data-profit-preview-net]').forEach(n=>n.textContent=expense===null?'—':rub(income-expense));
-  const caption=$('[data-profit-net-caption]');
-  if(caption)caption.textContent=expense===null?'Исправьте сумму расходов':income-expense<0?'Расходы превышают доходы':'Доход LP + ЕСП за вычетом расходов';
-  const error=$('[data-profit-validation]');if(error)error.textContent=expense===null?'Укажите неотрицательные суммы (до 1 трлн ₽).':'';
-  const state=$('[data-profit-storage]');if(state)state.textContent=profitStorageWriteOk?'Изменения сохранены на этом устройстве':'Изменения не сохранены: хранилище браузера недоступно. Подключите серверный файл.';
+  $$('[data-profit-preview-net]').forEach(n=>{n.textContent=net===null?'—':rub(net);n.classList.toggle('is-loss',net!==null&&net<0);});
+  const caption=$('[data-profit-net-caption]');if(caption)caption.textContent=net===null?'Проверьте сумму расходов':net<0?'Расходы превышают доходы':'Доход LP + ЕСП за вычетом расходов';
+  const error=$('[data-profit-validation]');if(error)error.textContent=expense===null?'Введите неотрицательные суммы расходов.':'';
+  const state=$('[data-profit-storage]');if(state)state.textContent=expenseStorageText(s.month);
 }
 
 async function saveProfitCalculator(){
   if(profitSaving)return;
-  if(!s.month)throw Error('Выберите месяц для сохранения.');
-  const month=s.month;
-  const items=profitLinesFor(month).map(x=>({name:String(x.name||'').trim().slice(0,100)||'Расходы',amount:profitMoney(x.amount||'0')}));
-  const total=profitTotalFromLines(items);
-  if(items.some(x=>x.amount===null)||total===null)throw Error('Проверьте суммы расходов.');
-  s.profitLines[month]=items.map(x=>({name:x.name,amount:String(x.amount)}));
-  const localSaved=profitWriteLocal();profitStorageWriteOk=localSaved;profitDirtyMonths.add(month);profitSyncWrite(month,'local');
-  profitSaving=true;
+  if(!s.month)throw Error('Выберите месяц расчёта');
+  const months=[...new Set(expensePendingMonths().concat(s.month))].sort();
+  const entries=months.map(month=>{
+    const items=profitLinesFor(month).filter(item=>String(item.name||'').trim()||String(item.amount||'').trim()).map(item=>({
+      id:item.id,month,schemaVersion:4,name:String(item.name||'Расходы').trim().slice(0,100),amount:profitMoney(item.amount||'0')
+    }));
+    if(items.some(item=>item.amount===null||item.month!==month)||profitTotalFromLines(items)===null)throw Error('Проверьте расходы за '+monthLabel(month));
+    const inc=Piot.income(s.data.records,s.data.ledger,month,cfg());
+    return {month,items,income:inc.total,sp:spPaymentForMonth(month)||0};
+  });
+  entries.forEach(entry=>{s.profitLines[entry.month]=entry.items.map(item=>Object.assign({},item,{amount:String(item.amount)}));});
+  const localSaved=profitMarkMonths(months);profitSaving=true;
   const button=$('[data-save-profit]');if(button){button.disabled=true;button.textContent='Сохранение…';}
-  const financial=Piot.income(s.data.records||[],s.data.ledger||{},month,cfg());
-  let serverSaved=false,serverUpdated='';
+  let saved=false;
   try{
-    try{
-      const result=await rpc('apiSaveProfit',{month,items,income:financial.total,sp:spPaymentForMonth(month)||0});
-      serverSaved=!!(result&&result.saved);serverUpdated=result&&result.updated||'';
-    }catch(e){}
-    if(!serverSaved){
-      try{
-        const config=JSON.parse(JSON.stringify(s.configDraft||cfg()));
-        config.monthlyExpenses=Object.assign({},config.monthlyExpenses,{[month]:total});
-        const saved=await rpc('apiSaveConfig',{config:Piot.validateConfig(config),revision:cfg().revision});
-        // Older Code.gs drops monthlyExpenses: never mistake that for a successful save.
-        serverSaved=!!(saved&&saved.monthlyExpenses&&Math.abs(Number(saved.monthlyExpenses[month])-total)<.005);
-        if(saved&&typeof saved==='object')s.data.config=saved;
-      }catch(e){}
+    let result;
+    try{result=await rpc('apiSaveProfitBatch',{entries});}catch(e){}
+    if(result&&result.saved){
+      const confirmations=Array.isArray(result.months)?result.months:entries.length===1?[result]:[];
+      saved=entries.every(entry=>confirmations.some(value=>value.month===entry.month&&Number.isFinite(Number(value.total))&&Math.abs(Number(value.total)-profitTotalFromLines(entry.items))<.005));
+      if(saved)entries.forEach(entry=>{
+        const current=profitLinesFor(entry.month).filter(item=>String(item.name||'').trim()||String(item.amount||'').trim()).map(item=>({id:item.id,month:entry.month,schemaVersion:4,name:String(item.name||'Расходы').trim().slice(0,100),amount:profitMoney(item.amount||'0')}));
+        if(JSON.stringify(current)!==JSON.stringify(entry.items))return;
+        profitDirtyMonths.delete(entry.month);
+        const confirmed=confirmations.find(value=>value.month===entry.month);
+        profitSyncWrite(entry.month,'server',confirmed.updated||result.updated||'');
+      });
     }
-    s.profitSheetConnected=serverSaved;
-    if(serverSaved){profitDirtyMonths.delete(month);profitSyncWrite(month,'server',serverUpdated);}
-    if(!localSaved&&!serverSaved)throw Error('Расходы не сохранены. Проверьте хранилище браузера и соединение с сервером.');
+    s.profitSheetConnected=saved;
+    if(!localSaved&&!saved)throw Error('Расходы не сохранены. Проверьте хранилище браузера и подключение сервера.');
     render({fx:false});
-    toast(serverSaved?'Расходы сохранены. Прибыль обновлена во всех разделах.':'Расчёт сохранён на этом устройстве. Для синхронизации подключите серверный файл расходов.');
-  }finally{profitSaving=false;const current=$('[data-save-profit]');if(current){current.disabled=false;current.textContent='Сохранить расчёт';}}
+    toast(saved?(expensePendingMonths().length?'Предыдущий вариант сохранён. Новые изменения ожидают сохранения.':'Расходы сохранены по своим месяцам. Переносы записаны без дублирования.'):'Расходы сохранены в этом браузере. Для сохранения переноса в Google Таблице подключите серверный файл v4.');
+  }finally{profitSaving=false;const current=$('[data-save-profit]');if(current){current.disabled=false;current.textContent='Сохранить расходы';}}
 }
 function profitCalculator(month,income){
-  if(!month)return `<section class="profit-expense-editor profit-expense-hint"><strong>Калькулятор расходов</strong><p>Выберите месяц в верхнем фильтре, чтобы вносить расходы и сохранять результат.</p></section>`;
-  const lines=profitLinesFor(month),expense=profitTotalFromLines(lines);
-  return `<section class="profit-calculator" aria-label="Калькулятор чистой прибыли">
-    <div class="profit-calculator-title"><div><span class="profit-calc-kicker">КАЛЬКУЛЯТОР</span><h3>Расходы за ${monthLabel(month)}</h3><p>Добавляйте статьи расходов: итог и чистая прибыль пересчитываются сразу.</p></div><span class="profit-calc-symbol">₽</span></div>
-    <div class="profit-calc-lines">${lines.map((line,i)=>`<div class="profit-calc-line">
-      <label>Статья расхода<input type="text" maxlength="100" data-profit-name="${i}" aria-label="Наименование расхода ${i+1}" value="${h(line.name)}" placeholder="Например, аренда"></label>
-      <label>Сумма, ₽<input type="text" inputmode="decimal" data-profit-amount="${i}" aria-label="Сумма расхода ${i+1}" value="${h(line.amount)}" placeholder="0,00"></label>
-      <button type="button" class="profit-calc-delete" data-profit-remove="${i}" aria-label="Удалить расход ${i+1}" title="Удалить">×</button>
-    </div>`).join('')}</div>
-    <button type="button" class="btn profit-calc-add" data-profit-add>＋ Добавить расход</button>
-    <div class="profit-calc-results"><div><span>Доход LP + ЕСП</span><b>${rub(income)}</b></div>
-      <div><span>Всего расходов</span><b data-profit-preview-expenses>${expense===null?'—':rub(expense)}</b></div>
-      <div class="profit-calc-result-main"><span>Чистая прибыль</span><strong data-profit-preview-net>${expense===null?'—':rub(income-expense)}</strong></div></div>
+  if(!month)return `<section class="profit-expense-editor profit-expense-hint"><strong>Расходы по месяцам</strong><p>Выберите месяц, чтобы добавить статью расхода. У каждой статьи есть свой месяц.</p></section>`;
+  const lines=profitLinesFor(month),expense=expenseForMonth(month),net=expense===null?null:income-expense;
+  return `<section class="profit-calculator expense-editor-v4" aria-label="Расходы с указанием месяца">
+    <div class="profit-calculator-title"><div><span class="profit-calc-kicker">РАСХОДЫ ПО МЕСЯЦАМ</span><h3>${h(monthLabel(month))}</h3><p>У каждой статьи свой месяц. Переключение верхнего фильтра не переносит расходы.</p></div><span class="expense-month-badge">${h(monthLabel(month))}</span></div>
+    ${profitMigrationNotice?`<div class="expense-transfer-notice">Расход ${rub(103350)} отнесён к октябрю 2026. В ноябре эта статья не вычитается.<button type="button" data-open-profit-month="2026-10">Открыть октябрь →</button></div>`:''}
+    <div class="profit-calc-lines">${lines.length?lines.map(line=>`<div class="profit-calc-line expense-row-v4" data-expense-row="${h(line.id)}">
+      <label>Статья расхода<input type="text" maxlength="100" data-expense-name="${h(line.id)}" aria-label="Название статьи расхода" value="${h(line.name)}" placeholder="Например, оплата СП"></label>
+      <label>Сумма, ₽<input type="text" inputmode="decimal" data-expense-amount="${h(line.id)}" aria-label="Сумма статьи расхода" value="${h(line.amount)}" placeholder="0,00"></label>
+      <label>Месяц расхода<input type="month" data-expense-month="${h(line.id)}" aria-label="Месяц статьи расхода" value="${line.month}" required></label>
+      <button type="button" class="profit-calc-delete" data-expense-remove="${h(line.id)}" aria-label="Удалить статью расхода">×</button>
+    </div>`).join(''):`<div class="expense-month-empty"><span>✓</span><strong>Расходов за ${h(monthLabel(month))} нет</strong><p>Добавьте статью и укажите месяц, к которому она относится.</p></div>`}</div>
+    <button type="button" class="btn profit-calc-add" data-profit-add>＋ Добавить расход за ${h(monthLabel(month))}</button>
+    <div class="profit-calc-results"><div><span>Доход LP + ЕСП</span><b>${rub(income)}</b></div><div><span>Расходы за ${h(monthLabel(month))}</span><b data-profit-preview-expenses>${rub(expense)}</b></div>
+      <div class="profit-calc-result-main"><span>Чистая прибыль LP</span><strong class="${net!==null&&net<0?'is-loss':''}" data-profit-preview-net>${rub(net)}</strong></div></div>
     <p class="profit-calc-error" data-profit-validation role="status" aria-live="polite"></p>
-    <button type="button" class="btn primary profit-calc-save" data-save-profit>Сохранить расчёт</button>
-    <p class="profit-calc-hint profit-save-state" data-profit-storage>${(profitSyncRead()[month]||{}).state==='server'?'Расчёт синхронизирован с сервером':profitStorageWriteOk?'Автосохранение в этом браузере. Для записи в Google Таблицу подключите серверный файл из комплекта.':'Данные не сохранены: хранилище браузера недоступно. Подключите серверный файл.'}</p>
+    <div class="expense-save-row"><button type="button" class="btn primary profit-calc-save" data-save-profit>Сохранить расходы</button><p class="profit-save-state" data-profit-storage>${h(expenseStorageText(month))}</p></div>
   </section>`;
 }
 
@@ -9983,6 +10137,7 @@ function cleanProfit(){
   const expenseInput=profitCalculator(s.month,income);
   let html=`<section class="profit-hero">
     <div class="profit-heading"><span class="profit-kicker">ФИНАНСОВЫЙ РЕЗУЛЬТАТ</span><h2>Чистая прибыль LP</h2>
+      <p class="profit-month-context">Расчёт за ${h(monthLabel(s.month))}</p>
       <p>Life Pay: только «Задача выполнена: клиент оплатил LP», по месяцу даты статуса. Плюс ЕСП, минус расходы. Оплата СП за настройку учитывается отдельно и редактируется в настройках.</p></div>
     <div class="profit-total">
       <span>${s.month?monthLabel(s.month):'За всё время'}</span>
@@ -9997,6 +10152,7 @@ function cleanProfit(){
   </section>`;
   html+=s.periodMode!=='month'?`<p class="period-month-note period-note-block">Расходы и чистая прибыль ведутся по месяцам. Дневной/недельный доход можно посмотреть в «Финансах»; расходы без даты нельзя корректно распределить на отдельные дни.</p>`:'';
 
+  html+=spWorkStatusCard();
   html+=expenseInput;
   html+=previousMonthProfitCard();
   if(!s.month&&rows.length){
@@ -10344,6 +10500,7 @@ async function load(force){
     if(force){ s.draft={}; s.invalid={}; s.saveError=''; }
     s.profitSheetLoaded=false;
     await fetchProfitSheet();
+    profitNormalizeExpenses();
     d.months=[...new Set(d.months.concat(profitMonthKeys(),Object.keys(SP_IMPORTED_MONTHS),Object.keys(spLocalRead())))].sort();
     options(); render();
   }catch(e){
@@ -10379,7 +10536,7 @@ async function fetchProfitSheet(){
       const stored=profitReadLocal();
       for(const item of result.entries){
         if(Piot.validMonth(item.month)&&Array.isArray(item.items)&&!profitDirtyMonths.has(item.month)&&(!Array.isArray(stored[item.month])||(profitSyncRead()[item.month]||{}).state==='server')){
-          s.profitLines[item.month]=item.items.slice(0,40).map(x=>({name:String(x.name||'Расходы'),amount:String(x.amount||0)}));
+          s.profitLines[item.month]=item.items.slice(0,40).map(x=>Object.assign({},x,{name:String(x.name||'Расходы'),amount:String(x.amount||0)}));
           profitSyncWrite(item.month,'server',item.updated||'');
         }
       }
@@ -10530,8 +10687,8 @@ async function handleClick(e){
       setTimeout(()=>URL.revokeObjectURL(url),1500); toast('Экспортировано: '+out.length+' строк');
     }
     else if(el.dataset.selectMonth) await changeMonth(el.dataset.selectMonth);
-    else if(el.hasAttribute('data-profit-add')){if(s.month&&profitLinesFor(s.month).length<40){profitLinesFor(s.month).push({name:'',amount:''});profitPersistDraft();render({fx:false});}}
-    else if(el.hasAttribute('data-profit-remove')){if(s.month){profitLinesFor(s.month).splice(Number(el.dataset.profitRemove),1);if(!profitLinesFor(s.month).length)profitLinesFor(s.month).push({name:'Расходы',amount:''});profitPersistDraft();render({fx:false});}}
+    else if(el.hasAttribute('data-profit-add')){if(s.month&&profitLinesFor(s.month).length<40){profitLinesFor(s.month).push(newExpense(s.month));profitMarkMonths([s.month]);render({fx:false});}}
+    else if(el.dataset.expenseRemove){expenseRemove(el.dataset.expenseRemove);}
     else if(el.hasAttribute('data-save-profit')) await saveProfitCalculator();
     else if(el.hasAttribute('data-save-config')) await saveConfig();
     else if(el.hasAttribute('data-reset-config')){
@@ -10568,14 +10725,15 @@ document.addEventListener('input',e=>{
       if(inp){ inp.focus(); try{inp.setSelectionRange(p,p);}catch(err){} }
     },280);
   }
-  else if(el.dataset.profitName!==undefined && s.month){profitLinesFor(s.month)[+el.dataset.profitName].name=el.value;profitPersistDraft();}
-  else if(el.dataset.profitAmount!==undefined && s.month){profitLinesFor(s.month)[+el.dataset.profitAmount].amount=el.value;profitPersistDraft();profitShowPreview();}
+  else if(el.dataset.expenseName){expenseChange(el.dataset.expenseName,'name',el.value);}
+  else if(el.dataset.expenseAmount){expenseChange(el.dataset.expenseAmount,'amount',el.value);}
   else if(el.dataset.config||el.dataset.rule||el.dataset.bankrule!=null||el.dataset.expenseMonth) configInput(el);
 });
 document.addEventListener('change',async e=>{
   const el=e.target;
   if(el.id==='month') await changeMonth(el.value);
   else if(el.id==='periodDate'){const date=isoDay(el.value);if(date){await flush();s.periodDate=date;s.month=date.slice(0,7);s.tablePage=1;options();render({fx:false});}}
+  else if(el.dataset.expenseMonth){try{expenseChange(el.dataset.expenseMonth,'month',el.value);}catch(error){toast(error.message,true);render({fx:false});}}
   else if(el.dataset.planStatus!==undefined){ s.planStatus=el.value; render({fx:false}); }
   else if(el.dataset.planResult!==undefined){ s.planResult=el.value; render({fx:false}); }
   else if(el.dataset.filter){ s.filter[el.dataset.filter]=el.value; s.tablePage=1; render({fx:false}); }
