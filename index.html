@@ -7899,6 +7899,56 @@ html:root[data-theme="dark"] .life-pay-letter{
 
 </style>
 <style>.paid-work-scroll-hint{display:none;font-size:10px;color:var(--muted);line-height:1.6;margin:0 0 10px}@media(max-width:800px){.paid-work-scroll-hint{display:block}}</style>
+<style>
+/* v2: one net-profit source, two explicit SP payment states. */
+.finance-net-link{display:inline-flex;align-items:center;align-self:flex-start;margin-top:14px;padding:0;border:0;background:none;color:var(--green);font:inherit;font-size:11px;font-weight:750;cursor:pointer;min-height:30px;text-align:left}
+.finance-net-link:focus-visible{outline:2px solid currentColor;outline-offset:4px;border-radius:4px}
+#page .sp-payment-panel{--work-accent:#315981;--work-tint:rgba(66,119,170,.055);--work-line:rgba(94,130,166,.18);padding:24px!important;border-radius:24px!important;background:var(--glass-bg)!important}
+.sp-payment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 22px}
+.sp-payment-tile{--sp-tone:#0c956b;--sp-bg:rgba(21,163,119,.055);padding:22px;border:1px solid color-mix(in srgb,var(--sp-tone),transparent 79%);border-radius:19px;background:var(--sp-bg);min-width:0;position:relative}
+.sp-payment-tile.working{--sp-tone:#3168b2;--sp-bg:rgba(49,104,178,.055)}
+.sp-payment-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-height:26px;margin-bottom:18px}
+.sp-payment-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--sp-tone);flex:0 0 8px;box-shadow:0 0 0 4px color-mix(in srgb,var(--sp-tone),transparent 90%)}
+.sp-payment-top h3{font:750 13px/1.4 Hint,Arial,sans-serif;color:var(--text);margin:0;min-width:0}
+.sp-payment-count{display:inline-block;margin-left:auto;font-size:10px;line-height:1.4;color:var(--sp-tone);border:1px solid color-mix(in srgb,var(--sp-tone),transparent 83%);border-radius:7px;padding:4px 7px;white-space:nowrap}
+.sp-payment-tile>strong{display:block;color:var(--text);font:800 clamp(28px,2.8vw,40px)/1.2 Hint,Arial,sans-serif;letter-spacing:-1px;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.sp-payment-tile>p{font-size:11px;line-height:1.65;color:var(--muted);margin:10px 0 16px;max-width:100%;overflow-wrap:anywhere}
+.sp-payment-tile .paid-work-link{color:var(--sp-tone)}
+#page .sp-payment-panel .paid-work-total strong{color:var(--text);font-size:28px}
+#page .sp-payment-panel .paid-work-table{min-width:720px}
+#page .sp-payment-panel .paid-work-table thead th:nth-child(2){color:#128267}
+#page .sp-payment-panel .paid-work-table thead th:nth-child(4){color:#3168b2}
+#page .profit-hero .profit-kpis>div>strong{font-size:clamp(21px,2.5vw,32px)!important;line-height:1.25!important;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;letter-spacing:-.5px}
+#page .income-kpis{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+:root[data-theme='dark'] #page .sp-payment-panel{--work-accent:#b2cee5;--work-tint:rgba(119,172,217,.07);--work-line:rgba(140,180,215,.2)}
+:root[data-theme='dark'] .sp-payment-tile{--sp-tone:#59d7ae;--sp-bg:rgba(31,153,117,.08)}
+:root[data-theme='dark'] .sp-payment-tile.working{--sp-tone:#7fb2f1;--sp-bg:rgba(66,111,165,.1)}
+:root[data-theme='ubuntu'] #page .sp-payment-panel{--work-accent:#913d65;--work-tint:rgba(155,66,105,.035);--work-line:rgba(155,66,105,.18)}
+:root[data-theme='ubuntu'] .sp-payment-tile{--sp-tone:#7b3566;--sp-bg:rgba(155,66,105,.04)}
+:root[data-theme='ubuntu'] .sp-payment-tile.working{--sp-tone:#7f589b;--sp-bg:rgba(127,88,155,.05)}
+@media(max-width:700px){
+ .sp-payment-grid{grid-template-columns:1fr;gap:12px}.sp-payment-tile{padding:18px}.sp-payment-top h3{font-size:13px}
+ #page .sp-payment-panel{padding:17px!important;border-radius:20px!important}
+ #page .income-kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+</style>
+<style>
+
+#page :is(.finance-dashboard,.finance-dashboard *,.sp-payment-panel,.sp-payment-panel *){content-visibility:visible!important;contain-intrinsic-size:none!important}
+#page .profit-hero .profit-kpis>div>strong>[data-count]{font:inherit!important;font-size:inherit!important;color:inherit!important;-webkit-text-fill-color:currentColor!important;letter-spacing:inherit!important;text-transform:none!important}
+#page .profit-hero .profit-kpis>div{background:rgba(255,255,255,.12)!important;border-color:rgba(120,150,175,.18)!important}
+#page .profit-hero .profit-kpis>div>strong{color:var(--text)!important;-webkit-text-fill-color:var(--text)!important}
+#page .profit-hero .profit-kpis>div>span,#page .profit-hero .profit-kpis>div>small{color:var(--muted)!important;-webkit-text-fill-color:var(--muted)!important}
+#page .profit-calculator .profit-calc-results>div{background:rgba(255,255,255,.12)!important;border:1px solid rgba(120,150,175,.2)!important}
+#page .profit-calculator .profit-calc-results>div>:is(span,b){color:var(--text)!important;-webkit-text-fill-color:var(--text)!important}
+#page .profit-calculator .profit-calc-results>div>strong{color:var(--green)!important;-webkit-text-fill-color:var(--green)!important}
+:root[data-theme="ubuntu"] #page .sp-payment-tile{--sp-tone:#c391b6;--sp-bg:rgba(185,130,168,.055)}
+:root[data-theme="ubuntu"] #page .sp-payment-tile.working{--sp-tone:#baa7df;--sp-bg:rgba(170,150,206,.055)}
+#page .finance-metric-card .finance-metric-value [data-count]{font:inherit!important;color:inherit!important;opacity:1!important}
+
+</style>
+<style>@media(max-width:700px){#page .filterbar.global-filterbar{position:static!important;top:auto!important}}</style>
 </head>
 <body>
 
@@ -8415,17 +8465,21 @@ function bank(r,c){
   return hits.length===1?hits[0].id:'';
 }
 // Единственное основание дохода LP: точный результат передачи задачи.
-function isLpIncome(r){return norm(r.taskStatus)==='задача выполнена: клиент оплатил lp';}
+function financeStatus(value){
+  return norm(value).replace(/[\u200b-\u200f\ufeff]/g,'').replace(/\blp\b/g,'lp').replace(/\bsp\b/g,'сп')
+    .replace(/[,:;：]+/g,' ').replace(/\s+/g,' ').trim();
+}
+function isLpIncome(r){return financeStatus(r.taskStatus)==='задача выполнена клиент оплатил lp';}
+function isSpDone(r){return financeStatus(r.taskStatus)==='задача выполнена клиент оплатил сп';}
+function isSpPending(r){return financeStatus(r.taskStatus)==='в работе у сп оплачено у lp';}
+function isSpPayment(r){return isSpDone(r)||isSpPending(r);}
 function received(r,c){var v=amount(r.amount);return v>0&&!isInvoice(r,c)?v:0;}
 function financialKind(r,c){
   if(isInvoice(r,c))return 'invoice';
   if(r.source==='noesp')return 'esp';
   if(isLpIncome(r))return 'lp';
-  var stage=norm(r.taskStatus);
-  if(stage==='в работе у сп')return 'workSp';
-  if(stage==='оплачено у lp')return 'paidLp';
-  if(isDone(r,c)&&bucket(r,c)==='sp')return 'sp';
-  if(/^в работе(?: |$)/.test(stage))return 'workOther';
+  if(isSpDone(r))return 'sp';
+  if(isSpPending(r))return 'workSp';
   return 'excluded';
 }
 function financialDate(r,c){
@@ -8435,9 +8489,9 @@ function financialDate(r,c){
   if(kind==='lp'||kind==='sp')return parseDate(r.dateStatus);
   return parseDate(r.dateStatus)||parseDate(r.date);
 }
-function rev(r,c){return ['lp','sp','esp'].includes(financialKind(r,c))?received(r,c):0;}
+function rev(r,c){return ['lp','esp'].includes(financialKind(r,c))?received(r,c):0;}
 function financialSummary(records,c){
-  var out={lp:0,sp:0,noesp:0,noespCount:0,revenue:0,paid:0,
+  var out={lp:0,lpCount:0,sp:0,spCount:0,spPaid:0,spPaidCount:0,noesp:0,noespCount:0,revenue:0,paid:0,
     pending:0,pendingCount:0,workSp:0,workSpCount:0,paidLp:0,paidLpCount:0,
     workOther:0,workOtherCount:0,excluded:0,excludedCount:0,undatedIncome:0};
   records.forEach(function(r){
@@ -8446,13 +8500,14 @@ function financialSummary(records,c){
     if(!v)return;
     if(r.source!=='noesp')out.paid++;
     if(kind==='esp')out.noesp+=v;
-    else if(kind==='lp'||kind==='sp')out[kind]+=v;
-    else if(['workSp','paidLp','workOther'].includes(kind)){
+    else if(kind==='lp'||kind==='sp'){out[kind]+=v;out[kind+'Count']++;}
+    else if(kind==='workSp'){
       out[kind]+=v;out[kind+'Count']++;out.pending+=v;out.pendingCount++;
     }else if(kind==='excluded'){out.excluded+=v;out.excludedCount++;}
     if(['lp','sp'].includes(kind)&&!financialDate(r,c))out.undatedIncome+=v;
   });
-  out.revenue=out.lp+out.sp+out.noesp;
+  out.spPaid=out.sp+out.workSp;out.spPaidCount=out.spCount+out.workSpCount;
+  out.revenue=out.lp+out.noesp;
   return out;
 }
 function hasApplication(r){
@@ -8483,7 +8538,7 @@ function paymentDestination(r){
   return lp&&!sp?'lp':sp&&!lp?'avtbiz':'';
 }
 function isPaidInstallation(r,kind,c){
-  return hasApplication(r) && !isInvoice(r,c||defaults()) && paymentDestination(r)===kind;
+  return r.source!=='noesp' && received(r,c||defaults())>0 && (kind==='avtbiz'?isSpPayment(r):isLpIncome(r));
 }
 function summary(records,c){
   var s={total:0,done:0,closed:0,paid:0,revenue:0,lp:0,sp:0,other:0,invoice:0,noesp:0,noespCount:0,unknownBank:0,undated:0};
@@ -8504,6 +8559,7 @@ function summary(records,c){
     if(b==='invoice'){s.invoice+=Math.max(0,r.amount);return;}
     s.revenue+=v;
     if(v&&r.source!=='noesp')s.paid++;
+    if(b==='sp')s.sp+=received(r,c);
     if(b==='esp')s.noesp+=v;
     else if(b==='lp')s.lp+=v;
     else if(b==='sp')s.sp+=v;
@@ -8616,7 +8672,7 @@ function csv(rows,cols){
     .join('\r\n');
 }
 return{FIELDS,BANKS,norm,contains,validMonth,parseDate,amount,defaults,validateConfig,
-  isInvoice,isDone,isClosed,isLpIncome,received,financialKind,financialDate,financialSummary,hasApplication,paymentDestination,isPaidInstallation,bucket,bank,rev,summary,emptyMonth,validatePatch,
+  isInvoice,isDone,isClosed,financeStatus,isLpIncome,isSpDone,isSpPending,isSpPayment,received,financialKind,financialDate,financialSummary,hasApplication,paymentDestination,isPaidInstallation,bucket,bank,rev,summary,emptyMonth,validatePatch,
   monthly,eventSummary,activityPeriods,filter,income,periodKey,periods,csv,normalizeNoEspRecord};
 })();
 </script>
@@ -9212,7 +9268,7 @@ function taskStatusDashboard(){
     {name:'Клиент сам установил',tone:'',index:'01',label:'РЕЗУЛЬТАТ № 1',caption:'Самостоятельная установка · количество клиентов'},
     {name:'Клиент настроен с нашей помощью',tone:'assist',index:'02',label:'РЕЗУЛЬТАТ № 2',caption:'Установка с помощью нашей команды'},
     {name:'Платные установки Life Pay',tone:'paid-lp',index:'03',label:'ПЛАТНЫЕ УСТАНОВКИ',caption:'Задача выполнена: клиент оплатил LP',installation:'lp'},
-    {name:'Платные установки Авт.Биз',tone:'paid-autobiz',index:'04',label:'ПЛАТНЫЕ УСТАНОВКИ',caption:'Подтверждена оплата СП в статусе передачи задачи',installation:'avtbiz'}
+    {name:'Платные установки Авт.Биз',tone:'paid-autobiz',index:'04',label:'ПЛАТНЫЕ УСТАНОВКИ',caption:'Выполнено и оплачено СП либо в работе у СП с оплатой LP',installation:'avtbiz'}
   ];
   const matches=(v,t)=>{ const a=Piot.norm(v),b=Piot.norm(t); return a===b||a.startsWith(b+':')||a.startsWith(b+' '); };
   const countFor=t=>src.filter(r=>matches(r.taskStatus,t)).length;
@@ -9222,7 +9278,7 @@ function taskStatusDashboard(){
   const share=(k,denom)=>denom?Math.round(k/denom*100):0;
   const featured=priority.map(p=>{
     const isPaid=!!p.installation;
-    const k=isPaid?(p.installation==='lp'?financeRows().filter(r=>Piot.isLpIncome(r)&&Piot.received(r,cfg())>0).length:base.filter(r=>Piot.isPaidInstallation(r,p.installation,cfg())).length):countFor(p.name);
+    const k=isPaid?(p.installation==='lp'?financeRows().filter(r=>Piot.isLpIncome(r)&&Piot.received(r,cfg())>0).length:financeRows().filter(r=>Piot.isPaidInstallation(r,p.installation,cfg())).length):countFor(p.name);
     const part=share(k,isPaid?applications.length:total);
     const active=isPaid?(p.installation==='lp'?s.paid==='paid'&&s.filter.task==='Задача выполнена: клиент оплатил LP'&&s.page==='table':s.installation===p.installation&&s.page==='table'):s.filter.task===p.name;
     const action=isPaid?(p.installation==='lp'?'data-lp-income':`data-paid-installation="${p.installation}"`):`data-task-status="${h(p.name)}"`;
@@ -9285,14 +9341,14 @@ function taskStatusDashboard(){
 }
 
 function financeHero(){
-  const inc=scopedIncome();
+  const inc=scopedIncome(),result=scopedProfit(inc);
   const metrics=[
-    {label:'Выполнено · Life Pay',value:cVal(inc.lp,true),color:'#22d092'},
+    {label:'Выполненные задачи LP',value:cVal(inc.lp,true),color:'#22d092'},
     {label:'ЕСП без задачи',value:cVal(inc.espNoTask,true),color:'#57b4ff'},
     {label:'Доход ЕСП',value:cVal(inc.espManual,true),color:'#a279ff'},
-    {label:'Оплачено, но в работе',value:cVal(inc.pending,true),color:'#d18a32'},
-    {label:'СП · выполнено',value:cVal(inc.sp,true),color:'#4a89ff'},
-    {label:'Прочие суммы вне дохода',value:cVal(inc.excluded,true),color:'#8794a8'}
+    {label:'ЕСП всего',value:cVal(inc.totalEsp,true),color:'#57b4ff'},
+    {label:'Доход LP + ЕСП',value:cVal(inc.total,true),color:'#22d092'},
+    {label:'Расходы',value:result.monthly?cVal(result.expense,true):'По месяцам',color:'#d18a32'}
   ];
   return `<section class="finance-hero finance-dashboard">
     <div class="finance-hero-top">
@@ -9312,9 +9368,9 @@ function financeHero(){
     </div>
     <div class="finance-hero-body">
       <div class="finance-total-card liquid-glass-card">
-        <div class="finance-total-kicker">Доход по выполненным задачам и ЕСП</div>
-        <div class="finance-total-value">${cVal(inc.total,true)}</div>
-        <div class="finance-total-note">Life Pay — только «Задача выполнена: клиент оплатил LP», по дате статуса. ЕСП учитывается отдельными строками. СП — отдельно.</div>
+        <div class="finance-total-kicker">${result.monthly?'Чистая прибыль LP':'Доход LP + ЕСП'}</div>
+        <div class="finance-total-value" data-home-net>${cVal(result.monthly?result.net:inc.total,true)}</div>
+        <div class="finance-total-note">${result.monthly?'Выполненные и оплаченные задачи LP + ЕСП − расходы.':'Чистая прибыль и расходы рассчитываются по месяцам.'}<br>LP: «Задача выполнена: клиент оплатил LP», по дате статуса.</div><button type="button" class="finance-net-link" data-page="profit">Расходы и расчёт прибыли →</button>
       </div>
       <div class="finance-metric-grid">${metrics.map(m=>`<div class="finance-metric-card liquid-glass-card" style="--fm-color:${m.color}"><span class="finance-metric-label">${m.label}</span><span class="finance-metric-value">${m.value}</span></div>`).join('')}</div>
     </div>
@@ -9322,49 +9378,45 @@ function financeHero(){
 }
 
 function incomeBlock(extraBtn){
-  const inc=scopedIncome();
-  return card('Доходы за '+periodName(),
-    `<div class="income-kpis">
-      ${kpi('Выполнено · Life Pay',cVal(inc.lp,true))}
-      ${kpi('ЕСП без задачи',cVal(inc.espNoTask,true))}
-      ${kpi('Доход ЕСП',cVal(inc.espManual,true))}
-      ${kpi('ЕСП всего',cVal(inc.totalEsp,true))}
-      ${kpi('Общий доход без СП',cVal(inc.total,true))}
-      ${kpi('СП · выполнено отдельно',cVal(inc.sp,true))}
-      ${kpi('Оплачено, но в работе',cVal(inc.pending,true))}
-      ${kpi('Прочие суммы вне дохода',cVal(inc.excluded,true))}
-    </div>`,
-    'Life Pay: только «Задача выполнена: клиент оплатил LP», месяц даты статуса. Плюс ЕСП. Оплаченные задачи в работе и СП в итог не включаются.',
-    extraBtn||'<button class="text-btn" data-page="finance">Подробнее →</button>'
+  const inc=scopedIncome(),result=scopedProfit(inc);
+  return card('Доходы за '+periodName(),`<div class="income-kpis">
+    ${kpi('Выполненные задачи LP',cVal(inc.lp,true))}
+    ${kpi('ЕСП без задачи',cVal(inc.espNoTask,true))}
+    ${kpi('Доход ЕСП',cVal(inc.espManual,true))}
+    ${kpi('Доход LP + ЕСП',cVal(inc.total,true))}
+    ${kpi('Расходы',result.monthly?cVal(result.expense,true):'По месяцам')}
+    ${kpi('Чистая прибыль LP',result.monthly?cVal(result.net,true):'По месяцам')}
+  </div>`,'LP: только «Задача выполнена: клиент оплатил LP». ЕСП прибавляется к доходу; расходы вычитаются по месяцам.',
+    extraBtn||'<button class="text-btn" data-page="profit">Расчёт прибыли →</button>'
   ).replace('<section class="glass card">','<section class="glass card income-overview">');
 }
 
-
 function paidWorkBlock(){
   const inc=scopedIncome();
-  const statuses=[['workSp','В работе у СП','01'],['paidLp','Оплачено у LP','02']];
-  const tiles=statuses.map(([key,label,index])=>`<div class="paid-work-tile">
-    <div class="paid-work-tile-head"><span>${index}</span><b>${label}</b></div>
-    <strong>${cVal(inc[key],true)}</strong><small>${number(inc[key+'Count'])} задач · оплачено по сумме F</small><button type="button" class="paid-work-link" data-finance-stage="${key}" ${inc[key+'Count']?'':'disabled'}>Открыть задачи <span aria-hidden="true">→</span></button>
-  </div>`).join('');
   const monthly=financePeriods(financeRows(),'month');
-  const sum=monthly.reduce((a,p)=>{['workSp','paidLp','workOther','pending','pendingCount','workSpCount','paidLpCount'].forEach(k=>a[k]=(a[k]||0)+p[k]);return a;},{});
+  const statuses=[
+    {key:'sp',count:inc.spCount,title:'Выполнено и оплачено СП',status:'Задача выполнена: клиент оплатил СП',tone:'done'},
+    {key:'workSp',count:inc.workSpCount,title:'В работе у СП · оплачено у LP',status:'В работе у СП, Оплачено у LP',tone:'working'}
+  ];
+  const tiles=statuses.map(item=>`<article class="sp-payment-tile ${item.tone}">
+    <div class="sp-payment-top"><span class="sp-payment-dot"></span><h3>${item.title}</h3><span class="sp-payment-count">${number(item.count)} задач</span></div>
+    <strong>${cVal(inc[item.key],true)}</strong><p>${item.status}</p>
+    <button type="button" class="paid-work-link" data-finance-stage="${item.key==='sp'?'spDone':item.key}" ${item.count?'':'disabled'}>Открыть задачи <span aria-hidden="true">→</span></button>
+  </article>`).join('');
+  const sum=monthly.reduce((a,p)=>{['sp','spCount','workSp','workSpCount'].forEach(k=>a[k]+=p[k]);return a;},{sp:0,spCount:0,workSp:0,workSpCount:0});
   const table=monthly.length?`<div class="table-wrap"><table class="paid-work-table"><thead><tr>
-    <th>Месяц статуса</th><th>В работе у СП</th><th>Задач</th><th>Оплачено у LP</th><th>Задач</th><th>Прочие в работе</th><th>Всего в работе</th></tr></thead>
+    <th>Месяц статуса</th><th>СП · выполнено и оплачено</th><th>Задач</th><th>В работе у СП · оплачено у LP</th><th>Задач</th><th>Всего по двум статусам</th></tr></thead>
     <tbody>${monthly.map(p=>`<tr><td>${h(p.key==='Без даты'?p.key:monthLabel(p.key))}</td>
-      <td class="number">${rub(p.workSp)}</td><td>${number(p.workSpCount)}</td><td class="number">${rub(p.paidLp)}</td><td>${number(p.paidLpCount)}</td>
-      <td class="number">${rub(p.workOther)}</td><td class="number"><b>${rub(p.pending)}</b></td></tr>`).join('')}</tbody>
-    <tfoot><tr><th>Итого</th><td class="number">${rub(sum.workSp||0)}</td><td>${number(sum.workSpCount||0)}</td><td class="number">${rub(sum.paidLp||0)}</td><td>${number(sum.paidLpCount||0)}</td><td class="number">${rub(sum.workOther||0)}</td><td class="number"><b>${rub(sum.pending||0)}</b></td></tr></tfoot>
-    </table></div>`:empty('В выбранном периоде нет данных.');
-  return `<section class="glass card paid-work-panel" aria-label="Оплачено, но в работе">
-    <header class="paid-work-heading"><div><span class="paid-work-eyebrow">ОТДЕЛЬНЫЙ УЧЁТ</span><h2>Оплачено, но в работе</h2>
-    <p>Текущие оплаченные задачи по месяцу даты статуса. В доход и чистую прибыль не включаются.</p></div>
-    <div class="paid-work-total"><small>Всего · ${number(inc.pendingCount)} задач</small><strong>${cVal(inc.pending,true)}</strong></div></header>
-    <div class="paid-work-grid">${tiles}</div>
-    ${inc.workOther?`<p class="note">Другие статусы в работе: ${rub(inc.workOther)} · ${number(inc.workOtherCount)} задач.</p>`:''}
-    ${inc.undatedIncome?`<p class="note">У выполненных задач на ${rub(inc.undatedIncome)} нет даты статуса. В помесячный доход они попадут после заполнения даты.</p>`:''}
-    <details class="paid-work-months" open><summary>Разбивка по месяцам <span>${monthly.filter(p=>p.key!=='Без даты').length}</span></summary><p class="paid-work-scroll-hint">На узком экране прокрутите таблицу вправо, чтобы увидеть оба статуса и итог.</p>${table}</details>
-    <p class="paid-work-footnote">Показаны текущие статусы, а не история остатков. После выполнения сумма LP переносится в месяц выполнения. Если у задачи в работе нет даты статуса, используется дата заявки.</p>
+      <td class="number">${rub(p.sp)}</td><td>${number(p.spCount)}</td><td class="number">${rub(p.workSp)}</td><td>${number(p.workSpCount)}</td><td class="number"><b>${rub(p.sp+p.workSp)}</b></td></tr>`).join('')}</tbody>
+    <tfoot><tr><th>Итого</th><td class="number">${rub(sum.sp)}</td><td>${number(sum.spCount)}</td><td class="number">${rub(sum.workSp)}</td><td>${number(sum.workSpCount)}</td><td class="number"><b>${rub(sum.sp+sum.workSp)}</b></td></tr></tfoot></table></div>`:empty('За выбранный период оплаченных задач СП нет.');
+  return `<section class="glass card paid-work-panel sp-payment-panel" aria-label="Оплаченные задачи СП">
+    <header class="paid-work-heading"><div><span class="paid-work-eyebrow">ОПЛАТЫ ПО СТАТУСАМ</span><h2>Оплаченные задачи СП</h2>
+      <p>Два статуса — два отдельных итога. Выполненные задачи и задачи в работе не смешиваются.</p></div>
+      <div class="paid-work-total"><small>Всего по двум статусам · ${number(inc.spPaidCount)} задач</small><strong>${cVal(inc.spPaid,true)}</strong></div></header>
+    <div class="sp-payment-grid">${tiles}</div>
+    <details class="paid-work-months" open><summary>Разбивка по месяцам <span>${monthly.filter(p=>p.key!=='Без даты').length}</span></summary>
+      <p class="paid-work-scroll-hint">Прокрутите таблицу вправо, чтобы увидеть все суммы.</p>${table}</details>
+    <p class="paid-work-footnote">Сумма F должна быть больше нуля. Учёт — по дате статуса; для задачи в работе без даты статуса используется дата заявки. «В работе у СП, Оплачено у LP» — один составной статус и одна задача. В прибыль LP эти суммы не входят.</p>
   </section>`;
 }
 
@@ -9582,7 +9634,7 @@ function granTabs(){
 function financePeriods(rr,gran=s.gran){
   const periods=new Map();
   function item(key){
-    if(!periods.has(key))periods.set(key,{key,total:0,paid:0,lp:0,espNoTask:0,espManual:0,sp:0,other:0,totalIncome:0,
+    if(!periods.has(key))periods.set(key,{key,total:0,paid:0,lp:0,espNoTask:0,espManual:0,sp:0,spCount:0,other:0,totalIncome:0,
       pending:0,pendingCount:0,workSp:0,workSpCount:0,paidLp:0,paidLpCount:0,workOther:0,workOtherCount:0,excluded:0});
     return periods.get(key);
   }
@@ -9597,8 +9649,8 @@ function financePeriods(rr,gran=s.gran){
     if(!value)return;
     if(r.source!=='noesp')row.paid++;
     if(kind==='esp')row.espNoTask+=value;
-    else if(kind==='lp'||kind==='sp')row[kind]+=value;
-    else if(['workSp','paidLp','workOther'].includes(kind)){
+    else if(kind==='lp'||kind==='sp'){row[kind]+=value;if(kind==='sp')row.spCount++;}
+    else if(kind==='workSp'){
       row[kind]+=value;row[kind+'Count']++;row.pending+=value;row.pendingCount++;
     }else if(kind==='excluded')row.excluded+=value;
   });
@@ -9620,7 +9672,7 @@ function periodChart(rr,title){
     {name:'Life Pay',values:ps.map(x=>x.lp),color:'#00a56a'},
     {name:'ЕСП без задачи',values:ps.map(x=>x.espNoTask),color:'#8a52e8'},
     {name:'Доход ЕСП',values:ps.map(x=>x.espManual),color:'#e99b35',area:false},
-    {name:'Оплачено, но в работе (отдельно)',values:ps.map(x=>x.pending),color:'#dc8c36',area:false}
+    {name:'В работе у СП, Оплачено у LP (отдельно)',values:ps.map(x=>x.workSp),color:'#dc8c36',area:false}
   ],{money:true,title}),'LP — только «Задача выполнена: клиент оплатил LP», по дате статуса. Задачи в работе показаны отдельно. Ручной ЕСП — только по месяцам.',granTabs());
 }
 
@@ -9657,7 +9709,7 @@ function finance(){
   html+=espSummaryCard();
   if(cfg().showCharts)html+=periodChart(rr,'Доход без СП по периодам');
   const t=`<div class="table-wrap"><table>
-    <thead><tr><th>Период учёта</th><th>Задач по дате учёта</th><th>Life Pay</th><th>ЕСП без задачи</th><th>Доход ЕСП</th><th>Доход без СП</th><th>СП выполнено</th><th>В работе у СП</th><th>Оплачено у LP</th><th>Прочие в работе</th><th>Прочие вне дохода</th></tr></thead>
+    <thead><tr><th>Период учёта</th><th>Задач по дате учёта</th><th>Life Pay</th><th>ЕСП без задачи</th><th>Доход ЕСП</th><th>Доход без СП</th><th>СП · выполнено и оплачено</th><th>В работе у СП · оплачено у LP</th></tr></thead>
     <tbody>${ps.map(p=>`<tr>
       <td>${h(p.key==='Без даты'?p.key:s.gran==='month'?monthLabel(p.key):p.key)}</td>
       <td>${number(p.total)}</td>
@@ -9665,7 +9717,7 @@ function finance(){
       <td class="number">${rub(p.espNoTask)}</td>
       <td class="number">${s.gran==='month'?rub(p.espManual):'—'}</td>
       <td class="number">${rub(p.totalIncome)}</td>
-      <td class="number">${rub(p.sp)}</td><td class="number">${rub(p.workSp)}</td><td class="number">${rub(p.paidLp)}</td><td class="number">${rub(p.workOther)}</td><td class="number">${rub(p.excluded)}</td></tr>`).join('')}</tbody></table></div>
+      <td class="number">${rub(p.sp)}</td><td class="number">${rub(p.workSp)}</td></tr>`).join('')}</tbody></table></div>
 `;
   html+=card('Сводка доходов по периодам',ps.length?t:empty(),'',granTabs());
   return html;
@@ -9675,15 +9727,47 @@ function finance(){
 
 /* ===== РАСХОДЫ И ЧИСТАЯ ПРИБЫЛЬ ===== */
 const PROFIT_ITEMS_KEY='life_pay_expense_items_v1';
+const PROFIT_SYNC_KEY='life_pay_expense_sync_v2';
+const profitDirtyMonths=new Set();
+let profitSaving=false;
 function profitReadLocal(){
   try{const x=JSON.parse(localStorage.getItem(PROFIT_ITEMS_KEY)||'{}');return x&&typeof x==='object'&&!Array.isArray(x)?x:{};}
   catch(e){return {};}
 }
 function profitWriteLocal(){
   const all=profitReadLocal();
-  for(const [month,items] of Object.entries(s.profitLines)) if(Piot.validMonth(month)) all[month]=items;
-  try{localStorage.setItem(PROFIT_ITEMS_KEY,JSON.stringify(all));}catch(e){}
+  for(const [month,items] of Object.entries(s.profitLines))if(Piot.validMonth(month))all[month]=items;
+  try{localStorage.setItem(PROFIT_ITEMS_KEY,JSON.stringify(all));return true;}catch(e){return false;}
 }
+function profitSyncRead(){try{return JSON.parse(localStorage.getItem(PROFIT_SYNC_KEY)||'{}')||{};}catch(e){return {};}}
+function profitSyncWrite(month,state,remoteUpdated){
+  const all=profitSyncRead();all[month]={state,at:new Date().toISOString(),remoteUpdated:remoteUpdated||''};
+  try{localStorage.setItem(PROFIT_SYNC_KEY,JSON.stringify(all));}catch(e){}
+}
+function expenseForMonth(month){
+  const items=s.profitLines[month]||profitReadLocal()[month];
+  if(Array.isArray(items))return profitTotalFromLines(items);
+  const raw=(cfg().monthlyExpenses||{})[month];
+  return raw==null?0:profitMoney(raw);
+}
+function profitMonthKeys(){
+  return [...new Set([...(s.data.months||[]),...Object.keys(cfg().monthlyExpenses||{}),...Object.keys(profitReadLocal()),...Object.keys(s.profitLines)])].filter(Piot.validMonth).sort();
+}
+function expenseForPeriod(month){
+  if(month)return expenseForMonth(month);
+  const values=profitMonthKeys().map(expenseForMonth);
+  return values.some(v=>v===null)?null:values.reduce((a,v)=>a+v,0);
+}
+function scopedProfit(inc){
+  const monthly=s.periodMode==='month',expense=monthly?expenseForPeriod(s.month):null;
+  return {monthly,expense,net:expense===null?null:inc.total-expense};
+}
+function profitPersistDraft(){
+  if(!s.month)return;
+  profitDirtyMonths.add(s.month);profitSyncWrite(s.month,'local');
+  if(!profitWriteLocal())toast('Не удалось сохранить расходы на устройстве. Проверьте доступ к хранилищу браузера.',true);
+}
+
 function profitLinesFor(month){
   if(!month)return [];
   if(!Array.isArray(s.profitLines[month])){
@@ -9711,40 +9795,49 @@ function profitTotalFromLines(items){
 }
 function profitShowPreview(){
   if(s.page!=='profit'||!s.month||!s.data)return;
-  const total=profitTotalFromLines(profitLinesFor(s.month));
-  const income=Piot.income(s.data.records||[],s.data.ledger||{},s.month,cfg()).total;
-  const display=total===null?'Проверьте суммы':rub(total);
-  $$('[data-profit-preview-expenses]').forEach(n=>n.textContent=display);
-  $$('[data-profit-preview-net]').forEach(n=>n.textContent=total===null?'—':rub(income-total));
-  const error=$('[data-profit-validation]'); if(error)error.textContent=total===null?'Укажите неотрицательные суммы (до 1 трлн ₽).':'';
+  const expense=expenseForMonth(s.month),income=Piot.income(eventRows(),detailed()?{}:s.data.ledger,s.month,cfg()).total;
+  $$('[data-profit-preview-expenses]').forEach(n=>n.textContent=expense===null?'Проверьте суммы':rub(expense));
+  $$('[data-profit-preview-net]').forEach(n=>n.textContent=expense===null?'—':rub(income-expense));
+  const caption=$('[data-profit-net-caption]');
+  if(caption)caption.textContent=expense===null?'Исправьте сумму расходов':income-expense<0?'Расходы превышают доходы':'Доход LP + ЕСП за вычетом расходов';
+  const error=$('[data-profit-validation]');if(error)error.textContent=expense===null?'Укажите неотрицательные суммы (до 1 трлн ₽).':'';
+  const state=$('[data-profit-storage]');if(state)state.textContent='Изменения сохранены на этом устройстве';
 }
+
 async function saveProfitCalculator(){
+  if(profitSaving)return;
   if(!s.month)throw Error('Выберите месяц для сохранения.');
-  const items=profitLinesFor(s.month).map(x=>({name:String(x.name||'').trim().slice(0,100)||'Расходы',amount:profitMoney(x.amount||'0')}));
-  if(items.some(x=>x.amount===null))throw Error('Проверьте суммы расходов.');
-  const total=profitTotalFromLines(items);
-  if(total===null)throw Error('Общая сумма расходов слишком велика.');
   const month=s.month;
-  const config=JSON.parse(JSON.stringify(s.configDraft||cfg()));
-  config.monthlyExpenses=config.monthlyExpenses||{};
-  config.monthlyExpenses[month]=total;
-  const cleaned=Piot.validateConfig(config);
-  // Сохраняем итог существующим серверным методом: это работает со старым Code.gs.
-  const saved=await rpc('apiSaveConfig',{config:cleaned,revision:cfg().revision});
-  s.data.config=saved; s.configDraft=null; s.configDirty=false;
+  const items=profitLinesFor(month).map(x=>({name:String(x.name||'').trim().slice(0,100)||'Расходы',amount:profitMoney(x.amount||'0')}));
+  const total=profitTotalFromLines(items);
+  if(items.some(x=>x.amount===null)||total===null)throw Error('Проверьте суммы расходов.');
   s.profitLines[month]=items.map(x=>({name:x.name,amount:String(x.amount)}));
-  profitWriteLocal();
+  const localSaved=profitWriteLocal();profitDirtyMonths.add(month);profitSyncWrite(month,'local');
+  profitSaving=true;
+  const button=$('[data-save-profit]');if(button){button.disabled=true;button.textContent='Сохранение…';}
   const financial=Piot.income(s.data.records||[],s.data.ledger||{},month,cfg());
-  let sheetSaved=false;
+  let serverSaved=false,serverUpdated='';
   try{
-    // Опциональное дополнение Code.gs: запись детализации в «Чистая прибыль».
-    const result=await rpc('apiSaveProfit',{month,items,income:financial.total,sp:financial.sp});
-    sheetSaved=!!(result&&result.saved);
-  }catch(e){ /* старый Code.gs ещё не поддерживает этот метод */ }
-  s.profitSheetConnected=sheetSaved;
-  render({fx:false});
-  toast(sheetSaved?'Расходы и чистая прибыль записаны в Google Таблицу.':
-      'Сумма расходов сохранена на сервере. Для детализации в листе «Чистая прибыль» установите дополнение Code.gs.',!sheetSaved);
+    try{
+      const result=await rpc('apiSaveProfit',{month,items,income:financial.total,sp:financial.sp});
+      serverSaved=!!(result&&result.saved);serverUpdated=result&&result.updated||'';
+    }catch(e){}
+    if(!serverSaved){
+      try{
+        const config=JSON.parse(JSON.stringify(s.configDraft||cfg()));
+        config.monthlyExpenses=Object.assign({},config.monthlyExpenses,{[month]:total});
+        const saved=await rpc('apiSaveConfig',{config:Piot.validateConfig(config),revision:cfg().revision});
+        // Older Code.gs drops monthlyExpenses: never mistake that for a successful save.
+        serverSaved=!!(saved&&saved.monthlyExpenses&&Math.abs(Number(saved.monthlyExpenses[month])-total)<.005);
+        if(saved&&typeof saved==='object')s.data.config=saved;
+      }catch(e){}
+    }
+    s.profitSheetConnected=serverSaved;
+    if(serverSaved){profitDirtyMonths.delete(month);profitSyncWrite(month,'server',serverUpdated);}
+    if(!localSaved&&!serverSaved)throw Error('Расходы не сохранены. Проверьте хранилище браузера и соединение с сервером.');
+    render({fx:false});
+    toast(serverSaved?'Расходы сохранены. Прибыль обновлена во всех разделах.':'Расчёт сохранён на этом устройстве. Для синхронизации подключите серверный файл расходов.');
+  }finally{profitSaving=false;const current=$('[data-save-profit]');if(current){current.disabled=false;current.textContent='Сохранить расчёт';}}
 }
 function profitCalculator(month,income){
   if(!month)return `<section class="profit-expense-editor profit-expense-hint"><strong>Калькулятор расходов</strong><p>Выберите месяц в верхнем фильтре, чтобы вносить расходы и сохранять результат.</p></section>`;
@@ -9757,20 +9850,20 @@ function profitCalculator(month,income){
       <button type="button" class="profit-calc-delete" data-profit-remove="${i}" aria-label="Удалить расход ${i+1}" title="Удалить">×</button>
     </div>`).join('')}</div>
     <button type="button" class="btn profit-calc-add" data-profit-add>＋ Добавить расход</button>
-    <div class="profit-calc-results"><div><span>Доход без СП</span><b>${rub(income)}</b></div>
+    <div class="profit-calc-results"><div><span>Доход LP + ЕСП</span><b>${rub(income)}</b></div>
       <div><span>Всего расходов</span><b data-profit-preview-expenses>${expense===null?'—':rub(expense)}</b></div>
       <div class="profit-calc-result-main"><span>Чистая прибыль</span><strong data-profit-preview-net>${expense===null?'—':rub(income-expense)}</strong></div></div>
     <p class="profit-calc-error" data-profit-validation role="status" aria-live="polite"></p>
     <button type="button" class="btn primary profit-calc-save" data-save-profit>Сохранить расчёт</button>
-    <p class="profit-calc-hint">Общая сумма расходов сохраняется через существующее подключение Google Apps Script. Для сохранения каждой статьи в отдельном листе нужно дополнение Code.gs из комплекта.</p>
+    <p class="profit-calc-hint" data-profit-storage>${(profitSyncRead()[month]||{}).state==='server'?'Расчёт синхронизирован с сервером':'Расходы сохраняются на этом устройстве. Серверная синхронизация доступна после подключения файла расходов.'}</p>
   </section>`;
 }
 
 function cleanProfit(){
-  const ledger=s.data.ledger||{};
+  const ledger=detailed()?{}:s.data.ledger||{};
   const expenses=cfg().monthlyExpenses||{};
-  const records=s.data.records||[];
-  const monthSet=new Set((s.data.months||[]).concat(Object.keys(ledger),Object.keys(expenses)));
+  const records=eventRows();
+  const monthSet=new Set(profitMonthKeys().concat(Object.keys(ledger),Object.keys(expenses)));
   records.forEach(r=>[r.date,r.dateStatus].forEach(d=>{
     const key=String(d||'').slice(0,7);
     if(Piot.validMonth(key))monthSet.add(key);
@@ -9778,9 +9871,9 @@ function cleanProfit(){
   const months=Array.from(monthSet).filter(Piot.validMonth).sort();
   const rows=months.map(key=>{
     const income=Piot.income(records,ledger,key,cfg());
-    const expense=Number(expenses[key])||0;
+    const expense=expenseForMonth(key);
     return {key,lp:income.lp,espNoTask:income.espNoTask,espManual:income.espManual,
-      sp:income.sp,workSp:income.workSp,paidLp:income.paidLp,pending:income.pending,income:income.total,expense:expense,profit:income.total-expense};
+      sp:income.sp,workSp:income.workSp,paidLp:income.paidLp,pending:income.pending,income:income.total,expense:expense,profit:expense===null?null:income.total-expense};
   });
   // Недатированные суммы не приписываем ни одному календарному месяцу.
   const undated=Piot.income(records.filter(r=>!Piot.financialDate(r,cfg())),{},'',cfg());
@@ -9790,21 +9883,21 @@ function cleanProfit(){
   const allIncome=Piot.income(records,ledger,'',cfg());
   const selected=s.month?(rows.find(x=>x.key===s.month)||{key:s.month,lp:0,espNoTask:0,espManual:Number((ledger[s.month]||{}).esp)||0,sp:0,income:0,expense:0,profit:0}):null;
   const income=s.month?selected.income:allIncome.total;
-  const expense=s.month?selected.expense:rows.reduce((sum,x)=>sum+x.expense,0);
-  const profit=income-expense;
+  const expense=expenseForPeriod(s.month);
+  const profit=expense===null?null:income-expense;
   const expenseInput=profitCalculator(s.month,income);
   let html=`<section class="profit-hero">
-    <div class="profit-heading"><span class="profit-kicker">ФИНАНСОВЫЙ РЕЗУЛЬТАТ</span><h2>Чистая прибыль</h2>
+    <div class="profit-heading"><span class="profit-kicker">ФИНАНСОВЫЙ РЕЗУЛЬТАТ</span><h2>Чистая прибыль LP</h2>
       <p>Life Pay: только «Задача выполнена: клиент оплатил LP», по месяцу даты статуса. Плюс ЕСП, минус расходы. Оплаченные задачи в работе и СП в прибыль не входят.</p></div>
     <div class="profit-total">
       <span>${s.month?monthLabel(s.month):'За всё время'}</span>
       <strong${s.month?' data-profit-preview-net':''}>${rub(profit)}</strong>
-      <small>${profit<0?'Расходы превышают доходы':profit===0?'Доходы равны расходам':'Доходы за вычетом расходов'}</small>
+      <small data-profit-net-caption>${profit===null?'Проверьте сумму расходов':profit<0?'Расходы превышают доходы':'Доход LP + ЕСП за вычетом расходов'}</small>
     </div>
     <div class="profit-kpis">
-      <div><span>ДОХОД БЕЗ СП</span><strong>${cVal(income,true)}</strong><small>Life Pay + ЕСП</small></div>
+      <div><span>ДОХОД LP + ЕСП</span><strong>${cVal(income,true)}</strong><small>Life Pay + ЕСП</small></div>
       <div><span>РАСХОДЫ</span><strong${s.month?' data-profit-preview-expenses':''}>${cVal(expense,true)}</strong><small>Введены вручную по месяцам</small></div>
-      <div><span>СП ОТДЕЛЬНО</span><strong>${cVal(s.month?selected.sp:allIncome.sp,true)}</strong><small>Не включается в прибыль</small></div>
+      <div><span>ЕСП В ДОХОДЕ</span><strong>${cVal(s.month?selected.espNoTask+selected.espManual:allIncome.totalEsp,true)}</strong><small>ЕСП без задачи + доход ЕСП</small></div>
     </div>
   </section>`;
   html+=s.periodMode!=='month'?`<p class="period-month-note period-note-block">Расходы и чистая прибыль ведутся по месяцам. Дневной/недельный доход можно посмотреть в «Финансах»; расходы без даты нельзя корректно распределить на отдельные дни.</p>`:'';
@@ -9819,15 +9912,15 @@ function cleanProfit(){
   }
   const visibleRows=s.month?rows.filter(x=>x.key===s.month):rows.slice().reverse();
   const body=visibleRows.length?`<div class="table-wrap"><table class="profit-table">
-    <thead><tr><th>Месяц</th><th>Life Pay</th><th>ЕСП без задачи</th><th>Доход ЕСП</th><th>Доход без СП</th><th>Расходы</th><th>Чистая прибыль</th><th>В работе у СП</th><th>Оплачено у LP</th><th>Всего в работе</th></tr></thead>
+    <thead><tr><th>Месяц</th><th>Выполненные задачи LP</th><th>ЕСП без задачи</th><th>Доход ЕСП</th><th>Доход LP + ЕСП</th><th>Расходы</th><th>Чистая прибыль LP</th></tr></thead>
     <tbody>${visibleRows.map(x=>`<tr>
       <td>${x.key==='Без даты'?'Без даты':`<button type="button" class="text-btn" data-select-month="${x.key}">${monthLabel(x.key)}</button>`}</td>
       <td class="number">${rub(x.lp)}</td><td class="number">${rub(x.espNoTask)}</td>
       <td class="number">${rub(x.espManual)}</td><td class="number">${rub(x.income)}</td>
-      <td class="number">${rub(x.expense)}</td><td class="number profit-positive">${rub(x.profit)}</td><td class="number">${rub(x.workSp)}</td><td class="number">${rub(x.paidLp)}</td><td class="number">${rub(x.pending)}</td>
+      <td class="number"${x.key===s.month?' data-profit-preview-expenses':''}>${rub(x.expense)}</td><td class="number profit-positive"${x.key===s.month?' data-profit-preview-net':''}>${rub(x.profit)}</td>
     </tr>`).join('')}</tbody></table></div>`:empty('Нет данных за выбранный период.');
   html+=card('Расчёт по месяцам',body,'Помесячная детализация. Нажмите на месяц, чтобы открыть его и изменить расходы.');
-  return periodPicker()+html;
+  return filters()+html;
 }
 
 function planMatchesResult(value,target){
@@ -9881,7 +9974,7 @@ function planPage(){
   // Plan-page-only dropdowns are used for the result categories below, not
   // for changing the monthly headline (which must match Home).
   const resultRecords=planRecords();
-  const paidResultRecords=rows().filter(r=>r.source==='main'&&(!s.planStatus||r.status===s.planStatus));
+  const paidResultRecords=financeRows().filter(r=>r.source==='main'&&(!s.planStatus||r.status===s.planStatus));
   const keys=Object.keys(ledger).filter(k=>Piot.validMonth(k)&&ledger[k]&&ledger[k].plan!=null&&Number.isFinite(Number(ledger[k].plan))).sort().reverse();
   let html=filters();
   html+=planControls();
@@ -9952,14 +10045,16 @@ const COL_HINTS={
 };
 
 function tableRows2(){
-  const sourceRows = (['paid','lpIncome','workSp','paidLp','pending'].includes(s.paid)?financeRows():rows()).filter(r=>s.filter.source==='noesp' ? r.source==='noesp' : Piot.hasApplication(r))
+  const financialView=['paid','lpIncome','spDone','workSp','pending'].includes(s.paid)||!!s.installation;
+  const sourceRows=(financialView?financeRows():rows())
+    .filter(r=>s.filter.source==='noesp'?r.source==='noesp':financialView?r.source!=='noesp':Piot.hasApplication(r))
     .filter(r=>!s.bankRecognizedOnly||Boolean(Piot.bank(r,cfg())));
   return sourceRows.filter(r=>!s.installation||Piot.isPaidInstallation(r,s.installation,cfg())).filter(r=>
     s.paid==='amount'?Number(r.amount)>0:
     s.paid==='paid'?Piot.rev(r,cfg())>0:
     s.paid==='lpIncome'?Piot.isLpIncome(r)&&Piot.received(r,cfg())>0:
-    s.paid==='pending'?['workSp','paidLp','workOther'].includes(Piot.financialKind(r,cfg()))&&Piot.received(r,cfg())>0:
-    s.paid==='workSp'||s.paid==='paidLp'?Piot.financialKind(r,cfg())===s.paid&&Piot.received(r,cfg())>0:
+    s.paid==='pending'||s.paid==='workSp'?Piot.isSpPending(r)&&Piot.received(r,cfg())>0:
+    s.paid==='spDone'?Piot.isSpDone(r)&&Piot.received(r,cfg())>0:
     s.paid==='invoice'?Piot.isInvoice(r,cfg()):
     s.paid==='zero'?!(Number(r.amount)>0):true
   ).slice().sort((a,b)=>{
@@ -9972,15 +10067,15 @@ function tablePage2(){
   const rr=tableRows2(), per=cfg().perPage, pages=Math.max(1,Math.ceil(rr.length/per));
   s.tablePage=Math.min(Math.max(1,s.tablePage),pages);
   const part=rr.slice((s.tablePage-1)*per,s.tablePage*per);
-  const sum=rr.reduce((a,r)=>a+(['invoice','amount','workSp','paidLp','pending'].includes(s.paid)?Math.max(0,Number(r.amount)||0):Piot.rev(r,cfg())),0);
+  const sum=rr.reduce((a,r)=>a+(['invoice','amount','spDone','workSp','pending'].includes(s.paid)||s.installation==='avtbiz'?Math.max(0,Piot.amount(r.amount)||0):Piot.rev(r,cfg())),0);
   let html=filters()+`<div class="table-toolbar">
     <select id="installationFilter" aria-label="Фильтрация платных установок">
       <option value=""${s.installation===''?' selected':''}>Все установки</option>
-      <option value="lp"${s.installation==='lp'?' selected':''}>Оплачено у LP</option>
-      <option value="avtbiz"${s.installation==='avtbiz'?' selected':''}>Оплачено у СП</option>
+      <option value="lp"${s.installation==='lp'?' selected':''}>LP · выполнено и оплачено</option>
+      <option value="avtbiz"${s.installation==='avtbiz'?' selected':''}>СП · два оплаченных статуса</option>
     </select>
     <select id="paidFilter" aria-label="Фильтр по сумме и учёту">
-      ${[['','Все заявки'],['amount','Оплатили — сумма F указана'],['zero','Не оплатили — нет суммы F'],['paid','Учитываются в выручке'],['lpIncome','Доход LP — задача выполнена и оплачена'],['workSp','Оплачено · В работе у СП'],['paidLp','Оплачено · Оплачено у LP'],['pending','Оплачено, но в работе — все'],['invoice','Счета — отдельный учёт']].map(([k,v])=>
+      ${[['','Все заявки'],['amount','Оплатили — сумма F указана'],['zero','Не оплатили — нет суммы F'],['paid','Учитываются в выручке'],['lpIncome','Доход LP — задача выполнена и оплачена'],['spDone','СП · выполнено и оплачено'],['workSp','В работе у СП, Оплачено у LP'],['invoice','Счета — отдельный учёт']].map(([k,v])=>
         `<option value="${k}"${s.paid===k?' selected':''}>${v}</option>`).join('')}
     </select>
     <button class="btn primary" data-export>${icon('download')} Скачать CSV</button>
@@ -10142,13 +10237,16 @@ async function load(force){
       throw Error('Сервер вернул неполные данные. Проверьте функцию apiGetData() в Code.gs');
     d.records=d.records.map(Piot.normalizeNoEspRecord);
     // Месяцы ЕСП должны быть доступны во всех фильтрах, даже без обычных заявок.
-    d.months=[...new Set(d.months.concat(d.records.flatMap(r=>[r.date,r.dateStatus,Piot.financialDate(r,d.config)]).map(v=>String(v||'').slice(0,7)),Object.keys(d.ledger)).filter(Piot.validMonth))];
+    d.months=[...new Set(d.months.concat(d.records.flatMap(r=>[r.date,r.dateStatus,Piot.financialDate(r,d.config)]).map(v=>String(v||'').slice(0,7)),Object.keys(d.ledger),Object.keys(profitReadLocal())).filter(Piot.validMonth))];
     if(!s.loaded){
       const available=d.months.filter(Piot.validMonth).slice().sort();
       s.month=Piot.validMonth(d.currentMonth)&&available.includes(d.currentMonth) ? d.currentMonth : (available[available.length-1]||'');
     }
     s.data=d; s.configDraft=null; s.configDirty=false; s.loaded=true;
     if(force){ s.draft={}; s.invalid={}; s.saveError=''; }
+    s.profitSheetLoaded=false;
+    await fetchProfitSheet();
+    d.months=[...new Set(d.months.concat(profitMonthKeys()))].sort();
     options(); render();
   }catch(e){
     toast(e.message, true);
@@ -10180,14 +10278,17 @@ async function fetchProfitSheet(){
   try{
     const result=await rpc('apiGetProfit');
     if(result&&Array.isArray(result.entries)){
+      const stored=profitReadLocal();
       for(const item of result.entries){
-        if(Piot.validMonth(item.month)&&Array.isArray(item.items)&&!s.profitLines[item.month]){
+        if(Piot.validMonth(item.month)&&Array.isArray(item.items)&&!profitDirtyMonths.has(item.month)&&(!Array.isArray(stored[item.month])||(profitSyncRead()[item.month]||{}).state==='server')){
           s.profitLines[item.month]=item.items.slice(0,40).map(x=>({name:String(x.name||'Расходы'),amount:String(x.amount||0)}));
+          profitSyncWrite(item.month,'server',item.updated||'');
         }
       }
+      profitWriteLocal();
       s.profitSheetConnected=true;
     }
-  }catch(e){/* Сервер ещё не обновлён; работаем с существующими расходами */}
+  }catch(e){}
 }
 async function navigate(page){ await flush(); if(page==='profit')await fetchProfitSheet(); s.page=page; s.tablePage=1; render(); window.scrollTo({top:0,behavior:fxOn()?'smooth':'auto'}); }
 async function changeMonth(month){
@@ -10319,8 +10420,8 @@ async function handleClick(e){
       setTimeout(()=>URL.revokeObjectURL(url),1500); toast('Экспортировано: '+out.length+' строк');
     }
     else if(el.dataset.selectMonth) await changeMonth(el.dataset.selectMonth);
-    else if(el.hasAttribute('data-profit-add')){if(s.month&&profitLinesFor(s.month).length<40){profitLinesFor(s.month).push({name:'',amount:''});render({fx:false});}}
-    else if(el.hasAttribute('data-profit-remove')){if(s.month){profitLinesFor(s.month).splice(Number(el.dataset.profitRemove),1);if(!profitLinesFor(s.month).length)profitLinesFor(s.month).push({name:'Расходы',amount:''});render({fx:false});}}
+    else if(el.hasAttribute('data-profit-add')){if(s.month&&profitLinesFor(s.month).length<40){profitLinesFor(s.month).push({name:'',amount:''});profitPersistDraft();render({fx:false});}}
+    else if(el.hasAttribute('data-profit-remove')){if(s.month){profitLinesFor(s.month).splice(Number(el.dataset.profitRemove),1);if(!profitLinesFor(s.month).length)profitLinesFor(s.month).push({name:'Расходы',amount:''});profitPersistDraft();render({fx:false});}}
     else if(el.hasAttribute('data-save-profit')) await saveProfitCalculator();
     else if(el.hasAttribute('data-save-config')) await saveConfig();
     else if(el.hasAttribute('data-reset-config')){
@@ -10357,8 +10458,8 @@ document.addEventListener('input',e=>{
       if(inp){ inp.focus(); try{inp.setSelectionRange(p,p);}catch(err){} }
     },280);
   }
-  else if(el.dataset.profitName!==undefined && s.month){profitLinesFor(s.month)[+el.dataset.profitName].name=el.value;}
-  else if(el.dataset.profitAmount!==undefined && s.month){profitLinesFor(s.month)[+el.dataset.profitAmount].amount=el.value;profitShowPreview();}
+  else if(el.dataset.profitName!==undefined && s.month){profitLinesFor(s.month)[+el.dataset.profitName].name=el.value;profitPersistDraft();}
+  else if(el.dataset.profitAmount!==undefined && s.month){profitLinesFor(s.month)[+el.dataset.profitAmount].amount=el.value;profitPersistDraft();profitShowPreview();}
   else if(el.dataset.config||el.dataset.rule||el.dataset.bankrule!=null||el.dataset.expenseMonth) configInput(el);
 });
 document.addEventListener('change',async e=>{
