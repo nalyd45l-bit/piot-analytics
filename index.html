@@ -9467,9 +9467,13 @@ function taskStatusDashboard(){
 
 function financeHero(){
   const inc=scopedIncome(),result=scopedProfit(inc);
+  // Только эта карточка показывает сумму за все месяцы: сохраняем фильтры экономики,
+  // но снимаем ограничение по месяцу, если оно было задано.
+  const workSpRows = Piot.filter(s.data.records,Object.assign({},s.filter,{month:''}),cfg());
+  const workSpAll = Piot.income(workSpRows,{},'',cfg());
   const metrics=[
     {label:'Выполнено и оплачено LP',value:cVal(inc.lp,true),color:'#22d092'},
-    {label:'В работе у СП, Оплачено у LP',value:cVal(inc.workSp,true),color:'#5c8fe6'},
+    {label:'В работе у СП, Оплачено у LP',value:cVal(workSpAll.workSp,true),color:'#5c8fe6'},
     {label:'Доход ЕСП',value:cVal(inc.totalEsp,true),color:'#a279ff'},
     {label:'Клиенты оплатили СП',value:result.monthly?cVal(spPaymentTotal(s.month),true):'По месяцам',color:'#57b4ff'},
     {label:'Доход LP + ЕСП',value:cVal(inc.total,true),color:'#22d092'},
@@ -9646,7 +9650,7 @@ function home(){
   const unpaid=rows().filter(r=>r.source==='main'&&Piot.hasApplication(r)&&!(Number(r.amount)>0)).length;
   let html=filters();
   html+=financeHero();
-  html+=spWorkStatusCard();
+  // Детальный блок уже дублирует карточку на главной; на странице «Финансы» он остаётся.
   html+=previousMonthProfitCard();
 
   html+=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
