@@ -8557,6 +8557,7 @@ function financeStatus(value){
 function isLpIncome(r){return financeStatus(r.taskStatus)==='задача выполнена клиент оплатил lp';}
 function isSpDone(r){return financeStatus(r.taskStatus)==='задача выполнена клиент оплатил сп';}
 function isSpPending(r){return financeStatus(r.taskStatus)==='в работе у сп оплачено у lp';}
+function isLpPending(r){var status=financeStatus(r.taskStatus);return status==='в работе у lp'||status==='в работе у лп';}
 function isSpPayment(r){return isSpDone(r)||isSpPending(r);}
 function received(r,c){var v=amount(r.amount);return v>0&&!isInvoice(r,c)?v:0;}
 function financialKind(r,c){
@@ -8565,6 +8566,7 @@ function financialKind(r,c){
   if(isLpIncome(r))return 'lp';
   if(isSpDone(r))return 'sp';
   if(isSpPending(r))return 'workSp';
+  if(isLpPending(r))return 'workLp';
   return 'excluded';
 }
 function financialDate(r,c){
@@ -8577,7 +8579,7 @@ function financialDate(r,c){
 function rev(r,c){return ['lp','esp'].includes(financialKind(r,c))?received(r,c):0;}
 function financialSummary(records,c){
   var out={lp:0,lpCount:0,sp:0,spCount:0,spPaid:0,spPaidCount:0,noesp:0,noespCount:0,revenue:0,paid:0,
-    pending:0,pendingCount:0,workSp:0,workSpCount:0,paidLp:0,paidLpCount:0,
+    pending:0,pendingCount:0,workSp:0,workSpCount:0,workLp:0,workLpCount:0,paidLp:0,paidLpCount:0,
     workOther:0,workOtherCount:0,excluded:0,excludedCount:0,undatedIncome:0};
   records.forEach(function(r){
     var kind=financialKind(r,c),v=received(r,c);
@@ -8588,6 +8590,8 @@ function financialSummary(records,c){
     else if(kind==='lp'||kind==='sp'){out[kind]+=v;out[kind+'Count']++;}
     else if(kind==='workSp'){
       out[kind]+=v;out[kind+'Count']++;out.pending+=v;out.pendingCount++;
+    }else if(kind==='workLp'){
+      out.workLp+=v;out.workLpCount++;
     }else if(kind==='excluded'){out.excluded+=v;out.excludedCount++;}
     if(['lp','sp'].includes(kind)&&!financialDate(r,c))out.undatedIncome+=v;
   });
@@ -8757,7 +8761,7 @@ function csv(rows,cols){
     .join('\r\n');
 }
 return{FIELDS,BANKS,norm,contains,validMonth,parseDate,amount,defaults,validateConfig,
-  isInvoice,isDone,isClosed,financeStatus,isLpIncome,isSpDone,isSpPending,isSpPayment,received,financialKind,financialDate,financialSummary,hasApplication,paymentDestination,isPaidInstallation,bucket,bank,rev,summary,emptyMonth,validatePatch,
+  isInvoice,isDone,isClosed,financeStatus,isLpIncome,isSpDone,isSpPending,isLpPending,isSpPayment,received,financialKind,financialDate,financialSummary,hasApplication,paymentDestination,isPaidInstallation,bucket,bank,rev,summary,emptyMonth,validatePatch,
   monthly,eventSummary,activityPeriods,filter,income,periodKey,periods,csv,normalizeNoEspRecord};
 })();
 </script>
@@ -9474,10 +9478,11 @@ function financeHero(){
   const metrics=[
     {label:'Выполнено и оплачено LP',value:cVal(inc.lp,true),color:'#22d092'},
     {label:'В работе у СП, Оплачено у LP',value:cVal(workSpAll.workSp,true),color:'#5c8fe6'},
+    {label:'В работе у LP',value:cVal(workSpAll.workLp,true),color:'#9b7ae8'},
     {label:'Доход ЕСП',value:cVal(inc.totalEsp,true),color:'#a279ff'},
     {label:'Клиенты оплатили СП',value:result.monthly?cVal(spPaymentTotal(s.month),true):'По месяцам',color:'#57b4ff'},
     {label:'Доход LP + ЕСП',value:cVal(inc.total,true),color:'#22d092'},
-    {label:'Расходы за '+periodName(),value:result.monthly?cVal(result.expense,true):'По месяцам',color:'#d18a32'}
+    {label:result.monthly?expenseCaption(result.expense,'Расходы за '+periodName()):'Расходы за '+periodName(),value:result.monthly?cVal(result.expense,true):'По месяцам',color:'#d18a32'}
   ];
   return `<section class="finance-hero finance-dashboard">
     <div class="finance-hero-top">
@@ -9513,7 +9518,7 @@ function incomeBlock(extraBtn){
     ${kpi('ЕСП без задачи',cVal(inc.espNoTask,true))}
     ${kpi('Доход ЕСП',cVal(inc.espManual,true))}
     ${kpi('Доход LP + ЕСП',cVal(inc.total,true))}
-    ${kpi('Расходы',result.monthly?cVal(result.expense,true):'По месяцам')}
+    ${kpi(expenseCaption(result.expense,'Расходы'),result.monthly?cVal(result.expense,true):'По месяцам')}
     ${kpi('Чистая прибыль LP',result.monthly?cVal(result.net,true):'По месяцам')}
     ${kpi('ЕСП всего',cVal(inc.totalEsp,true))}${spPaymentKpi()}
   </div>`,'LP: только «Задача выполнена: клиент оплатил LP». ЕСП прибавляется к доходу; расходы вычитаются по месяцам.',
@@ -9530,6 +9535,18 @@ function spWorkStatusCard(){
       <button type="button" class="btn" data-finance-stage="workSp" ${inc.workSpCount?'':'disabled'}>Открыть задачи →</button></div>
     <details class="sp-work-status-months"><summary>Суммы по месяцам</summary><div class="table-wrap"><table><thead><tr><th>Месяц статуса</th><th>Сумма оплаты</th><th>Задач в работе</th></tr></thead>
       <tbody>${monthly.map(row=>`<tr><td>${h(row.key==='Без даты'?row.key:monthLabel(row.key))}</td><td class="number">${rub(row.workSp)}</td><td>${number(row.workSpCount)}</td></tr>`).join('')}</tbody></table></div></details>
+  </section>`;
+}
+
+function lpWorkStatusCard(){
+  const inc=scopedIncome();
+  const monthly=financePeriods(financeRows(),'month');
+  return `<section class="sp-work-status-card lp-work-status-card" aria-label="В работе у LP">
+    <div class="sp-work-status-heading"><div><span class="sp-work-status-kicker"><i></i>ЗАДАЧА В РАБОТЕ</span><h2>В работе у LP</h2><p>Задача находится в работе у LP. Сумма учитывается отдельно от дохода LP и показана по столбцу F.</p></div>
+      <div class="sp-work-status-value"><strong>${cVal(inc.workLp,true)}</strong><span>${number(inc.workLpCount)} задач · ${h(periodName())}</span></div>
+      <button type="button" class="btn" data-finance-stage="workLp" ${inc.workLpCount?'':'disabled'}>Открыть задачи →</button></div>
+    <details class="sp-work-status-months"><summary>Суммы по месяцам</summary><div class="table-wrap"><table><thead><tr><th>Месяц статуса</th><th>Сумма</th><th>Задач в работе</th></tr></thead>
+      <tbody>${monthly.map(row=>`<tr><td>${h(row.key==='Без даты'?row.key:monthLabel(row.key))}</td><td class="number">${rub(row.workLp)}</td><td>${number(row.workLpCount)}</td></tr>`).join('')}</tbody></table></div></details>
   </section>`;
 }
 
@@ -9567,7 +9584,7 @@ function previousMonthProfitCard(){
       <button type="button" class="previous-profit-open" data-open-profit-month="${month}">Открыть расчёт за ${h(monthLabel(month))} <span aria-hidden="true">→</span></button></div>
     <div class="previous-profit-detail"><div class="previous-profit-stats">
       <div><span>Доход LP + ЕСП</span><strong>${cVal(hasData?inc.total:null,true)}</strong></div>
-      <div><span>Расходы</span><strong>${cVal(hasData?expense:null,true)}</strong></div>
+      <div><span>${h(expenseCaption(expense,'Расходы'))}</span><strong>${cVal(hasData?expense:null,true)}</strong></div>
       
     </div><div class="previous-profit-trend">${profitMiniTrend(history)}<span>${h(trend)}${delta!==null&&delta!==0?' · '+(delta>0?'+':'−')+rub(Math.abs(delta)):''}</span></div></div>
   </section>`;
@@ -9790,7 +9807,7 @@ function financePeriods(rr,gran=s.gran){
   const periods=new Map();
   function item(key){
     if(!periods.has(key))periods.set(key,{key,total:0,paid:0,lp:0,espNoTask:0,espManual:0,sp:0,spCount:0,other:0,totalIncome:0,
-      pending:0,pendingCount:0,workSp:0,workSpCount:0,paidLp:0,paidLpCount:0,workOther:0,workOtherCount:0,excluded:0});
+      pending:0,pendingCount:0,workSp:0,workSpCount:0,workLp:0,workLpCount:0,paidLp:0,paidLpCount:0,workOther:0,workOtherCount:0,excluded:0});
     return periods.get(key);
   }
   if(gran==='month'&&s.periodMode==='month'){
@@ -9807,6 +9824,8 @@ function financePeriods(rr,gran=s.gran){
     else if(kind==='lp'||kind==='sp'){row[kind]+=value;if(kind==='sp')row.spCount++;}
     else if(kind==='workSp'){
       row[kind]+=value;row[kind+'Count']++;row.pending+=value;row.pendingCount++;
+    }else if(kind==='workLp'){
+      row.workLp+=value;row.workLpCount++;
     }else if(kind==='excluded')row.excluded+=value;
   });
   if(gran==='month'&&s.periodMode==='month'&&!detailed()){
@@ -9860,6 +9879,7 @@ function finance(){
   let html=filters();
   html+=incomeBlock('<button class="text-btn" data-page="settings">Изменить суммы →</button>');
   html+=spWorkStatusCard();
+  html+=lpWorkStatusCard();
 
   html+=espSummaryCard();
   if(cfg().showCharts)html+=periodChart(rr,'Доход без СП по периодам');
@@ -9891,6 +9911,11 @@ const PROFIT_MIGRATION_KEY='life_pay_expense_october_fix_v4';
 const PROFIT_BACKUP_KEY='life_pay_expense_backup_v4';
 let profitMigrationNotice=false;
 let expenseSequence=0;
+const SP_PAID_AMOUNT=103350;
+const SP_PAID_LABEL='Выплатили СП';
+function expenseCaption(value,fallback='Расходы'){
+  return Piot.amount(value)===SP_PAID_AMOUNT?SP_PAID_LABEL:fallback;
+}
 function newExpense(month,name='',amount=''){
   const id=globalThis.crypto&&crypto.randomUUID?crypto.randomUUID():'expense-'+Date.now().toString(36)+'-'+(++expenseSequence);
   return {id,month,name,amount:String(amount),schemaVersion:4};
@@ -9898,16 +9923,27 @@ function newExpense(month,name='',amount=''){
 function profitHasCorrection(){try{return localStorage.getItem(PROFIT_MIGRATION_KEY)==='done';}catch(e){return profitMigrationNotice;}}
 function profitNormalizeExpenses(){
   const stored=profitReadLocal(),raw=Object.assign({},stored,s.profitLines);
-  Object.entries(cfg().monthlyExpenses||{}).forEach(([month,amount])=>{if(Piot.validMonth(month)&&amount!=null&&!Object.prototype.hasOwnProperty.call(raw,month))raw[month]=[{name:'Расходы',amount:String(amount)}];});
+  Object.entries(cfg().monthlyExpenses||{}).forEach(([month,amount])=>{if(Piot.validMonth(month)&&amount!=null&&!Object.prototype.hasOwnProperty.call(raw,month))raw[month]=[{name:expenseCaption(amount,'Расходы'),amount:String(amount)}];});
   const before=JSON.stringify(raw),source='2026-11',target='2026-10';
-  const eligible=item=>item&&item.schemaVersion!==4&&Piot.amount(item.amount)===103350&&
-    ['сп','сп должны','расходы'].includes(Piot.norm(item.name));
+  const labelChangedMonths=[];
+  Object.entries(raw).forEach(([month,items])=>{
+    if(!Array.isArray(items))return;
+    let changed=false;
+    items.forEach(item=>{
+      if(item&&Piot.amount(item.amount)===SP_PAID_AMOUNT&&String(item.name||'').trim()!==SP_PAID_LABEL){
+        item.name=SP_PAID_LABEL;changed=true;
+      }
+    });
+    if(changed&&Piot.validMonth(month))labelChangedMonths.push(month);
+  });
+  const eligible=item=>item&&item.schemaVersion!==4&&Piot.amount(item.amount)===SP_PAID_AMOUNT&&
+    ['сп','сп должны','расходы','сп за октябрь','выплатили сп'].includes(Piot.norm(item.name));
   let moved=false;
   // The user explicitly identified this October expense. Restore it on a fresh
   // installation only; an existing/cleared October ledger always takes priority.
   if(!profitHasCorrection()&&!Object.prototype.hasOwnProperty.call(raw,target)&&!Object.prototype.hasOwnProperty.call(raw,source)){
     try{if(!localStorage.getItem(PROFIT_BACKUP_KEY))localStorage.setItem(PROFIT_BACKUP_KEY,before);}catch(e){}
-    raw[target]=[Object.assign(newExpense(target,'СП за октябрь',103350),{id:'expense-october-2026-sp-103350'})];
+    raw[target]=[Object.assign(newExpense(target,SP_PAID_LABEL,SP_PAID_AMOUNT),{id:'expense-october-2026-sp-103350'})];
     raw[source]=[];moved=true;profitMigrationNotice=true;
     [source,target].forEach(month=>{profitDirtyMonths.add(month);profitSyncWrite(month,'local');});
   }
@@ -9918,7 +9954,7 @@ function profitNormalizeExpenses(){
       const item=raw[source][at];raw[source]=raw[source].filter((_,index)=>index!==at);
       if(!Array.isArray(raw[target]))raw[target]=[];
       const duplicate=raw[target].some(existing=>Piot.amount(existing.amount)===103350&&
-        ['сп','сп должны','расходы'].includes(Piot.norm(existing.name)));
+        ['сп','сп должны','расходы','сп за октябрь','выплатили сп'].includes(Piot.norm(existing.name)));
       if(!duplicate)raw[target].push(Object.assign({},item,{month:target}));
       moved=true;profitMigrationNotice=true;
       [source,target].forEach(month=>{profitDirtyMonths.add(month);profitSyncWrite(month,'local');});
@@ -9938,6 +9974,7 @@ function profitNormalizeExpenses(){
     });
   });
   s.profitLines=normalized;
+  labelChangedMonths.forEach(month=>{profitDirtyMonths.add(month);profitSyncWrite(month,'local');});
   // Empty source months are explicit; they must override stale server aggregates.
   if(moved){s.profitLines[source]=s.profitLines[source]||[];s.profitLines[target]=s.profitLines[target]||[];}
   profitStorageWriteOk=profitWriteLocal();
@@ -10025,7 +10062,7 @@ function profitLinesFor(month){
   if(!month)return [];
   if(!Array.isArray(s.profitLines[month])){
     const amount=(cfg().monthlyExpenses||{})[month];
-    s.profitLines[month]=amount==null?[]:[newExpense(month,'Расходы',amount)];
+    s.profitLines[month]=amount==null?[]:[newExpense(month,expenseCaption(amount,'Расходы'),amount)];
   }
   return s.profitLines[month];
 }
@@ -10050,6 +10087,7 @@ function profitShowPreview(){
   const expense=expenseForMonth(s.month),income=Piot.income(eventRows(),detailed()?{}:s.data.ledger,s.month,cfg()).total;
   const net=expense===null?null:income-expense;
   $$('[data-profit-preview-expenses]').forEach(n=>n.textContent=expense===null?'Проверьте суммы':rub(expense));
+  const expenseCaptionNode=$('[data-profit-expense-caption]');if(expenseCaptionNode)expenseCaptionNode.textContent=expenseCaption(expense,'Расходы за '+monthLabel(s.month));
   $$('[data-profit-preview-net]').forEach(n=>{n.textContent=net===null?'—':rub(net);n.classList.toggle('is-loss',net!==null&&net<0);});
   const caption=$('[data-profit-net-caption]');if(caption)caption.textContent=net===null?'Проверьте сумму расходов':net<0?'Расходы превышают доходы':'Доход LP + ЕСП за вычетом расходов';
   const error=$('[data-profit-validation]');if(error)error.textContent=expense===null?'Введите неотрицательные суммы расходов.':'';
@@ -10097,7 +10135,7 @@ function profitCalculator(month,income){
   const lines=profitLinesFor(month),expense=expenseForMonth(month),net=expense===null?null:income-expense;
   return `<section class="profit-calculator expense-editor-v4" aria-label="Расходы с указанием месяца">
     <div class="profit-calculator-title"><div><span class="profit-calc-kicker">РАСХОДЫ ПО МЕСЯЦАМ</span><h3>${h(monthLabel(month))}</h3><p>У каждой статьи свой месяц. Переключение верхнего фильтра не переносит расходы.</p></div><span class="expense-month-badge">${h(monthLabel(month))}</span></div>
-    ${profitMigrationNotice?`<div class="expense-transfer-notice">Расход ${rub(103350)} отнесён к октябрю 2026. В ноябре эта статья не вычитается.<button type="button" data-open-profit-month="2026-10">Открыть октябрь →</button></div>`:''}
+    ${profitMigrationNotice?`<div class="expense-transfer-notice">Выплатили СП: ${rub(SP_PAID_AMOUNT)} учтено за октябрь 2026. В ноябре эта сумма не вычитается.<button type="button" data-open-profit-month="2026-10">Открыть октябрь →</button></div>`:''}
     <div class="profit-calc-lines">${lines.length?lines.map(line=>`<div class="profit-calc-line expense-row-v4" data-expense-row="${h(line.id)}">
       <label>Статья расхода<input type="text" maxlength="100" data-expense-name="${h(line.id)}" aria-label="Название статьи расхода" value="${h(line.name)}" placeholder="Например, оплата СП"></label>
       <label>Сумма, ₽<input type="text" inputmode="decimal" data-expense-amount="${h(line.id)}" aria-label="Сумма статьи расхода" value="${h(line.amount)}" placeholder="0,00"></label>
@@ -10105,7 +10143,7 @@ function profitCalculator(month,income){
       <button type="button" class="profit-calc-delete" data-expense-remove="${h(line.id)}" aria-label="Удалить статью расхода">×</button>
     </div>`).join(''):`<div class="expense-month-empty"><span>✓</span><strong>Расходов за ${h(monthLabel(month))} нет</strong><p>Добавьте статью и укажите месяц, к которому она относится.</p></div>`}</div>
     <button type="button" class="btn profit-calc-add" data-profit-add>＋ Добавить расход за ${h(monthLabel(month))}</button>
-    <div class="profit-calc-results"><div><span>Доход LP + ЕСП</span><b>${rub(income)}</b></div><div><span>Расходы за ${h(monthLabel(month))}</span><b data-profit-preview-expenses>${rub(expense)}</b></div>
+    <div class="profit-calc-results"><div><span>Доход LP + ЕСП</span><b>${rub(income)}</b></div><div><span data-profit-expense-caption>${h(expenseCaption(expense,'Расходы за '+monthLabel(month)))}</span><b data-profit-preview-expenses>${rub(expense)}</b></div>
       <div class="profit-calc-result-main"><span>Чистая прибыль LP</span><strong class="${net!==null&&net<0?'is-loss':''}" data-profit-preview-net>${rub(net)}</strong></div></div>
     <p class="profit-calc-error" data-profit-validation role="status" aria-live="polite"></p>
     <div class="expense-save-row"><button type="button" class="btn primary profit-calc-save" data-save-profit>Сохранить расходы</button><p class="profit-save-state" data-profit-storage>${h(expenseStorageText(month))}</p></div>
@@ -10150,7 +10188,7 @@ function cleanProfit(){
     </div>
     <div class="profit-kpis">
       <div><span>ДОХОД LP + ЕСП</span><strong>${cVal(income,true)}</strong><small>Life Pay + ЕСП</small></div>
-      <div><span>РАСХОДЫ</span><strong${s.month?' data-profit-preview-expenses':''}>${cVal(expense,true)}</strong><small>Введены вручную по месяцам</small></div>
+      <div><span>${h(expenseCaption(expense,'РАСХОДЫ'))}</span><strong${s.month?' data-profit-preview-expenses':''}>${cVal(expense,true)}</strong><small>Введены вручную по месяцам</small></div>
       <div><span>КЛИЕНТЫ ОПЛАТИЛИ СП</span><strong>${cVal(spPaymentTotal(s.month),true)}</strong><small>Сумма из настроек · отдельный учёт</small></div>
     </div>
   </section>`;
@@ -10163,17 +10201,17 @@ function cleanProfit(){
     const ordered=rows.slice().reverse();
     html+=card('Динамика доходов и расходов',chart(ordered.map(x=>shortLabel(x.key)),[
       {name:'Доход без СП',values:ordered.map(x=>x.income),color:'#25c997'},
-      {name:'Расходы',values:ordered.map(x=>x.expense),color:'#f0a34b'}
+      {name:ordered.some(x=>Piot.amount(x.expense)===SP_PAID_AMOUNT)?'Выплатили СП / прочие расходы':'Расходы',values:ordered.map(x=>x.expense),color:'#f0a34b'}
     ],{money:true,title:'Доходы и расходы по месяцам'}),'Суммы показаны по месяцам. СП в доход без СП не включается.');
   }
   const visibleRows=s.month?rows.filter(x=>x.key===s.month):rows.slice().reverse();
   const body=visibleRows.length?`<div class="table-wrap"><table class="profit-table">
-    <thead><tr><th>Месяц</th><th>Выполненные задачи LP</th><th>ЕСП без задачи</th><th>Доход ЕСП</th><th>Доход LP + ЕСП</th><th>Расходы</th><th>Чистая прибыль LP</th></tr></thead>
+    <thead><tr><th>Месяц</th><th>Выполненные задачи LP</th><th>ЕСП без задачи</th><th>Доход ЕСП</th><th>Доход LP + ЕСП</th><th>${rows.some(x=>Piot.amount(x.expense)===SP_PAID_AMOUNT)?'Выплатили СП / прочие расходы':'Расходы'}</th><th>Чистая прибыль LP</th></tr></thead>
     <tbody>${visibleRows.map(x=>`<tr>
       <td>${x.key==='Без даты'?'Без даты':`<button type="button" class="text-btn" data-select-month="${x.key}">${monthLabel(x.key)}</button>`}</td>
       <td class="number">${rub(x.lp)}</td><td class="number">${rub(x.espNoTask)}</td>
       <td class="number">${rub(x.espManual)}</td><td class="number">${rub(x.income)}</td>
-      <td class="number"${x.key===s.month?' data-profit-preview-expenses':''}>${rub(x.expense)}</td><td class="number profit-positive"${x.key===s.month?' data-profit-preview-net':''}>${rub(x.profit)}</td>
+      <td class="number"${x.key===s.month?' data-profit-preview-expenses':''}>${Piot.amount(x.expense)===SP_PAID_AMOUNT?'<small style="display:block;font-size:11px;color:var(--muted)">Выплатили СП</small>':''}${rub(x.expense)}</td><td class="number profit-positive"${x.key===s.month?' data-profit-preview-net':''}>${rub(x.profit)}</td>
     </tr>`).join('')}</tbody></table></div>`:empty('Нет данных за выбранный период.');
   html+=card('Расчёт по месяцам',body,'Помесячная детализация. Нажмите на месяц, чтобы открыть его и изменить расходы.');
   return filters()+html;
@@ -10301,7 +10339,7 @@ const COL_HINTS={
 };
 
 function tableRows2(){
-  const financialView=['paid','lpIncome','spDone','workSp','pending'].includes(s.paid)||!!s.installation;
+  const financialView=['paid','lpIncome','spDone','workSp','workLp','pending'].includes(s.paid)||!!s.installation;
   const sourceRows=(financialView?financeRows():rows())
     .filter(r=>s.filter.source==='noesp'?r.source==='noesp':financialView?r.source!=='noesp':Piot.hasApplication(r))
     .filter(r=>!s.bankRecognizedOnly||Boolean(Piot.bank(r,cfg())));
@@ -10310,6 +10348,7 @@ function tableRows2(){
     s.paid==='paid'?Piot.rev(r,cfg())>0:
     s.paid==='lpIncome'?Piot.isLpIncome(r)&&Piot.received(r,cfg())>0:
     s.paid==='pending'||s.paid==='workSp'?Piot.isSpPending(r)&&Piot.received(r,cfg())>0:
+    s.paid==='workLp'?Piot.isLpPending(r)&&Piot.received(r,cfg())>0:
     s.paid==='spDone'?Piot.isSpDone(r)&&Piot.received(r,cfg())>0:
     s.paid==='invoice'?Piot.isInvoice(r,cfg()):
     s.paid==='zero'?!(Number(r.amount)>0):true
@@ -10323,7 +10362,7 @@ function tablePage2(){
   const rr=tableRows2(), per=cfg().perPage, pages=Math.max(1,Math.ceil(rr.length/per));
   s.tablePage=Math.min(Math.max(1,s.tablePage),pages);
   const part=rr.slice((s.tablePage-1)*per,s.tablePage*per);
-  const sum=rr.reduce((a,r)=>a+(['invoice','amount','spDone','workSp','pending'].includes(s.paid)||s.installation==='avtbiz'?Math.max(0,Piot.amount(r.amount)||0):Piot.rev(r,cfg())),0);
+  const sum=rr.reduce((a,r)=>a+(['invoice','amount','spDone','workSp','workLp','pending'].includes(s.paid)||s.installation==='avtbiz'?Math.max(0,Piot.amount(r.amount)||0):Piot.rev(r,cfg())),0);
   let html=filters()+`<div class="table-toolbar">
     <select id="installationFilter" aria-label="Фильтрация платных установок">
       <option value=""${s.installation===''?' selected':''}>Все установки</option>
@@ -10331,7 +10370,7 @@ function tablePage2(){
       <option value="avtbiz"${s.installation==='avtbiz'?' selected':''}>СП · два оплаченных статуса</option>
     </select>
     <select id="paidFilter" aria-label="Фильтр по сумме и учёту">
-      ${[['','Все заявки'],['amount','Оплатили — сумма F указана'],['zero','Не оплатили — нет суммы F'],['paid','Учитываются в выручке'],['lpIncome','Доход LP — задача выполнена и оплачена'],['spDone','СП · выполнено и оплачено'],['workSp','В работе у СП, Оплачено у LP'],['invoice','Счета — отдельный учёт']].map(([k,v])=>
+      ${[['','Все заявки'],['amount','Оплатили — сумма F указана'],['zero','Не оплатили — нет суммы F'],['paid','Учитываются в выручке'],['lpIncome','Доход LP — задача выполнена и оплачена'],['spDone','СП · выполнено и оплачено'],['workSp','В работе у СП, Оплачено у LP'],['workLp','В работе у LP'],['invoice','Счета — отдельный учёт']].map(([k,v])=>
         `<option value="${k}"${s.paid===k?' selected':''}>${v}</option>`).join('')}
     </select>
     <button class="btn primary" data-export>${icon('download')} Скачать CSV</button>
