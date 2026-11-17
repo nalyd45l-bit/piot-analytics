@@ -8558,6 +8558,7 @@ function isLpIncome(r){return financeStatus(r.taskStatus)==='задача вып
 function isSpDone(r){return financeStatus(r.taskStatus)==='задача выполнена клиент оплатил сп';}
 function isSpPending(r){return financeStatus(r.taskStatus)==='в работе у сп оплачено у lp';}
 function isLpPending(r){var status=financeStatus(r.taskStatus);return status==='в работе у lp'||status==='в работе у лп';}
+function isUnifiedWorkStatus(value){var status=financeStatus(value);return status==='в работе у сп оплачено у lp'||status==='в работе у lp'||status==='в работе у лп';}
 function isSpPayment(r){return isSpDone(r)||isSpPending(r);}
 function received(r,c){var v=amount(r.amount);return v>0&&!isInvoice(r,c)?v:0;}
 function financialKind(r,c){
@@ -8565,8 +8566,7 @@ function financialKind(r,c){
   if(r.source==='noesp')return 'esp';
   if(isLpIncome(r))return 'lp';
   if(isSpDone(r))return 'sp';
-  if(isSpPending(r))return 'workSp';
-  if(isLpPending(r))return 'workLp';
+  if(isSpPending(r)||isLpPending(r))return 'workLp';
   return 'excluded';
 }
 function financialDate(r,c){
@@ -8588,10 +8588,9 @@ function financialSummary(records,c){
     if(r.source!=='noesp')out.paid++;
     if(kind==='esp')out.noesp+=v;
     else if(kind==='lp'||kind==='sp'){out[kind]+=v;out[kind+'Count']++;}
-    else if(kind==='workSp'){
-      out[kind]+=v;out[kind+'Count']++;out.pending+=v;out.pendingCount++;
-    }else if(kind==='workLp'){
+    else if(kind==='workLp'){
       out.workLp+=v;out.workLpCount++;
+      if(isSpPending(r)){out.workSp+=v;out.workSpCount++;out.pending+=v;out.pendingCount++;}
     }else if(kind==='excluded'){out.excluded+=v;out.excludedCount++;}
     if(['lp','sp'].includes(kind)&&!financialDate(r,c))out.undatedIncome+=v;
   });
@@ -8709,7 +8708,7 @@ function filter(records,f,c){
     return(!f.month||(r.date||'').slice(0,7)===f.month)&&
       (!f.partner||r.partner===f.partner)&&
       (!f.status||r.status===f.status)&&
-      (!f.task||r.taskStatus===f.task)&&
+      (!f.task||(isUnifiedWorkStatus(f.task)?(isSpPending(r)||isLpPending(r)):r.taskStatus===f.task))&&
       (!f.responsible||r.responsible===f.responsible)&&
       (!f.priority||r.priority===f.priority)&&
       (!f.bank||bank(r,c)===f.bank)&&
@@ -9136,9 +9135,10 @@ function periodPicker(){
 function filters(){
   const sets = {partner:'Все сервис-партнёры',status:'Все статусы',task:'Все передачи',responsible:'Все ответственные',priority:'Все приоритеты'};
   function sel(k){
-    const vals = [...new Set(s.data.records.map(r=>r[k==='task'?'taskStatus':k]).filter(Boolean))].sort();
+    const vals = [...new Set(s.data.records.map(r=>r[k==='task'?'taskStatus':k]).filter(Boolean).map(v=>k==='task'&&Piot.isSpPending({taskStatus:v})||k==='task'&&Piot.isLpPending({taskStatus:v})?'В работе у LP':v))].sort();
+    const selected=k==='task'&&(Piot.isSpPending({taskStatus:s.filter[k]})||Piot.isLpPending({taskStatus:s.filter[k]}))?'В работе у LP':s.filter[k];
     return `<select data-filter="${k}" aria-label="${sets[k]}"><option value="">${sets[k]}</option>${
-      vals.map(v=>`<option value="${h(v)}"${s.filter[k]===v?' selected':''}>${h(v)}</option>`).join('')}</select>`;
+      vals.map(v=>`<option value="${h(v)}"${selected===v?' selected':''}>${h(v)}</option>`).join('')}</select>`;
   }
   return `${periodPicker()}<div class="filterbar global-filterbar">
     <input type="search" data-filter="q" aria-label="Поиск" placeholder="Поиск по клиенту, номеру, партнёру..." value="${h(s.filter.q)}">
@@ -9423,7 +9423,7 @@ function taskStatusDashboard(){
       <span class="priority-status-foot">Открыть заявки <span aria-hidden="true">→</span></span></button>`;
   }).join('');
   const counts=new Map();
-  src.forEach(r=>{ const name=String(r.taskStatus||'').trim()||'Без статуса'; counts.set(name,(counts.get(name)||0)+1); });
+  src.forEach(r=>{ const name=(Piot.isSpPending(r)||Piot.isLpPending(r))?'В работе у LP':(String(r.taskStatus||'').trim()||'Без статуса'); counts.set(name,(counts.get(name)||0)+1); });
   const others=Array.from(counts.entries())
     .filter(([name])=>name==='Без статуса'||!priority.some(p=>!p.installation&&matches(name,p.name)))
     .sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'ru'));
@@ -9473,12 +9473,11 @@ function financeHero(){
   const inc=scopedIncome(),result=scopedProfit(inc);
   // Только эта карточка показывает сумму за все месяцы: сохраняем фильтры экономики,
   // но снимаем ограничение по месяцу, если оно было задано.
-  const workSpRows = Piot.filter(s.data.records,Object.assign({},s.filter,{month:''}),cfg());
-  const workSpAll = Piot.income(workSpRows,{},'',cfg());
+  const workRowsAll = Piot.filter(s.data.records,Object.assign({},s.filter,{month:''}),cfg());
+  const workAll = Piot.income(workRowsAll,{},'',cfg());
   const metrics=[
     {label:'Выполнено и оплачено LP',value:cVal(inc.lp,true),color:'#22d092'},
-    {label:'В работе у СП, Оплачено у LP',value:cVal(workSpAll.workSp,true),color:'#5c8fe6'},
-    {label:'В работе у LP',value:cVal(workSpAll.workLp,true),color:'#9b7ae8'},
+    {label:'В работе у LP',value:cVal(workAll.workLp,true),color:'#9b7ae8'},
     {label:'Доход ЕСП',value:cVal(inc.totalEsp,true),color:'#a279ff'},
     {label:'Клиенты оплатили СП',value:result.monthly?cVal(spPaymentTotal(s.month),true):'По месяцам',color:'#57b4ff'},
     {label:'Доход LP + ЕСП',value:cVal(inc.total,true),color:'#22d092'},
@@ -9527,25 +9526,15 @@ function incomeBlock(extraBtn){
 }
 
 function spWorkStatusCard(){
-  const inc=scopedIncome();
-  const monthly=financePeriods(financeRows(),'month');
-  return `<section class="sp-work-status-card" aria-label="В работе у СП, Оплачено у LP">
-    <div class="sp-work-status-heading"><div><span class="sp-work-status-kicker"><i></i>ОПЛАТА ПОЛУЧЕНА</span><h2>В работе у СП, Оплачено у LP</h2><p>Оплата получена, задача остаётся в работе у СП. Период — по дате статуса.</p></div>
-      <div class="sp-work-status-value"><strong>${cVal(inc.workSp,true)}</strong><span>${number(inc.workSpCount)} задач · ${h(periodName())}</span></div>
-      <button type="button" class="btn" data-finance-stage="workSp" ${inc.workSpCount?'':'disabled'}>Открыть задачи →</button></div>
-    <details class="sp-work-status-months"><summary>Суммы по месяцам</summary><div class="table-wrap"><table><thead><tr><th>Месяц статуса</th><th>Сумма оплаты</th><th>Задач в работе</th></tr></thead>
-      <tbody>${monthly.map(row=>`<tr><td>${h(row.key==='Без даты'?row.key:monthLabel(row.key))}</td><td class="number">${rub(row.workSp)}</td><td>${number(row.workSpCount)}</td></tr>`).join('')}</tbody></table></div></details>
-  </section>`;
-}
-
-function lpWorkStatusCard(){
-  const inc=scopedIncome();
-  const monthly=financePeriods(financeRows(),'month');
+  // Объединённый показатель за все месяцы, при этом остальные фильтры экономики сохраняются.
+  const allRows=Piot.filter(s.data.records,Object.assign({},s.filter,{month:''}),cfg());
+  const inc=Piot.income(allRows,{},'',cfg());
+  const monthly=financePeriods(allRows,'month');
   return `<section class="sp-work-status-card lp-work-status-card" aria-label="В работе у LP">
-    <div class="sp-work-status-heading"><div><span class="sp-work-status-kicker"><i></i>ЗАДАЧА В РАБОТЕ</span><h2>В работе у LP</h2><p>Задача находится в работе у LP. Сумма учитывается отдельно от дохода LP и показана по столбцу F.</p></div>
-      <div class="sp-work-status-value"><strong>${cVal(inc.workLp,true)}</strong><span>${number(inc.workLpCount)} задач · ${h(periodName())}</span></div>
+    <div class="sp-work-status-heading"><div><span class="sp-work-status-kicker"><i></i>ЗАДАЧИ В РАБОТЕ</span><h2>В работе у LP</h2><p>Общая сумма по всем месяцам. Объединены оба статуса задач в работе; сумма берётся из столбца F.</p></div>
+      <div class="sp-work-status-value"><strong>${cVal(inc.workLp,true)}</strong><span>${number(inc.workLpCount)} задач · За всё время</span></div>
       <button type="button" class="btn" data-finance-stage="workLp" ${inc.workLpCount?'':'disabled'}>Открыть задачи →</button></div>
-    <details class="sp-work-status-months"><summary>Суммы по месяцам</summary><div class="table-wrap"><table><thead><tr><th>Месяц статуса</th><th>Сумма</th><th>Задач в работе</th></tr></thead>
+    <details class="sp-work-status-months"><summary>Суммы по месяцам</summary><div class="table-wrap"><table><thead><tr><th>Месяц статуса</th><th>Общая сумма</th><th>Задач в работе</th></tr></thead>
       <tbody>${monthly.map(row=>`<tr><td>${h(row.key==='Без даты'?row.key:monthLabel(row.key))}</td><td class="number">${rub(row.workLp)}</td><td>${number(row.workLpCount)}</td></tr>`).join('')}</tbody></table></div></details>
   </section>`;
 }
@@ -9822,10 +9811,9 @@ function financePeriods(rr,gran=s.gran){
     if(r.source!=='noesp')row.paid++;
     if(kind==='esp')row.espNoTask+=value;
     else if(kind==='lp'||kind==='sp'){row[kind]+=value;if(kind==='sp')row.spCount++;}
-    else if(kind==='workSp'){
-      row[kind]+=value;row[kind+'Count']++;row.pending+=value;row.pendingCount++;
-    }else if(kind==='workLp'){
+    else if(kind==='workLp'){
       row.workLp+=value;row.workLpCount++;
+      if(Piot.isSpPending(r)){row.workSp+=value;row.workSpCount++;row.pending+=value;row.pendingCount++;}
     }else if(kind==='excluded')row.excluded+=value;
   });
   if(gran==='month'&&s.periodMode==='month'&&!detailed()){
@@ -9879,7 +9867,6 @@ function finance(){
   let html=filters();
   html+=incomeBlock('<button class="text-btn" data-page="settings">Изменить суммы →</button>');
   html+=spWorkStatusCard();
-  html+=lpWorkStatusCard();
 
   html+=espSummaryCard();
   if(cfg().showCharts)html+=periodChart(rr,'Доход без СП по периодам');
@@ -10164,12 +10151,12 @@ function cleanProfit(){
     const income=Piot.income(records,ledger,key,cfg());
     const expense=expenseForMonth(key);
     return {key,lp:income.lp,espNoTask:income.espNoTask,espManual:income.espManual,
-      sp:income.sp,workSp:income.workSp,paidLp:income.paidLp,pending:income.pending,income:income.total,expense:expense,profit:expense===null?null:income.total-expense};
+      sp:income.sp,workLp:income.workLp,workSp:income.workSp,paidLp:income.paidLp,pending:income.pending,income:income.total,expense:expense,profit:expense===null?null:income.total-expense};
   });
   // Недатированные суммы не приписываем ни одному календарному месяцу.
   const undated=Piot.income(records.filter(r=>!Piot.financialDate(r,cfg())),{},'',cfg());
-  if(undated.total||undated.sp||undated.pending)rows.push({key:'Без даты',lp:undated.lp,
-    espNoTask:undated.espNoTask,espManual:0,sp:undated.sp,workSp:undated.workSp,
+  if(undated.total||undated.sp||undated.pending||undated.workLp)rows.push({key:'Без даты',lp:undated.lp,
+    espNoTask:undated.espNoTask,espManual:0,sp:undated.sp,workLp:undated.workLp,workSp:undated.workSp,
     paidLp:undated.paidLp,pending:undated.pending,income:undated.total,expense:0,profit:undated.total});
   const allIncome=Piot.income(records,ledger,'',cfg());
   const selected=s.month?(rows.find(x=>x.key===s.month)||{key:s.month,lp:0,espNoTask:0,espManual:Number((ledger[s.month]||{}).esp)||0,sp:0,income:0,expense:0,profit:0}):null;
@@ -10340,15 +10327,15 @@ const COL_HINTS={
 
 function tableRows2(){
   const financialView=['paid','lpIncome','spDone','workSp','workLp','pending'].includes(s.paid)||!!s.installation;
-  const sourceRows=(financialView?financeRows():rows())
+  const allWorkView=['workLp','workSp','pending'].includes(s.paid);
+  const sourceRows=(allWorkView?Piot.filter(s.data.records,Object.assign({},s.filter,{month:''}),cfg()):(financialView?financeRows():rows()))
     .filter(r=>s.filter.source==='noesp'?r.source==='noesp':financialView?r.source!=='noesp':Piot.hasApplication(r))
     .filter(r=>!s.bankRecognizedOnly||Boolean(Piot.bank(r,cfg())));
   return sourceRows.filter(r=>!s.installation||Piot.isPaidInstallation(r,s.installation,cfg())).filter(r=>
     s.paid==='amount'?Number(r.amount)>0:
     s.paid==='paid'?Piot.rev(r,cfg())>0:
     s.paid==='lpIncome'?Piot.isLpIncome(r)&&Piot.received(r,cfg())>0:
-    s.paid==='pending'||s.paid==='workSp'?Piot.isSpPending(r)&&Piot.received(r,cfg())>0:
-    s.paid==='workLp'?Piot.isLpPending(r)&&Piot.received(r,cfg())>0:
+    s.paid==='pending'||s.paid==='workSp'||s.paid==='workLp'?(Piot.isSpPending(r)||Piot.isLpPending(r))&&Piot.received(r,cfg())>0:
     s.paid==='spDone'?Piot.isSpDone(r)&&Piot.received(r,cfg())>0:
     s.paid==='invoice'?Piot.isInvoice(r,cfg()):
     s.paid==='zero'?!(Number(r.amount)>0):true
@@ -10370,7 +10357,7 @@ function tablePage2(){
       <option value="avtbiz"${s.installation==='avtbiz'?' selected':''}>СП · два оплаченных статуса</option>
     </select>
     <select id="paidFilter" aria-label="Фильтр по сумме и учёту">
-      ${[['','Все заявки'],['amount','Оплатили — сумма F указана'],['zero','Не оплатили — нет суммы F'],['paid','Учитываются в выручке'],['lpIncome','Доход LP — задача выполнена и оплачена'],['spDone','СП · выполнено и оплачено'],['workSp','В работе у СП, Оплачено у LP'],['workLp','В работе у LP'],['invoice','Счета — отдельный учёт']].map(([k,v])=>
+      ${[['','Все заявки'],['amount','Оплатили — сумма F указана'],['zero','Не оплатили — нет суммы F'],['paid','Учитываются в выручке'],['lpIncome','Доход LP — задача выполнена и оплачена'],['spDone','СП · выполнено и оплачено'],['workLp','В работе у LP'],['invoice','Счета — отдельный учёт']].map(([k,v])=>
         `<option value="${k}"${s.paid===k?' selected':''}>${v}</option>`).join('')}
     </select>
     <button class="btn primary" data-export>${icon('download')} Скачать CSV</button>
@@ -10385,8 +10372,9 @@ function tablePage2(){
       if(key==='amount') return `<td class="number">${rub(v)}</td>`;
       if(key==='source') return `<td>${v==='noesp'?'Лист «Отсутствует задача ЕСП»':'Лист «Заявка»'}</td>`;
       if(key==='status'||key==='taskStatus'||key==='sla'){
+        const shown=key==='taskStatus'&&(Piot.isSpPending(r)||Piot.isLpPending(r))?'В работе у LP':v;
         const cls=key==='sla'?(/просроч|наруш/i.test(v||'')?'red':''):Piot.isInvoice(r,cfg())?'orange':Piot.isDone(r,cfg())?'green':'';
-        return `<td><span class="badge ${cls}" title="${h(v||'—')}">${h(v||'—')}</span></td>`;
+        return `<td><span class="badge ${cls}" title="${h(shown||'—')}">${h(shown||'—')}</span></td>`;
       }
       return `<td title="${h(v||'')}">${h(v||'—')}</td>`;
     }).join('')}</tr>`).join('')+(part.length?'':'<tr><td colspan="14" style="text-align:center;color:#8898aa;padding:28px">Нет заявок по фильтру</td></tr>')}
@@ -10724,7 +10712,7 @@ async function handleClick(e){
       s.paid=el.dataset.financeStage;s.installation='';s.bankRecognizedOnly=false;s.tablePage=1;s.page='table';render();
     }
     else if(el.hasAttribute('data-export')){
-      const out=tableRows2().map(r=>Object.assign({},r,{source:r.source==='noesp'?'Без задачи ЕСП':'Заявка'}));
+      const out=tableRows2().map(r=>Object.assign({},r,{source:r.source==='noesp'?'Без задачи ЕСП':'Заявка',taskStatus:(Piot.isSpPending(r)||Piot.isLpPending(r))?'В работе у LP':r.taskStatus}));
       const url=URL.createObjectURL(new Blob([Piot.csv(out,COLS)],{type:'text/csv;charset=utf-8'}));
       const a=document.createElement('a'); a.href=url; a.download='piot-'+(s.month||'all')+'.csv'; a.click();
       setTimeout(()=>URL.revokeObjectURL(url),1500); toast('Экспортировано: '+out.length+' строк');
