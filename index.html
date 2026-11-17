@@ -7949,6 +7949,42 @@ html:root[data-theme="dark"] .life-pay-letter{
 
 </style>
 <style>@media(max-width:700px){#page .filterbar.global-filterbar{position:static!important;top:auto!important}}</style>
+<style>
+/* Previous-month net profit replaces the obsolete SP status panel. */
+.previous-profit-card{--prev-accent:#78e0bd;display:grid;grid-template-columns:minmax(250px,1fr) minmax(0,1.25fr);gap:28px;position:relative;isolation:isolate;overflow:hidden;padding:28px;border-radius:25px;border:1px solid rgba(143,208,200,.19);background:linear-gradient(120deg,#122a37,#123c40 70%,#174c4a);color:#edf9f6;box-shadow:0 18px 42px rgba(21,54,61,.14);margin-bottom:20px}
+.previous-profit-card::before{content:'';position:absolute;z-index:-1;width:300px;height:300px;right:-100px;top:-170px;border:45px solid rgba(124,222,188,.045);border-radius:50%;pointer-events:none}
+.previous-profit-kicker{display:flex;align-items:center;gap:8px;font-size:9px;font-weight:800;letter-spacing:1.5px;color:var(--prev-accent);margin-bottom:14px}
+.previous-profit-kicker span{width:6px;height:6px;border-radius:50%;background:var(--prev-accent);box-shadow:0 0 0 4px rgba(120,224,189,.1)}
+.previous-profit-card h2{font:750 21px/1.3 Hint,Arial,sans-serif;letter-spacing:-.5px;margin:0;color:#f3fbf9}
+.previous-profit-month{margin:6px 0 15px;font-size:12px;color:#b8d8d4;font-weight:600}
+.previous-profit-value{font:800 clamp(31px,3.3vw,49px)/1.2 Hint,Arial,sans-serif;letter-spacing:-1.5px;color:#fff;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.previous-profit-note{font-size:10.5px;color:#a8c8c4;line-height:1.7;margin:9px 0 17px;max-width:340px}
+.previous-profit-open{display:inline-flex;align-items:center;gap:12px;font:700 11px/1.5 Hint,Arial,sans-serif;border:1px solid rgba(150,217,200,.23);border-radius:10px;color:#c2f5e3;background:rgba(111,219,180,.07);padding:9px 12px;min-height:36px;text-align:left;cursor:pointer}
+.previous-profit-open:hover{background:rgba(111,219,180,.14)}
+.previous-profit-open:focus-visible{outline:2px solid var(--prev-accent);outline-offset:4px}
+.previous-profit-detail{display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-width:0}
+.previous-profit-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.previous-profit-stats>div{min-width:0;padding:16px 13px;background:rgba(255,255,255,.045);border:1px solid rgba(177,222,212,.11);border-radius:15px}
+.previous-profit-stats>div>span{display:block;color:#b6d1ce;font-size:10px;line-height:1.6;min-height:32px;margin-bottom:7px}
+.previous-profit-stats strong{display:block;font-size:clamp(18px,1.7vw,25px);font-weight:750;line-height:1.3;letter-spacing:-.6px;color:#fff;overflow-wrap:anywhere}
+.previous-profit-stats small{display:block;font-size:9px;color:#8db7b2;margin-top:5px}
+.previous-profit-trend .spark{height:64px}
+.previous-profit-trend>span{display:block;font-size:10px;line-height:1.6;color:#b8d9ce;margin-top:10px}
+.sp-import-note{display:flex;flex-direction:column;gap:7px;margin-top:16px;padding:14px;border:1px solid rgba(80,140,180,.17);border-radius:13px;background:rgba(74,141,181,.04)}
+.sp-import-note b{font-size:12px;color:var(--text)}
+.sp-import-note span{font-size:11px;line-height:1.6;color:var(--muted)}
+.sp-import-note button{font-size:11px;text-align:left;align-self:flex-start;margin-top:4px;min-height:32px}
+#page .income-kpis{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+#page .profit-save-state{padding:11px 14px;border:1px solid rgba(99,153,181,.22);border-radius:12px;font-size:11px;line-height:1.7;color:var(--muted);background:rgba(100,154,185,.05);margin:0 0 16px}
+:root[data-theme='ubuntu'] .previous-profit-card{--prev-accent:#f1b2d0;background:linear-gradient(125deg,#2d1628,#52213d 70%,#69304d);border-color:rgba(234,168,200,.18)}
+:root[data-theme='ubuntu'] .previous-profit-month,:root[data-theme='ubuntu'] .previous-profit-stats>div>span,:root[data-theme='ubuntu'] .previous-profit-trend>span{color:#e2c0d1}
+:root[data-theme='ubuntu'] .previous-profit-note,:root[data-theme='ubuntu'] .previous-profit-stats small{color:#d1a8bd}
+:root[data-theme='ubuntu'] .previous-profit-open{color:#f4d5e5;border-color:rgba(240,181,208,.2);background:rgba(240,181,208,.06)}
+@media(max-width:1100px){.previous-profit-card{grid-template-columns:1fr;gap:22px}.previous-profit-detail{gap:15px}}
+@media(max-width:700px){.previous-profit-card{padding:21px 18px;border-radius:21px;gap:20px}.previous-profit-stats{grid-template-columns:1fr;gap:8px}.previous-profit-stats>div{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;padding:12px}.previous-profit-stats>div>span{min-height:0;margin:0}.previous-profit-stats strong{font-size:20px}.previous-profit-stats small{grid-column:1/-1;margin:0}.previous-profit-card h2{font-size:20px}#page .income-kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+
+</style>
+<style>.previous-profit-stats{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:700px){.previous-profit-stats{grid-template-columns:1fr}}</style>
 </head>
 <body>
 
@@ -8782,6 +8818,35 @@ function rpc(name, arg){
 function cfg()     { return s.data.config; }
 function fxOn()    { return s.data && cfg().animate && !reduced(); }
 function manual()  { return s.data.ledger[s.month] || Piot.emptyMonth(); }
+const SP_MANUAL_KEY='life_pay_sp_manual_v3';
+const SP_FILE_TOTAL=45500;
+const SP_FILE_COUNT=13;
+const SP_IMPORTED_MONTHS={'2026-10':45500};
+function spLocalRead(){
+  try{const value=JSON.parse(localStorage.getItem(SP_MANUAL_KEY)||'{}');return value&&typeof value==='object'&&!Array.isArray(value)?value:{};}catch(e){return {};}
+}
+function spLocalWrite(month,value,pending){
+  const all=spLocalRead();all[month]={value,pending,updated:new Date().toISOString()};
+  try{localStorage.setItem(SP_MANUAL_KEY,JSON.stringify(all));return true;}catch(e){return false;}
+}
+function spPaymentForMonth(month){
+  if(!Piot.validMonth(month))return null;
+  if(month===s.month&&Object.prototype.hasOwnProperty.call(s.draft,'sp'))return s.draft.sp;
+  const local=spLocalRead()[month],remote=(s.data.ledger[month]||{}).sp;
+  if(local&&local.pending)return local.value;
+  if(remote!=null&&String(remote).trim()!=='')return Piot.amount(remote);
+  if(local&&Object.prototype.hasOwnProperty.call(local,'value'))return local.value;
+  return Object.prototype.hasOwnProperty.call(SP_IMPORTED_MONTHS,month)?SP_IMPORTED_MONTHS[month]:null;
+}
+function spPaymentTotal(month){
+  if(month)return spPaymentForMonth(month);
+  const months=[...new Set((s.data.months||[]).concat(Object.keys(s.data.ledger||{}),Object.keys(SP_IMPORTED_MONTHS),Object.keys(spLocalRead())))].filter(Piot.validMonth);
+  return months.reduce((sum,key)=>sum+(Number(spPaymentForMonth(key))||0),0);
+}
+function spPaymentKpi(){
+  return kpi('Клиенты оплатили СП за настройку',s.periodMode==='month'?cVal(spPaymentTotal(s.month),true):'По месяцам');
+}
+
 function detailed(){ return Object.values(s.filter).some(Boolean); }
 /* Общий фильтр периода. Даты хранятся как YYYY-MM-DD, сравнение — по календарным дням,
    неделя начинается в понедельник. Месячные ручные суммы не делятся на дни/недели. */
@@ -8916,7 +8981,7 @@ function options(){
 }
 
 function saveStatus(state){
-  const pending = Object.keys(s.draft).length > 0 || s.configDirty;
+  const pending = Object.keys(s.draft).length > 0 || s.configDirty || !!(spLocalRead()[s.month]||{}).pending;
   const text = state || (s.saveError?'Не сохранено':s.saving?'Сохраняю...':pending?'Есть изменения':'Сохранено');
   $('#topSave').textContent = text;
   $('#topSave').className = 'pill ' + (s.saveError?'err':pending||s.saving?'warn':'ok');
@@ -8929,9 +8994,11 @@ function saveStatus(state){
 function edit(field, value){
   try{
     if(!s.month) throw Error('Выберите конкретный месяц');
-    const val = value.trim()===''?null:Number(value);
+    const val = value.trim()===''?null:['sp','esp'].includes(field)?Piot.amount(value):Number(value);
+    if(value.trim()!==''&&val===null)throw Error('Укажите корректную сумму');
     Piot.validatePatch({[field]:val});
     delete s.invalid[field]; s.draft[field]=val; s.saveError='';
+    if(field==='sp'&&!spLocalWrite(s.month,val,true))toast('Не удалось сохранить резервную копию оплаты СП на устройстве.',true);
     clearTimeout(s.timer);
     s.timer = setTimeout(()=>flush().catch(()=>{}), 950);
     saveStatus();
@@ -8942,10 +9009,17 @@ async function flush(){
   clearTimeout(s.timer);
   if(Object.keys(s.invalid).length) throw Error('Исправьте некорректный ввод');
   if(s.saving) await s.saving;
+  if(!Object.keys(s.draft).length&&(spLocalRead()[s.month]||{}).pending)s.draft.sp=spLocalRead()[s.month].value;
   if(!Object.keys(s.draft).length) return;
   const month=s.month, patch=Object.assign({},s.draft), revision=manual().revision;
   s.saving = rpc('apiSaveMonth',{month,patch,revision}).then(result=>{
+    if(!result||!result.value||typeof result.value!=='object')throw Error('Сервер не подтвердил сохранение месяца');
+    for(const key of Object.keys(patch)){
+      const saved=result.value[key],expected=patch[key];
+      if(expected===null?saved!=null:saved==null||!Number.isFinite(Number(saved))||Math.abs(Number(saved)-expected)>.005)throw Error('Сервер не сохранил поле '+key+'. Изменения оставлены на устройстве.');
+    }
     s.data.ledger[month] = result.value;
+    if(Object.prototype.hasOwnProperty.call(patch,'sp')&&s.draft.sp===patch.sp)spLocalWrite(month,patch.sp,false);
     Object.keys(patch).forEach(k=>{ if(s.draft[k]===patch[k]) delete s.draft[k]; });
     s.saveError = '';
   }).catch(e=>{
@@ -8961,16 +9035,18 @@ async function flush(){
   if(!document.activeElement.matches('[data-field]')) render({fx:false});
 }
 
-function numericInput(field, label){
-  const value = Object.prototype.hasOwnProperty.call(s.draft,field) ? s.draft[field] : manual()[field];
-  const disabled = !s.month, auto = (manual().auto||{})[field];
-  return `<input type="number" min="0" max="9999999999" step="${['sp','esp'].includes(field)?'.01':'1'}"
-    data-field="${field}" aria-label="${h(label)}" value="${value==null?'':value}"
-    placeholder="${auto!=null?'Авто: '+auto:'Введите значение'}"
+function numericInput(field,label){
+  const hasDraft=Object.prototype.hasOwnProperty.call(s.draft,field);
+  const value=hasDraft?s.draft[field]:field==='sp'?spPaymentForMonth(s.month):manual()[field];
+  const money=['sp','esp'].includes(field),disabled=!s.month;
+  return `<input type="${money?'text':'number'}" ${money?'inputmode="decimal"':'min="0" step="1"'}
+    data-field="${field}" aria-label="${h(label)}" value="${value==null?'':h(value)}"
+    placeholder="${field==='sp'?'Введите сумму за месяц':'Введите значение'}"
     ${disabled?'disabled':''} ${s.invalid[field]?'aria-invalid="true"':''}>`;
 }
 
 /* ---- компоненты ---- */
+
 function kpi(label,valueHtml,meta){
   // Общий премиальный вид KPI на всех восьми вкладках без изменения числовых значений.
   const title=String(label||'').toLowerCase();
@@ -9346,7 +9422,7 @@ function financeHero(){
     {label:'Выполненные задачи LP',value:cVal(inc.lp,true),color:'#22d092'},
     {label:'ЕСП без задачи',value:cVal(inc.espNoTask,true),color:'#57b4ff'},
     {label:'Доход ЕСП',value:cVal(inc.espManual,true),color:'#a279ff'},
-    {label:'ЕСП всего',value:cVal(inc.totalEsp,true),color:'#57b4ff'},
+    {label:'Клиенты оплатили СП',value:result.monthly?cVal(spPaymentTotal(s.month),true):'По месяцам',color:'#57b4ff'},
     {label:'Доход LP + ЕСП',value:cVal(inc.total,true),color:'#22d092'},
     {label:'Расходы',value:result.monthly?cVal(result.expense,true):'По месяцам',color:'#d18a32'}
   ];
@@ -9386,37 +9462,49 @@ function incomeBlock(extraBtn){
     ${kpi('Доход LP + ЕСП',cVal(inc.total,true))}
     ${kpi('Расходы',result.monthly?cVal(result.expense,true):'По месяцам')}
     ${kpi('Чистая прибыль LP',result.monthly?cVal(result.net,true):'По месяцам')}
+    ${kpi('ЕСП всего',cVal(inc.totalEsp,true))}${spPaymentKpi()}
   </div>`,'LP: только «Задача выполнена: клиент оплатил LP». ЕСП прибавляется к доходу; расходы вычитаются по месяцам.',
     extraBtn||'<button class="text-btn" data-page="profit">Расчёт прибыли →</button>'
   ).replace('<section class="glass card">','<section class="glass card income-overview">');
 }
 
-function paidWorkBlock(){
-  const inc=scopedIncome();
-  const monthly=financePeriods(financeRows(),'month');
-  const statuses=[
-    {key:'sp',count:inc.spCount,title:'Выполнено и оплачено СП',status:'Задача выполнена: клиент оплатил СП',tone:'done'},
-    {key:'workSp',count:inc.workSpCount,title:'В работе у СП · оплачено у LP',status:'В работе у СП, Оплачено у LP',tone:'working'}
-  ];
-  const tiles=statuses.map(item=>`<article class="sp-payment-tile ${item.tone}">
-    <div class="sp-payment-top"><span class="sp-payment-dot"></span><h3>${item.title}</h3><span class="sp-payment-count">${number(item.count)} задач</span></div>
-    <strong>${cVal(inc[item.key],true)}</strong><p>${item.status}</p>
-    <button type="button" class="paid-work-link" data-finance-stage="${item.key==='sp'?'spDone':item.key}" ${item.count?'':'disabled'}>Открыть задачи <span aria-hidden="true">→</span></button>
-  </article>`).join('');
-  const sum=monthly.reduce((a,p)=>{['sp','spCount','workSp','workSpCount'].forEach(k=>a[k]+=p[k]);return a;},{sp:0,spCount:0,workSp:0,workSpCount:0});
-  const table=monthly.length?`<div class="table-wrap"><table class="paid-work-table"><thead><tr>
-    <th>Месяц статуса</th><th>СП · выполнено и оплачено</th><th>Задач</th><th>В работе у СП · оплачено у LP</th><th>Задач</th><th>Всего по двум статусам</th></tr></thead>
-    <tbody>${monthly.map(p=>`<tr><td>${h(p.key==='Без даты'?p.key:monthLabel(p.key))}</td>
-      <td class="number">${rub(p.sp)}</td><td>${number(p.spCount)}</td><td class="number">${rub(p.workSp)}</td><td>${number(p.workSpCount)}</td><td class="number"><b>${rub(p.sp+p.workSp)}</b></td></tr>`).join('')}</tbody>
-    <tfoot><tr><th>Итого</th><td class="number">${rub(sum.sp)}</td><td>${number(sum.spCount)}</td><td class="number">${rub(sum.workSp)}</td><td>${number(sum.workSpCount)}</td><td class="number"><b>${rub(sum.sp+sum.workSp)}</b></td></tr></tfoot></table></div>`:empty('За выбранный период оплаченных задач СП нет.');
-  return `<section class="glass card paid-work-panel sp-payment-panel" aria-label="Оплаченные задачи СП">
-    <header class="paid-work-heading"><div><span class="paid-work-eyebrow">ОПЛАТЫ ПО СТАТУСАМ</span><h2>Оплаченные задачи СП</h2>
-      <p>Два статуса — два отдельных итога. Выполненные задачи и задачи в работе не смешиваются.</p></div>
-      <div class="paid-work-total"><small>Всего по двум статусам · ${number(inc.spPaidCount)} задач</small><strong>${cVal(inc.spPaid,true)}</strong></div></header>
-    <div class="sp-payment-grid">${tiles}</div>
-    <details class="paid-work-months" open><summary>Разбивка по месяцам <span>${monthly.filter(p=>p.key!=='Без даты').length}</span></summary>
-      <p class="paid-work-scroll-hint">Прокрутите таблицу вправо, чтобы увидеть все суммы.</p>${table}</details>
-    <p class="paid-work-footnote">Сумма F должна быть больше нуля. Учёт — по дате статуса; для задачи в работе без даты статуса используется дата заявки. «В работе у СП, Оплачено у LP» — один составной статус и одна задача. В прибыль LP эти суммы не входят.</p>
+function monthBefore(month,offset=1){
+  if(!Piot.validMonth(month))return '';
+  return new Date(Date.UTC(Number(month.slice(0,4)),Number(month.slice(5))-1-offset,1)).toISOString().slice(0,7);
+}
+function profitMiniTrend(values){
+  const W=360,H=64,low=Math.min(0,...values),high=Math.max(0,...values),span=high-low||1;
+  const points=values.map((value,index)=>[(index/(values.length-1))*W,5+(high-value)/span*(H-10)]);
+  const d=points.map((point,index)=>(index?'L':'M')+point[0].toFixed(1)+','+point[1].toFixed(1)).join(' ');
+  const baseline=5+high/span*(H-10);
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="Чистая прибыль за последние шесть месяцев"><line x1="0" x2="${W}" y1="${baseline}" y2="${baseline}" stroke="currentColor" opacity=".12"/><path d="${d}" fill="none" stroke="var(--prev-accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+}
+function previousMonthProfitCard(){
+  const current=s.month||new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Moscow',year:'numeric',month:'2-digit'}).format(new Date()).slice(0,7);
+  const month=monthBefore(current),records=eventRows(),ledger=detailed()?{}:s.data.ledger;
+  const inc=Piot.income(records,ledger,month,cfg()),expense=expenseForMonth(month);
+  const hasDataFor=key=>records.some(r=>Piot.rev(r,cfg())>0&&Piot.financialDate(r,cfg()).slice(0,7)===key)||
+    (ledger[key]||{}).esp!=null||Array.isArray(profitReadLocal()[key])||Array.isArray(s.profitLines[key])||(cfg().monthlyExpenses||{})[key]!=null;
+  const hasData=hasDataFor(month);
+  const net=hasData&&expense!==null?inc.total-expense:null;
+  const baselineMonth=monthBefore(month),baselineIncome=Piot.income(records,ledger,baselineMonth,cfg()).total;
+  const baselineExpense=expenseForMonth(baselineMonth),baseline=baselineExpense===null?null:baselineIncome-baselineExpense;
+  const delta=net!==null&&baseline!==null&&hasDataFor(baselineMonth)?net-baseline:null;
+  const trend=delta===null?'Нет данных для сравнения':delta>0?'Выше предыдущего месяца':delta<0?'Ниже предыдущего месяца':'На уровне предыдущего месяца';
+  const history=Array.from({length:6},(_,i)=>monthBefore(month,5-i)).map(key=>{
+    const value=expenseForMonth(key);return value===null?0:Piot.income(records,ledger,key,cfg()).total-value;
+  });
+  return `<section class="previous-profit-card" aria-label="Чистая прибыль за предыдущий месяц">
+    <div class="previous-profit-copy"><div class="previous-profit-kicker"><span></span>ПРЕДЫДУЩИЙ МЕСЯЦ</div>
+      <h2>Чистая прибыль LP</h2><p class="previous-profit-month">${h(monthLabel(month))}</p>
+      <div class="previous-profit-value" data-previous-net>${cVal(net,true)}</div>
+      <p class="previous-profit-note">${hasData?'Выполненные задачи LP + ЕСП − расходы':'За этот месяц пока нет финансовых данных'}</p>
+      <button type="button" class="previous-profit-open" data-open-profit-month="${month}">Открыть расчёт за ${h(monthLabel(month))} <span aria-hidden="true">→</span></button></div>
+    <div class="previous-profit-detail"><div class="previous-profit-stats">
+      <div><span>Доход LP + ЕСП</span><strong>${cVal(hasData?inc.total:null,true)}</strong></div>
+      <div><span>Расходы</span><strong>${cVal(hasData?expense:null,true)}</strong></div>
+      
+    </div><div class="previous-profit-trend">${profitMiniTrend(history)}<span>${h(trend)}${delta!==null&&delta!==0?' · '+(delta>0?'+':'−')+rub(Math.abs(delta)):''}</span></div></div>
   </section>`;
 }
 
@@ -9497,7 +9585,8 @@ function home(){
   const unpaid=rows().filter(r=>r.source==='main'&&Piot.hasApplication(r)&&!(Number(r.amount)>0)).length;
   let html=filters();
   html+=financeHero();
-  html+=paidWorkBlock();
+  html+=previousMonthProfitCard();
+
   html+=`<div class="hero-grid">${heroPlan()}${heroOpen()}</div>`;
   if(cfg().showStatuses) html+=taskStatusDashboard();
   html+=`<div class="kpis home-summary">
@@ -9619,7 +9708,7 @@ function banks(){
         values:mk.map(m=>chartRecords.filter(r=>Piot.bank(r,cfg())===b.id&&Piot.periodKey(Piot.financialDate(r,cfg()),chartGrouping)===m).reduce((n,r)=>n+Piot.rev(r,cfg()),0))})),
       {money:true,title:'Выручка по банкам'}),s.periodMode==='month'?'Помесячно, последние 12 месяцев.':'Выручка по дням выбранного периода.');
   }
-  html+=paidWorkBlock();
+
   html+=card('Рейтинг банков',bs.slice().sort((a,b)=>b.revenue-a.revenue).map((b,i)=>
     `<div class="rank bank-rank-item"><span><em>${String(i+1).padStart(2,'0')}</em><i class="dot" style="--color:${b.color}"></i> ${h(b.name)}</span>
      <b>${rub(b.revenue)} <span class="muted">· ${number(b.total)} заявок</span></b></div>`).join(''));
@@ -9671,9 +9760,8 @@ function periodChart(rr,title){
   return card(title,chart(ps.map(x=>shortLabel(x.key)),[
     {name:'Life Pay',values:ps.map(x=>x.lp),color:'#00a56a'},
     {name:'ЕСП без задачи',values:ps.map(x=>x.espNoTask),color:'#8a52e8'},
-    {name:'Доход ЕСП',values:ps.map(x=>x.espManual),color:'#e99b35',area:false},
-    {name:'В работе у СП, Оплачено у LP (отдельно)',values:ps.map(x=>x.workSp),color:'#dc8c36',area:false}
-  ],{money:true,title}),'LP — только «Задача выполнена: клиент оплатил LP», по дате статуса. Задачи в работе показаны отдельно. Ручной ЕСП — только по месяцам.',granTabs());
+    {name:'Доход ЕСП',values:ps.map(x=>x.espManual),color:'#e99b35',area:false}
+  ],{money:true,title}),'LP — только «Задача выполнена: клиент оплатил LP», по дате статуса. Оплата СП задаётся вручную. Ручной ЕСП — только по месяцам.',granTabs());
 }
 
 function trend(){
@@ -9688,7 +9776,7 @@ function trend(){
     {name:'Закрыто',values:p.map(x=>x.closed),color:'#9060ed',area:false}
   ],{title:'Поступление и выполнение'}),'',granTabs());
   html+=periodChart(rr,'Life Pay и ЕСП без СП');
-  html+=paidWorkBlock();
+
   html+=`<div class="row2">
     ${card('Доля по банкам',donut(Piot.BANKS.map(b=>({name:b.name,color:b.color,value:rr.filter(r=>Piot.hasApplication(r)&&Piot.bank(r,cfg())===b.id).length})),'заявок'),'По числу заявок')}
     ${card('Накопительный доход без СП',chart(ps.map(x=>shortLabel(x.key)),[
@@ -9705,11 +9793,11 @@ function finance(){
   const rr=financeRows(),ps=financePeriods(rr);
   let html=filters();
   html+=incomeBlock('<button class="text-btn" data-page="settings">Изменить суммы →</button>');
-  html+=paidWorkBlock();
+
   html+=espSummaryCard();
   if(cfg().showCharts)html+=periodChart(rr,'Доход без СП по периодам');
   const t=`<div class="table-wrap"><table>
-    <thead><tr><th>Период учёта</th><th>Задач по дате учёта</th><th>Life Pay</th><th>ЕСП без задачи</th><th>Доход ЕСП</th><th>Доход без СП</th><th>СП · выполнено и оплачено</th><th>В работе у СП · оплачено у LP</th></tr></thead>
+    <thead><tr><th>Период учёта</th><th>Задач по дате учёта</th><th>Life Pay</th><th>ЕСП без задачи</th><th>Доход ЕСП</th><th>Доход без СП</th><th>Клиенты оплатили СП</th></tr></thead>
     <tbody>${ps.map(p=>`<tr>
       <td>${h(p.key==='Без даты'?p.key:s.gran==='month'?monthLabel(p.key):p.key)}</td>
       <td>${number(p.total)}</td>
@@ -9717,7 +9805,7 @@ function finance(){
       <td class="number">${rub(p.espNoTask)}</td>
       <td class="number">${s.gran==='month'?rub(p.espManual):'—'}</td>
       <td class="number">${rub(p.totalIncome)}</td>
-      <td class="number">${rub(p.sp)}</td><td class="number">${rub(p.workSp)}</td></tr>`).join('')}</tbody></table></div>
+      <td class="number">${s.gran==='month'?rub(spPaymentForMonth(p.key)):'—'}</td></tr>`).join('')}</tbody></table></div>
 `;
   html+=card('Сводка доходов по периодам',ps.length?t:empty(),'',granTabs());
   return html;
@@ -9730,6 +9818,8 @@ const PROFIT_ITEMS_KEY='life_pay_expense_items_v1';
 const PROFIT_SYNC_KEY='life_pay_expense_sync_v2';
 const profitDirtyMonths=new Set();
 let profitSaving=false;
+let profitStorageWriteOk=true;
+const profitSyncMemory=Object.create(null);
 function profitReadLocal(){
   try{const x=JSON.parse(localStorage.getItem(PROFIT_ITEMS_KEY)||'{}');return x&&typeof x==='object'&&!Array.isArray(x)?x:{};}
   catch(e){return {};}
@@ -9739,10 +9829,13 @@ function profitWriteLocal(){
   for(const [month,items] of Object.entries(s.profitLines))if(Piot.validMonth(month))all[month]=items;
   try{localStorage.setItem(PROFIT_ITEMS_KEY,JSON.stringify(all));return true;}catch(e){return false;}
 }
-function profitSyncRead(){try{return JSON.parse(localStorage.getItem(PROFIT_SYNC_KEY)||'{}')||{};}catch(e){return {};}}
+function profitSyncRead(){
+  let stored={};try{stored=JSON.parse(localStorage.getItem(PROFIT_SYNC_KEY)||'{}')||{};}catch(e){}
+  return Object.assign({},stored,profitSyncMemory);
+}
 function profitSyncWrite(month,state,remoteUpdated){
-  const all=profitSyncRead();all[month]={state,at:new Date().toISOString(),remoteUpdated:remoteUpdated||''};
-  try{localStorage.setItem(PROFIT_SYNC_KEY,JSON.stringify(all));}catch(e){}
+  profitSyncMemory[month]={state,at:new Date().toISOString(),remoteUpdated:remoteUpdated||''};
+  const all=profitSyncRead();try{localStorage.setItem(PROFIT_SYNC_KEY,JSON.stringify(all));}catch(e){}
 }
 function expenseForMonth(month){
   const items=s.profitLines[month]||profitReadLocal()[month];
@@ -9765,7 +9858,9 @@ function scopedProfit(inc){
 function profitPersistDraft(){
   if(!s.month)return;
   profitDirtyMonths.add(s.month);profitSyncWrite(s.month,'local');
-  if(!profitWriteLocal())toast('Не удалось сохранить расходы на устройстве. Проверьте доступ к хранилищу браузера.',true);
+  profitStorageWriteOk=profitWriteLocal();
+  if(!profitStorageWriteOk)toast('Не удалось сохранить расходы на устройстве. Проверьте доступ к хранилищу браузера.',true);
+  return profitStorageWriteOk;
 }
 
 function profitLinesFor(month){
@@ -9801,7 +9896,7 @@ function profitShowPreview(){
   const caption=$('[data-profit-net-caption]');
   if(caption)caption.textContent=expense===null?'Исправьте сумму расходов':income-expense<0?'Расходы превышают доходы':'Доход LP + ЕСП за вычетом расходов';
   const error=$('[data-profit-validation]');if(error)error.textContent=expense===null?'Укажите неотрицательные суммы (до 1 трлн ₽).':'';
-  const state=$('[data-profit-storage]');if(state)state.textContent='Изменения сохранены на этом устройстве';
+  const state=$('[data-profit-storage]');if(state)state.textContent=profitStorageWriteOk?'Изменения сохранены на этом устройстве':'Изменения не сохранены: хранилище браузера недоступно. Подключите серверный файл.';
 }
 
 async function saveProfitCalculator(){
@@ -9812,14 +9907,14 @@ async function saveProfitCalculator(){
   const total=profitTotalFromLines(items);
   if(items.some(x=>x.amount===null)||total===null)throw Error('Проверьте суммы расходов.');
   s.profitLines[month]=items.map(x=>({name:x.name,amount:String(x.amount)}));
-  const localSaved=profitWriteLocal();profitDirtyMonths.add(month);profitSyncWrite(month,'local');
+  const localSaved=profitWriteLocal();profitStorageWriteOk=localSaved;profitDirtyMonths.add(month);profitSyncWrite(month,'local');
   profitSaving=true;
   const button=$('[data-save-profit]');if(button){button.disabled=true;button.textContent='Сохранение…';}
   const financial=Piot.income(s.data.records||[],s.data.ledger||{},month,cfg());
   let serverSaved=false,serverUpdated='';
   try{
     try{
-      const result=await rpc('apiSaveProfit',{month,items,income:financial.total,sp:financial.sp});
+      const result=await rpc('apiSaveProfit',{month,items,income:financial.total,sp:spPaymentForMonth(month)||0});
       serverSaved=!!(result&&result.saved);serverUpdated=result&&result.updated||'';
     }catch(e){}
     if(!serverSaved){
@@ -9855,7 +9950,7 @@ function profitCalculator(month,income){
       <div class="profit-calc-result-main"><span>Чистая прибыль</span><strong data-profit-preview-net>${expense===null?'—':rub(income-expense)}</strong></div></div>
     <p class="profit-calc-error" data-profit-validation role="status" aria-live="polite"></p>
     <button type="button" class="btn primary profit-calc-save" data-save-profit>Сохранить расчёт</button>
-    <p class="profit-calc-hint" data-profit-storage>${(profitSyncRead()[month]||{}).state==='server'?'Расчёт синхронизирован с сервером':'Расходы сохраняются на этом устройстве. Серверная синхронизация доступна после подключения файла расходов.'}</p>
+    <p class="profit-calc-hint profit-save-state" data-profit-storage>${(profitSyncRead()[month]||{}).state==='server'?'Расчёт синхронизирован с сервером':profitStorageWriteOk?'Автосохранение в этом браузере. Для записи в Google Таблицу подключите серверный файл из комплекта.':'Данные не сохранены: хранилище браузера недоступно. Подключите серверный файл.'}</p>
   </section>`;
 }
 
@@ -9888,7 +9983,7 @@ function cleanProfit(){
   const expenseInput=profitCalculator(s.month,income);
   let html=`<section class="profit-hero">
     <div class="profit-heading"><span class="profit-kicker">ФИНАНСОВЫЙ РЕЗУЛЬТАТ</span><h2>Чистая прибыль LP</h2>
-      <p>Life Pay: только «Задача выполнена: клиент оплатил LP», по месяцу даты статуса. Плюс ЕСП, минус расходы. Оплаченные задачи в работе и СП в прибыль не входят.</p></div>
+      <p>Life Pay: только «Задача выполнена: клиент оплатил LP», по месяцу даты статуса. Плюс ЕСП, минус расходы. Оплата СП за настройку учитывается отдельно и редактируется в настройках.</p></div>
     <div class="profit-total">
       <span>${s.month?monthLabel(s.month):'За всё время'}</span>
       <strong${s.month?' data-profit-preview-net':''}>${rub(profit)}</strong>
@@ -9897,12 +9992,13 @@ function cleanProfit(){
     <div class="profit-kpis">
       <div><span>ДОХОД LP + ЕСП</span><strong>${cVal(income,true)}</strong><small>Life Pay + ЕСП</small></div>
       <div><span>РАСХОДЫ</span><strong${s.month?' data-profit-preview-expenses':''}>${cVal(expense,true)}</strong><small>Введены вручную по месяцам</small></div>
-      <div><span>ЕСП В ДОХОДЕ</span><strong>${cVal(s.month?selected.espNoTask+selected.espManual:allIncome.totalEsp,true)}</strong><small>ЕСП без задачи + доход ЕСП</small></div>
+      <div><span>КЛИЕНТЫ ОПЛАТИЛИ СП</span><strong>${cVal(spPaymentTotal(s.month),true)}</strong><small>Сумма из настроек · отдельный учёт</small></div>
     </div>
   </section>`;
   html+=s.periodMode!=='month'?`<p class="period-month-note period-note-block">Расходы и чистая прибыль ведутся по месяцам. Дневной/недельный доход можно посмотреть в «Финансах»; расходы без даты нельзя корректно распределить на отдельные дни.</p>`:'';
-  html+=paidWorkBlock();
+
   html+=expenseInput;
+  html+=previousMonthProfitCard();
   if(!s.month&&rows.length){
     const ordered=rows.slice().reverse();
     html+=card('Динамика доходов и расходов',chart(ordered.map(x=>shortLabel(x.key)),[
@@ -10125,13 +10221,15 @@ function settings(){
   html+=`<div class="tabs">${[['money','Доходы и план'],['ui','Интерфейс'],['rules','Правила'],['security','Аналитика']].map(([id,label])=>
     `<button data-tab="${id}" class="${s.tab===id?'active':''}">${label}</button>`).join('')}</div>`;
   if(s.tab==='money'){
-    html+=`<p class="note">Выберите месяц вверху. Вручную доступны только два поля — ЕСП и план.</p>
+    html+=`<p class="note">Выберите месяц. Доход ЕСП, план и оплату СП за настройку можно изменить вручную.</p>
     <div class="settings-grid">
       ${card('Доход ЕСП',settingField('esp','Доход ЕСП, ₽','Сумма за выбранный месяц.'))}
       ${card('План месяца',settingField('plan','План задач','Количество задач.'))}
+      ${card('Клиенты оплатили СП за настройку',settingField('sp','Оплата СП за настройку, ₽','Общая сумма за выбранный месяц. Не определяется статусами задач и не включается в прибыль LP.')+
+        `<div class="sp-import-note"><b>Из присланного Excel: ${rub(SP_FILE_TOTAL)}</b><span>${SP_FILE_COUNT} оплат × ${rub(3500)}. Месяц оплаты в файле не указан.</span><button type="button" class="text-btn" data-use-sp-import ${s.month?'':'disabled'}>Подставить сумму файла в выбранный месяц →</button></div>`)}
     </div>
     <div class="savebar"><span data-save-status class="save-status">Сохранено</span>
-    <button class="btn primary" data-save>Сохранить месяц</button></div>`;
+    <button class="btn primary" data-save-settings-month>Сохранить месяц</button></div>`;
   }else if(s.tab==='ui'){
     html+=`<div class="settings-grid">
       ${card('Оформление',[['animate','Плавные анимации'],['showCharts','Графики'],['showBanks','Карточки банков'],['showStatuses','Статусы на главной']].map(([k,v])=>
@@ -10246,7 +10344,7 @@ async function load(force){
     if(force){ s.draft={}; s.invalid={}; s.saveError=''; }
     s.profitSheetLoaded=false;
     await fetchProfitSheet();
-    d.months=[...new Set(d.months.concat(profitMonthKeys()))].sort();
+    d.months=[...new Set(d.months.concat(profitMonthKeys(),Object.keys(SP_IMPORTED_MONTHS),Object.keys(spLocalRead())))].sort();
     options(); render();
   }catch(e){
     toast(e.message, true);
@@ -10379,6 +10477,18 @@ async function handleClick(e){
     }
     else if(el.hasAttribute('data-plan-reset')){s.planStatus='';s.planResult='';render({fx:false});}
     else if(el.hasAttribute('data-plan-pick')){s.planResult=el.dataset.planPick;render({fx:false});}
+    else if(el.hasAttribute('data-save-settings-month')){
+      if(!s.month)throw Error('Выберите месяц');
+      if(Object.keys(s.invalid).length)throw Error('Исправьте суммы');
+      const sp=spPaymentForMonth(s.month);
+      s.draft.sp=sp;spLocalWrite(s.month,sp,true);await flush();render({fx:false});toast('Месяц и оплата СП сохранены');
+    }
+    else if(el.hasAttribute('data-use-sp-import')){
+      if(s.month){edit('sp',String(SP_FILE_TOTAL));render({fx:false});}
+    }
+    else if(el.hasAttribute('data-open-profit-month')){
+      await changeMonth(el.dataset.openProfitMonth);s.periodMode='month';s.gran='month';await navigate('profit');
+    }
     else if(el.hasAttribute('data-save')){ await flush(); toast('Месяц сохранён'); }
     else if(el.hasAttribute('data-clear-filters')){ await flush(); Object.keys(s.filter).forEach(k=>s.filter[k]=''); s.installation='';s.paid='';s.bankRecognizedOnly=false;s.tablePage=1; render(); }
     else if(el.dataset.periodMode){
