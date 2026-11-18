@@ -8034,6 +8034,239 @@ html:root[data-theme="dark"] .life-pay-letter{
 @media(max-width:520px){#page .sp-work-status-card,#page .expense-editor-v4{padding:18px;border-radius:20px}.sp-work-status-heading h2{font-size:17px}.sp-work-status-value strong{font-size:30px}.sp-work-status-heading .btn{width:100%;justify-content:center}.expense-month-badge{font-size:9px;padding:7px 9px}.expense-month-empty{padding:16px}.expense-save-row .profit-calc-save{width:100%}}
 
 </style>
+<style id="life-pay-original-style-updates">:root{--lp-emerald:#075747;--lp-deep:#034638;--lp-soft:rgba(229,247,239,.64);--lp-ink:#172d40;--lp-muted:#6b819c;--lp-line:rgba(207,224,237,.75);--lp-surface:rgba(255,255,255,.72);--lp-shadow:0 8px 24px rgba(27,59,84,.07)}
+html body #app .lp-panel{border:1px solid var(--lp-line)!important;border-radius:21px!important;background:var(--lp-surface)!important;box-shadow:var(--lp-shadow)!important;padding:24px!important;min-width:0!important;margin:0 0 16px!important;overflow:hidden!important}
+html body #app .lp-heading{display:flex!important;gap:12px!important;align-items:center!important;margin:0 0 16px!important}
+html body #app .lp-heading h2{font:750 19px/1.25 Hint,Arial,sans-serif!important;letter-spacing:-.4px!important;color:var(--lp-ink)!important;margin:0!important}
+html body #app .lp-heading>.ico{width:25px!important;height:25px!important;color:var(--lp-emerald)!important;flex:none!important}
+html body #app .lp-home-top{display:grid!important;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr)!important;gap:16px!important;margin:0!important}
+html body #app .lp-net-panel{display:flex!important;flex-direction:column!important;align-items:flex-start!important}
+html body #app .lp-net-value{font:750 clamp(38px,4.2vw,66px)/1.12 Hint,Arial,sans-serif!important;letter-spacing:-2px!important;color:var(--lp-ink)!important;margin:4px 0 8px!important;white-space:nowrap!important;font-variant-numeric:tabular-nums!important}
+html body #app .lp-formula{color:var(--lp-muted)!important;font-size:13px!important;margin:0 0 20px!important}
+html body #app .lp-open-finance{margin-bottom:22px!important}
+html body #app .lp-net-bottom{display:grid!important;grid-template-columns:1.4fr 1fr!important;width:100%!important;gap:20px!important;border-top:1px solid var(--lp-line)!important;padding-top:17px!important;margin-top:auto!important}
+html body #app .lp-net-bottom>div+div{border-left:1px solid var(--lp-line)!important;padding-left:20px!important}
+html body #app .lp-net-bottom span,html body #app .lp-previous-stats span{display:block!important;font-size:11px!important;color:var(--lp-muted)!important;margin-bottom:5px!important}
+html body #app .lp-net-bottom strong{font-size:23px!important;letter-spacing:-.7px!important;color:var(--lp-ink)!important}
+html body #app .lp-previous{background:linear-gradient(125deg,#075747,#034638)!important;color:#fff!important;border-color:#196e59!important;--prev-accent:#99d9bf!important;display:flex!important;flex-direction:column!important}
+html body #app .lp-previous .lp-heading{margin-bottom:8px!important}
+html body #app .lp-previous .lp-heading h2,html body #app .lp-previous .ico{color:#fff!important}
+html body #app .lp-previous-month{font-size:12px!important;color:#d1e7dc!important;margin:0 0 5px!important}
+html body #app .lp-previous-value{font:700 clamp(34px,3.4vw,48px)/1.15 Hint,Arial,sans-serif!important;letter-spacing:-1.5px!important;color:#fff!important;white-space:nowrap!important}
+html body #app .lp-previous-chart{height:64px!important;margin:8px 0 4px!important;flex:1!important;display:flex!important;align-items:flex-end!important}
+html body #app .lp-previous-chart .spark{width:100%!important;height:60px!important}
+html body #app .lp-previous-stats{display:grid!important;grid-template-columns:1fr 1fr!important;border-top:1px solid #ffffff35!important;padding-top:12px!important;gap:12px!important;margin:0 0 10px!important}
+html body #app .lp-previous-stats span{color:#c2ddd0!important}
+html body #app .lp-previous-stats strong{font-size:20px!important;letter-spacing:-.3px!important}
+html body #app .lp-previous .text-btn{color:#fff!important;justify-content:flex-start!important;padding:0!important;margin:0!important}
+html body #app .lp-work{background:var(--lp-soft)!important;border-color:#d5e9e0!important;padding:20px 24px!important}
+html body #app .lp-work-main{display:flex!important;align-items:center!important;gap:20px!important;min-width:0!important}
+html body #app .lp-work-title{display:flex!important;align-items:center!important;gap:14px!important;flex:1!important;min-width:0!important}
+html body #app .lp-work-title>.ico{width:32px!important;height:32px!important;color:var(--lp-emerald)!important;flex:none!important}
+html body #app .lp-work h2{font:750 18px/1.2 Hint,Arial,sans-serif!important;letter-spacing:-.3px!important;margin:0 0 4px!important;color:var(--lp-ink)!important}
+html body #app .lp-work p{font-size:11px!important;color:var(--lp-muted)!important;margin:0!important}
+html body #app .lp-work-main>strong{font-size:34px!important;letter-spacing:-1px!important;color:var(--lp-emerald)!important;white-space:nowrap!important}
+html body #app .lp-work-months{margin-top:10px!important;font-size:10px!important;color:var(--lp-emerald)!important}
+html body #app .lp-work-months[open]{margin-top:18px!important}
+html body #app .lp-work-months .note{margin:12px 0!important}
+html body #app .priority-status-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:0!important;margin:0 0 20px!important}
+html body #app .priority-status-card{display:flex!important;align-items:flex-start!important;flex-direction:column!important;border:0!important;border-radius:0!important;padding:4px 20px 4px 0!important;margin:0 20px 0 0!important;border-right:1px solid var(--lp-line)!important;background:transparent!important;box-shadow:none!important;min-height:148px!important;transform:none!important;color:var(--lp-ink)!important}
+html body #app .priority-status-card:last-child{border-right:0!important;margin-right:0!important;padding-right:0!important}
+html body #app .priority-status-card::before,html body #app .priority-status-card::after{display:none!important}
+html body #app .lp-result-icon{display:flex!important;align-items:center!important;justify-content:center!important;width:34px!important;height:34px!important;border-radius:50%!important;background:var(--lp-soft)!important;color:var(--lp-emerald)!important;margin-bottom:8px!important}
+html body #app .lp-result-icon .ico{width:23px!important;height:23px!important}
+html body #app .priority-status-title{font:650 13px/1.3 Hint,Arial,sans-serif!important;letter-spacing:0!important;min-height:34px!important;color:var(--lp-ink)!important}
+html body #app .priority-status-caption,html body #app .priority-payment-split,html body #app .priority-track{display:none!important}
+html body #app .priority-count-row{margin:9px 0 0!important;align-items:baseline!important;gap:6px!important}
+html body #app .priority-count-row strong{font:750 32px/1 Hint,Arial,sans-serif!important;letter-spacing:-1px!important;color:var(--lp-ink)!important}
+html body #app .priority-count-row>span{font-size:9px!important;color:var(--lp-muted)!important}
+html body #app .priority-count-row b{color:var(--lp-emerald)!important}
+html body #app .priority-status-foot{font-size:9px!important;color:var(--lp-emerald)!important;margin-top:10px!important}
+html body #app .payment-conversion-panel{display:grid!important;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;background:transparent!important;border:0!important;border-top:1px solid var(--lp-line)!important;box-shadow:none!important;border-radius:0!important;padding:18px 0 0!important;gap:20px!important;margin:0!important}
+html body #app .payment-conversion-badges{display:none!important}
+html body #app .payment-conversion-main{grid-column:auto!important;grid-row:auto!important}
+html body #app .payment-conversion-kicker{font-size:11px!important;letter-spacing:0!important;color:var(--lp-ink)!important;font-weight:700!important}
+html body #app .payment-conversion-main>p{font-size:9px!important;color:var(--lp-muted)!important}
+html body #app .payment-conversion-rate{font:750 38px/1 Hint,Arial,sans-serif!important;color:var(--lp-ink)!important;margin:5px 0 8px!important;letter-spacing:-1px!important}
+html body #app .payment-conversion-rate small{font-size:22px!important}
+html body #app .payment-conversion-track{height:9px!important;background:var(--lp-soft)!important;border:0!important;box-shadow:none!important;margin:8px 0 0!important}
+html body #app .payment-conversion-track i{background:var(--lp-emerald)!important;box-shadow:none!important}
+html body #app .payment-conversion-track b{display:none!important}
+html body #app .payment-conversion-actions{display:grid!important;grid-template-columns:1fr 1fr!important;grid-column:auto!important;grid-row:auto!important;gap:0!important;align-items:center!important}
+html body #app .payment-conversion-choice{border:0!important;border-left:1px solid var(--lp-line)!important;background:none!important;box-shadow:none!important;border-radius:0!important;padding:0 0 0 20px!important;min-height:64px!important;display:flex!important;align-items:flex-start!important;flex-direction:column!important}
+html body #app .payment-conversion-choice>span{font-size:11px!important;color:var(--lp-muted)!important}
+html body #app .payment-conversion-choice strong{font:750 30px Hint,Arial,sans-serif!important;color:var(--lp-ink)!important}
+html body #app .payment-conversion-choice small{font-size:8px!important;color:var(--lp-muted)!important}
+html body #app .result-catalog{margin-top:18px!important;border:0!important;background:transparent!important;padding:0!important}
+html body #app .result-catalog summary{font-size:10px!important;color:var(--lp-muted)!important;padding:0!important;min-height:20px!important}
+html body #app .lp-finance-actions{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:12px!important;margin:0 0 16px!important}
+html body #app .lp-finance-actions>span{font-size:12px!important;color:var(--lp-muted)!important}
+html body #app .lp-finance-top{display:grid!important;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)!important;gap:16px!important}
+html body #app .lp-fin-net .lp-net-value{font-size:clamp(36px,3.7vw,58px)!important}
+html body #app .lp-equation{display:flex!important;gap:15px!important;align-items:flex-end!important;padding:10px 0 18px!important;justify-content:space-between!important}
+html body #app .lp-equation span{display:block!important;font-size:10px!important;color:var(--lp-muted)!important;margin-bottom:6px!important}
+html body #app .lp-equation strong{font-size:19px!important;white-space:nowrap!important;color:var(--lp-ink)!important}
+html body #app .lp-equation>div:last-child strong{color:var(--lp-emerald)!important}
+html body #app .lp-equation>b{font-size:20px!important;color:var(--lp-muted)!important}
+html body #app .lp-finance-top .lp-work-main{flex-direction:column!important;align-items:flex-start!important;gap:18px!important}
+html body #app .lp-finance-top .lp-work-title{align-items:flex-start!important}
+html body #app .lp-finance-top .lp-work-main>strong{font-size:40px!important}
+html body #app .lp-finance-top .lp-work-title p{margin-top:10px!important}
+html body #app .lp-finance-top .lp-work-months{margin-top:18px!important}
+html body #app .lp-ledger-row{display:flex!important;align-items:center!important;gap:14px!important;padding:13px 0!important;border-bottom:1px solid var(--lp-line)!important;font-size:13px!important}
+html body #app .lp-ledger-row:last-child{border:0!important;padding-bottom:0!important}
+html body #app .lp-ledger-row .ico{width:20px!important;height:20px!important;flex:none!important;color:var(--lp-emerald)!important}
+html body #app .lp-ledger-row strong{margin-left:auto!important;font-size:16px!important;white-space:nowrap!important;font-weight:650!important}
+html body #app .lp-profit-bar-row{display:grid!important;grid-template-columns:150px minmax(0,1fr) 140px!important;align-items:center!important;gap:24px!important;width:100%!important;padding:12px 0!important;text-align:left!important;font-size:13px!important;color:var(--lp-ink)!important}
+html body #app .lp-profit-bar-row>span small{display:block!important;font-size:8px!important;color:var(--lp-emerald)!important;margin-top:3px!important}
+html body #app .lp-profit-bar-row>i{height:11px!important;border-radius:20px!important;background:var(--lp-soft)!important;overflow:hidden!important}
+html body #app .lp-profit-bar-row>i>b{display:block!important;height:100%!important;background:linear-gradient(90deg,#0a6c56,#034638)!important;border-radius:20px!important;min-width:0!important}
+html body #app .lp-profit-bar-row>i>b.is-loss{background:#ad5964!important}
+html body #app .lp-profit-bar-row>strong{text-align:right!important;font-size:15px!important;font-weight:650!important;white-space:nowrap!important}
+html body #app .lp-current-month td{background:var(--lp-soft)!important}
+html body #app .lp-table-net{color:var(--lp-emerald)!important;font-weight:750!important;font-size:15px!important}
+html body #app .lp-month-table .text-btn{font-size:12px!important;padding:0!important;color:var(--lp-ink)!important}
+html body #app .lp-esp{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:20px!important}
+html body #app .lp-esp .lp-heading{margin-bottom:8px!important}
+html body #app .lp-esp p{font-size:12px!important;color:var(--lp-muted)!important}
+@media(min-width:1500px){html body #app .lp-net-value{font-size:72px!important}}
+@media(max-width:1150px){html body #app .lp-panel{padding:20px!important}
+html body #app .lp-work-main{flex-wrap:wrap!important;gap:12px!important}
+html body #app .lp-work-title{flex-basis:55%!important}
+html body #app .lp-work-main>.text-btn{margin-left:45px!important}
+html body #app .lp-finance-top{grid-template-columns:1fr 1fr!important}
+html body #app .lp-equation{gap:9px!important}
+html body #app .lp-equation strong{font-size:15px!important}
+html body #app .priority-status-card{padding-right:10px!important;margin-right:10px!important}
+html body #app .priority-status-title{font-size:11px!important}
+html body #app .priority-count-row>span{display:none!important}}
+@media(max-width:850px){html body #app .lp-home-top{grid-template-columns:1fr!important}
+html body #app .lp-previous-chart{height:48px!important}
+html body #app .lp-previous-chart .spark{height:48px!important}
+html body #app .lp-previous-value{font-size:40px!important}
+html body #app .lp-net-value{font-size:52px!important}
+html body #app .lp-finance-top{grid-template-columns:1fr!important}
+html body #app .lp-finance-top .lp-work-main{flex-direction:row!important;align-items:center!important}
+html body #app .lp-finance-top .lp-work-title{flex-basis:50%!important}
+html body #app .lp-finance-top .lp-work-main>strong{font-size:32px!important}
+html body #app .lp-profit-bar-row{grid-template-columns:120px minmax(0,1fr) 110px!important;gap:12px!important}}
+@media(max-width:560px){html body #app .lp-panel{padding:19px!important;border-radius:18px!important;margin-bottom:12px!important}
+html body #app .lp-heading h2{font-size:17px!important}
+html body #app .lp-heading{gap:9px!important;margin-bottom:14px!important}
+html body #app .lp-net-value{font-size:46px!important;letter-spacing:-1.5px!important}
+html body #app .lp-net-bottom{gap:12px!important}
+html body #app .lp-net-bottom strong{font-size:21px!important}
+html body #app .lp-net-bottom span{font-size:9px!important}
+html body #app .lp-net-bottom>div+div{padding-left:12px!important}
+html body #app .lp-previous-value{font-size:38px!important}
+html body #app .lp-previous-stats strong{font-size:20px!important}
+html body #app .lp-work-main{gap:12px!important;flex-wrap:wrap!important}
+html body #app .lp-work-title,html body #app .lp-finance-top .lp-work-title{flex-basis:100%!important}
+html body #app .lp-work h2{font-size:16px!important}
+html body #app .lp-work-main>strong,html body #app .lp-finance-top .lp-work-main>strong{font-size:32px!important;margin-left:46px!important}
+html body #app .lp-work-main>.text-btn{margin-left:auto!important;font-size:10px!important}
+html body #app .priority-status-grid{grid-template-columns:1fr 1fr!important;row-gap:22px!important}
+html body #app .priority-status-card{padding:0 12px 0 0!important;margin:0 12px 0 0!important;min-height:148px!important}
+html body #app .priority-status-card:nth-child(2){border:0!important;margin-right:0!important;padding-right:0!important}
+html body #app .priority-status-title{font-size:12px!important;min-height:32px!important}
+html body #app .payment-conversion-panel{grid-template-columns:1fr!important;gap:18px!important}
+html body #app .payment-conversion-actions{border-top:1px solid var(--lp-line)!important;padding-top:14px!important}
+html body #app .payment-conversion-choice:first-child{border:0!important;padding-left:0!important}
+html body #app .lp-finance-actions{align-items:flex-start!important}
+html body #app .lp-finance-actions>span{font-size:10px!important}
+html body #app .lp-finance-actions .btn{font-size:10px!important;white-space:nowrap!important;padding:9px 10px!important}
+html body #app .lp-equation{gap:8px!important}
+html body #app .lp-equation strong{font-size:16px!important}
+html body #app .lp-equation span{font-size:9px!important}
+html body #app .lp-ledger-row{gap:9px!important;font-size:11px!important}
+html body #app .lp-ledger-row strong{font-size:13px!important}
+html body #app .lp-profit-bar-row{grid-template-columns:95px minmax(0,1fr) 90px!important;gap:9px!important;font-size:10px!important}
+html body #app .lp-profit-bar-row>strong{font-size:12px!important}
+html body #app .lp-esp{align-items:flex-start!important;flex-wrap:wrap!important;gap:12px!important}
+html body #app .lp-esp p{font-size:11px!important}
+html body #app .lp-month-table table{min-width:470px!important}
+html body #app .lp-month-table .text-btn{font-size:10px!important}}
+html body #app .lp-panel .counter,html body #app .lp-panel strong>span,html body #app .hero-metric b .counter{font-size:inherit!important;font-weight:inherit!important;color:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;display:inline!important}
+html body #app .lp-panel .lp-net-bottom strong,html body #app .lp-panel .lp-previous-stats strong{display:block!important}
+html body #app .lp-month-table table{width:100%!important;min-width:0!important;table-layout:auto!important}
+html body #app .lp-month-table th,html body #app .lp-month-table td{width:auto!important;min-width:0!important;white-space:nowrap!important}
+html body #app .lp-previous-stats strong{font-size:21px!important}
+@media(max-width:560px){html body #app .lp-month-table table{min-width:460px!important}}
+html body #app .lp-work table{width:100%!important;min-width:0!important;table-layout:auto!important}
+html body #app .lp-work th,html body #app .lp-work td{min-width:0!important;width:auto!important}
+@media(max-width:560px){html body #app .lp-net-value{font-size:clamp(30px,10vw,46px)!important}
+html body #app .lp-previous-value{font-size:clamp(30px,9vw,38px)!important}}
+html body #app .lp-previous .spark,html body #app .hero .spark{filter:none!important}
+@media(max-width:560px){html body #app .lp-month-table table{min-width:0!important;width:100%!important}
+html body #app .lp-month-table td,html body #app .lp-month-table th{font-size:9px!important;padding:11px 6px!important}
+html body #app .lp-month-table .text-btn{font-size:9px!important}
+html body #app .lp-month-table .lp-table-net{font-size:10px!important}}
+html body #app .lp-panel:not(.lp-previous):not(.lp-work),html body #app .glass.card,html body #app .hero{
+ background:linear-gradient(135deg,rgba(255,255,255,.85),rgba(255,255,255,.40) 48%,rgba(238,249,246,.56))!important;
+ border:1px solid rgba(255,255,255,.92)!important;
+ box-shadow:0 10px 28px rgba(37,74,88,.065),inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(198,218,224,.28)!important;
+ backdrop-filter:blur(24px) saturate(155%)!important;-webkit-backdrop-filter:blur(24px) saturate(155%)!important;
+}
+html body #app .lp-work{background:linear-gradient(130deg,rgba(244,255,250,.82),rgba(212,240,229,.54))!important;border-color:rgba(255,255,255,.94)!important;box-shadow:0 8px 26px rgba(17,84,66,.065),inset 0 1px 0 #fff!important;backdrop-filter:blur(22px) saturate(150%)!important;-webkit-backdrop-filter:blur(22px) saturate(150%)!important}
+html body #app .lp-previous{
+ background:linear-gradient(125deg,rgba(9,96,76,.94),rgba(3,67,53,.94))!important;
+ border-color:rgba(159,224,200,.5)!important;
+ box-shadow:0 12px 32px rgba(3,67,53,.14),inset 0 1px 1px rgba(226,255,243,.48),inset 0 -1px 1px rgba(0,34,26,.2)!important;
+ backdrop-filter:blur(24px) saturate(150%)!important;-webkit-backdrop-filter:blur(24px) saturate(150%)!important;
+}
+html body #app .glass.card:has(.chart),html body #app .lp-month-profits,html body #app .hero:has(.spark){
+ background:linear-gradient(145deg,rgba(255,255,255,.90),rgba(255,255,255,.38) 52%,rgba(222,242,237,.55))!important;
+ border:1px solid rgba(255,255,255,.96)!important;
+ box-shadow:0 14px 38px rgba(36,79,92,.09),inset 0 2px 2px rgba(255,255,255,.98),inset 0 -1px 1px rgba(182,211,219,.3)!important;
+}
+html body #app .chart{
+ padding:18px 14px 8px!important;border-radius:19px!important;
+ background:linear-gradient(155deg,rgba(255,255,255,.58),rgba(255,255,255,.18) 45%,rgba(221,242,235,.26))!important;
+ border:1px solid rgba(255,255,255,.82)!important;
+ box-shadow:inset 0 1px 1px rgba(255,255,255,.96),inset 0 -1px 1px rgba(184,213,222,.24),0 6px 18px rgba(37,74,88,.035)!important;
+}
+html body #app .chart-svg{background:transparent!important}
+html body #app .chart-line{stroke-width:2.8!important;filter:drop-shadow(0 2px 2px rgba(7,87,71,.10))!important}
+html body #app .chart-bar{stroke-width:1.3!important;stroke-opacity:.35!important;filter:drop-shadow(0 3px 3px rgba(7,87,71,.09))!important}
+html body #app .chart-point{fill:rgba(255,255,255,.94)!important;stroke-width:2.5!important;filter:drop-shadow(0 2px 2px rgba(7,87,71,.12))!important}
+html body #app .gridline{stroke:rgba(91,132,135,.17)!important;stroke-dasharray:2 7!important}
+html body #app .legend button{background:rgba(255,255,255,.54)!important;border:1px solid rgba(255,255,255,.88)!important;box-shadow:inset 0 1px 0 #fff,0 4px 10px rgba(30,67,79,.045)!important;border-radius:20px!important}
+html body #app .lp-profit-bar-row>i,html body #app .big-progress,html body #app .payment-conversion-track{
+ background:linear-gradient(180deg,rgba(167,200,193,.30),rgba(242,255,249,.65))!important;
+ box-shadow:inset 0 1px 3px rgba(33,89,75,.12),0 1px 0 rgba(255,255,255,.9)!important;
+ border:1px solid rgba(255,255,255,.5)!important;
+}
+html body #app .lp-profit-bar-row>i>b,html body #app .big-progress>i,html body #app .payment-conversion-track>i{
+ background:linear-gradient(180deg,#398d76 0%,#0b6952 35%,#075747 70%,#034638 100%)!important;
+ box-shadow:inset 0 1px 1px rgba(207,255,236,.65),0 2px 5px rgba(3,67,53,.14)!important;
+}
+html body #app .lp-profit-bar-row>i>b.is-loss{background:linear-gradient(180deg,#d3929b,#a85c68)!important}
+html body #app .lp-previous-chart{border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,0))!important}
+html body #app .lp-previous-chart .spark{filter:drop-shadow(0 2px 3px rgba(0,26,18,.15))!important}
+html body #app .hero .spark{filter:drop-shadow(0 3px 3px rgba(7,87,71,.08))!important}
+html body #app .lp-current-month td{background:rgba(210,236,224,.48)!important}
+html[data-theme="dark"] body #app .lp-panel:not(.lp-previous),html[data-theme="dark"] body #app .glass.card,html[data-theme="dark"] body #app .hero,html[data-theme="ubuntu"] body #app .lp-panel:not(.lp-previous),html[data-theme="ubuntu"] body #app .glass.card,html[data-theme="ubuntu"] body #app .hero{background:linear-gradient(140deg,rgba(43,76,64,.62),rgba(18,42,34,.55))!important;border-color:rgba(187,230,211,.2)!important;box-shadow:0 12px 32px #0002,inset 0 1px 0 #ffffff20!important}
+html[data-theme="dark"] body #app .chart,html[data-theme="ubuntu"] body #app .chart{background:linear-gradient(150deg,rgba(142,210,183,.07),rgba(11,32,24,.13))!important;border-color:rgba(187,230,211,.13)!important;box-shadow:inset 0 1px 1px #ffffff0f!important}
+html[data-theme="dark"] body #app .legend button,html[data-theme="ubuntu"] body #app .legend button{background:rgba(32,62,48,.68)!important;border-color:rgba(187,230,211,.15)!important;box-shadow:inset 0 1px 0 #ffffff18!important}
+html body #app .lp-current-month td{background:rgba(207,237,223,.56)!important}
+/* Match the supplied original dashboard typography and glass finish. */
+html body #app .lp-heading h2{font-family:Bounded,Hint,Arial,sans-serif!important;font-size:18px!important;letter-spacing:-.5px!important}
+html body #app .lp-net-value{font-family:Bounded,Hint,Arial,sans-serif!important;font-size:clamp(34px,3.3vw,56px)!important;font-weight:800!important;letter-spacing:-1.5px!important;color:#173047!important}
+html body #app .lp-panel:not(.lp-work){background:linear-gradient(135deg,rgba(255,255,255,.86),rgba(243,250,255,.52) 60%,rgba(227,245,247,.66))!important;border:1px solid rgba(255,255,255,.95)!important;box-shadow:0 10px 28px rgba(37,74,88,.07),inset 0 1px 0 #fff!important;backdrop-filter:blur(24px) saturate(145%)!important;-webkit-backdrop-filter:blur(24px) saturate(145%)!important}
+html body #app .lp-work-main>strong{font-family:Bounded,Hint,sans-serif!important;font-weight:800!important}
+html body #app .lp-month-table table{width:100%!important;min-width:0!important;table-layout:auto!important}
+html body #app .lp-month-table td,html body #app .lp-month-table th{width:auto!important;min-width:0!important;padding:14px!important}
+html body #app .lp-month-table .lp-table-net{font-weight:800!important;color:#075747!important}
+html body #app .lp-profit-bar-row>strong{font-weight:750!important}
+html body #app .lp-equation strong>[data-count],html body #app .lp-panel strong>[data-count]{font:inherit!important;color:inherit!important;display:inline!important}
+html[data-theme="dark"] body #app .lp-panel:not(.lp-work),html[data-theme="ubuntu"] body #app .lp-panel:not(.lp-work){background:linear-gradient(140deg,rgba(32,61,67,.66),rgba(12,34,45,.56))!important;border-color:#ffffff25!important}
+html[data-theme="dark"] body #app .lp-net-value,html[data-theme="ubuntu"] body #app .lp-net-value{color:var(--text)!important}
+html[data-theme="dark"],html[data-theme="ubuntu"]{--lp-ink:var(--text);--lp-muted:var(--muted);--lp-line:rgba(180,210,225,.18);--lp-soft:rgba(36,80,70,.5);--lp-surface:rgba(16,37,42,.65);--lp-emerald:#8bceb1}
+html body #app .lp-panel .btn,html body #app .lp-panel .text-btn,html body #app .lp-finance-actions .btn{display:inline-flex!important;gap:9px!important;align-items:center!important}
+html body #app .lp-panel .ico,html body #app .lp-finance-actions .ico{width:21px!important;height:21px!important;flex:none!important}
+@media(max-width:560px){html body #app .lp-month-table table{min-width:0!important}html body #app .lp-month-table td,html body #app .lp-month-table th{font-size:9px!important;padding:10px 5px!important}html body #app .lp-heading h2{font-size:16px!important}html body #app .lp-month-table .text-btn{font-size:9px!important}html body #app .lp-net-value{font-size:clamp(28px,8vw,40px)!important}}
+</style>
+<!-- Tabler Icons: Copyright (c) 2020-2026 Paweł Kuna. MIT License. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the Software), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. -->
 </head>
 <body>
 
@@ -8803,7 +9036,9 @@ const PATHS = {
   edit:'M4 20l1-5L17 3l4 4L9 19l-5 1m10-14 4 4',
   download:'M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4'
 };
-const icon = n => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${PATHS[n]||PATHS.table}"/></svg>`;
+/* Tabler Icons — MIT, https://github.com/tabler/tabler-icons */
+const LP_ICONS={"home": "<!--\ntags: [home, house, homepage, main, start, dashboard, building, residence, real-estate]\ncategory: Buildings\nversion: \"1.0\"\nunicode: \"eac1\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M5 12l-2 0l9 -9l9 9l-2 0\" />\n  <path d=\"M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7\" />\n  <path d=\"M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6\" />\n</svg>\n", "banks": "<!--\ntags: [bank, finance, money, institution, government, courthouse, museum, columns, building]\ncategory: Buildings\nversion: \"1.7\"\nunicode: \"ebe2\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M3 21l18 0\" />\n  <path d=\"M3 10l18 0\" />\n  <path d=\"M5 6l7 -3l7 3\" />\n  <path d=\"M4 10l0 11\" />\n  <path d=\"M20 10l0 11\" />\n  <path d=\"M8 14l0 3\" />\n  <path d=\"M12 14l0 3\" />\n  <path d=\"M16 14l0 3\" />\n</svg>\n", "finance": "<!--\ntags: [chart, graph, statistics, analytics, data, report, diagram, bar-chart, bars, histogram, column, visualization, bar]\ncategory: Charts\nversion: \"1.0\"\nunicode: \"ea59\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -6\" />\n  <path d=\"M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -10\" />\n  <path d=\"M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -14\" />\n  <path d=\"M4 20h14\" />\n</svg>\n", "profit": "<!--\ntags: [layers, stack, pile, layout, elements, components, levels, z-order, stacked]\ncategory: Design\nversion: \"1.39\"\nunicode: \"eef7\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M12 4l-8 4l8 4l8 -4l-8 -4\" />\n  <path d=\"M4 12l8 4l8 -4\" />\n  <path d=\"M4 16l8 4l8 -4\" />\n</svg>\n", "trend": "<!--\ntags: [trend, up, growth, increase, rise, chart, profit, rising, trending]\ncategory: Arrows\nversion: \"1.0\"\nunicode: \"eb43\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M3 17l6 -6l4 4l8 -8\" />\n  <path d=\"M14 7l7 0l0 7\" />\n</svg>\n", "plan": "<!--\ntags: [checkbox, check, tick, checked, todo, task, form, select, done]\ncategory: System\nversion: \"1.4\"\nunicode: \"eba6\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M9 11l3 3l8 -8\" />\n  <path d=\"M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9\" />\n</svg>\n", "table": "<!--\ntags: [text, document, txt, doc, article, page, notes, file, content, paper]\ncategory: Document\nversion: \"1.0\"\nunicode: \"eaa2\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M14 3v4a1 1 0 0 0 1 1h4\" />\n  <path d=\"M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2\" />\n  <path d=\"M9 9l1 0\" />\n  <path d=\"M9 13l6 0\" />\n  <path d=\"M9 17l6 0\" />\n</svg>\n", "settings": "<!--\ntags: [cog, gear, preferences, configuration, options, config, setup, control, settings]\ncategory: System\nversion: \"1.0\"\nunicode: \"eb20\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065\" />\n  <path d=\"M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0\" />\n</svg>\n", "bolt": "<!--\ncategory: Design\ntags: [lightning, flash, electricity, power, energy, thunder, fast, zap, bolt]\nversion: \"1.0\"\nunicode: \"ea38\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11\" />\n</svg>\n", "users": "<!--\ntags: [people, group, team, persons, accounts, members, community, user, users]\ncategory: System\nversion: \"1.7\"\nunicode: \"ebf2\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0\" />\n  <path d=\"M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2\" />\n  <path d=\"M16 3.13a4 4 0 0 1 0 7.75\" />\n  <path d=\"M21 21v-2a4 4 0 0 0 -3 -3.85\" />\n</svg>\n", "headphones": "<!--\ntags: [headphones, headset, earphones, audio, music, sound, listen, podcast]\ncategory: Media\nversion: \"1.0\"\nunicode: \"eabd\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M4 15a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2l0 -3\" />\n  <path d=\"M15 15a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2l0 -3\" />\n  <path d=\"M4 15v-3a8 8 0 0 1 16 0v3\" />\n</svg>\n", "user": "<!--\ntags: [person, account, profile, avatar, member, people, human, login, identity, user]\ncategory: System\nversion: \"1.0\"\nunicode: \"eb4d\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0\" />\n  <path d=\"M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2\" />\n</svg>\n", "star": "<!--\ntags: [favorite, rating, rate, review, bookmark, like, featured, favourite, star]\ncategory: System\nversion: \"1.0\"\nunicode: \"eb2e\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245\" />\n</svg>\n", "arrow": "<!--\ntags: [direction, east, next, forward, continue, proceed, go, pointer, arrow, right]\ncategory: Arrows\nversion: \"1.0\"\nunicode: \"ea1f\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M5 12l14 0\" />\n  <path d=\"M13 18l6 -6\" />\n  <path d=\"M13 6l6 6\" />\n</svg>\n", "percent": "<!--\ntags: [percent, percentage-sign, discount, rate, ratio, proportion, statistics, math, sale, percentage]\ncategory: Math\nversion: \"1.22\"\nunicode: \"ecf4\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M16 17a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\" />\n  <path d=\"M6 7a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\" />\n  <path d=\"M6 18l12 -12\" />\n</svg>\n", "target": "<!--\ntags: [bullseye, aim, goal, focus, objective, crosshair, target, goals]\ncategory: Map\nversion: \"1.0\"\nunicode: \"eb35\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\" />\n  <path d=\"M7 12a5 5 0 1 0 10 0a5 5 0 1 0 -10 0\" />\n  <path d=\"M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0\" />\n</svg>\n", "calendar": "<!--\ntags: [calendar, date, schedule, event, day, month, planner, agenda, appointment, calender]\ncategory: System\nversion: \"1.0\"\nunicode: \"ea53\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12\" />\n  <path d=\"M16 3v4\" />\n  <path d=\"M8 3v4\" />\n  <path d=\"M4 11h16\" />\n</svg>\n", "edit": "<!--\ntags: [edit, write, draw, modify, pen, compose, update, change, rename, sketch, annotate, pencil]\ncategory: Design\nversion: \"1.1\"\nunicode: \"eb04\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4\" />\n  <path d=\"M13.5 6.5l4 4\" />\n</svg>\n", "download": "<!--\ntags: [download, save, arrow-down, import, get, receive, transfer, fetch, tray]\ncategory: Arrows\nversion: \"1.0\"\nunicode: \"ea96\"\n-->\n<svg class=\"ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n  <path d=\"M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2\" />\n  <path d=\"M7 11l5 5l5 -5\" />\n  <path d=\"M12 4l0 12\" />\n</svg>\n"};
+const icon = n => LP_ICONS[n]||LP_ICONS.table;
 
 const PAGES  = [['home','Главная'],['banks','Банки'],['finance','Финансы'],['profit','Чистая прибыль'],['trend','Динамика'],['plan','План задач'],['table','Заявки'],['settings','Настройки']];
 const TITLES = {home:'Главная',banks:'Банки',finance:'Финансы',profit:'Чистая прибыль',trend:'Графики и динамика',plan:'План задач',table:'Заявки',settings:'Настройки'};
@@ -9138,7 +9373,7 @@ function filters(){
     const vals = [...new Set(s.data.records.map(r=>r[k==='task'?'taskStatus':k]).filter(Boolean).map(v=>k==='task'&&Piot.isSpPending({taskStatus:v})||k==='task'&&Piot.isLpPending({taskStatus:v})?'В работе у LP':v))].sort();
     const selected=k==='task'&&(Piot.isSpPending({taskStatus:s.filter[k]})||Piot.isLpPending({taskStatus:s.filter[k]}))?'В работе у LP':s.filter[k];
     return `<select data-filter="${k}" aria-label="${sets[k]}"><option value="">${sets[k]}</option>${
-      vals.map(v=>`<option value="${h(v)}"${selected===v?' selected':''}>${h(v)}</option>`).join('')}</select>`;
+      vals.map(v=>`<option value="${h(v)}"${selected===v?' selected':''}>${h(v==='В работе у LP'?'В работе задача у СП':v)}</option>`).join('')}</select>`;
   }
   return `${periodPicker()}<div class="filterbar global-filterbar">
     <input type="search" data-filter="q" aria-label="Поиск" placeholder="Поиск по клиенту, номеру, партнёру..." value="${h(s.filter.q)}">
@@ -9414,7 +9649,7 @@ function taskStatusDashboard(){
     const selfPayment=p.name==='Клиент сам установил'
       ?`<span class="priority-payment-split"><span>Оплачено <b>${number(selfPaid)}</b></span><span>Не оплачено <b>${number(selfUnpaid)}</b></span></span>`:'';
     return `<button type="button" class="priority-status-card ${p.tone}${active?' active':''}" ${action} aria-pressed="${active}">
-      <span class="priority-kicker"><span class="priority-index">${p.index}</span>${p.label}</span>
+      <span class="lp-result-icon">${icon(({"01":'user',"02":'headphones',"03":'profit',"04":'star'})[p.index])}</span>
       <span class="priority-status-title">${h(p.name)}</span>
       <span class="priority-status-caption">${p.caption}</span>
       ${selfPayment}
@@ -9430,7 +9665,7 @@ function taskStatusDashboard(){
   const otherHtml=others.length
     ?`<div class="priority-other-list">${others.map(([name,k])=>{
         const part=share(k,total), isEmpty=name==='Без статуса', active=!isEmpty&&s.filter.task===name;
-        const row=`<span class="priority-other-name">${h(name)}</span>
+        const row=`<span class="priority-other-name">${h(name==='В работе у LP'?'В работе задача у СП':name)}</span>
           <span class="priority-other-value">${number(k)} <small>${part}%</small></span>
           <span class="priority-other-track"><i style="width:${part}%"></i></span>`;
         return isEmpty?`<div class="priority-other-row muted-row">${row}</div>`
@@ -9460,13 +9695,13 @@ function taskStatusDashboard(){
       </button>
     </div>
   </section>`;
-  return card('Результат клиентами',
+  return card('Результаты клиентов',
     `<div class="priority-status-grid">${featured}</div>
      ${conversion}
      <details class="result-catalog"><summary>Каталог остальных результатов <span>${others.length} статусов</span></summary>
        <div class="priority-other-heading"><span>Другие статусы</span><span>Количество и доля</span></div>${otherHtml}
      </details>`,
-    'Нажмите на карточку, чтобы открыть заявки. Конверсия оплаты считается по столбцу F: положительная сумма — оплачено; пустая или нулевая — не оплачено.');
+    'Установки и оплаты за выбранный период');
 }
 
 function financeHero(){
@@ -9477,7 +9712,7 @@ function financeHero(){
   const workAll = Piot.income(workRowsAll,{},'',cfg());
   const metrics=[
     {label:'Выполнено и оплачено LP',value:cVal(inc.lp,true),color:'#22d092'},
-    {label:'В работе у LP',value:cVal(workAll.workLp,true),color:'#9b7ae8'},
+    {label:'В работе задача у СП',value:cVal(workAll.workLp,true),color:'#9b7ae8'},
     {label:'Доход ЕСП',value:cVal(inc.totalEsp,true),color:'#a279ff'},
     {label:'Клиенты оплатили СП',value:result.monthly?cVal(spPaymentTotal(s.month),true):'По месяцам',color:'#57b4ff'},
     {label:'Доход LP + ЕСП',value:cVal(inc.total,true),color:'#22d092'},
@@ -9511,32 +9746,20 @@ function financeHero(){
 }
 
 function incomeBlock(extraBtn){
-  const inc=scopedIncome(),result=scopedProfit(inc);
-  return card('Доходы за '+periodName(),`<div class="income-kpis">
-    ${kpi('Выполненные задачи LP',cVal(inc.lp,true))}
-    ${kpi('ЕСП без задачи',cVal(inc.espNoTask,true))}
-    ${kpi('Доход ЕСП',cVal(inc.espManual,true))}
-    ${kpi('Доход LP + ЕСП',cVal(inc.total,true))}
-    ${kpi(expenseCaption(result.expense,'Расходы'),result.monthly?cVal(result.expense,true):'По месяцам')}
-    ${kpi('Чистая прибыль LP',result.monthly?cVal(result.net,true):'По месяцам')}
-    ${kpi('ЕСП всего',cVal(inc.totalEsp,true))}${spPaymentKpi()}
-  </div>`,'LP: только «Задача выполнена: клиент оплатил LP». ЕСП прибавляется к доходу; расходы вычитаются по месяцам.',
-    extraBtn||'<button class="text-btn" data-page="profit">Расчёт прибыли →</button>'
-  ).replace('<section class="glass card">','<section class="glass card income-overview">');
+ const inc=scopedIncome(),result=scopedProfit(inc);
+ return `<section class="lp-panel lp-fin-net"><div class="lp-heading">${icon('profit')}<h2>Чистая прибыль LP</h2></div>
+ <div class="lp-net-value">${result.monthly?cVal(result.net,true):'По месяцам'}</div>
+ <div class="lp-equation"><div><span>Доход LP + ЕСП</span><strong>${cVal(inc.total,true)}</strong></div><b>−</b><div><span>Расходы</span><strong>${result.monthly?cVal(result.expense,true):'По месяцам'}</strong></div><b>=</b><div><span>Прибыль</span><strong>${result.monthly?cVal(result.net,true):'По месяцам'}</strong></div></div>
+ <button class="text-btn" data-page="profit">Расходы и расчёт прибыли ${icon('arrow')}</button></section>`;
 }
 
 function spWorkStatusCard(){
-  // Объединённый показатель за все месяцы, при этом остальные фильтры экономики сохраняются.
-  const allRows=Piot.filter(s.data.records,Object.assign({},s.filter,{month:''}),cfg());
-  const inc=Piot.income(allRows,{},'',cfg());
-  const monthly=financePeriods(allRows,'month');
-  return `<section class="sp-work-status-card lp-work-status-card" aria-label="В работе у LP">
-    <div class="sp-work-status-heading"><div><span class="sp-work-status-kicker"><i></i>ЗАДАЧИ В РАБОТЕ</span><h2>В работе у LP</h2><p>Общая сумма по всем месяцам. Объединены оба статуса задач в работе; сумма берётся из столбца F.</p></div>
-      <div class="sp-work-status-value"><strong>${cVal(inc.workLp,true)}</strong><span>${number(inc.workLpCount)} задач · За всё время</span></div>
-      <button type="button" class="btn" data-finance-stage="workLp" ${inc.workLpCount?'':'disabled'}>Открыть задачи →</button></div>
-    <details class="sp-work-status-months"><summary>Суммы по месяцам</summary><div class="table-wrap"><table><thead><tr><th>Месяц статуса</th><th>Общая сумма</th><th>Задач в работе</th></tr></thead>
-      <tbody>${monthly.map(row=>`<tr><td>${h(row.key==='Без даты'?row.key:monthLabel(row.key))}</td><td class="number">${rub(row.workLp)}</td><td>${number(row.workLpCount)}</td></tr>`).join('')}</tbody></table></div></details>
-  </section>`;
+ const allRows=Piot.filter(s.data.records,Object.assign({},s.filter,{month:''}),cfg());
+ const inc=Piot.income(allRows,{},'',cfg()),monthly=financePeriods(allRows,'month');
+ return `<section class="lp-work lp-panel" aria-label="В работе задача у СП">
+ <div class="lp-work-main"><div class="lp-work-title">${icon('bolt')}<div><h2>В работе задача у СП</h2><p>${number(inc.workLpCount)} задач · За всё время</p></div></div>
+ <strong>${cVal(inc.workLp,true)}</strong><button class="text-btn" data-finance-stage="workLp" ${inc.workLpCount?'':'disabled'} aria-label="Открыть задачи в работе у СП">Открыть задачи ${icon('arrow')}</button></div>
+ <details class="lp-work-months"><summary>Суммы по месяцам</summary><p class="note">Задачи в работе учитываются отдельно и не включаются в чистую прибыль. Месяц определяется по дате статуса.</p><div class="table-wrap"><table><thead><tr><th>Месяц статуса</th><th>Сумма</th><th>Задач</th></tr></thead><tbody>${monthly.filter(row=>row.workLpCount).map(row=>`<tr><td>${h(row.key==='Без даты'?row.key:monthLabel(row.key))}</td><td class="number">${rub(row.workLp)}</td><td>${number(row.workLpCount)}</td></tr>`).join('')}</tbody></table></div></details></section>`;
 }
 
 function monthBefore(month,offset=1){
@@ -9580,17 +9803,8 @@ function previousMonthProfitCard(){
 }
 
 function espSummaryCard(){
-  const inc=scopedIncome();
-  return `<section class="glass card esp-details">
-    <header class="cardhead"><div><h2>ЕСП без задачи — отдельный учёт</h2><p class="muted">Лист «Отсутствует задача ЕСП» · ${h(periodName())}</p></div>
-      <button type="button" class="text-btn" data-noesp-table>Открыть заявки →</button></header>
-    <div class="esp-figures">
-      ${kpi('Сумма ЕСП без задачи',cVal(inc.espNoTask,true))}
-      ${kpi('Доход ЕСП',cVal(inc.espManual,true))}
-      ${kpi('ЕСП всего',cVal(inc.totalEsp,true))}
-    </div>
-    <p class="note">Сумма ЕСП включена в общий доход без СП один раз.</p>
-  </section>`;
+ const inc=scopedIncome();
+ return `<section class="lp-panel lp-esp"><div><div class="lp-heading">${icon('profit')}<h2>ЕСП без задачи</h2></div><p>${inc.espNoTask?rub(inc.espNoTask)+' · за '+h(periodName()):'Нет поступлений за выбранный период'}</p></div><button class="text-btn" data-noesp-table>Открыть заявки ${icon('arrow')}</button></section>`;
 }
 
 function requestFlowCard(){
@@ -9624,9 +9838,9 @@ function requestFlowCard(){
   const avg=active.length?(total/active.length):0;
   const peak=points.reduce((best,x)=>x.total>best.total?x:best,{key:'',total:0});
   const theme=document.documentElement.dataset.theme||'light';
-  const createdColor=theme==='ubuntu'?'#f05b9d':theme==='dark'?'#55d7b5':'#4a9df4';
-  const doneColor=theme==='ubuntu'?'#ffc36d':theme==='dark'?'#7fb7ff':'#20b78b';
-  const closedColor=theme==='ubuntu'?'#b78aff':theme==='dark'?'#c39bff':'#9871e8';
+  const createdColor='#9ac7b4';
+  const doneColor='#075747';
+  const closedColor='#48796c';
   const periodUnit=gran==='month'?'месяцам':'дням';
   const averageLabel=gran==='month'?'В среднем за месяц':'В среднем за активный день';
   const peakLabel=gran==='month'?'Пиковый месяц':'Пиковый день';
@@ -9863,26 +10077,18 @@ function trend(){
 }
 
 function finance(){
-  const rr=financeRows(),ps=financePeriods(rr);
-  let html=filters();
-  html+=incomeBlock('<button class="text-btn" data-page="settings">Изменить суммы →</button>');
-  html+=spWorkStatusCard();
-
-  html+=espSummaryCard();
-  if(cfg().showCharts)html+=periodChart(rr,'Доход без СП по периодам');
-  const t=`<div class="table-wrap"><table>
-    <thead><tr><th>Период учёта</th><th>Задач по дате учёта</th><th>Life Pay</th><th>ЕСП без задачи</th><th>Доход ЕСП</th><th>Доход без СП</th><th>Клиенты оплатили СП</th></tr></thead>
-    <tbody>${ps.map(p=>`<tr>
-      <td>${h(p.key==='Без даты'?p.key:s.gran==='month'?monthLabel(p.key):p.key)}</td>
-      <td>${number(p.total)}</td>
-      <td class="number">${rub(p.lp)}</td>
-      <td class="number">${rub(p.espNoTask)}</td>
-      <td class="number">${s.gran==='month'?rub(p.espManual):'—'}</td>
-      <td class="number">${rub(p.totalIncome)}</td>
-      <td class="number">${s.gran==='month'?rub(spPaymentForMonth(p.key)):'—'}</td></tr>`).join('')}</tbody></table></div>
-`;
-  html+=card('Сводка доходов по периодам',ps.length?t:empty(),'',granTabs());
-  return html;
+ const inc=scopedIncome();
+ const structure=[['plan','Выполненные задачи LP',inc.lp],['profit','ЕСП без задачи',inc.espNoTask],['finance','Доход ЕСП',inc.espManual],['percent','ЕСП всего',inc.totalEsp],['users','Клиенты оплатили СП за настройку',s.periodMode==='month'?spPaymentTotal(s.month):null]];
+ const allRows=Piot.filter(s.data.records,Object.assign({},s.filter,{month:''}),cfg()),ledger=detailed()?{}:s.data.ledger;
+ const months=[...new Set([...profitMonthKeys(),...allRows.map(r=>Piot.financialDate(r,cfg()).slice(0,7)),...Object.keys(ledger)])].filter(Piot.validMonth).sort();
+ const summary=months.map(key=>{const income=Piot.income(allRows,ledger,key,cfg()).total,expense=expenseForMonth(key);return {key,income,expense,net:expense===null?null:income-expense};}).filter(row=>row.income!==0||row.expense!==0||row.key===s.month);
+ const max=Math.max(1,...summary.map(row=>Math.abs(row.net||0)));
+ let html=filters()+`<div class="lp-finance-actions"><span>Прозрачный расчёт доходов и расходов · ${h(periodName())}</span><button class="btn primary" data-page="settings">${icon('edit')} Изменить суммы</button></div>`;
+ html+=`<div class="lp-finance-top">${incomeBlock()}${spWorkStatusCard()}</div>`;
+ html+=`<section class="lp-panel lp-structure"><div class="lp-heading">${icon('profit')}<h2>Структура доходов</h2></div><div class="lp-ledger">${structure.map(([ico,label,value])=>`<div class="lp-ledger-row">${icon(ico)}<span>${label}</span><strong>${cVal(value,true)}</strong></div>`).join('')}</div></section>`;
+ html+=`<section class="lp-panel lp-month-profits"><div class="lp-heading">${icon('finance')}<h2>Чистая прибыль по месяцам</h2></div>${summary.length?summary.map(row=>`<button class="lp-profit-bar-row" data-open-profit-month="${row.key}"><span>${h(monthLabel(row.key))}${row.key===s.month?'<small>Выбранный месяц</small>':''}</span><i><b class="${row.net!==null&&row.net<0?'is-loss':''}" style="width:${Math.max(0,Math.abs(row.net||0)/max*100)}%"></b></i><strong>${cVal(row.net,true)}</strong></button>`).join(''):empty()}</section>`;
+ html+=`<section class="lp-panel lp-month-table"><div class="lp-heading">${icon('calendar')}<h2>Сводка по месяцам</h2></div><div class="table-wrap"><table><thead><tr><th>Месяц</th><th>Доход</th><th>Расходы</th><th>Прибыль</th></tr></thead><tbody>${summary.map(row=>`<tr class="${row.key===s.month?'lp-current-month':''}"><td><button class="text-btn" data-open-profit-month="${row.key}">${h(monthLabel(row.key))}</button></td><td class="number">${rub(row.income)}</td><td class="number">${cVal(row.expense,true)}</td><td class="number lp-table-net">${cVal(row.net,true)}</td></tr>`).join('')}</tbody></table></div></section>`;
+ return html+espSummaryCard();
 }
 
 
@@ -10227,7 +10433,7 @@ function planControls(){
       <label>Статус заявки
         <select data-plan-status aria-label="Статус текущего плана">
           <option value="">Все статусы</option>
-          ${statuses.map(v=>`<option value="${h(v)}"${s.planStatus===v?' selected':''}>${h(v)}</option>`).join('')}
+          ${statuses.map(v=>`<option value="${h(v)}"${s.planStatus===v?' selected':''}>${h(v==='В работе у LP'?'В работе задача у СП':v)}</option>`).join('')}
         </select>
       </label>
       <label>Результат встречи
@@ -10357,7 +10563,7 @@ function tablePage2(){
       <option value="avtbiz"${s.installation==='avtbiz'?' selected':''}>СП · два оплаченных статуса</option>
     </select>
     <select id="paidFilter" aria-label="Фильтр по сумме и учёту">
-      ${[['','Все заявки'],['amount','Оплатили — сумма F указана'],['zero','Не оплатили — нет суммы F'],['paid','Учитываются в выручке'],['lpIncome','Доход LP — задача выполнена и оплачена'],['spDone','СП · выполнено и оплачено'],['workLp','В работе у LP'],['invoice','Счета — отдельный учёт']].map(([k,v])=>
+      ${[['','Все заявки'],['amount','Оплатили — сумма F указана'],['zero','Не оплатили — нет суммы F'],['paid','Учитываются в выручке'],['lpIncome','Доход LP — задача выполнена и оплачена'],['spDone','СП · выполнено и оплачено'],['workLp','В работе задача у СП'],['invoice','Счета — отдельный учёт']].map(([k,v])=>
         `<option value="${k}"${s.paid===k?' selected':''}>${v}</option>`).join('')}
     </select>
     <button class="btn primary" data-export>${icon('download')} Скачать CSV</button>
@@ -10372,7 +10578,7 @@ function tablePage2(){
       if(key==='amount') return `<td class="number">${rub(v)}</td>`;
       if(key==='source') return `<td>${v==='noesp'?'Лист «Отсутствует задача ЕСП»':'Лист «Заявка»'}</td>`;
       if(key==='status'||key==='taskStatus'||key==='sla'){
-        const shown=key==='taskStatus'&&(Piot.isSpPending(r)||Piot.isLpPending(r))?'В работе у LP':v;
+        const shown=key==='taskStatus'&&(Piot.isSpPending(r)||Piot.isLpPending(r))?'В работе задача у СП':v;
         const cls=key==='sla'?(/просроч|наруш/i.test(v||'')?'red':''):Piot.isInvoice(r,cfg())?'orange':Piot.isDone(r,cfg())?'green':'';
         return `<td><span class="badge ${cls}" title="${h(shown||'—')}">${h(shown||'—')}</span></td>`;
       }
@@ -10474,6 +10680,7 @@ function render(opt){
   $('#title').textContent=TITLES[s.page]||'Главная';
   document.body.classList.toggle('motion',fxOn());
   const pageMap={home,banks,finance,profit:cleanProfit,trend,plan:planPage,table:tablePage2,settings};
+  document.body.dataset.view=s.page;
   $('#page').innerHTML=(pageMap[s.page]||home)();
   if(window.PIOT_THEME) window.PIOT_THEME.sync();
   $('#page').setAttribute('aria-busy','false');
@@ -10712,7 +10919,7 @@ async function handleClick(e){
       s.paid=el.dataset.financeStage;s.installation='';s.bankRecognizedOnly=false;s.tablePage=1;s.page='table';render();
     }
     else if(el.hasAttribute('data-export')){
-      const out=tableRows2().map(r=>Object.assign({},r,{source:r.source==='noesp'?'Без задачи ЕСП':'Заявка',taskStatus:(Piot.isSpPending(r)||Piot.isLpPending(r))?'В работе у LP':r.taskStatus}));
+      const out=tableRows2().map(r=>Object.assign({},r,{source:r.source==='noesp'?'Без задачи ЕСП':'Заявка',taskStatus:(Piot.isSpPending(r)||Piot.isLpPending(r))?'В работе задача у СП':r.taskStatus}));
       const url=URL.createObjectURL(new Blob([Piot.csv(out,COLS)],{type:'text/csv;charset=utf-8'}));
       const a=document.createElement('a'); a.href=url; a.download='piot-'+(s.month||'all')+'.csv'; a.click();
       setTimeout(()=>URL.revokeObjectURL(url),1500); toast('Экспортировано: '+out.length+' строк');
